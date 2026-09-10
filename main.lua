@@ -5536,25 +5536,38 @@ end
 
 
 			function InputV:Set(NewInputSettings)
+    local shouldUpdateCurrentValue = NewInputSettings
+        and NewInputSettings.CurrentValue ~= nil
 
-				NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
+    NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
 
-				InputV.Settings = NewInputSettings
-				InputSettings = NewInputSettings
+    InputV.Settings = NewInputSettings
+    InputSettings = NewInputSettings
 
-				Input.Name = InputSettings.Name
-				Input.Title.Text = InputSettings.Name
-				if InputSettings.Description ~= nil and InputSettings.Description ~= "" and Input.Desc ~= nil then
-					Input.Desc.Text = InputSettings.Description
-				end
+    Input.Name = InputSettings.Name
+    Input.Title.Text = InputSettings.Name
 
-				Input.InputFrame.InputBox:CaptureFocus()
-				Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
-				Input.InputFrame.InputBox:ReleaseFocus()
-				Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 42)
+    if InputSettings.Description ~= nil
+        and InputSettings.Description ~= ""
+        and Input.Desc ~= nil then
+        Input.Desc.Text = InputSettings.Description
+    end
 
-				InputV.CurrentValue = InputSettings.CurrentValue
-			end
+    if shouldUpdateCurrentValue then
+        Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
+        InputV.CurrentValue = InputSettings.CurrentValue
+    else
+        -- Preserve the currently typed text when updating other input settings.
+        InputSettings.CurrentValue = InputV.CurrentValue
+    end
+
+    Input.InputFrame.Size = UDim2.new(
+        0,
+        Input.InputFrame.InputBox.TextBounds.X + 52,
+        0,
+        42
+    )
+end
 
 			function InputV:Destroy()
 				Input.Visible = false
