@@ -4015,7 +4015,12 @@ function Luna:CreateWindow(WindowSettings)
 				if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
 				SafeCallback(bleh)
 				if type(bleh) == "string" then 
-					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+					if type(bleh) == "string" and Dropdown.List[bleh] then
+    tween(Dropdown.List[bleh], {
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 0.95
+    })
+end
 				else
 					for i,v in pairs(bleh) do
 						tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
@@ -4091,7 +4096,12 @@ function Luna:CreateWindow(WindowSettings)
 							tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 						end
 					end
-					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+					if type(bleh) == "string" and Dropdown.List[bleh] then
+    tween(Dropdown.List[bleh], {
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 0.95
+    })
+end
 
 					if DropdownSettings.MultipleOptions then
 						if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
@@ -5794,7 +5804,12 @@ function Luna:CreateWindow(WindowSettings)
 			if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
 			SafeCallback(bleh)
 			if type(bleh) == "string" then 
-				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+				if type(bleh) == "string" and Dropdown.List[bleh] then
+    tween(Dropdown.List[bleh], {
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 0.95
+    })
+end
 			else
 				for i,v in pairs(bleh) do
 					tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
@@ -5870,7 +5885,12 @@ function Luna:CreateWindow(WindowSettings)
 						tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 					end
 				end
-				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+				if type(bleh) == "string" and Dropdown.List[bleh] then
+    tween(Dropdown.List[bleh], {
+        TextColor3 = Color3.fromRGB(240, 240, 240),
+        BackgroundTransparency = 0.95
+    })
+end
 
 				if DropdownSettings.MultipleOptions then
 					if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
