@@ -4151,7 +4151,7 @@ function Luna:CreateWindow(WindowSettings)
 					return string.format("#%02X%02X%02X", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
 				end
 
-				ColorPickerV.Color = Color3ToHex(ColorPickerSettings.Color)
+				ColorPickerV.Color = ColorPickerSettings.Color
 
 				local closedsize = UDim2.new(0, 75, 0, 22)
 				local openedsize = UDim2.new(0, 219, 0, 129)
@@ -5929,7 +5929,7 @@ function Luna:CreateWindow(WindowSettings)
 				return string.format("#%02X%02X%02X", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
 			end
 
-			ColorPickerV.Color = Color3ToHex(ColorPickerSettings.Color)
+			ColorPickerV.Color = ColorPickerSettings.Color
 
 			local closedsize = UDim2.new(0, 75, 0, 22)
 			local openedsize = UDim2.new(0, 219, 0, 129)
