@@ -3816,7 +3816,15 @@ function Luna:CreateWindow(WindowSettings)
 				local opened = false
 
 				local Dropdown
-				if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
+if descriptionbool then
+    Dropdown = Elements.Template.DropdownDesc:Clone()
+else
+    Dropdown = Elements.Template.Dropdown:Clone()
+end
+
+Dropdown.Selected.ClearTextOnFocus = false
+
+Dropdown.Name = DropdownSettings.Name
 
 				Dropdown.Name = DropdownSettings.Name
 				Dropdown.Title.Text = DropdownSettings.Name
@@ -5618,9 +5626,16 @@ end
 			local opened = false
 
 			local Dropdown
-			if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
+			local Dropdown
+if descriptionbool then
+    Dropdown = Elements.Template.DropdownDesc:Clone()
+else
+    Dropdown = Elements.Template.Dropdown:Clone()
+end
 
-			Dropdown.Name = DropdownSettings.Name
+Dropdown.Selected.ClearTextOnFocus = false
+
+Dropdown.Name = DropdownSettings.Name
 			Dropdown.Title.Text = DropdownSettings.Name
 			if descriptionbool then Dropdown.Desc.Text = DropdownSettings.Description end
 
