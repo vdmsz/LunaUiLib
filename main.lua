@@ -4046,7 +4046,7 @@ end
 				else
 					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 				end
-				Dropdown.Selected.Text = ""
+				--Dropdown.Selected.Text = "" STOP BRO
 
 				function DropdownV:Set(NewDropdownSettings)
 					NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
@@ -4122,7 +4122,7 @@ end
 					else
 						Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 					end
-					Dropdown.Selected.Text = ""
+					--Dropdown.Selected.Text = "" NO MORE
 
 					-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
 
@@ -5738,7 +5738,7 @@ end
 							if not DropdownSettings.MultipleOptions then
 								Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 							end
-							Dropdown.Selected.Text = ""
+						--	Dropdown.Selected.Text = "" NONE OF THIS
 						end)
 					end)
 					Option.Visible = true
@@ -5848,7 +5848,7 @@ end
 			else
 				Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 			end
-			Dropdown.Selected.Text = ""
+		--	Dropdown.Selected.Text = "" STOP
 
 			function DropdownV:Set(NewDropdownSettings)
 				NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
@@ -5924,7 +5924,7 @@ end
 				else
 					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 				end
-				Dropdown.Selected.Text = ""
+				--Dropdown.Selected.Text = "" DONT DO IT
 
 				-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
 
