@@ -5753,7 +5753,7 @@ Dropdown.Name = DropdownSettings.Name
 							if not DropdownSettings.MultipleOptions then
 								Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 							end
-						--	Dropdown.Selected.Text = "" NONE OF THIS
+							Dropdown.Selected.Text = "" 
 						end)
 					end)
 					Option.Visible = true
@@ -5863,7 +5863,7 @@ end
 			else
 				Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 			end
-		--	Dropdown.Selected.Text = "" STOP
+			Dropdown.Selected.Text = ""
 
 			function DropdownV:Set(NewDropdownSettings)
 				NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
