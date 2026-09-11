@@ -3816,15 +3816,7 @@ function Luna:CreateWindow(WindowSettings)
 				local opened = false
 
 				local Dropdown
-if descriptionbool then
-    Dropdown = Elements.Template.DropdownDesc:Clone()
-else
-    Dropdown = Elements.Template.Dropdown:Clone()
-end
-
-Dropdown.Selected.ClearTextOnFocus = false
-
-Dropdown.Name = DropdownSettings.Name
+				if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
 
 				Dropdown.Name = DropdownSettings.Name
 				Dropdown.Title.Text = DropdownSettings.Name
@@ -3944,7 +3936,7 @@ Dropdown.Name = DropdownSettings.Name
 								if not DropdownSettings.MultipleOptions then
 									Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 								end
-								Dropdown.Selected.Text = "" -- SORRY LUNA THIS WAS NEEDED stop clearing my fucking text
+								Dropdown.Selected.Text = ""
 							end)
 						end)
 						Option.Visible = true
@@ -4023,12 +4015,7 @@ Dropdown.Name = DropdownSettings.Name
 				if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
 				SafeCallback(bleh)
 				if type(bleh) == "string" then 
-					if type(bleh) == "string" and Dropdown.List[bleh] then
-    tween(Dropdown.List[bleh], {
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        BackgroundTransparency = 0.95
-    })
-end
+					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
 				else
 					for i,v in pairs(bleh) do
 						tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
@@ -4054,7 +4041,7 @@ end
 				else
 					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 				end
-				Dropdown.Selected.Text = "" -- SORRY LUNA THIS WAS NEEDED STOP BRO
+				Dropdown.Selected.Text = ""
 
 				function DropdownV:Set(NewDropdownSettings)
 					NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
@@ -4104,12 +4091,7 @@ end
 							tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 						end
 					end
-					if type(bleh) == "string" and Dropdown.List[bleh] then
-    tween(Dropdown.List[bleh], {
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        BackgroundTransparency = 0.95
-    })
-end
+					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
 
 					if DropdownSettings.MultipleOptions then
 						if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
@@ -4130,7 +4112,7 @@ end
 					else
 						Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 					end
-					Dropdown.Selected.Text = "" -- SORRY LUNA THIS WAS NEEDED NO MORE
+					Dropdown.Selected.Text = ""
 
 					-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
 
@@ -5544,38 +5526,25 @@ end
 
 
 			function InputV:Set(NewInputSettings)
-    local shouldUpdateCurrentValue = NewInputSettings
-        and NewInputSettings.CurrentValue ~= nil
 
-    NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
+				NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
 
-    InputV.Settings = NewInputSettings
-    InputSettings = NewInputSettings
+				InputV.Settings = NewInputSettings
+				InputSettings = NewInputSettings
 
-    Input.Name = InputSettings.Name
-    Input.Title.Text = InputSettings.Name
+				Input.Name = InputSettings.Name
+				Input.Title.Text = InputSettings.Name
+				if InputSettings.Description ~= nil and InputSettings.Description ~= "" and Input.Desc ~= nil then
+					Input.Desc.Text = InputSettings.Description
+				end
 
-    if InputSettings.Description ~= nil
-        and InputSettings.Description ~= ""
-        and Input.Desc ~= nil then
-        Input.Desc.Text = InputSettings.Description
-    end
+				Input.InputFrame.InputBox:CaptureFocus()
+				Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
+				Input.InputFrame.InputBox:ReleaseFocus()
+				Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 42)
 
-    if shouldUpdateCurrentValue then
-        Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
-        InputV.CurrentValue = InputSettings.CurrentValue
-    else
-        -- Preserve the currently typed text when updating other input settings.
-        InputSettings.CurrentValue = InputV.CurrentValue
-    end
-
-    Input.InputFrame.Size = UDim2.new(
-        0,
-        Input.InputFrame.InputBox.TextBounds.X + 52,
-        0,
-        42
-    )
-end
+				InputV.CurrentValue = InputSettings.CurrentValue
+			end
 
 			function InputV:Destroy()
 				Input.Visible = false
@@ -5626,16 +5595,9 @@ end
 			local opened = false
 
 			local Dropdown
-			local Dropdown
-if descriptionbool then
-    Dropdown = Elements.Template.DropdownDesc:Clone()
-else
-    Dropdown = Elements.Template.Dropdown:Clone()
-end
+			if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
 
-Dropdown.Selected.ClearTextOnFocus = false
-
-Dropdown.Name = DropdownSettings.Name
+			Dropdown.Name = DropdownSettings.Name
 			Dropdown.Title.Text = DropdownSettings.Name
 			if descriptionbool then Dropdown.Desc.Text = DropdownSettings.Description end
 
@@ -5753,7 +5715,7 @@ Dropdown.Name = DropdownSettings.Name
 							if not DropdownSettings.MultipleOptions then
 								Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 							end
-							Dropdown.Selected.Text = "" 
+							Dropdown.Selected.Text = ""
 						end)
 					end)
 					Option.Visible = true
@@ -5832,12 +5794,7 @@ Dropdown.Name = DropdownSettings.Name
 			if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
 			SafeCallback(bleh)
 			if type(bleh) == "string" then 
-				if type(bleh) == "string" and Dropdown.List[bleh] then
-    tween(Dropdown.List[bleh], {
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        BackgroundTransparency = 0.95
-    })
-end
+				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
 			else
 				for i,v in pairs(bleh) do
 					tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
@@ -5913,12 +5870,7 @@ end
 						tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 					end
 				end
-				if type(bleh) == "string" and Dropdown.List[bleh] then
-    tween(Dropdown.List[bleh], {
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        BackgroundTransparency = 0.95
-    })
-end
+				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
 
 				if DropdownSettings.MultipleOptions then
 					if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
@@ -5939,7 +5891,7 @@ end
 				else
 					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
 				end
-				Dropdown.Selected.Text = "" -- SORRY LUNA THIS WAS NEEDED DONT DO IT
+				Dropdown.Selected.Text = ""
 
 				-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
 
