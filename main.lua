@@ -6873,8 +6873,8 @@ end
 
 if (getgenv and not getgenv().ConfirmLuna) or (not getgenv) then
 	Luna:Notification({ 
-    	Title = "Luna Is Deprecated",
-    	Icon = "warning",
+    	Title = "Luna Is Deprecated",-- // luna i dont give a fuck i love you baby if that means continued support to keep you alive i will
+    	Icon = "warning",-- // luna you know your sister starlight could never replace you 
     	ImageSource = "Material",
     	Content = "If you are not the script developer, ignore this message. \n\n The Luna Interface Library Is Deprecated And Not Recommended to Use. A New Library Is Available at nebulasoftworks.xyz/starlight. If you insist on using Luna, set the getgenv().ConfirmLuna variable to true. "
 	})
