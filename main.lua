@@ -43,7 +43,7 @@ Luna Interface Suite
 by Nebula Softworks
 
 ]]
-
+getgenv().ConfirmLuna = True
 local Release = "Prerelease Beta 6.1"
 
 local Luna = { 
