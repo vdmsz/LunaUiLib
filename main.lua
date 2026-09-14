@@ -1575,52 +1575,146 @@ local PresetGradients = {
 	Blossom = {Color3.fromRGB(255, 165, 243), Color3.fromRGB(213, 129, 231), Color3.fromRGB(170, 92, 218)},
 }
 
-local function GetIcon(icon, source)
-	if source == "Custom" then
-		return "rbxassetid://" .. icon
-	elseif source == "Lucide" then
-		-- full credit to latte softworks :)
-		local iconData = not isStudio and game:HttpGet("https://raw.githubusercontent.com/latte-soft/lucide-roblox/refs/heads/master/lib/Icons.luau")
-		local icons = isStudio and IconModule.Lucide or loadstring(iconData)()
-		if not isStudio then
-			icon = string.match(string.lower(icon), "^%s*(.*)%s*$") :: string
-			local sizedicons = icons['48px']
+-- ============================================================
+-- Asset cache helpers (getcustomasset / getsynasset wrapper)
+-- ============================================================
+local AssetCacheFolder = "Luna/Assets"
+local GetCustomAsset = getcustomasset or getsynasset
 
-			local r = sizedicons[icon]
-			if not r then
-				error("Lucide Icons: Failed to find icon by the name of \"" .. icon .. "\.", 2)
-			end
-
-			local rirs = r[2]
-			local riro = r[3]
-
-			if type(r[1]) ~= "number" or type(rirs) ~= "table" or type(riro) ~= "table" then
-				error("Lucide Icons: Internal error: Invalid auto-generated asset entry")
-			end
-
-			local irs = Vector2.new(rirs[1], rirs[2])
-			local iro = Vector2.new(riro[1], riro[2])
-
-			local asset = {
-				id = r[1],
-				imageRectSize = irs,
-				imageRectOffset = iro,
-			}
-
-			return asset
-		else
-			return "rbxassetid://10723434557"
-		end
-	else	
-		if icon ~= nil and IconModule[source] then
-			local sourceicon = IconModule[source]
-			return sourceicon[icon]
-		else
-			return nil
-		end
-	end
+local function EnsureAssetFolder()
+    if not makefolder or not isfolder then return false end
+    if not isfolder(AssetCacheFolder) then
+        local ok = pcall(makefolder, AssetCacheFolder)
+        if not ok then return false end
+    end
+    return true
 end
 
+-- Download-once-then-cache helper. Returns a local path (custom asset)
+-- if supported, otherwise returns the original remote URL so nothing breaks.
+local function Asset(remoteUrl, cacheName)
+    if not GetCustomAsset or not writefile or not isfile then
+        return remoteUrl
+    end
+    if not EnsureAssetFolder() then
+        return remoteUrl
+    end
+
+    local path = AssetCacheFolder .. "/" .. cacheName
+    if not isfile(path) then
+        local ok, data = pcall(function()
+            return game:HttpGet(remoteUrl)
+        end)
+        if not ok or not data or #data == 0 then
+            return remoteUrl
+        end
+        local wrote = pcall(writefile, path, data)
+        if not wrote then
+            return remoteUrl
+        end
+    end
+
+    local ok, result = pcall(GetCustomAsset, path)
+    if not ok or not result then
+        return remoteUrl
+    end
+    return result
+end
+
+-- Extract the numeric id from any Roblox asset URL / rbxassetid string
+-- and route it through Asset(). Returns nil if no id could be found.
+local function RobloxIdToAsset(idOrUrl, cacheName)
+    if not idOrUrl then return nil end
+    local s = tostring(idOrUrl)
+    local id = s:match("id=(%d+)") or s:match("rbxassetid://(%d+)") or s:match("^(%d+)$")
+    if not id then return nil end
+    local url = "https://assetdelivery.roblox.com/v1/asset/?id=" .. id
+    return Asset(url, cacheName)
+end
+
+-- ============================================================
+-- GetIcon
+-- ============================================================
+local function GetIcon(icon, source)
+    if source == "Custom" then
+        -- icon is expected to be a raw Roblox asset id (string or number)
+        local id = tostring(icon):match("(%d+)")
+        if id and not isStudio then
+            return RobloxIdToAsset(id, "Custom_" .. id .. ".png")
+        end
+        return "rbxassetid://" .. tostring(icon)
+
+    elseif source == "Lucide" then
+        -- full credit to latte softworks :)
+        local iconData = not isStudio
+            and game:HttpGet("https://raw.githubusercontent.com/latte-soft/lucide-roblox/refs/heads/master/lib/Icons.luau")
+        local icons = isStudio and IconModule.Lucide or loadstring(iconData)()
+
+        if not isStudio then
+            icon = string.match(string.lower(icon), "^%s*(.*)%s*$") :: string
+            local sizedicons = icons['48px']
+
+            local r = sizedicons[icon]
+            if not r then
+                error("Lucide Icons: Failed to find icon by the name of \"" .. icon .. "\.", 2)
+            end
+
+            local rirs = r[2]
+            local riro = r[3]
+
+            if type(r[1]) ~= "number" or type(rirs) ~= "table" or type(riro) ~= "table" then
+                error("Lucide Icons: Internal error: Invalid auto-generated asset entry")
+            end
+
+            local irs = Vector2.new(rirs[1], rirs[2])
+            local iro = Vector2.new(riro[1], riro[2])
+
+            -- Route the spritesheet through the custom asset cache too.
+            -- The Lucide spritesheet is a single big image so we cache it once
+            -- under a shared name to avoid re-downloading it for every icon.
+            local image = "rbxassetid://" .. r[1]
+            if not isStudio then
+                local cached = Asset(
+                    "https://assetdelivery.roblox.com/v1/asset/?id=" .. tostring(r[1]),
+                    "Lucide_48px_spritesheet.png"
+                )
+                if cached then image = cached end
+            end
+
+            local asset = {
+                id = image,
+                imageRectSize = irs,
+                imageRectOffset = iro,
+            }
+
+            return asset
+        else
+            -- Studio has no getcustomasset — fall back to a placeholder
+            return "rbxassetid://10723434557"
+        end
+
+    else
+        if icon ~= nil and IconModule[source] then
+            local sourceicon = IconModule[source]
+            local url = sourceicon[icon]
+            if not url then return nil end
+
+            -- Every Material entry is an http://www.roblox.com/asset/?id=NNN
+            -- or a plain rbxassetid:// string — route both through the cache.
+            if not isStudio then
+                local cached = RobloxIdToAsset(
+                    url,
+                    source .. "_" .. tostring(icon) .. ".png"
+                )
+                if cached then return cached end
+            end
+
+            return url
+        else
+            return nil
+        end
+    end
+end
 local function RemoveTable(tablre, value)
 	for i,v in pairs(tablre) do
 		if tostring(v) == tostring(value) then
@@ -1861,7 +1955,36 @@ local function unpackt(array : table)
 end
 
 -- Interface Management
-local LunaUI = isStudio and script.Parent:WaitForChild("Luna UI") or game:GetObjects("rbxassetid://86467455075715")[1]
+local LunaUI
+if isStudio then
+    LunaUI = script.Parent:WaitForChild("Luna UI")
+else
+    local gca = getcustomasset or getsynasset
+    if not gca then
+        error("This executor doesn't support getcustomasset/getsynasset. Cannot load UI.")
+    end
+
+    local folder = "Luna/Assets"
+    if not isfolder(folder) then makefolder(folder) end
+    local path = folder .. "/LunaUi.rbxm"
+
+    if not isfile(path) then
+        local url = "http://zenixcore.xyz/script/scripts/LunaUi.rbxm"
+        local ok, data = pcall(function() return game:HttpGet(url) end)
+        if not ok or not data or #data == 0 then
+            error("Failed to download LunaUi.rbxm from " .. url .. ": " .. tostring(data))
+        end
+        writefile(path, data)
+    end
+
+    local ok, result = pcall(function()
+        return game:GetObjects(gca(path))[1]
+    end)
+    if not ok or not result then
+        error("Failed to load LunaUi.rbxm: " .. tostring(result))
+    end
+    LunaUI = result
+end
 
 local SizeBleh = nil
 
@@ -2124,7 +2247,7 @@ function Luna:Notification(data) -- action e.g open messages
 		-- Set Data
 		newNotification.Title.Text = data.Title
 		newNotification.Description.Text = data.Content 
-		newNotification.Icon.Image = GetIcon(data.Icon, data.ImageSource)
+		--newNotification.Icon.Image = GetIcon(data.Icon, data.ImageSource)
 
 		-- Set initial transparency values
 		newNotification.BackgroundTransparency = 1
@@ -2534,7 +2657,7 @@ function Luna:CreateWindow(WindowSettings)
 		local HomeTabButton = Navigation.Tabs.Home
 		HomeTabButton.Visible = true
 		if HomeTabSettings.Icon == 2 then
-			HomeTabButton.ImageLabel.Image = GetIcon("dashboard", "Material")
+		--	HomeTabButton.ImageLabel.Image = GetIcon("dashboard", "Material")
 		end
 
 		local HomeTabPage = Elements.Home
@@ -2706,7 +2829,7 @@ function Luna:CreateWindow(WindowSettings)
 		TabButton.Name = TabSettings.Name
 		TabButton.TextLabel.Text = TabSettings.Name
 		TabButton.Parent = Navigation.Tabs
-		TabButton.ImageLabel.Image = GetIcon(TabSettings.Icon, TabSettings.ImageSource)
+		--TabButton.ImageLabel.Image = GetIcon(TabSettings.Icon, TabSettings.ImageSource)
 
 		TabButton.Visible = true
 
