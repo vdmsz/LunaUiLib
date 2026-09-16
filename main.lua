@@ -2247,7 +2247,7 @@ function Luna:Notification(data) -- action e.g open messages
 		-- Set Data
 		newNotification.Title.Text = data.Title
 		newNotification.Description.Text = data.Content 
-		newNotification.Icon.Image = GetIcon(data.Icon, data.ImageSource)
+		--newNotification.Icon.Image = GetIcon(data.Icon, data.ImageSource)
 
 		-- Set initial transparency values
 		newNotification.BackgroundTransparency = 1
@@ -2657,7 +2657,7 @@ function Luna:CreateWindow(WindowSettings)
 		local HomeTabButton = Navigation.Tabs.Home
 		HomeTabButton.Visible = true
 		if HomeTabSettings.Icon == 2 then
-			HomeTabButton.ImageLabel.Image = GetIcon("dashboard", "Material")
+		--	HomeTabButton.ImageLabel.Image = GetIcon("dashboard", "Material")
 		end
 
 		local HomeTabPage = Elements.Home
@@ -2829,7 +2829,7 @@ function Luna:CreateWindow(WindowSettings)
 		TabButton.Name = TabSettings.Name
 		TabButton.TextLabel.Text = TabSettings.Name
 		TabButton.Parent = Navigation.Tabs
-		TabButton.ImageLabel.Image = GetIcon(TabSettings.Icon, TabSettings.ImageSource)
+		--TabButton.ImageLabel.Image = GetIcon(TabSettings.Icon, TabSettings.ImageSource)
 
 		TabButton.Visible = true
 
