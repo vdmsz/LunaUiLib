@@ -6682,6 +6682,17 @@ function Luna:CreateWindow(WindowSettings)
 				end
 			})
 
+			local function ApplyThemeGradient()
+				for _, descendant in ipairs(Elements:GetDescendants()) do
+					if descendant:IsA("UIGradient") and descendant.Name == "color" then
+						descendant.Color = Luna.ThemeGradient
+					end
+				end
+			end
+
+			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(ApplyThemeGradient)
+			ApplyThemeGradient()
+
 			Tab:CreateSection("Preset Gradients")
 
 			for i,v in pairs(PresetGradients) do
