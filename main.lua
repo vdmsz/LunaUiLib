@@ -4131,17 +4131,26 @@ function Luna:CreateWindow(WindowSettings)
 					DropdownSettings.CurrentOption = {}
 				end
 
+				if not DropdownSettings.MultipleOptions then
+					local currentOption = DropdownSettings.CurrentOption[1]
+					if type(currentOption) ~= "string" or not Dropdown.List:FindFirstChild(currentOption) then
+						DropdownSettings.CurrentOption = {}
+					end
+				end
+
 				local bleh, ind = nil,0
 				for i,v in pairs(DropdownSettings.CurrentOption) do
 					ind = ind + 1
 				end
 				if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
 				SafeCallback(bleh)
-				if type(bleh) == "string" then 
+				if type(bleh) == "string" then
 					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-				else
-					for i,v in pairs(bleh) do
-						tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+				elseif type(bleh) == "table" then
+					for _, value in pairs(bleh) do
+						if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
+							tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+						end
 					end
 				end
 
@@ -4214,7 +4223,15 @@ function Luna:CreateWindow(WindowSettings)
 							tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 						end
 					end
-					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+					if type(bleh) == "string" then
+						tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+					elseif type(bleh) == "table" then
+						for _, value in pairs(bleh) do
+							if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
+								tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+							end
+						end
+					end
 
 					if DropdownSettings.MultipleOptions then
 						if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
@@ -5982,6 +5999,13 @@ function Luna:CreateWindow(WindowSettings)
 					DropdownSettings.CurrentOption = {}
 				end
 
+				if not DropdownSettings.MultipleOptions then
+					local currentOption = DropdownSettings.CurrentOption[1]
+					if type(currentOption) ~= "string" or not Dropdown.List:FindFirstChild(currentOption) then
+						DropdownSettings.CurrentOption = {}
+					end
+				end
+
 				local bleh, ind = nil,0
 				for i,v in pairs(DropdownSettings.CurrentOption) do
 					ind = ind + 1
@@ -5993,7 +6017,15 @@ function Luna:CreateWindow(WindowSettings)
 						tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
 					end
 				end
-				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+				if type(bleh) == "string" then
+					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+				elseif type(bleh) == "table" then
+					for _, value in pairs(bleh) do
+						if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
+							tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
+						end
+					end
+				end
 
 				if DropdownSettings.MultipleOptions then
 					if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
@@ -6362,7 +6394,7 @@ function Luna:CreateWindow(WindowSettings)
 				MultipleOptions = false,
 				SpecialType = nil,
 				Callback = function(Value)
-					selectedConfig = Value
+					selectedConfig = type(Value) == "string" and Value or nil
 				end,
 			})
 
@@ -6659,7 +6691,7 @@ function Luna:CreateWindow(WindowSettings)
 		function Luna:SaveConfig(Path)
 			if isStudio then return "Config system unavailable." end
 
-			if (not Path) then
+			if type(Path) ~= "string" or Path == "" then
 				return false, "Please select a config file."
 			end
 
@@ -6688,7 +6720,7 @@ function Luna:CreateWindow(WindowSettings)
 		function Luna:LoadConfig(Path)
 			if isStudio then return "Config system unavailable." end
 
-			if (not Path) then
+			if type(Path) ~= "string" or Path == "" then
 				return false, "Please select a config file."
 			end
 
