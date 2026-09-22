@@ -3158,6 +3158,18 @@ function Luna:CreateWindow(WindowSettings)
 
 				local SLDragging = false
 				local Slider = Elements.Template.Slider:Clone()
+				local SliderMain = Slider:FindFirstChild("Main")
+				if not SliderMain then
+					for _, child in ipairs(Slider:GetChildren()) do
+						if child:IsA("GuiObject") and child:FindFirstChild("Progress") then
+							SliderMain = child
+							break
+						end
+					end
+				end
+				if not SliderMain then
+					return SliderV
+				end
 				Slider.Name = SliderSettings.Name .. " - Slider"
 				Slider.Title.Text = SliderSettings.Name
 				Slider.Visible = true
@@ -3171,7 +3183,7 @@ function Luna:CreateWindow(WindowSettings)
 				TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
 				TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
 
-				Slider.Main.Progress.Size =	UDim2.new(0, Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
+				SliderMain.Progress.Size =	UDim2.new(0, SliderMain.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
 
 				Slider.Value.Text = tostring(SliderSettings.CurrentValue)
 				SliderV.CurrentValue = Slider.Value.Text
@@ -3199,7 +3211,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Slider.Interact.MouseButton1Down:Connect(function()
-					local Current = Slider.Main.Progress.AbsolutePosition.X + Slider.Main.Progress.AbsoluteSize.X
+					local Current = SliderMain.Progress.AbsolutePosition.X + SliderMain.Progress.AbsoluteSize.X
 					local Start = Current
 					local Location
 					local Loop; Loop = RunService.Stepped:Connect(function()
@@ -3207,16 +3219,16 @@ function Luna:CreateWindow(WindowSettings)
 							Location = UserInputService:GetMouseLocation().X
 							Current = Current + 0.025 * (Location - Start)
 
-							if Location < Slider.Main.AbsolutePosition.X then
-								Location = Slider.Main.AbsolutePosition.X
-							elseif Location > Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X then
-								Location = Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X
+							if Location < SliderMain.AbsolutePosition.X then
+								Location = SliderMain.AbsolutePosition.X
+							elseif Location > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
+								Location = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
 							end
 
-							if Current < Slider.Main.AbsolutePosition.X + 5 then
-								Current = Slider.Main.AbsolutePosition.X + 5
-							elseif Current > Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X then
-								Current = Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X
+							if Current < SliderMain.AbsolutePosition.X + 5 then
+								Current = SliderMain.AbsolutePosition.X + 5
+							elseif Current > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
+								Current = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
 							end
 
 							if Current <= Location and (Location - Start) < 0 then
@@ -3224,8 +3236,8 @@ function Luna:CreateWindow(WindowSettings)
 							elseif Current >= Location and (Location - Start) > 0 then
 								Start = Location
 							end
-							Slider.Main.Progress.Size = UDim2.new(0, Location - Slider.Main.AbsolutePosition.X, 1, 0)
-							local NewValue = SliderSettings.Range[1] + (Location - Slider.Main.AbsolutePosition.X) / Slider.Main.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
+							SliderMain.Progress.Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X, 1, 0)
+							local NewValue = SliderSettings.Range[1] + (Location - SliderMain.AbsolutePosition.X) / SliderMain.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
 
 							NewValue = math.floor(NewValue / SliderSettings.Increment + 0.5) * (SliderSettings.Increment * 10000000) / 10000000
 
@@ -3253,7 +3265,7 @@ function Luna:CreateWindow(WindowSettings)
 								-- Luna.Flags[SliderSettings.Flag] = SliderSettings
 							end
 						else
-							TweenService:Create(Slider.Main.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - Slider.Main.AbsolutePosition.X > 5 and Location - Slider.Main.AbsolutePosition.X or 5, 1, 0)}):Play()
+							TweenService:Create(SliderMain.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X > 5 and Location - SliderMain.AbsolutePosition.X or 5, 1, 0)}):Play()
 							Loop:Disconnect()
 						end
 					end)
@@ -3263,7 +3275,7 @@ function Luna:CreateWindow(WindowSettings)
 
 					NewVal = NewVal or SliderSettings.CurrentValue
 
-					TweenService:Create(Slider.Main.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, Slider.Main.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
+					TweenService:Create(SliderMain.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, SliderMain.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
 					if not bleh then Slider.Value.Text = tostring(NewVal) end
 					local Success, Response = pcall(function()
 						SliderSettings.Callback(NewVal)
@@ -4772,6 +4784,18 @@ function Luna:CreateWindow(WindowSettings)
 
 			local SLDragging = false
 			local Slider = Elements.Template.Slider:Clone()
+			local SliderMain = Slider:FindFirstChild("Main")
+			if not SliderMain then
+				for _, child in ipairs(Slider:GetChildren()) do
+					if child:IsA("GuiObject") and child:FindFirstChild("Progress") then
+						SliderMain = child
+						break
+					end
+				end
+			end
+			if not SliderMain then
+				return SliderV
+			end
 			Slider.Name = SliderSettings.Name .. " - Slider"
 			Slider.Title.Text = SliderSettings.Name
 			Slider.Visible = true
@@ -4785,7 +4809,7 @@ function Luna:CreateWindow(WindowSettings)
 			TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
 			TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
 
-			Slider.Main.Progress.Size =	UDim2.new(0, Slider.Main.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
+			SliderMain.Progress.Size =	UDim2.new(0, SliderMain.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
 
 			Slider.Value.Text = tostring(SliderSettings.CurrentValue)
 			SliderV.CurrentValue = Slider.Value.Text
@@ -4813,7 +4837,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Slider.Interact.MouseButton1Down:Connect(function()
-				local Current = Slider.Main.Progress.AbsolutePosition.X + Slider.Main.Progress.AbsoluteSize.X
+				local Current = SliderMain.Progress.AbsolutePosition.X + SliderMain.Progress.AbsoluteSize.X
 				local Start = Current
 				local Location
 				local Loop; Loop = RunService.Stepped:Connect(function()
@@ -4821,16 +4845,16 @@ function Luna:CreateWindow(WindowSettings)
 						Location = UserInputService:GetMouseLocation().X
 						Current = Current + 0.025 * (Location - Start)
 
-						if Location < Slider.Main.AbsolutePosition.X then
-							Location = Slider.Main.AbsolutePosition.X
-						elseif Location > Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X then
-							Location = Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X
+						if Location < SliderMain.AbsolutePosition.X then
+							Location = SliderMain.AbsolutePosition.X
+						elseif Location > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
+							Location = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
 						end
 
-						if Current < Slider.Main.AbsolutePosition.X + 5 then
-							Current = Slider.Main.AbsolutePosition.X + 5
-						elseif Current > Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X then
-							Current = Slider.Main.AbsolutePosition.X + Slider.Main.AbsoluteSize.X
+						if Current < SliderMain.AbsolutePosition.X + 5 then
+							Current = SliderMain.AbsolutePosition.X + 5
+						elseif Current > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
+							Current = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
 						end
 
 						if Current <= Location and (Location - Start) < 0 then
@@ -4838,8 +4862,8 @@ function Luna:CreateWindow(WindowSettings)
 						elseif Current >= Location and (Location - Start) > 0 then
 							Start = Location
 						end
-						Slider.Main.Progress.Size = UDim2.new(0, Location - Slider.Main.AbsolutePosition.X, 1, 0)
-						local NewValue = SliderSettings.Range[1] + (Location - Slider.Main.AbsolutePosition.X) / Slider.Main.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
+						SliderMain.Progress.Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X, 1, 0)
+						local NewValue = SliderSettings.Range[1] + (Location - SliderMain.AbsolutePosition.X) / SliderMain.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
 
 						NewValue = math.floor(NewValue / SliderSettings.Increment + 0.5) * (SliderSettings.Increment * 10000000) / 10000000
 
@@ -4867,7 +4891,7 @@ function Luna:CreateWindow(WindowSettings)
 							-- Luna.Flags[SliderSettings.Flag] = SliderSettings
 						end
 					else
-						TweenService:Create(Slider.Main.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - Slider.Main.AbsolutePosition.X > 5 and Location - Slider.Main.AbsolutePosition.X or 5, 1, 0)}):Play()
+						TweenService:Create(SliderMain.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X > 5 and Location - SliderMain.AbsolutePosition.X or 5, 1, 0)}):Play()
 						Loop:Disconnect()
 					end
 				end)
@@ -4877,7 +4901,7 @@ function Luna:CreateWindow(WindowSettings)
 
 				NewVal = NewVal or SliderSettings.CurrentValue
 
-				TweenService:Create(Slider.Main.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, Slider.Main.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and Slider.Main.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
+				TweenService:Create(SliderMain.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, SliderMain.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
 				if not bleh then Slider.Value.Text = tostring(NewVal) end
 				local Success, Response = pcall(function()
 					SliderSettings.Callback(NewVal)
