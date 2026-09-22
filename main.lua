@@ -3331,8 +3331,14 @@ function Luna:CreateWindow(WindowSettings)
 				end
 
 				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-					Slider.Main.color.Color = Luna.ThemeGradient
-					Slider.Main.UIStroke.color.Color = Luna.ThemeGradient
+					local main = Slider:FindFirstChild("Main")
+					local color = main and main:FindFirstChild("color")
+					local stroke = main and main:FindFirstChild("UIStroke")
+					if color then color.Color = Luna.ThemeGradient end
+					if stroke then
+						local strokeColor = stroke:FindFirstChild("color")
+						if strokeColor then strokeColor.Color = Luna.ThemeGradient end
+					end
 				end)
 
 				return SliderV
@@ -4937,8 +4943,14 @@ function Luna:CreateWindow(WindowSettings)
 			end
 
 			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-				Slider.Main.color.Color = Luna.ThemeGradient
-				Slider.Main.UIStroke.color.Color = Luna.ThemeGradient
+				local main = Slider:FindFirstChild("Main")
+				local color = main and main:FindFirstChild("color")
+				local stroke = main and main:FindFirstChild("UIStroke")
+				if color then color.Color = Luna.ThemeGradient end
+				if stroke then
+					local strokeColor = stroke:FindFirstChild("color")
+					if strokeColor then strokeColor.Color = Luna.ThemeGradient end
+				end
 			end)
 
 			return SliderV
