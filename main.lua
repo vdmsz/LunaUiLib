@@ -6653,12 +6653,25 @@ function Luna:CreateWindow(WindowSettings)
 				Color = Color3.fromRGB(224, 138, 184),
 			}, "LunaInterfaceSuitePrebuiltCPC3") 
 
+			local function GetThemeColor(picker, fallback)
+				local settings = picker and picker.Settings
+				local color = settings and settings.Color
+				if typeof(color) == "Color3" then
+					return color
+				end
+				return fallback
+			end
+
 			task.wait(1)
 
 			c1cp:Set({
 				Callback = function(Value)
 					if c2cp and c3cp then
-						Luna.ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Value or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(0.50, c2cp.Color or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(1.00, c3cp.Color or Color3.fromRGB(255,255,255))}
+						Luna.ThemeGradient = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, typeof(Value) == "Color3" and Value or GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
+						}
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6667,7 +6680,11 @@ function Luna:CreateWindow(WindowSettings)
 			c2cp:Set({
 				Callback = function(Value)
 					if c1cp and c3cp then
-						Luna.ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, c1cp.Color or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(0.50, Value or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(1.00, c3cp.Color or Color3.fromRGB(255,255,255))}
+						Luna.ThemeGradient = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(0.50, typeof(Value) == "Color3" and Value or GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
+						}
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6676,7 +6693,11 @@ function Luna:CreateWindow(WindowSettings)
 			c3cp:Set({
 				Callback = function(Valuex)
 					if c2cp and c1cp then
-						Luna.ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, c1cp.Color or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(0.50, c2cp.Color or Color3.fromRGB(255,255,255)), ColorSequenceKeypoint.new(1.00, Valuex or Color3.fromRGB(255,255,255))}
+						Luna.ThemeGradient = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
+							ColorSequenceKeypoint.new(1.00, typeof(Valuex) == "Color3" and Valuex or GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
+						}
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
