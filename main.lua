@@ -3330,16 +3330,18 @@ function Luna:CreateWindow(WindowSettings)
 					Luna.Options[Flag] = SliderV
 				end
 
-				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-					local main = Slider:FindFirstChild("Main")
-					local color = main and main:FindFirstChild("color")
-					local stroke = main and main:FindFirstChild("UIStroke")
-					if color then color.Color = Luna.ThemeGradient end
-					if stroke then
-						local strokeColor = stroke:FindFirstChild("color")
-						if strokeColor then strokeColor.Color = Luna.ThemeGradient end
-					end
-				end)
+				if Slider:FindFirstChild("Main") then
+					LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
+						local main = Slider:FindFirstChild("Main")
+						local color = main and main:FindFirstChild("color")
+						local stroke = main and main:FindFirstChild("UIStroke")
+						if color then color.Color = Luna.ThemeGradient end
+						if stroke then
+							local strokeColor = stroke:FindFirstChild("color")
+							if strokeColor then strokeColor.Color = Luna.ThemeGradient end
+						end
+					end)
+				end
 
 				return SliderV
 
@@ -4942,16 +4944,18 @@ function Luna:CreateWindow(WindowSettings)
 				Luna.Options[Flag] = SliderV
 			end
 
-			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-				local main = Slider:FindFirstChild("Main")
-				local color = main and main:FindFirstChild("color")
-				local stroke = main and main:FindFirstChild("UIStroke")
-				if color then color.Color = Luna.ThemeGradient end
-				if stroke then
-					local strokeColor = stroke:FindFirstChild("color")
-					if strokeColor then strokeColor.Color = Luna.ThemeGradient end
-				end
-			end)
+			if Slider:FindFirstChild("Main") then
+				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
+					local main = Slider:FindFirstChild("Main")
+					local color = main and main:FindFirstChild("color")
+					local stroke = main and main:FindFirstChild("UIStroke")
+					if color then color.Color = Luna.ThemeGradient end
+					if stroke then
+						local strokeColor = stroke:FindFirstChild("color")
+						if strokeColor then strokeColor.Color = Luna.ThemeGradient end
+					end
+				end)
+			end
 
 			return SliderV
 
