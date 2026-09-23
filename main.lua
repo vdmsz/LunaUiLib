@@ -6764,12 +6764,7 @@ function Luna:CreateWindow(WindowSettings)
 				ApplyThemePalette()
 			end
 
-			RunService.RenderStepped:Connect(RefreshThemeFromPickers)
-
-			task.wait(1)
-
-			c1cp:Set({
-				Callback = function(Value)
+			c1cp.Settings.Callback = function(Value)
 					if c2cp and c3cp then
 						Luna.ThemeGradient = ColorSequence.new{
 							ColorSequenceKeypoint.new(0.00, typeof(Value) == "Color3" and Value or GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
@@ -6779,11 +6774,9 @@ function Luna:CreateWindow(WindowSettings)
 						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
-				end
-			})
+			end
 
-			c2cp:Set({
-				Callback = function(Value)
+			c2cp.Settings.Callback = function(Value)
 					if c1cp and c3cp then
 						Luna.ThemeGradient = ColorSequence.new{
 							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
@@ -6793,11 +6786,9 @@ function Luna:CreateWindow(WindowSettings)
 						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
-				end
-			})
+			end
 
-			c3cp:Set({
-				Callback = function(Valuex)
+			c3cp.Settings.Callback = function(Valuex)
 					if c2cp and c1cp then
 						Luna.ThemeGradient = ColorSequence.new{
 							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
@@ -6807,11 +6798,7 @@ function Luna:CreateWindow(WindowSettings)
 						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
-				end
-			})
-
-			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(ApplyThemePalette)
-			ApplyThemePalette()
+			end
 
 			Tab:CreateSection("Preset Gradients")
 
