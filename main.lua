@@ -3420,7 +3420,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.UIStroke.color.Enabled = false
 						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 
-						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
 
 						tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -3535,7 +3535,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.color.Enabled = false
 						Toggle.toggle.color.Transparency = NumberSequence.new(1)
 						Toggle.toggle.UIStroke.color.Enabled = false
-						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
 					end
 				end)
 
@@ -5055,7 +5055,7 @@ function Luna:CreateWindow(WindowSettings)
 					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 
 					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
-					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
 
 					tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -5170,7 +5170,7 @@ function Luna:CreateWindow(WindowSettings)
 					Toggle.toggle.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
-					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
 				end
 			end)
 
