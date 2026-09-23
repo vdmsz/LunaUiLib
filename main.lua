@@ -3406,15 +3406,19 @@ function Luna:CreateWindow(WindowSettings)
 				local function Set(bool)
 					if bool then
 						Toggle.toggle.color.Enabled = true
+						Toggle.toggle.color.Transparency = NumberSequence.new(0)
 						tween(Toggle.toggle, {BackgroundTransparency = 0})
 
 						Toggle.toggle.UIStroke.color.Enabled = true
+						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(0)
 						tween(Toggle.toggle.UIStroke, {Color = Color3.new(255,255,255)})
 
 						tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(255,255,255), Position = UDim2.new(1,-23,0.5,0), BackgroundTransparency = 0.45})
 					else
 						Toggle.toggle.color.Enabled = false
+						Toggle.toggle.color.Transparency = NumberSequence.new(1)
 						Toggle.toggle.UIStroke.color.Enabled = false
+						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 
 						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
 
@@ -3529,6 +3533,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
 					else
 						Toggle.toggle.color.Enabled = false
+						Toggle.toggle.color.Transparency = NumberSequence.new(1)
 						Toggle.toggle.UIStroke.color.Enabled = false
 						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
 					end
@@ -5040,12 +5045,14 @@ function Luna:CreateWindow(WindowSettings)
 					tween(Toggle.toggle, {BackgroundTransparency = 0})
 
 					Toggle.toggle.UIStroke.color.Enabled = true
+					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(0)
 					tween(Toggle.toggle.UIStroke, {Color = Color3.new(255,255,255)})
 
 					tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(255,255,255), Position = UDim2.new(1,-23,0.5,0), BackgroundTransparency = 0.45})
 				else
 					Toggle.toggle.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Enabled = false
+					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 
 					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
 					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
@@ -5162,6 +5169,7 @@ function Luna:CreateWindow(WindowSettings)
 				else
 					Toggle.toggle.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Enabled = false
+					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
 				end
 			end)
