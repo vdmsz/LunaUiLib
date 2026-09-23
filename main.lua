@@ -6674,8 +6674,8 @@ function Luna:CreateWindow(WindowSettings)
 				local keypoints = Luna.ThemeGradient.Keypoints
 				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
 				local accent = keypoints[2] and keypoints[2].Value or Color3.fromRGB(123, 201, 201)
-				local highlight = keypoints[#keypoints] and keypoints[#keypoints].Value or Color3.fromRGB(224, 138, 184)
 				local panelColor = ScaleColor(background, 0.28)
+				local controlColor = ScaleColor(background, 0.42)
 
 				Main.BackgroundColor3 = panelColor
 				Elements.Parent.BackgroundColor3 = panelColor
@@ -6689,13 +6689,13 @@ function Luna:CreateWindow(WindowSettings)
 					elseif (descendant:IsA("Frame") or descendant:IsA("ScrollingFrame"))
 						and descendant.Visible
 						and descendant.BackgroundTransparency < 1 then
-						descendant.BackgroundColor3 = panelColor
+						descendant.BackgroundColor3 = controlColor
 					end
 				end
 
 				for _, descendant in ipairs(Main:GetDescendants()) do
 					if descendant:IsA("TextLabel") and descendant.Visible then
-						descendant.TextColor3 = highlight
+						descendant.TextColor3 = Color3.fromRGB(235, 235, 235)
 					end
 				end
 			end
