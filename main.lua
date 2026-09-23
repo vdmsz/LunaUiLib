@@ -3416,11 +3416,12 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.color.Enabled = false
 						Toggle.toggle.UIStroke.color.Enabled = false
 
-						Toggle.toggle.UIStroke.Color = Color3.fromRGB(97,97,97)
+						local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
+						Toggle.toggle.UIStroke.Color = themeAccent
 
 						tween(Toggle.toggle, {BackgroundTransparency = 1})
 
-						tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(97,97,97), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
+						tween(Toggle.toggle.val, {BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
 					end
 
 					ToggleV.CurrentValue = bool
@@ -3455,6 +3456,8 @@ function Luna:CreateWindow(WindowSettings)
 					tween(Toggle.UIStroke, {Color = Color3.fromRGB(64,61,76)})
 				end)
 
+				Set(ToggleSettings.CurrentValue)
+				Set(ToggleSettings.CurrentValue)
 				if ToggleSettings.CurrentValue then
 					Set(ToggleSettings.CurrentValue)
 					local Success, Response = pcall(function()
@@ -5041,11 +5044,12 @@ function Luna:CreateWindow(WindowSettings)
 					Toggle.toggle.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Enabled = false
 
-					Toggle.toggle.UIStroke.Color = Color3.fromRGB(97,97,97)
+					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
+					Toggle.toggle.UIStroke.Color = themeAccent
 
 					tween(Toggle.toggle, {BackgroundTransparency = 1})
 
-					tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(97,97,97), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
+					tween(Toggle.toggle.val, {BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
 				end
 
 				ToggleV.CurrentValue = bool
