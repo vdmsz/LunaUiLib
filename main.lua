@@ -2986,7 +2986,7 @@ function Luna:CreateWindow(WindowSettings)
 						tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
 						wait(0.2)
 						if ButtonV.Hover then
-							tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+							tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 						else
 							tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
 						end
@@ -2995,7 +2995,7 @@ function Luna:CreateWindow(WindowSettings)
 
 				Button["MouseEnter"]:Connect(function()
 					ButtonV.Hover = true
-					tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Button["MouseLeave"]:Connect(function()
@@ -3191,7 +3191,7 @@ function Luna:CreateWindow(WindowSettings)
 				SliderSettings.Callback(SliderSettings.CurrentValue)
 
 				Slider["MouseEnter"]:Connect(function()
-					tween(Slider.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Slider.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Slider["MouseLeave"]:Connect(function()
@@ -3449,7 +3449,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Toggle["MouseEnter"]:Connect(function()
-					tween(Toggle.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Toggle.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Toggle["MouseLeave"]:Connect(function()
@@ -3612,7 +3612,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Bind["MouseEnter"]:Connect(function()
-					tween(Bind.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Bind["MouseLeave"]:Connect(function()
@@ -3883,7 +3883,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Input["MouseEnter"]:Connect(function()
-					tween(Input.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Input.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Input["MouseLeave"]:Connect(function()
@@ -4121,7 +4121,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Dropdown["MouseEnter"]:Connect(function()
-					tween(Dropdown.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(Dropdown.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 
 				Dropdown["MouseLeave"]:Connect(function()
@@ -4334,7 +4334,7 @@ function Luna:CreateWindow(WindowSettings)
 				Display.BackgroundTransparency = 0
 
 				ColorPicker["MouseEnter"]:Connect(function()
-					tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+					tween(ColorPicker.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 				end)
 				ColorPicker["MouseLeave"]:Connect(function()
 					tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(64,61,76)})
@@ -4618,7 +4618,7 @@ function Luna:CreateWindow(WindowSettings)
 					tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
 					wait(0.2)
 					if ButtonV.Hover then
-						tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+						tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 					else
 						tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
 					end
@@ -4627,7 +4627,7 @@ function Luna:CreateWindow(WindowSettings)
 
 			Button["MouseEnter"]:Connect(function()
 				ButtonV.Hover = true
-				tween(Button.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Button["MouseLeave"]:Connect(function()
@@ -4820,7 +4820,7 @@ function Luna:CreateWindow(WindowSettings)
 			SliderSettings.Callback(SliderSettings.CurrentValue)
 
 			Slider["MouseEnter"]:Connect(function()
-				tween(Slider.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Slider.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Slider["MouseLeave"]:Connect(function()
@@ -5077,7 +5077,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Toggle["MouseEnter"]:Connect(function()
-				tween(Toggle.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Toggle.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Toggle["MouseLeave"]:Connect(function()
@@ -5237,7 +5237,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Bind["MouseEnter"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Bind["MouseLeave"]:Connect(function()
@@ -5450,7 +5450,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Bind["MouseEnter"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Bind["MouseLeave"]:Connect(function()
@@ -5701,7 +5701,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Input["MouseEnter"]:Connect(function()
-				tween(Input.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Input.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Input["MouseLeave"]:Connect(function()
@@ -5938,7 +5938,7 @@ function Luna:CreateWindow(WindowSettings)
 			end)
 
 			Dropdown["MouseEnter"]:Connect(function()
-				tween(Dropdown.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(Dropdown.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 
 			Dropdown["MouseLeave"]:Connect(function()
@@ -6148,7 +6148,7 @@ function Luna:CreateWindow(WindowSettings)
 			Display.BackgroundTransparency = 0
 
 			ColorPicker["MouseEnter"]:Connect(function()
-				tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(87, 84, 104)})
+				tween(ColorPicker.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
 			end)
 			ColorPicker["MouseLeave"]:Connect(function()
 				tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(64,61,76)})
