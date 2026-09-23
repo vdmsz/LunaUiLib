@@ -3456,9 +3456,7 @@ function Luna:CreateWindow(WindowSettings)
 				end)
 
 				Set(ToggleSettings.CurrentValue)
-				Set(ToggleSettings.CurrentValue)
 				if ToggleSettings.CurrentValue then
-					Set(ToggleSettings.CurrentValue)
 					local Success, Response = pcall(function()
 						ToggleSettings.Callback(ToggleSettings.CurrentValue)
 					end)
