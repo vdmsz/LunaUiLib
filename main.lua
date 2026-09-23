@@ -6662,10 +6662,40 @@ function Luna:CreateWindow(WindowSettings)
 				return fallback
 			end
 
-			local function ApplyThemeGradient()
+			local function ScaleColor(color, scale)
+				return Color3.new(
+					math.clamp(color.R * scale, 0, 1),
+					math.clamp(color.G * scale, 0, 1),
+					math.clamp(color.B * scale, 0, 1)
+				)
+			end
+
+			local function ApplyThemePalette()
+				local keypoints = Luna.ThemeGradient.Keypoints
+				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
+				local accent = keypoints[2] and keypoints[2].Value or Color3.fromRGB(123, 201, 201)
+				local highlight = keypoints[#keypoints] and keypoints[#keypoints].Value or Color3.fromRGB(224, 138, 184)
+				local panelColor = ScaleColor(background, 0.28)
+
+				Main.BackgroundColor3 = panelColor
+				Elements.Parent.BackgroundColor3 = panelColor
+				Navigation.BackgroundColor3 = ScaleColor(background, 0.2)
+
 				for _, descendant in ipairs(Elements:GetDescendants()) do
 					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
 						descendant.Color = Luna.ThemeGradient
+					elseif descendant:IsA("UIStroke") then
+						descendant.Color = accent
+					elseif (descendant:IsA("Frame") or descendant:IsA("ScrollingFrame"))
+						and descendant.Visible
+						and descendant.BackgroundTransparency < 1 then
+						descendant.BackgroundColor3 = panelColor
+					end
+				end
+
+				for _, descendant in ipairs(Main:GetDescendants()) do
+					if descendant:IsA("TextLabel") and descendant.Visible then
+						descendant.TextColor3 = highlight
 					end
 				end
 			end
@@ -6680,7 +6710,7 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemeGradient()
+						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6694,7 +6724,7 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, typeof(Value) == "Color3" and Value or GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemeGradient()
+						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6708,14 +6738,14 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, typeof(Valuex) == "Color3" and Valuex or GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemeGradient()
+						ApplyThemePalette()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
 			})
 
-			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(ApplyThemeGradient)
-			ApplyThemeGradient()
+			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(ApplyThemePalette)
+			ApplyThemePalette()
 
 			Tab:CreateSection("Preset Gradients")
 
