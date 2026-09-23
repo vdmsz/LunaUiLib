@@ -22,7 +22,7 @@ Hunter (Nebula Softworks) | Designing And Programming | Main Developer
 JustHey (Nebula Softworks) | Configurations, Bug Fixing And More! | Co Developer
 Throit | Color Picker
 Wally | Dragging And Certain Functions
-Sirius | PCall Parsing, Notifications, Slider And Home Tab
+Sirius | PCall Parsing,AC Notifications, Slider And Home Tab
 Luna Executor | Original UI
 
 
@@ -6699,6 +6699,32 @@ function Luna:CreateWindow(WindowSettings)
 					end
 				end
 			end
+
+			local lastThemeSignature
+			local function RefreshThemeFromPickers()
+				local color1 = GetThemeColor(c1cp, Color3.fromRGB(117, 164, 206))
+				local color2 = GetThemeColor(c2cp, Color3.fromRGB(123, 201, 201))
+				local color3 = GetThemeColor(c3cp, Color3.fromRGB(224, 138, 184))
+				local signature = string.format(
+					"%d:%d:%d|%d:%d:%d|%d:%d:%d",
+					math.floor(color1.R * 255), math.floor(color1.G * 255), math.floor(color1.B * 255),
+					math.floor(color2.R * 255), math.floor(color2.G * 255), math.floor(color2.B * 255),
+					math.floor(color3.R * 255), math.floor(color3.G * 255), math.floor(color3.B * 255)
+				)
+				if signature == lastThemeSignature then
+					return
+				end
+
+				lastThemeSignature = signature
+				Luna.ThemeGradient = ColorSequence.new{
+					ColorSequenceKeypoint.new(0.00, color1),
+					ColorSequenceKeypoint.new(0.50, color2),
+					ColorSequenceKeypoint.new(1.00, color3),
+				}
+				ApplyThemePalette()
+			end
+
+			RunService.RenderStepped:Connect(RefreshThemeFromPickers)
 
 			task.wait(1)
 
