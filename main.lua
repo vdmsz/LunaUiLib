@@ -6771,8 +6771,6 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemePalette()
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 			end
 
@@ -6783,8 +6781,6 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, typeof(Value) == "Color3" and Value or GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemePalette()
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 			end
 
@@ -6795,8 +6791,6 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, typeof(Valuex) == "Color3" and Valuex or GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
-						ApplyThemePalette()
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 			end
 
