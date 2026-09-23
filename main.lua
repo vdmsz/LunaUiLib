@@ -6662,6 +6662,14 @@ function Luna:CreateWindow(WindowSettings)
 				return fallback
 			end
 
+			local function ApplyThemeGradient()
+				for _, descendant in ipairs(Elements:GetDescendants()) do
+					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
+						descendant.Color = Luna.ThemeGradient
+					end
+				end
+			end
+
 			task.wait(1)
 
 			c1cp:Set({
@@ -6672,6 +6680,7 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
+						ApplyThemeGradient()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6685,6 +6694,7 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, typeof(Value) == "Color3" and Value or GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
+						ApplyThemeGradient()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
@@ -6698,18 +6708,11 @@ function Luna:CreateWindow(WindowSettings)
 							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
 							ColorSequenceKeypoint.new(1.00, typeof(Valuex) == "Color3" and Valuex or GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
 						}
+						ApplyThemeGradient()
 						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
 					end
 				end
 			})
-
-			local function ApplyThemeGradient()
-				for _, descendant in ipairs(Elements:GetDescendants()) do
-					if descendant:IsA("UIGradient") and descendant.Name == "color" then
-						descendant.Color = Luna.ThemeGradient
-					end
-				end
-			end
 
 			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(ApplyThemeGradient)
 			ApplyThemeGradient()
