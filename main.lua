@@ -3416,8 +3416,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.color.Enabled = false
 						Toggle.toggle.UIStroke.color.Enabled = false
 
-						local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
-						Toggle.toggle.UIStroke.Color = themeAccent
+						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
 
 						tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -3527,8 +3526,14 @@ function Luna:CreateWindow(WindowSettings)
 				end
 
 				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-					Toggle.toggle.color.Color = Luna.ThemeGradient
-					Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
+					if ToggleSettings.CurrentValue then
+						Toggle.toggle.color.Color = Luna.ThemeGradient
+						Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
+					else
+						Toggle.toggle.color.Enabled = false
+						Toggle.toggle.UIStroke.color.Enabled = false
+						Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+					end
 				end)
 
 				if Flag then
@@ -5045,7 +5050,7 @@ function Luna:CreateWindow(WindowSettings)
 					Toggle.toggle.UIStroke.color.Enabled = false
 
 					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
-					Toggle.toggle.UIStroke.Color = themeAccent
+					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
 
 					tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -5153,8 +5158,14 @@ function Luna:CreateWindow(WindowSettings)
 			end
 
 			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-				Toggle.toggle.color.Color = Luna.ThemeGradient
-				Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
+				if ToggleSettings.CurrentValue then
+					Toggle.toggle.color.Color = Luna.ThemeGradient
+					Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
+				else
+					Toggle.toggle.color.Enabled = false
+					Toggle.toggle.UIStroke.color.Enabled = false
+					Toggle.toggle.UIStroke.Color = Color3.fromRGB(64, 61, 76)
+				end
 			end)
 
 			if Flag then
@@ -6674,15 +6685,19 @@ function Luna:CreateWindow(WindowSettings)
 				)
 			end
 
+			local function TintSurface(color, amount)
+				return Color3.fromRGB(31, 34, 41):Lerp(ScaleColor(color, 0.45), amount)
+			end
+
 			local function ApplyThemePalette()
 				local keypoints = Luna.ThemeGradient.Keypoints
 				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
-				local panelColor = ScaleColor(background, 0.28)
-				local controlColor = ScaleColor(background, 0.42)
+				local panelColor = TintSurface(background, 0.12)
+				local controlColor = TintSurface(background, 0.18)
 
 				Main.BackgroundColor3 = panelColor
 				Elements.Parent.BackgroundColor3 = panelColor
-				Navigation.BackgroundColor3 = ScaleColor(background, 0.2)
+				Navigation.BackgroundColor3 = TintSurface(background, 0.08)
 
 				for _, descendant in ipairs(Elements:GetDescendants()) do
 					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
