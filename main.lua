@@ -49,7 +49,11 @@ local Release = "Prerelease Beta 6.1"
 local Luna = { 
 	Folder = "Luna", 
 	Options = {}, 
-	ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(117, 164, 206)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(123, 201, 201)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(224, 138, 175))} 
+	ThemeGradient = ColorSequence.new{
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(64, 61, 76)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(136, 131, 163)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(64, 61, 76))
+	}
 }
 
 local UserInputService = game:GetService("UserInputService")
@@ -6661,17 +6665,17 @@ function Luna:CreateWindow(WindowSettings)
 
 			local c1cp = Tab:CreateColorPicker({
 				Name = "Color 1",
-				Color = Color3.fromRGB(117, 164, 206),
+				Color = Color3.fromRGB(64, 61, 76),
 			}, "LunaInterfaceSuitePrebuiltCPC1") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 
 			local c2cp = Tab:CreateColorPicker({
 				Name = "Color 2",
-				Color = Color3.fromRGB(123, 201, 201),
+				Color = Color3.fromRGB(136, 131, 163),
 			}, "LunaInterfaceSuitePrebuiltCPC2")
 
 			local c3cp = Tab:CreateColorPicker({
 				Name = "Color 3",
-				Color = Color3.fromRGB(224, 138, 184),
+				Color = Color3.fromRGB(64, 61, 76),
 			}, "LunaInterfaceSuitePrebuiltCPC3") 
 
 			local function GetThemeColor(picker, fallback)
@@ -6721,9 +6725,9 @@ function Luna:CreateWindow(WindowSettings)
 				end
 
 				local pickerColors = {
-					["Color 1"] = GetThemeColor(c1cp, Color3.fromRGB(117, 164, 206)),
-					["Color 2"] = GetThemeColor(c2cp, Color3.fromRGB(123, 201, 201)),
-					["Color 3"] = GetThemeColor(c3cp, Color3.fromRGB(224, 138, 184)),
+					["Color 1"] = GetThemeColor(c1cp, Color3.fromRGB(64, 61, 76)),
+					["Color 2"] = GetThemeColor(c2cp, Color3.fromRGB(136, 131, 163)),
+					["Color 3"] = GetThemeColor(c3cp, Color3.fromRGB(64, 61, 76)),
 				}
 				for pickerName, pickerColor in pairs(pickerColors) do
 					local picker = TabPage:FindFirstChild(pickerName)
@@ -6738,9 +6742,9 @@ function Luna:CreateWindow(WindowSettings)
 
 			local lastThemeSignature
 			local function RefreshThemeFromPickers()
-				local color1 = GetThemeColor(c1cp, Color3.fromRGB(117, 164, 206))
-				local color2 = GetThemeColor(c2cp, Color3.fromRGB(123, 201, 201))
-				local color3 = GetThemeColor(c3cp, Color3.fromRGB(224, 138, 184))
+				local color1 = GetThemeColor(c1cp, Color3.fromRGB(64, 61, 76))
+				local color2 = GetThemeColor(c2cp, Color3.fromRGB(136, 131, 163))
+				local color3 = GetThemeColor(c3cp, Color3.fromRGB(64, 61, 76))
 				local signature = string.format(
 					"%d:%d:%d|%d:%d:%d|%d:%d:%d",
 					math.floor(color1.R * 255), math.floor(color1.G * 255), math.floor(color1.B * 255),
