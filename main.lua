@@ -6702,6 +6702,21 @@ function Luna:CreateWindow(WindowSettings)
 						descendant.TextColor3 = Color3.fromRGB(235, 235, 235)
 					end
 				end
+
+				local pickerColors = {
+					["Color 1"] = GetThemeColor(c1cp, Color3.fromRGB(117, 164, 206)),
+					["Color 2"] = GetThemeColor(c2cp, Color3.fromRGB(123, 201, 201)),
+					["Color 3"] = GetThemeColor(c3cp, Color3.fromRGB(224, 138, 184)),
+				}
+				for pickerName, pickerColor in pairs(pickerColors) do
+					local picker = TabPage:FindFirstChild(pickerName)
+					local background = picker and picker:FindFirstChild("CPBackground")
+					local display = background and background:FindFirstChild("Display")
+					if display and display:IsA("GuiObject") then
+						display.BackgroundColor3 = pickerColor
+						display.BackgroundTransparency = 0
+					end
+				end
 			end
 
 			local lastThemeSignature
