@@ -6677,7 +6677,6 @@ function Luna:CreateWindow(WindowSettings)
 			local function ApplyThemePalette()
 				local keypoints = Luna.ThemeGradient.Keypoints
 				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
-				local accent = keypoints[2] and keypoints[2].Value or Color3.fromRGB(123, 201, 201)
 				local panelColor = ScaleColor(background, 0.28)
 				local controlColor = ScaleColor(background, 0.42)
 
@@ -6688,8 +6687,6 @@ function Luna:CreateWindow(WindowSettings)
 				for _, descendant in ipairs(Elements:GetDescendants()) do
 					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
 						descendant.Color = Luna.ThemeGradient
-					elseif descendant:IsA("UIStroke") then
-						descendant.Color = accent
 					elseif (descendant:IsA("Frame") or descendant:IsA("ScrollingFrame"))
 						and descendant.Visible
 						and descendant.BackgroundTransparency < 1 then
