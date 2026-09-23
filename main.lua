@@ -6691,19 +6691,15 @@ function Luna:CreateWindow(WindowSettings)
 				)
 			end
 
-			local function TintSurface(color, amount)
-				return Color3.fromRGB(31, 34, 41):Lerp(ScaleColor(color, 0.45), amount)
-			end
-
 			local function ApplyThemePalette()
 				local keypoints = Luna.ThemeGradient.Keypoints
 				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
-				local panelColor = TintSurface(background, 0.12)
-				local controlColor = TintSurface(background, 0.18)
+				local panelColor = ScaleColor(background, 0.28)
+				local controlColor = ScaleColor(background, 0.42)
 
 				Main.BackgroundColor3 = panelColor
 				Elements.Parent.BackgroundColor3 = panelColor
-				Navigation.BackgroundColor3 = TintSurface(background, 0.08)
+				Navigation.BackgroundColor3 = ScaleColor(background, 0.2)
 
 				for _, descendant in ipairs(Elements:GetDescendants()) do
 					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
