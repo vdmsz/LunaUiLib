@@ -6689,6 +6689,7 @@ function Luna:CreateWindow(WindowSettings)
 						descendant.Color = Luna.ThemeGradient
 					elseif (descendant:IsA("Frame") or descendant:IsA("ScrollingFrame"))
 						and descendant.Visible
+						and descendant.Name ~= "Display"
 						and descendant.BackgroundTransparency < 1 then
 						descendant.BackgroundColor3 = controlColor
 					end
