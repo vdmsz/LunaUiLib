@@ -6764,34 +6764,16 @@ function Luna:CreateWindow(WindowSettings)
 				ApplyThemePalette()
 			end
 
-			c1cp.Settings.Callback = function(Value)
-					if c2cp and c3cp then
-						Luna.ThemeGradient = ColorSequence.new{
-							ColorSequenceKeypoint.new(0.00, typeof(Value) == "Color3" and Value or GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
-						}
-					end
+			c1cp.Settings.Callback = function()
+					RefreshThemeFromPickers()
 			end
 
-			c2cp.Settings.Callback = function(Value)
-					if c1cp and c3cp then
-						Luna.ThemeGradient = ColorSequence.new{
-							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(0.50, typeof(Value) == "Color3" and Value or GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(1.00, GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
-						}
-					end
+			c2cp.Settings.Callback = function()
+					RefreshThemeFromPickers()
 			end
 
-			c3cp.Settings.Callback = function(Valuex)
-					if c2cp and c1cp then
-						Luna.ThemeGradient = ColorSequence.new{
-							ColorSequenceKeypoint.new(0.00, GetThemeColor(c1cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(0.50, GetThemeColor(c2cp, Color3.fromRGB(255,255,255))),
-							ColorSequenceKeypoint.new(1.00, typeof(Valuex) == "Color3" and Valuex or GetThemeColor(c3cp, Color3.fromRGB(255,255,255)))
-						}
-					end
+			c3cp.Settings.Callback = function()
+					RefreshThemeFromPickers()
 			end
 
 			Tab:CreateSection("Preset Gradients")
