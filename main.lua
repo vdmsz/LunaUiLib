@@ -3425,6 +3425,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 
 						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
+						Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
 
 						tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -3540,6 +3541,7 @@ function Luna:CreateWindow(WindowSettings)
 						Toggle.toggle.color.Transparency = NumberSequence.new(1)
 						Toggle.toggle.UIStroke.color.Enabled = false
 						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
+						Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
 					end
 				end)
 
@@ -5060,6 +5062,7 @@ function Luna:CreateWindow(WindowSettings)
 
 					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
 					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
+					Toggle.toggle.val.BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4)
 
 					tween(Toggle.toggle, {BackgroundTransparency = 1})
 
@@ -5175,6 +5178,7 @@ function Luna:CreateWindow(WindowSettings)
 					Toggle.toggle.UIStroke.color.Enabled = false
 					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
 					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
+					Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
 				end
 			end)
 
@@ -6766,14 +6770,23 @@ function Luna:CreateWindow(WindowSettings)
 
 			c1cp.Settings.Callback = function()
 					RefreshThemeFromPickers()
+					if LunaUI and LunaUI.ThemeRemote then
+						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
+					end
 			end
 
 			c2cp.Settings.Callback = function()
 					RefreshThemeFromPickers()
+					if LunaUI and LunaUI.ThemeRemote then
+						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
+					end
 			end
 
 			c3cp.Settings.Callback = function()
 					RefreshThemeFromPickers()
+					if LunaUI and LunaUI.ThemeRemote then
+						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
+					end
 			end
 
 			Tab:CreateSection("Preset Gradients")
