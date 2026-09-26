@@ -3657,7 +3657,10 @@ function Luna:CreateWindow(WindowSettings)
 							end
 							Bind.BindFrame.BindBox:ReleaseFocus()
 						end
-					elseif BindSettings.CurrentBind ~= nil and (input.KeyCode == Enum.KeyCode[BindSettings.CurrentBind] and not processed) then -- Test
+					elseif BindSettings.CurrentBind ~= nil
+						and Enum.KeyCode[BindSettings.CurrentBind] ~= nil
+						and input.KeyCode == Enum.KeyCode[BindSettings.CurrentBind]
+						and not processed then -- Test
 						local Held = true
 						local Connection
 						Connection = input.Changed:Connect(function(prop)
