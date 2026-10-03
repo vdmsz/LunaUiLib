@@ -1,2207 +1,2015 @@
 --[[
 
-
-
-██╗     ██╗   ██╗███╗   ██╗ █████╗     ██╗███╗   ██╗████████╗███████╗██████╗ ███████╗ █████╗  ██████╗███████╗    ███████╗██╗   ██╗██╗████████╗███████╗
-██║     ██║   ██║████╗  ██║██╔══██╗    ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗██╔════╝██╔══██╗██╔════╝██╔════╝    ██╔════╝██║   ██║██║╚══██╔══╝██╔════╝
-██║     ██║   ██║██╔██╗ ██║███████║    ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝█████╗  ███████║██║     █████╗      ███████╗██║   ██║██║   ██║   █████╗  
-██║     ██║   ██║██║╚██╗██║██╔══██║    ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗██╔══╝  ██╔══██║██║     ██╔══╝      ╚════██║██║   ██║██║   ██║   ██╔══╝  
-███████╗╚██████╔╝██║ ╚████║██║  ██║    ██║██║ ╚████║   ██║   ███████╗██║  ██║██║     ██║  ██║╚██████╗███████╗    ███████║╚██████╔╝██║   ██║   ███████╗
-╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝    ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝    ╚══════╝ ╚═════╝ ╚═╝   ╚═╝   ╚══════╝
+███████╗████████╗ █████╗ ██████╗ ██╗     ██╗ ██████╗ ██╗  ██╗████████╗    ██╗███╗   ██╗████████╗███████╗██████╗ ███████╗ █████╗  ██████╗███████╗    ███████╗██╗   ██╗██╗████████╗███████╗
+██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██║     ██║██╔════╝ ██║  ██║╚══██╔══╝    ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗██╔════╝██╔══██╗██╔════╝██╔════╝    ██╔════╝██║   ██║██║╚══██╔══╝██╔════╝
+███████╗   ██║   ███████║██████╔╝██║     ██║██║  ███╗███████║   ██║       ██║██╔██╗ ██║   ██║   ██████╗ ██████╔╝█████╗  ███████║██║     ██████╗     ███████╗██║   ██║██║   ██║   ██████╗  
+╚════██║   ██║   ██╔══██║██╔══██╗██║     ██║██║   ██║██╔══██║   ██║       ██║██║╚██╗██║   ██║   ██╔═══╝ ██╔══██╗██╔══╝  ██╔══██║██║     ██╔═══╝     ╚════██║██║   ██║██║   ██║   ██╔═══╝  
+███████║   ██║   ██║  ██║██║  ██║███████╗██║╚██████╔╝██║  ██║   ██║       ██║██║ ╚████║   ██║   ███████╗██║  ██║██║     ██║  ██║╚██████╗███████╗    ███████║╚██████╔╝██║   ██║   ███████╗
+╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝       ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝    ╚══════╝ ╚═════╝ ╚═╝   ╚═╝   ╚══════╝
 by    d8b   db d88888b d8888b. db    db db       .d8b.       .d8888.  .d88b.  d88888b d888888b db   d8b   db  .d88b.  d8888b. db   dD .d8888. 
       888o  88 88'     88  `8D 88    88 88      d8' `8b      88'  YP .8P  Y8. 88'     `~~88~~' 88   I8I   88 .8P  Y8. 88  `8D 88 ,8P' 88'  YP 
       88V8o 88 88ooooo 88oooY' 88    88 88      88ooo88      `8bo.   88    88 88ooo      88    88   I8I   88 88    88 88oobY' 88,8P   `8bo.   
       88 V8o88 88~~~~~ 88~~~b. 88    88 88      88~~~88        `Y8b. 88    88 88~~~      88    Y8   I8I   88 88    88 88`8b   88`8b     `Y8b. 
       88  V888 88.     88   8D 88b  d88 88booo. 88   88      db   8D `8b  d8' 88         88    `8b d8'8b d8' `8b  d8' 88 `88. 88 `88. db   8D 
       VP   V8P Y88888P Y8888P' ~Y8888P' Y88888P YP   YP      `8888Y'  `Y88P'  YP         YP     `8b8' `8d8'   `Y88P'  88   YD YP   YD `8888Y' 
-
+                                                                                                                                        
+                                                                                                                                        
 
 Main Credits
 
 Hunter (Nebula Softworks) | Designing And Programming | Main Developer
-JustHey (Nebula Softworks) | Configurations, Bug Fixing And More! | Co Developer
-Throit | Color Picker
-Wally | Dragging And Certain Functions
-Sirius | PCall Parsing,AC Notifications, Slider And Home Tab
-Luna Executor | Original UI
+JustHey (Nebula Softworks) | Configurations, Programming, Bug Fixing | Co Developer
+Pookie Pepelss (Nebula Softworks) | Bug And Feature Testing | Lead Tester
+Inori | Configuration and Layout Concept  
 
 
-Extra Credits / Provided Certain Elements
+Extra Credits
 
-Pookie Pepelss | Bug Tester
-Inori | Configuration Concept
-Latte Softworks and qweery | Lucide Icons And Material Icons
-kirill9655 | Loading Circle
-Deity/dp4pv/x64x70 | Certain Scripting and Testing ig
+Sirius | Build Warnings
+Deity/dp4pv/x64x70/btg/j24 | Certain Scripting and Testing 
+The Nebula Softworks Community | Bug Testers And Suggestions For The Project
 
-Contributors
-iPigTw | Typo Fixer, Fixed Key System!!
-pushByAccident | Fixing Executor Lists
-ImFloriz | Method Fixing
 
-Luna Interface Suite
+NOTES:
+Starlight is a custom interface suite built from the ground up, meaning scripted and designed from scratch unlike Luna. If any other UIs look like Starlight,
+It is pure coincidence (Coming back after writing this, allusive looks like starlight a hella ton, and i didnt even know that lib existed :sob: so yea). 
+If you see our logo used anywhere else, please report it to us as I made this logo from scratch and i cannot fucking tolerate other shit
+stealing my logos and claiming it as their own, like bloody hell cryptic stole Luna's logo and called it their own, fk you reaper. Besides the credits provided, everything
+else was scripted by Me and JustHey from SCRATCH, meaning our brains only and no online references with a minor exception of Luna's Original Code.
+The nature of Starlight is a GUI Model based library (and not drawing), meaning the interface is designed in studio as a Roblox game asset, before being published to roblox
+and coded via a script. Sirius' Rayfield uses this too, BUT ITS NOT A COPY. Im putting this here because Luna did this as well and while alot of parts were taken from
+Rayfield so I could tolerate some of that bs, this was not and I am not tolerating that skidding bs. I dont get how using the same type of library nature is considered skidding.
+It Just Happens to be the same. If you're wondering why the model's interface is called Starlight V2, its because i was working on a previous discontinued UI library project in the past and
+it was also called Starlight. Some members of the Nebula Softworks Community should know about that, and it was discontinued due to my lack of motivation
+and the fact the design was way too complicated to script as a UI library with reusable components. (it was based on apple settings)
+
+For those intending to read the source through, I sincerely apologise for some of the parts which are extremely unorganised/weird/hard to understand.
+Main example is the way returning for elements function. Like wtf? Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index].NestedElements[NestedIndex] = NestedElement ??!!?!?!
+For that instance, it is so we can return everything in a whole table, with everything accessible and linked back to the main library table (and to make accessible outside of creation).
+However, once again I apologise. I have added the meanings of some unorthodox/stylised comments below.
+I kind of gave up/forgot to comment within the Elements too, so another apology :sob:
+ 
+
+COMMENT MEANINGS:
+A Section is something used to easily identify what a section of code is used for/means
+Subsections help to oraganize within subsections, and are smaller, breaking down the code even more
+
+Asterisks in Table Examples mean that the parameter is not required
+However, if there are 4 asterisks, it means that requirement of the parameter depends on another parameter
+Ellipsis means that unlimited parameters of the template provided are accepted within the table
+
+If you see --!nocheck and a few nil variables above before this, that is for the studio environment. It js means I forgot to remove them before publishing the release.
+
+
+Starlight Interface Suite
 by Nebula Softworks
 
 ]]
-getgenv().ConfirmLuna = True
-local Release = "Prerelease Beta 6.1"
 
-local Luna = { 
-	Folder = "Luna", 
-	Options = {}, 
-	ThemeGradient = ColorSequence.new{
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(64, 61, 76)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(136, 131, 163)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(64, 61, 76))
-	}
+--// SECTION : Core Variables
+
+local Release = "Prerelease Beta 5.03Meow"
+local debugV = false
+
+local Starlight = {
+
+	InterfaceBuild = "B5B9",
+
+	WindowKeybind = "K",
+
+	Minimized = false,
+	Maximized = false,
+	NotificationsOpen = false,
+	DialogOpen = false,
+
+	Window = nil,
+	Notifications = nil,
+	Instance = nil,
+	OnDestroy = nil,
+
+	FileSystem = {
+		Folder = "Starlight Interface Suite",
+		FileExtension = ".starlight",
+
+		AutoloadConfigPath = nil,
+		AutoloadThemePath = nil,
+	},
 }
 
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local HttpService = game:GetService("HttpService")
-local RunService = game:GetService("RunService")
-local Localization = game:GetService("LocalizationService")
-local Players = game:GetService("Players")
-local Player = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-local CoreGui = game:GetService("CoreGui")
+--// ENDSECTION
 
-local isStudio
-local website = "github.com/Nebula-Softworks"
+--// SECTION : Services And Variables
 
-if RunService:IsStudio() then
-	isStudio = true
+-- Services
+
+local function GetService(serviceName)
+	return cloneref ~= nil and cloneref(game:GetService(serviceName)) or game:GetService(serviceName)
+end
+local Lighting = GetService("Lighting")
+local Players = GetService("Players")
+local Teams = GetService("Teams")
+local StatsService = GetService("Stats")
+local RunService = GetService("RunService")
+local UserInputService = GetService("UserInputService")
+local TweenService = GetService("TweenService")
+local HttpService = GetService("HttpService")
+local Localization = GetService("LocalizationService")
+local CollectionService = GetService("CollectionService")
+local TeleportService = GetService("TeleportService")
+local TextService = GetService("TextService")
+local GuiService = GetService("GuiService")
+local MarketplaceService = GetService("MarketplaceService")
+local ReplicatedStorage = GetService("ReplicatedStorage")
+local ContentProvider = GetService("ContentProvider")
+local CoreGui = GetService("CoreGui")
+local InputManager
+
+if not getgenv().SecureMode then
+	InputManager = GetService("VirtualInputManager")
 end
 
--- Credits To Latte Softworks And qweery for Lucide And Material Icons Respectively.
-local IconModule = {
-	Lucide = nil,
-	Material = {
-		["perm_media"] = "http://www.roblox.com/asset/?id=6031215982";
-		["sticky_note_2"] = "http://www.roblox.com/asset/?id=6031265972";
-		["gavel"] = "http://www.roblox.com/asset/?id=6023565902";
-		["table_view"] = "http://www.roblox.com/asset/?id=6031233835";
-		["home"] = "http://www.roblox.com/asset/?id=6026568195";
-		["list"] = "http://www.roblox.com/asset/?id=6026568229";
-		["alarm_add"] = "http://www.roblox.com/asset/?id=6023426898";
-		["speaker_notes"] = "http://www.roblox.com/asset/?id=6031266001";
-		["check_circle_outline"] = "http://www.roblox.com/asset/?id=6023426909";
-		["extension"] = "http://www.roblox.com/asset/?id=6023565892";
-		["pending"] = "http://www.roblox.com/asset/?id=6031084745";
-		["pageview"] = "http://www.roblox.com/asset/?id=6031216007";
-		["group_work"] = "http://www.roblox.com/asset/?id=6023565910";
-		["zoom_in"] = "http://www.roblox.com/asset/?id=6031075573";
-		["aspect_ratio"] = "http://www.roblox.com/asset/?id=6022668895";
-		["code"] = "http://www.roblox.com/asset/?id=6022668955";
-		["3d_rotation"] = "http://www.roblox.com/asset/?id=6022668893";
-		["translate"] = "http://www.roblox.com/asset/?id=6031225812";
-		["star_rate"] = "http://www.roblox.com/asset/?id=6031265978";
-		["system_update_alt"] = "http://www.roblox.com/asset/?id=6031251515";
-		["open_with"] = "http://www.roblox.com/asset/?id=6026568265";
-		["build_circle"] = "http://www.roblox.com/asset/?id=6023426952";
-		["toc"] = "http://www.roblox.com/asset/?id=6031229341";
-		["settings_phone"] = "http://www.roblox.com/asset/?id=6031289445";
-		["open_in_full"] = "http://www.roblox.com/asset/?id=6026568245";
-		["history"] = "http://www.roblox.com/asset/?id=6026568197";
-		["accessibility_new"] = "http://www.roblox.com/asset/?id=6022668945";
-		["hourglass_disabled"] = "http://www.roblox.com/asset/?id=6026568193";
-		["line_style"] = "http://www.roblox.com/asset/?id=6026568276";
-		["account_circle"] = "http://www.roblox.com/asset/?id=6022668898";
-		["settings_cell"] = "http://www.roblox.com/asset/?id=6031280890";
-		["search_off"] = "http://www.roblox.com/asset/?id=6031260783";
-		["shop"] = "http://www.roblox.com/asset/?id=6031265983";
-		["anchor"] = "http://www.roblox.com/asset/?id=6023426906";
-		["language"] = "http://www.roblox.com/asset/?id=6026568213";
-		["settings_brightness"] = "http://www.roblox.com/asset/?id=6031280902";
-		["restore_page"] = "http://www.roblox.com/asset/?id=6031154877";
-		["chrome_reader_mode"] = "http://www.roblox.com/asset/?id=6023426912";
-		["sync_alt"] = "http://www.roblox.com/asset/?id=6031233840";
-		["book"] = "http://www.roblox.com/asset/?id=6022860343";
-		["smart_button"] = "http://www.roblox.com/asset/?id=6031265962";
-		["request_page"] = "http://www.roblox.com/asset/?id=6031154873";
-		["lock_clock"] = "http://www.roblox.com/asset/?id=6026568260";
-		["android"] = "http://www.roblox.com/asset/?id=6022668966";
-		["outgoing_mail"] = "http://www.roblox.com/asset/?id=6026568242";
-		["dynamic_form"] = "http://www.roblox.com/asset/?id=6023426970";
-		["track_changes"] = "http://www.roblox.com/asset/?id=6031225814";
-		["source"] = "http://www.roblox.com/asset/?id=6031289451";
-		["thumb_down"] = "http://www.roblox.com/asset/?id=6031229336";
-		["integration_instructions"] = "http://www.roblox.com/asset/?id=6026568214";
-		["opacity"] = "http://www.roblox.com/asset/?id=6026568295";
-		["perm_identity"] = "http://www.roblox.com/asset/?id=6031215978";
-		["view_module"] = "http://www.roblox.com/asset/?id=6031079152";
-		["perm_data_setting"] = "http://www.roblox.com/asset/?id=6031215991";
-		["assignment_turned_in"] = "http://www.roblox.com/asset/?id=6023426904";
-		["change_history"] = "http://www.roblox.com/asset/?id=6023426914";
-		["thumb_down_off_alt"] = "http://www.roblox.com/asset/?id=6031229354";
-		["text_rotation_angledown"] = "http://www.roblox.com/asset/?id=6031251513";
-		["bookmark"] = "http://www.roblox.com/asset/?id=6022852108";
-		["view_stream"] = "http://www.roblox.com/asset/?id=6031079164";
-		["remove_done"] = "http://www.roblox.com/asset/?id=6031086169";
-		["markunread_mailbox"] = "http://www.roblox.com/asset/?id=6031082531";
-		["store"] = "http://www.roblox.com/asset/?id=6031265968";
-		["text_rotation_angleup"] = "http://www.roblox.com/asset/?id=6031229337";
-		["eco"] = "http://www.roblox.com/asset/?id=6023426988";
-		["find_in_page"] = "http://www.roblox.com/asset/?id=6023426986";
-		["api"] = "http://www.roblox.com/asset/?id=6022668911";
-		["launch"] = "http://www.roblox.com/asset/?id=6026568211";
-		["text_rotation_down"] = "http://www.roblox.com/asset/?id=6031229334";
-		["flip_to_back"] = "http://www.roblox.com/asset/?id=6023565896";
-		["contact_page"] = "http://www.roblox.com/asset/?id=6022668881";
-		["preview"] = "http://www.roblox.com/asset/?id=6031260793";
-		["restore"] = "http://www.roblox.com/asset/?id=6031260800";
-		["favorite_border"] = "http://www.roblox.com/asset/?id=6023565882";
-		["assignment_late"] = "http://www.roblox.com/asset/?id=6022668880";
-		["youtube_searched_for"] = "http://www.roblox.com/asset/?id=6031075934";
-		["hourglass_full"] = "http://www.roblox.com/asset/?id=6026568190";
-		["timeline"] = "http://www.roblox.com/asset/?id=6031229350";
-		["turned_in"] = "http://www.roblox.com/asset/?id=6031225808";
-		["info"] = "http://www.roblox.com/asset/?id=6026568227";
-		["restore_from_trash"] = "http://www.roblox.com/asset/?id=6031154869";
-		["arrow_circle_down"] = "http://www.roblox.com/asset/?id=6022668877";
-		["flaky"] = "http://www.roblox.com/asset/?id=6031082523";
-		["alarm_on"] = "http://www.roblox.com/asset/?id=6023426920";
-		["swap_vertical_circle"] = "http://www.roblox.com/asset/?id=6031233839";
-		["open_in_new"] = "http://www.roblox.com/asset/?id=6026568256";
-		["watch_later"] = "http://www.roblox.com/asset/?id=6031075924";
-		["alarm_off"] = "http://www.roblox.com/asset/?id=6023426901";
-		["maximize"] = "http://www.roblox.com/asset/?id=6026568267";
-		["lock_outline"] = "http://www.roblox.com/asset/?id=6031082533";
-		["outbond"] = "http://www.roblox.com/asset/?id=6026568244";
-		["view_carousel"] = "http://www.roblox.com/asset/?id=6031251507";
-		["published_with_changes"] = "http://www.roblox.com/asset/?id=6031243328";
-		["verified_user"] = "http://www.roblox.com/asset/?id=6031225819";
-		["drag_indicator"] = "http://www.roblox.com/asset/?id=6023426962";
-		["lightbulb_outline"] = "http://www.roblox.com/asset/?id=6026568254";
-		["segment"] = "http://www.roblox.com/asset/?id=6031260773";
-		["assignment"] = "http://www.roblox.com/asset/?id=6022668882";
-		["work_outline"] = "http://www.roblox.com/asset/?id=6031075930";
-		["line_weight"] = "http://www.roblox.com/asset/?id=6026568226";
-		["dangerous"] = "http://www.roblox.com/asset/?id=6022668916";
-		["assessment"] = "http://www.roblox.com/asset/?id=6022668897";
-		["view_day"] = "http://www.roblox.com/asset/?id=6031079153";
-		["help_center"] = "http://www.roblox.com/asset/?id=6026568192";
-		["logout"] = "http://www.roblox.com/asset/?id=6031082522";
-		["event"] = "http://www.roblox.com/asset/?id=6023426959";
-		["get_app"] = "http://www.roblox.com/asset/?id=6023565889";
-		["tab"] = "http://www.roblox.com/asset/?id=6031233851";
-		["label"] = "http://www.roblox.com/asset/?id=6031082525";
-		["g_translate"] = "http://www.roblox.com/asset/?id=6031082526";
-		["view_week"] = "http://www.roblox.com/asset/?id=6031079154";
-		["view_in_ar"] = "http://www.roblox.com/asset/?id=6031079158";
-		["card_travel"] = "http://www.roblox.com/asset/?id=6023426925";
-		["lock_open"] = "http://www.roblox.com/asset/?id=6026568220";
-		["voice_over_off"] = "http://www.roblox.com/asset/?id=6031075927";
-		["app_blocking"] = "http://www.roblox.com/asset/?id=6022668952";
-		["settings_ethernet"] = "http://www.roblox.com/asset/?id=6031280883";
-		["supervised_user_circle"] = "http://www.roblox.com/asset/?id=6031289449";
-		["done_all"] = "http://www.roblox.com/asset/?id=6023426929";
-		["lightbulb"] = "http://www.roblox.com/asset/?id=6026568247";
-		["find_replace"] = "http://www.roblox.com/asset/?id=6023426979";
-		["bookmarks"] = "http://www.roblox.com/asset/?id=6023426924";
-		["today"] = "http://www.roblox.com/asset/?id=6031229352";
-		["class"] = "http://www.roblox.com/asset/?id=6022668949";
-		["supervisor_account"] = "http://www.roblox.com/asset/?id=6031251516";
-		["support"] = "http://www.roblox.com/asset/?id=6031251532";
-		["done_outline"] = "http://www.roblox.com/asset/?id=6023426936";
-		["reorder"] = "http://www.roblox.com/asset/?id=6031154868";
-		["fact_check"] = "http://www.roblox.com/asset/?id=6023426951";
-		["thumb_up"] = "http://www.roblox.com/asset/?id=6031229347";
-		["assignment_returned"] = "http://www.roblox.com/asset/?id=6023426899";
-		["card_giftcard"] = "http://www.roblox.com/asset/?id=6023426978";
-		["trending_down"] = "http://www.roblox.com/asset/?id=6031225811";
-		["settings_backup_restore"] = "http://www.roblox.com/asset/?id=6031280886";
-		["settings_voice"] = "http://www.roblox.com/asset/?id=6031265966";
-		["dns"] = "http://www.roblox.com/asset/?id=6023426958";
-		["perm_scan_wifi"] = "http://www.roblox.com/asset/?id=6031215985";
-		["plagiarism"] = "http://www.roblox.com/asset/?id=6031243320";
-		["commute"] = "http://www.roblox.com/asset/?id=6022668901";
-		["gif"] = "http://www.roblox.com/asset/?id=6031082540";
-		["work"] = "http://www.roblox.com/asset/?id=6031075939";
-		["picture_in_picture_alt"] = "http://www.roblox.com/asset/?id=6031215979";
-		["query_builder"] = "http://www.roblox.com/asset/?id=6031086183";
-		["label_off"] = "http://www.roblox.com/asset/?id=6026568209";
-		["all_out"] = "http://www.roblox.com/asset/?id=6022668876";
-		["article"] = "http://www.roblox.com/asset/?id=6022668907";
-		["shopping_basket"] = "http://www.roblox.com/asset/?id=6031265997";
-		["mark_as_unread"] = "http://www.roblox.com/asset/?id=6026568223";
-		["work_off"] = "http://www.roblox.com/asset/?id=6031075937";
-		["delete_outline"] = "http://www.roblox.com/asset/?id=6022668962";
-		["account_box"] = "http://www.roblox.com/asset/?id=6023426915";
-		["home_filled"] = "rbxassetid://9080449299";
-		["lock"] = "http://www.roblox.com/asset/?id=6026568224";
-		["perm_device_information"] = "http://www.roblox.com/asset/?id=6031215996";
-		["add_task"] = "http://www.roblox.com/asset/?id=6022668912";
-		["text_rotate_up"] = "http://www.roblox.com/asset/?id=6031251526";
-		["swipe"] = "http://www.roblox.com/asset/?id=6031233863";
-		["eject"] = "http://www.roblox.com/asset/?id=6023426930";
-		["mediation"] = "http://www.roblox.com/asset/?id=6026568249";
-		["label_important_outline"] = "http://www.roblox.com/asset/?id=6026568199";
-		["settings_remote"] = "http://www.roblox.com/asset/?id=6031289442";
-		["history_toggle_off"] = "http://www.roblox.com/asset/?id=6026568196";
-		["invert_colors"] = "http://www.roblox.com/asset/?id=6026568253";
-		["visibility_off"] = "http://www.roblox.com/asset/?id=6031075929";
-		["addchart"] = "http://www.roblox.com/asset/?id=6023426905";
-		["cancel_schedule_send"] = "http://www.roblox.com/asset/?id=6022668963";
-		["loyalty"] = "http://www.roblox.com/asset/?id=6026568237";
-		["speaker_notes_off"] = "http://www.roblox.com/asset/?id=6031265965";
-		["online_prediction"] = "http://www.roblox.com/asset/?id=6026568239";
-		["remove_shopping_cart"] = "http://www.roblox.com/asset/?id=6031260778";
-		["text_rotate_vertical"] = "http://www.roblox.com/asset/?id=6031251518";
-		["visibility"] = "http://www.roblox.com/asset/?id=6031075931";
-		["add_to_drive"] = "http://www.roblox.com/asset/?id=6022860335";
-		["accessible"] = "http://www.roblox.com/asset/?id=6022668902";
-		["bookmark_border"] = "http://www.roblox.com/asset/?id=6022860339";
-		["tour"] = "http://www.roblox.com/asset/?id=6031229362";
-		["compare_arrows"] = "http://www.roblox.com/asset/?id=6022668951";
-		["view_sidebar"] = "http://www.roblox.com/asset/?id=6031079160";
-		["face"] = "http://www.roblox.com/asset/?id=6023426944";
-		["wysiwyg"] = "http://www.roblox.com/asset/?id=6031075938";
-		["camera_enhance"] = "http://www.roblox.com/asset/?id=6023426935";
-		["perm_camera_mic"] = "http://www.roblox.com/asset/?id=6031215983";
-		["model_training"] = "http://www.roblox.com/asset/?id=6026568222";
-		["arrow_circle_up"] = "http://www.roblox.com/asset/?id=6022668934";
-		["euro_symbol"] = "http://www.roblox.com/asset/?id=6023426954";
-		["pending_actions"] = "http://www.roblox.com/asset/?id=6031260777";
-		["not_accessible"] = "http://www.roblox.com/asset/?id=6026568269";
-		["explore_off"] = "http://www.roblox.com/asset/?id=6023426953";
-		["build"] = "http://www.roblox.com/asset/?id=6023426938";
-		["backup"] = "http://www.roblox.com/asset/?id=6023426911";
-		["settings_input_antenna"] = "http://www.roblox.com/asset/?id=6031280891";
-		["disabled_by_default"] = "http://www.roblox.com/asset/?id=6023426939";
-		["upgrade"] = "http://www.roblox.com/asset/?id=6031225815";
-		["contactless"] = "http://www.roblox.com/asset/?id=6022668886";
-		["trending_flat"] = "http://www.roblox.com/asset/?id=6031225818";
-		["schedule"] = "http://www.roblox.com/asset/?id=6031260808";
-		["offline_pin"] = "http://www.roblox.com/asset/?id=6031084770";
-		["date_range"] = "http://www.roblox.com/asset/?id=6022668894";
-		["flight_land"] = "http://www.roblox.com/asset/?id=6023565897";
-		["view_headline"] = "http://www.roblox.com/asset/?id=6031079151";
-		["cached"] = "http://www.roblox.com/asset/?id=6023426921";
-		["unpublished"] = "http://www.roblox.com/asset/?id=6031225817";
-		["outlet"] = "http://www.roblox.com/asset/?id=6031084748";
-		["favorite"] = "http://www.roblox.com/asset/?id=6023426974";
-		["vertical_split"] = "http://www.roblox.com/asset/?id=6031225820";
-		["report_problem"] = "http://www.roblox.com/asset/?id=6031086176";
-		["fingerprint"] = "http://www.roblox.com/asset/?id=6023565895";
-		["important_devices"] = "http://www.roblox.com/asset/?id=6026568202";
-		["outbox"] = "http://www.roblox.com/asset/?id=6026568263";
-		["all_inbox"] = "http://www.roblox.com/asset/?id=6022668909";
-		["label_important"] = "http://www.roblox.com/asset/?id=6026568215";
-		["print"] = "http://www.roblox.com/asset/?id=6031243324";
-		["settings_bluetooth"] = "http://www.roblox.com/asset/?id=6031280905";
-		["power_settings_new"] = "http://www.roblox.com/asset/?id=6031260781";
-		["zoom_out"] = "http://www.roblox.com/asset/?id=6031075577";
-		["stars"] = "http://www.roblox.com/asset/?id=6031265971";
-		["offline_bolt"] = "http://www.roblox.com/asset/?id=6031084742";
-		["feedback"] = "http://www.roblox.com/asset/?id=6023426957";
-		["accessibility"] = "http://www.roblox.com/asset/?id=6022668887";
-		["announcement"] = "http://www.roblox.com/asset/?id=6022668946";
-		["settings_input_hdmi"] = "http://www.roblox.com/asset/?id=6031280970";
-		["leaderboard"] = "http://www.roblox.com/asset/?id=6026568216";
-		["view_quilt"] = "http://www.roblox.com/asset/?id=6031079155";
-		["note_add"] = "http://www.roblox.com/asset/?id=6031084749";
-		["theaters"] = "http://www.roblox.com/asset/?id=6031229335";
-		["alarm"] = "http://www.roblox.com/asset/?id=6023426910";
-		["settings_input_composite"] = "http://www.roblox.com/asset/?id=6031280896";
-		["grade"] = "http://www.roblox.com/asset/?id=6026568189";
-		["tab_unselected"] = "http://www.roblox.com/asset/?id=6031251505";
-		["swap_vert"] = "http://www.roblox.com/asset/?id=6031233847";
-		["assignment_return"] = "http://www.roblox.com/asset/?id=6023426931";
-		["highlight_alt"] = "http://www.roblox.com/asset/?id=6023565913";
-		["shopping_bag"] = "http://www.roblox.com/asset/?id=6031265970";
-		["contact_support"] = "http://www.roblox.com/asset/?id=6022668879";
-		["flip_to_front"] = "http://www.roblox.com/asset/?id=6023565894";
-		["touch_app"] = "http://www.roblox.com/asset/?id=6031229361";
-		["room"] = "http://www.roblox.com/asset/?id=6031154875";
-		["send_and_archive"] = "http://www.roblox.com/asset/?id=6031280889";
-		["view_array"] = "http://www.roblox.com/asset/?id=6031225842";
-		["settings_power"] = "http://www.roblox.com/asset/?id=6031289446";
-		["admin_panel_settings"] = "http://www.roblox.com/asset/?id=6022668961";
-		["open_in_browser"] = "http://www.roblox.com/asset/?id=6026568266";
-		["card_membership"] = "http://www.roblox.com/asset/?id=6023426942";
-		["rule"] = "http://www.roblox.com/asset/?id=6031154859";
-		["schedule_send"] = "http://www.roblox.com/asset/?id=6031154866";
-		["calendar_today"] = "http://www.roblox.com/asset/?id=6022668917";
-		["info_outline"] = "http://www.roblox.com/asset/?id=6026568210";
-		["description"] = "http://www.roblox.com/asset/?id=6022668888";
-		["dashboard_customize"] = "http://www.roblox.com/asset/?id=6022668899";
-		["rowing"] = "http://www.roblox.com/asset/?id=6031154857";
-		["swap_horizontal_circle"] = "http://www.roblox.com/asset/?id=6031233833";
-		["account_balance_wallet"] = "http://www.roblox.com/asset/?id=6022668892";
-		["view_agenda"] = "http://www.roblox.com/asset/?id=6031225831";
-		["shop_two"] = "http://www.roblox.com/asset/?id=6031289461";
-		["done"] = "http://www.roblox.com/asset/?id=6023426926";
-		["circle_notifications"] = "http://www.roblox.com/asset/?id=6023426923";
-		["compress"] = "http://www.roblox.com/asset/?id=6022668878";
-		["calendar_view_day"] = "http://www.roblox.com/asset/?id=6023426946";
-		["thumbs_up_down"] = "http://www.roblox.com/asset/?id=6031229373";
-		["account_balance"] = "http://www.roblox.com/asset/?id=6022668900";
-		["play_for_work"] = "http://www.roblox.com/asset/?id=6031260776";
-		["pets"] = "http://www.roblox.com/asset/?id=6031260782";
-		["view_column"] = "http://www.roblox.com/asset/?id=6031079172";
-		["search"] = "http://www.roblox.com/asset/?id=6031154871";
-		["autorenew"] = "http://www.roblox.com/asset/?id=6023565901";
-		["copyright"] = "http://www.roblox.com/asset/?id=6023565898";
-		["privacy_tip"] = "http://www.roblox.com/asset/?id=6031260784";
-		["arrow_right_alt"] = "http://www.roblox.com/asset/?id=6022668890";
-		["delete"] = "http://www.roblox.com/asset/?id=6022668885";
-		["nightlight_round"] = "http://www.roblox.com/asset/?id=6031084743";
-		["batch_prediction"] = "http://www.roblox.com/asset/?id=6022860334";
-		["shopping_cart"] = "http://www.roblox.com/asset/?id=6031265976";
-		["login"] = "http://www.roblox.com/asset/?id=6031082527";
-		["settings_input_svideo"] = "http://www.roblox.com/asset/?id=6031289444";
-		["payment"] = "http://www.roblox.com/asset/?id=6031084751";
-		["update"] = "http://www.roblox.com/asset/?id=6031225810";
-		["text_rotation_none"] = "http://www.roblox.com/asset/?id=6031229344";
-		["perm_contact_calendar"] = "http://www.roblox.com/asset/?id=6031215990";
-		["explore"] = "http://www.roblox.com/asset/?id=6023426941";
-		["delete_forever"] = "http://www.roblox.com/asset/?id=6022668939";
-		["rounded_corner"] = "http://www.roblox.com/asset/?id=6031154861";
-		["book_online"] = "http://www.roblox.com/asset/?id=6022860332";
-		["quickreply"] = "http://www.roblox.com/asset/?id=6031243319";
-		["bug_report"] = "http://www.roblox.com/asset/?id=6022852107";
-		["subtitles_off"] = "http://www.roblox.com/asset/?id=6031289466";
-		["close_fullscreen"] = "http://www.roblox.com/asset/?id=6023426928";
-		["horizontal_split"] = "http://www.roblox.com/asset/?id=6026568194";
-		["minimize"] = "http://www.roblox.com/asset/?id=6026568240";
-		["filter_list_alt"] = "http://www.roblox.com/asset/?id=6023426955";
-		["add_shopping_cart"] = "http://www.roblox.com/asset/?id=6022668875";
-		["next_plan"] = "http://www.roblox.com/asset/?id=6026568231";
-		["view_list"] = "http://www.roblox.com/asset/?id=6031079156";
-		["receipt"] = "http://www.roblox.com/asset/?id=6031086173";
-		["polymer"] = "http://www.roblox.com/asset/?id=6031260785";
-		["spellcheck"] = "http://www.roblox.com/asset/?id=6031289450";
-		["wifi_protected_setup"] = "http://www.roblox.com/asset/?id=6031075926";
-		["label_outline"] = "http://www.roblox.com/asset/?id=6026568207";
-		["highlight_off"] = "http://www.roblox.com/asset/?id=6023565916";
-		["turned_in_not"] = "http://www.roblox.com/asset/?id=6031225806";
-		["edit_off"] = "http://www.roblox.com/asset/?id=6023426983";
-		["question_answer"] = "http://www.roblox.com/asset/?id=6031086172";
-		["settings_overscan"] = "http://www.roblox.com/asset/?id=6031289459";
-		["trending_up"] = "http://www.roblox.com/asset/?id=6031225816";
-		["verified"] = "http://www.roblox.com/asset/?id=6031225809";
-		["flight_takeoff"] = "http://www.roblox.com/asset/?id=6023565891";
-		["grading"] = "http://www.roblox.com/asset/?id=6026568191";
-		["dashboard"] = "http://www.roblox.com/asset/?id=6022668883";
-		["expand"] = "http://www.roblox.com/asset/?id=6022668891";
-		["backup_table"] = "http://www.roblox.com/asset/?id=6022860338";
-		["analytics"] = "http://www.roblox.com/asset/?id=6022668884";
-		["picture_in_picture"] = "http://www.roblox.com/asset/?id=6031215994";
-		["settings"] = "http://www.roblox.com/asset/?id=6031280882";
-		["accessible_forward"] = "http://www.roblox.com/asset/?id=6022668906";
-		["pan_tool"] = "http://www.roblox.com/asset/?id=6031084771";
-		["https"] = "http://www.roblox.com/asset/?id=6026568200";
-		["filter_alt"] = "http://www.roblox.com/asset/?id=6023426984";
-		["thumb_up_off_alt"] = "http://www.roblox.com/asset/?id=6031229342";
-		["record_voice_over"] = "http://www.roblox.com/asset/?id=6031243318";
-		["help_outline"] = "http://www.roblox.com/asset/?id=6026568201";
-		["check_circle"] = "http://www.roblox.com/asset/?id=6023426945";
-		["comment_bank"] = "http://www.roblox.com/asset/?id=6023426937";
-		["perm_phone_msg"] = "http://www.roblox.com/asset/?id=6031215986";
-		["settings_applications"] = "http://www.roblox.com/asset/?id=6031280894";
-		["exit_to_app"] = "http://www.roblox.com/asset/?id=6023426922";
-		["saved_search"] = "http://www.roblox.com/asset/?id=6031154867";
-		["toll"] = "http://www.roblox.com/asset/?id=6031229343";
-		["not_started"] = "http://www.roblox.com/asset/?id=6026568232";
-		["subject"] = "http://www.roblox.com/asset/?id=6031289452";
-		["redeem"] = "http://www.roblox.com/asset/?id=6031086170";
-		["input"] = "http://www.roblox.com/asset/?id=6026568225";
-		["settings_input_component"] = "http://www.roblox.com/asset/?id=6031280884";
-		["assignment_ind"] = "http://www.roblox.com/asset/?id=6022668935";
-		["swap_horiz"] = "http://www.roblox.com/asset/?id=6031233841";
-		["fullscreen"] = "http://www.roblox.com/asset/?id=6031094681";
-		["cancel"] = "http://www.roblox.com/asset/?id=6031094677";
-		["subdirectory_arrow_left"] = "http://www.roblox.com/asset/?id=6031104654";
-		["close"] = "http://www.roblox.com/asset/?id=6031094678";
-		["arrow_back_ios"] = "http://www.roblox.com/asset/?id=6031091003";
-		["east"] = "http://www.roblox.com/asset/?id=6031094675";
-		["unfold_more"] = "http://www.roblox.com/asset/?id=6031104644";
-		["south"] = "http://www.roblox.com/asset/?id=6031104646";
-		["arrow_drop_up"] = "http://www.roblox.com/asset/?id=6031090990";
-		["arrow_back"] = "http://www.roblox.com/asset/?id=6031091000";
-		["arrow_downward"] = "http://www.roblox.com/asset/?id=6031090991";
-		["west"] = "http://www.roblox.com/asset/?id=6031104677";
-		["legend_toggle"] = "http://www.roblox.com/asset/?id=6031097233";
-		["fullscreen_exit"] = "http://www.roblox.com/asset/?id=6031094691";
-		["last_page"] = "http://www.roblox.com/asset/?id=6031094686";
-		["switch_right"] = "http://www.roblox.com/asset/?id=6031104649";
-		["check"] = "http://www.roblox.com/asset/?id=6031094667";
-		["home_work"] = "http://www.roblox.com/asset/?id=6031094683";
-		["north_east"] = "http://www.roblox.com/asset/?id=6031097228";
-		["double_arrow"] = "http://www.roblox.com/asset/?id=6031094674";
-		["more_vert"] = "http://www.roblox.com/asset/?id=6031104648";
-		["chevron_left"] = "http://www.roblox.com/asset/?id=6031094670";
-		["more_horiz"] = "http://www.roblox.com/asset/?id=6031104650";
-		["unfold_less"] = "http://www.roblox.com/asset/?id=6031104681";
-		["first_page"] = "http://www.roblox.com/asset/?id=6031094682";
-		["payments"] = "http://www.roblox.com/asset/?id=6031097227";
-		["arrow_right"] = "http://www.roblox.com/asset/?id=6031090994";
-		["offline_share"] = "http://www.roblox.com/asset/?id=6031097267";
-		["south_west"] = "http://www.roblox.com/asset/?id=6031104652";
-		["expand_less"] = "http://www.roblox.com/asset/?id=6031094679";
-		["south_east"] = "http://www.roblox.com/asset/?id=6031104642";
-		["assistant_navigation"] = "http://www.roblox.com/asset/?id=6031091006";
-		["apps"] = "http://www.roblox.com/asset/?id=6031090999";
-		["arrow_upward"] = "http://www.roblox.com/asset/?id=6031090997";
-		["app_settings_alt"] = "http://www.roblox.com/asset/?id=6031090998";
-		["subdirectory_arrow_right"] = "http://www.roblox.com/asset/?id=6031104647";
-		["north_west"] = "http://www.roblox.com/asset/?id=6031104630";
-		["switch_left"] = "http://www.roblox.com/asset/?id=6031104651";
-		["chevron_right"] = "http://www.roblox.com/asset/?id=6031094680";
-		["arrow_forward"] = "http://www.roblox.com/asset/?id=6031090995";
-		["arrow_forward_ios"] = "http://www.roblox.com/asset/?id=6031091008";
-		["arrow_drop_down"] = "http://www.roblox.com/asset/?id=6031091004";
-		["refresh"] = "http://www.roblox.com/asset/?id=6031097226";
-		["pivot_table_chart"] = "http://www.roblox.com/asset/?id=6031097234";
-		["expand_more"] = "http://www.roblox.com/asset/?id=6031094687";
-		["campaign"] = "http://www.roblox.com/asset/?id=6031094666";
-		["arrow_left"] = "http://www.roblox.com/asset/?id=6031091002";
-		["arrow_drop_down_circle"] = "http://www.roblox.com/asset/?id=6031091001";
-		["menu_open"] = "http://www.roblox.com/asset/?id=6031097229";
-		["waterfall_chart"] = "http://www.roblox.com/asset/?id=6031104632";
-		["assistant_direction"] = "http://www.roblox.com/asset/?id=6031091005";
-		["menu"] = "http://www.roblox.com/asset/?id=6031097225";
-		["personal_video"] = "http://www.roblox.com/asset/?id=6034457070";
-		["power_off"] = "http://www.roblox.com/asset/?id=6034457087";
-		["wifi_off"] = "http://www.roblox.com/asset/?id=6034461625";
-		["adb"] = "http://www.roblox.com/asset/?id=6034418515";
-		["airline_seat_recline_normal"] = "http://www.roblox.com/asset/?id=6034418512";
-		["sync_problem"] = "http://www.roblox.com/asset/?id=6034452653";
-		["network_check"] = "http://www.roblox.com/asset/?id=6034461631";
-		["event_busy"] = "http://www.roblox.com/asset/?id=6034439634";
-		["airline_seat_flat"] = "http://www.roblox.com/asset/?id=6034418511";
-		["disc_full"] = "http://www.roblox.com/asset/?id=6034418518";
-		["sd_card"] = "http://www.roblox.com/asset/?id=6034457089";
-		["time_to_leave"] = "http://www.roblox.com/asset/?id=6034452660";
-		["phone_bluetooth_speaker"] = "http://www.roblox.com/asset/?id=6034457057";
-		["phone_paused"] = "http://www.roblox.com/asset/?id=6034457066";
-		["phone_locked"] = "http://www.roblox.com/asset/?id=6034457058";
-		["more"] = "http://www.roblox.com/asset/?id=6034461627";
-		["add_call"] = "http://www.roblox.com/asset/?id=6034418524";
-		["account_tree"] = "http://www.roblox.com/asset/?id=6034418507";
-		["do_not_disturb_on"] = "http://www.roblox.com/asset/?id=6034439649";
-		["event_note"] = "http://www.roblox.com/asset/?id=6034439637";
-		["sync_disabled"] = "http://www.roblox.com/asset/?id=6034452649";
-		["mms"] = "http://www.roblox.com/asset/?id=6034461621";
-		["airline_seat_flat_angled"] = "http://www.roblox.com/asset/?id=6034418513";
-		["bluetooth_audio"] = "http://www.roblox.com/asset/?id=6034418522";
-		["vibration"] = "http://www.roblox.com/asset/?id=6034452651";
-		["system_update"] = "http://www.roblox.com/asset/?id=6034452663";
-		["enhanced_encryption"] = "http://www.roblox.com/asset/?id=6034439652";
-		["wc"] = "http://www.roblox.com/asset/?id=6034452643";
-		["live_tv"] = "http://www.roblox.com/asset/?id=6034439648";
-		["folder_special"] = "http://www.roblox.com/asset/?id=6034439639";
-		["phone_missed"] = "http://www.roblox.com/asset/?id=6034457056";
-		["airline_seat_recline_extra"] = "http://www.roblox.com/asset/?id=6034418528";
-		["sms"] = "http://www.roblox.com/asset/?id=6034452645";
-		["tap_and_play"] = "http://www.roblox.com/asset/?id=6034452650";
-		["confirmation_number"] = "http://www.roblox.com/asset/?id=6034418519";
-		["event_available"] = "http://www.roblox.com/asset/?id=6034439643";
-		["sms_failed"] = "http://www.roblox.com/asset/?id=6034452676";
-		["do_not_disturb_alt"] = "http://www.roblox.com/asset/?id=6034461619";
-		["do_not_disturb"] = "http://www.roblox.com/asset/?id=6034439645";
-		["ondemand_video"] = "http://www.roblox.com/asset/?id=6034457065";
-		["no_encryption"] = "http://www.roblox.com/asset/?id=6034457059";
-		["airline_seat_legroom_extra"] = "http://www.roblox.com/asset/?id=6034418508";
-		["tv_off"] = "http://www.roblox.com/asset/?id=6034452646";
-		["sim_card_alert"] = "http://www.roblox.com/asset/?id=6034452641";
-		["airline_seat_legroom_normal"] = "http://www.roblox.com/asset/?id=6034418532";
-		["wifi"] = "http://www.roblox.com/asset/?id=6034461626";
-		["do_not_disturb_off"] = "http://www.roblox.com/asset/?id=6034439642";
-		["imagesearch_roller"] = "http://www.roblox.com/asset/?id=6034439635";
-		["power"] = "http://www.roblox.com/asset/?id=6034457105";
-		["airline_seat_legroom_reduced"] = "http://www.roblox.com/asset/?id=6034418520";
-		["phone_in_talk"] = "http://www.roblox.com/asset/?id=6034457067";
-		["airline_seat_individual_suite"] = "http://www.roblox.com/asset/?id=6034418514";
-		["priority_high"] = "http://www.roblox.com/asset/?id=6034457092";
-		["phone_callback"] = "http://www.roblox.com/asset/?id=6034457104";
-		["phone_forwarded"] = "http://www.roblox.com/asset/?id=6034457106";
-		["sync"] = "http://www.roblox.com/asset/?id=6034452662";
-		["vpn_lock"] = "http://www.roblox.com/asset/?id=6034452648";
-		["support_agent"] = "http://www.roblox.com/asset/?id=6034452656";
-		["network_locked"] = "http://www.roblox.com/asset/?id=6034457064";
-		["directions_off"] = "http://www.roblox.com/asset/?id=6034418517";
-		["drive_eta"] = "http://www.roblox.com/asset/?id=6034464371";
-		["sensor_window"] = "http://www.roblox.com/asset/?id=6031067242";
-		["sensor_door"] = "http://www.roblox.com/asset/?id=6031067241";
-		["keyboard_return"] = "http://www.roblox.com/asset/?id=6034818370";
-		["monitor"] = "http://www.roblox.com/asset/?id=6034837803";
-		["device_hub"] = "http://www.roblox.com/asset/?id=6034789877";
-		["keyboard"] = "http://www.roblox.com/asset/?id=6034818398";
-		["keyboard_voice"] = "http://www.roblox.com/asset/?id=6034818360";
-		["cast"] = "http://www.roblox.com/asset/?id=6034789876";
-		["developer_board"] = "http://www.roblox.com/asset/?id=6034789883";
-		["tablet"] = "http://www.roblox.com/asset/?id=6034848733";
-		["keyboard_hide"] = "http://www.roblox.com/asset/?id=6034818386";
-		["dock"] = "http://www.roblox.com/asset/?id=6034789888";
-		["phonelink"] = "http://www.roblox.com/asset/?id=6034837801";
-		["device_unknown"] = "http://www.roblox.com/asset/?id=6034789884";
-		["speaker_group"] = "http://www.roblox.com/asset/?id=6034848732";
-		["desktop_mac"] = "http://www.roblox.com/asset/?id=6034789898";
-		["point_of_sale"] = "http://www.roblox.com/asset/?id=6034837798";
-		["memory"] = "http://www.roblox.com/asset/?id=6034837807";
-		["keyboard_tab"] = "http://www.roblox.com/asset/?id=6034818363";
-		["router"] = "http://www.roblox.com/asset/?id=6034837806";
-		["sim_card"] = "http://www.roblox.com/asset/?id=6034837800";
-		["headset"] = "http://www.roblox.com/asset/?id=6034789880";
-		["gamepad"] = "http://www.roblox.com/asset/?id=6034789879";
-		["speaker"] = "http://www.roblox.com/asset/?id=6034848746";
-		["devices_other"] = "http://www.roblox.com/asset/?id=6034789873";
-		["laptop"] = "http://www.roblox.com/asset/?id=6034818367";
-		["scanner"] = "http://www.roblox.com/asset/?id=6034837799";
-		["tv"] = "http://www.roblox.com/asset/?id=6034848740";
-		["headset_mic"] = "http://www.roblox.com/asset/?id=6034818383";
-		["browser_not_supported"] = "http://www.roblox.com/asset/?id=6034789875";
-		["computer"] = "http://www.roblox.com/asset/?id=6034789874";
-		["connected_tv"] = "http://www.roblox.com/asset/?id=6034789870";
-		["phonelink_off"] = "http://www.roblox.com/asset/?id=6034837804";
-		["headset_off"] = "http://www.roblox.com/asset/?id=6034818402";
-		["cast_connected"] = "http://www.roblox.com/asset/?id=6034789895";
-		["watch"] = "http://www.roblox.com/asset/?id=6034848747";
-		["keyboard_arrow_up"] = "http://www.roblox.com/asset/?id=6034818379";
-		["keyboard_backspace"] = "http://www.roblox.com/asset/?id=6034818381";
-		["laptop_chromebook"] = "http://www.roblox.com/asset/?id=6034818364";
-		["phone_iphone"] = "http://www.roblox.com/asset/?id=6034837811";
-		["smartphone"] = "http://www.roblox.com/asset/?id=6034848731";
-		["power_input"] = "http://www.roblox.com/asset/?id=6034837794";
-		["videogame_asset"] = "http://www.roblox.com/asset/?id=6034848748";
-		["desktop_windows"] = "http://www.roblox.com/asset/?id=6034789893";
-		["keyboard_arrow_down"] = "http://www.roblox.com/asset/?id=6034818372";
-		["laptop_mac"] = "http://www.roblox.com/asset/?id=6034837808";
-		["laptop_windows"] = "http://www.roblox.com/asset/?id=6034837796";
-		["keyboard_arrow_right"] = "http://www.roblox.com/asset/?id=6034818365";
-		["cast_for_education"] = "http://www.roblox.com/asset/?id=6034789872";
-		["keyboard_capslock"] = "http://www.roblox.com/asset/?id=6034818403";
-		["toys"] = "http://www.roblox.com/asset/?id=6034848752";
-		["tablet_android"] = "http://www.roblox.com/asset/?id=6034848734";
-		["mouse"] = "http://www.roblox.com/asset/?id=6034837797";
-		["phone_android"] = "http://www.roblox.com/asset/?id=6034837793";
-		["keyboard_arrow_left"] = "http://www.roblox.com/asset/?id=6034818375";
-		["security"] = "http://www.roblox.com/asset/?id=6034837802";
-		["dry_cleaning"] = "http://www.roblox.com/asset/?id=6034754456";
-		["bakery_dining"] = "http://www.roblox.com/asset/?id=6034767610";
-		["place"] = "http://www.roblox.com/asset/?id=6034503372";
-		["run_circle"] = "http://www.roblox.com/asset/?id=6034503367";
-		["local_post_office"] = "http://www.roblox.com/asset/?id=6034513883";
-		["takeout_dining"] = "http://www.roblox.com/asset/?id=6034467808";
-		["nightlife"] = "http://www.roblox.com/asset/?id=6034510003";
-		["design_services"] = "http://www.roblox.com/asset/?id=6034754453";
-		["celebration"] = "http://www.roblox.com/asset/?id=6034767613";
-		["near_me_disabled"] = "http://www.roblox.com/asset/?id=6034509988";
-		["add_location_alt"] = "http://www.roblox.com/asset/?id=6034483678";
-		["directions_run"] = "http://www.roblox.com/asset/?id=6034754445";
-		["local_fire_department"] = "http://www.roblox.com/asset/?id=6034684949";
-		["add_road"] = "http://www.roblox.com/asset/?id=6034483677";
-		["my_location"] = "http://www.roblox.com/asset/?id=6034509987";
-		["dinner_dining"] = "http://www.roblox.com/asset/?id=6034754457";
-		["local_airport"] = "http://www.roblox.com/asset/?id=6034687951";
-		["zoom_out_map"] = "http://www.roblox.com/asset/?id=6035229856";
-		["pin_drop"] = "http://www.roblox.com/asset/?id=6034470807";
-		["subway"] = "http://www.roblox.com/asset/?id=6034467790";
-		["electric_moped"] = "http://www.roblox.com/asset/?id=6034744027";
-		["restaurant_menu"] = "http://www.roblox.com/asset/?id=6034503378";
-		["local_gas_station"] = "http://www.roblox.com/asset/?id=6034684935";
-		["local_cafe"] = "http://www.roblox.com/asset/?id=6034687954";
-		["theater_comedy"] = "http://www.roblox.com/asset/?id=6034467796";
-		["directions_bus"] = "http://www.roblox.com/asset/?id=6034754434";
-		["hail"] = "http://www.roblox.com/asset/?id=6034744033";
-		["satellite"] = "http://www.roblox.com/asset/?id=6034503370";
-		["local_phone"] = "http://www.roblox.com/asset/?id=6034513884";
-		["electric_bike"] = "http://www.roblox.com/asset/?id=6034744032";
-		["local_see"] = "http://www.roblox.com/asset/?id=6034513887";
-		["transit_enterexit"] = "http://www.roblox.com/asset/?id=6034467805";
-		["local_convenience_store"] = "http://www.roblox.com/asset/?id=6034687956";
-		["local_offer"] = "http://www.roblox.com/asset/?id=6034513891";
-		["electric_car"] = "http://www.roblox.com/asset/?id=6034744029";
-		["beenhere"] = "http://www.roblox.com/asset/?id=6034483675";
-		["miscellaneous_services"] = "http://www.roblox.com/asset/?id=6034509993";
-		["maps_ugc"] = "http://www.roblox.com/asset/?id=6034509992";
-		["moped"] = "http://www.roblox.com/asset/?id=6034509999";
-		["medical_services"] = "http://www.roblox.com/asset/?id=6034510001";
-		["money"] = "http://www.roblox.com/asset/?id=6034509997";
-		["transfer_within_a_station"] = "http://www.roblox.com/asset/?id=6034467809";
-		["electrical_services"] = "http://www.roblox.com/asset/?id=6034744038";
-		["museum"] = "http://www.roblox.com/asset/?id=6034510005";
-		["add_location"] = "http://www.roblox.com/asset/?id=6034483672";
-		["layers"] = "http://www.roblox.com/asset/?id=6034687957";
-		["handyman"] = "http://www.roblox.com/asset/?id=6034744057";
-		["local_pharmacy"] = "http://www.roblox.com/asset/?id=6034513903";
-		["electric_rickshaw"] = "http://www.roblox.com/asset/?id=6034744043";
-		["alt_route"] = "http://www.roblox.com/asset/?id=6034483670";
-		["no_transfer"] = "http://www.roblox.com/asset/?id=6034503363";
-		["pedal_bike"] = "http://www.roblox.com/asset/?id=6034503374";
-		["directions_transit"] = "http://www.roblox.com/asset/?id=6034754436";
-		["railway_alert"] = "http://www.roblox.com/asset/?id=6034470823";
-		["local_police"] = "http://www.roblox.com/asset/?id=6034513895";
-		["directions_car"] = "http://www.roblox.com/asset/?id=6034754441";
-		["category"] = "http://www.roblox.com/asset/?id=6034767621";
-		["attractions"] = "http://www.roblox.com/asset/?id=6034767620";
-		["person_pin_circle"] = "http://www.roblox.com/asset/?id=6034503375";
-		["cleaning_services"] = "http://www.roblox.com/asset/?id=6034767619";
-		["terrain"] = "http://www.roblox.com/asset/?id=6034467794";
-		["no_meals"] = "http://www.roblox.com/asset/?id=6034510024";
-		["train"] = "http://www.roblox.com/asset/?id=6034467803";
-		["delivery_dining"] = "http://www.roblox.com/asset/?id=6034767644";
-		["pest_control"] = "http://www.roblox.com/asset/?id=6034470809";
-		["directions"] = "http://www.roblox.com/asset/?id=6034754449";
-		["atm"] = "http://www.roblox.com/asset/?id=6034767614";
-		["rate_review"] = "http://www.roblox.com/asset/?id=6034503385";
-		["local_bar"] = "http://www.roblox.com/asset/?id=6034687950";
-		["local_drink"] = "http://www.roblox.com/asset/?id=6034687965";
-		["directions_railway"] = "http://www.roblox.com/asset/?id=6034754433";
-		["person_pin"] = "http://www.roblox.com/asset/?id=6034503364";
-		["ev_station"] = "http://www.roblox.com/asset/?id=6034744037";
-		["home_repair_service"] = "http://www.roblox.com/asset/?id=6034744064";
-		["bus_alert"] = "http://www.roblox.com/asset/?id=6034767618";
-		["agriculture"] = "http://www.roblox.com/asset/?id=6034483674";
-		["volunteer_activism"] = "http://www.roblox.com/asset/?id=6034467799";
-		["breakfast_dining"] = "http://www.roblox.com/asset/?id=6034483671";
-		["layers_clear"] = "http://www.roblox.com/asset/?id=6034687975";
-		["plumbing"] = "http://www.roblox.com/asset/?id=6034470800";
-		["taxi_alert"] = "http://www.roblox.com/asset/?id=6034467792";
-		["add_business"] = "http://www.roblox.com/asset/?id=6034483666";
-		["badge"] = "http://www.roblox.com/asset/?id=6034767607";
-		["edit_attributes"] = "http://www.roblox.com/asset/?id=6034754443";
-		["directions_walk"] = "http://www.roblox.com/asset/?id=6034754448";
-		["local_play"] = "http://www.roblox.com/asset/?id=6034513889";
-		["bike_scooter"] = "http://www.roblox.com/asset/?id=6034483669";
-		["two_wheeler"] = "http://www.roblox.com/asset/?id=6034467795";
-		["local_florist"] = "http://www.roblox.com/asset/?id=6034684940";
-		["local_hotel"] = "http://www.roblox.com/asset/?id=6034684939";
-		["no_meals_ouline"] = "http://www.roblox.com/asset/?id=6034510025";
-		["festival"] = "http://www.roblox.com/asset/?id=6034744031";
-		["local_shipping"] = "http://www.roblox.com/asset/?id=6034684926";
-		["directions_boat"] = "http://www.roblox.com/asset/?id=6034754442";
-		["wrong_location"] = "http://www.roblox.com/asset/?id=6034467801";
-		["restaurant"] = "http://www.roblox.com/asset/?id=6034503366";
-		["directions_subway"] = "http://www.roblox.com/asset/?id=6034754440";
-		["not_listed_location"] = "http://www.roblox.com/asset/?id=6034503380";
-		["electric_scooter"] = "http://www.roblox.com/asset/?id=6034744041";
-		["ramen_dining"] = "http://www.roblox.com/asset/?id=6034503377";
-		["edit_road"] = "http://www.roblox.com/asset/?id=6034744035";
-		["local_printshop"] = "http://www.roblox.com/asset/?id=6034513897";
-		["map"] = "http://www.roblox.com/asset/?id=6034684930";
-		["car_rental"] = "http://www.roblox.com/asset/?id=6034767641";
-		["multiple_stop"] = "http://www.roblox.com/asset/?id=6034510026";
-		["brunch_dining"] = "http://www.roblox.com/asset/?id=6034767611";
-		["local_laundry_service"] = "http://www.roblox.com/asset/?id=6034684943";
-		["set_meal"] = "http://www.roblox.com/asset/?id=6034503368";
-		["local_car_wash"] = "http://www.roblox.com/asset/?id=6034687976";
-		["pest_control_rodent"] = "http://www.roblox.com/asset/?id=6034470803";
-		["local_pizza"] = "http://www.roblox.com/asset/?id=6034513885";
-		["local_grocery_store"] = "http://www.roblox.com/asset/?id=6034684933";
-		["traffic"] = "http://www.roblox.com/asset/?id=6034467797";
-		["departure_board"] = "http://www.roblox.com/asset/?id=6034767615";
-		["icecream"] = "http://www.roblox.com/asset/?id=6034687967";
-		["navigation"] = "http://www.roblox.com/asset/?id=6034509984";
-		["near_me"] = "http://www.roblox.com/asset/?id=6034509996";
-		["fastfood"] = "http://www.roblox.com/asset/?id=6034744034";
-		["local_library"] = "http://www.roblox.com/asset/?id=6034684931";
-		["local_activity"] = "http://www.roblox.com/asset/?id=6034687955";
-		["local_hospital"] = "http://www.roblox.com/asset/?id=6034684956";
-		["menu_book"] = "http://www.roblox.com/asset/?id=6034509994";
-		["directions_bike"] = "http://www.roblox.com/asset/?id=6034754459";
-		["store_mall_directory"] = "http://www.roblox.com/asset/?id=6034470811";
-		["trip_origin"] = "http://www.roblox.com/asset/?id=6034467804";
-		["tram"] = "http://www.roblox.com/asset/?id=6034467806";
-		["edit_location"] = "http://www.roblox.com/asset/?id=6034754439";
-		["streetview"] = "http://www.roblox.com/asset/?id=6034470805";
-		["hvac"] = "http://www.roblox.com/asset/?id=6034687960";
-		["lunch_dining"] = "http://www.roblox.com/asset/?id=6034684928";
-		["car_repair"] = "http://www.roblox.com/asset/?id=6034767617";
-		["compass_calibration"] = "http://www.roblox.com/asset/?id=6034767623";
-		["360"] = "http://www.roblox.com/asset/?id=6034767608";
-		["flight"] = "http://www.roblox.com/asset/?id=6034744030";
-		["local_mall"] = "http://www.roblox.com/asset/?id=6034684934";
-		["hotel"] = "http://www.roblox.com/asset/?id=6034687977";
-		["local_parking"] = "http://www.roblox.com/asset/?id=6034513893";
-		["hardware"] = "http://www.roblox.com/asset/?id=6034744036";
-		["local_dining"] = "http://www.roblox.com/asset/?id=6034687963";
-		["park"] = "http://www.roblox.com/asset/?id=6034503369";
-		["location_pin"] = "http://www.roblox.com/asset/?id=6034684937";
-		["local_movies"] = "http://www.roblox.com/asset/?id=6034684936";
-		["local_atm"] = "http://www.roblox.com/asset/?id=6034687953";
-		["local_taxi"] = "http://www.roblox.com/asset/?id=6034684927";
-		["brightness_low"] = "http://www.roblox.com/asset/?id=6034989542";
-		["screen_lock_landscape"] = "http://www.roblox.com/asset/?id=6034996700";
-		["graphic_eq"] = "http://www.roblox.com/asset/?id=6034989551";
-		["screen_lock_rotation"] = "http://www.roblox.com/asset/?id=6034996710";
-		["signal_cellular_4_bar"] = "http://www.roblox.com/asset/?id=6035030076";
-		["airplanemode_inactive"] = "http://www.roblox.com/asset/?id=6034983848";
-		["signal_wifi_0_bar"] = "http://www.roblox.com/asset/?id=6035030067";
-		["battery_full"] = "http://www.roblox.com/asset/?id=6034983854";
-		["gps_fixed"] = "http://www.roblox.com/asset/?id=6034989550";
-		["brightness_high"] = "http://www.roblox.com/asset/?id=6034989541";
-		["ad_units"] = "http://www.roblox.com/asset/?id=6034983845";
-		["signal_cellular_alt"] = "http://www.roblox.com/asset/?id=6035030079";
-		["bluetooth_connected"] = "http://www.roblox.com/asset/?id=6034983855";
-		["wifi_tethering"] = "http://www.roblox.com/asset/?id=6035039430";
-		["dvr"] = "http://www.roblox.com/asset/?id=6034989561";
-		["screen_search_desktop"] = "http://www.roblox.com/asset/?id=6034996711";
-		["network_wifi"] = "http://www.roblox.com/asset/?id=6034996712";
-		["access_alarms"] = "http://www.roblox.com/asset/?id=6034983853";
-		["nfc"] = "http://www.roblox.com/asset/?id=6034996698";
-		["location_disabled"] = "http://www.roblox.com/asset/?id=6034996694";
-		["signal_wifi_4_bar"] = "http://www.roblox.com/asset/?id=6035030077";
-		["access_time"] = "http://www.roblox.com/asset/?id=6034983856";
-		["mobile_off"] = "http://www.roblox.com/asset/?id=6034996702";
-		["battery_unknown"] = "http://www.roblox.com/asset/?id=6034983842";
-		["signal_cellular_null"] = "http://www.roblox.com/asset/?id=6035030075";
-		["bluetooth_disabled"] = "http://www.roblox.com/asset/?id=6034989562";
-		["developer_mode"] = "http://www.roblox.com/asset/?id=6034989549";
-		["network_cell"] = "http://www.roblox.com/asset/?id=6034996709";
-		["sd_storage"] = "http://www.roblox.com/asset/?id=6034996719";
-		["signal_cellular_no_sim"] = "http://www.roblox.com/asset/?id=6035030078";
-		["devices"] = "http://www.roblox.com/asset/?id=6034989540";
-		["screen_rotation"] = "http://www.roblox.com/asset/?id=6034996701";
-		["device_thermostat"] = "http://www.roblox.com/asset/?id=6034989544";
-		["signal_wifi_off"] = "http://www.roblox.com/asset/?id=6035030074";
-		["widgets"] = "http://www.roblox.com/asset/?id=6035039429";
-		["bluetooth"] = "http://www.roblox.com/asset/?id=6034983880";
-		["battery_charging_full"] = "http://www.roblox.com/asset/?id=6034983849";
-		["mobile_friendly"] = "http://www.roblox.com/asset/?id=6034996699";
-		["signal_cellular_0_bar"] = "http://www.roblox.com/asset/?id=6035030072";
-		["storage"] = "http://www.roblox.com/asset/?id=6035030083";
-		["send_to_mobile"] = "http://www.roblox.com/asset/?id=6034996697";
-		["location_searching"] = "http://www.roblox.com/asset/?id=6034996695";
-		["brightness_auto"] = "http://www.roblox.com/asset/?id=6034989545";
-		["wifi_lock"] = "http://www.roblox.com/asset/?id=6035039428";
-		["gps_not_fixed"] = "http://www.roblox.com/asset/?id=6034989547";
-		["access_alarm"] = "http://www.roblox.com/asset/?id=6034983844";
-		["battery_alert"] = "http://www.roblox.com/asset/?id=6034983843";
-		["signal_cellular_off"] = "http://www.roblox.com/asset/?id=6035030084";
-		["signal_cellular_connected_no_internet_4"] = "http://www.roblox.com/asset/?id=6035229858";
-		["gps_off"] = "http://www.roblox.com/asset/?id=6034989548";
-		["add_alarm"] = "http://www.roblox.com/asset/?id=6034983850";
-		["brightness_medium"] = "http://www.roblox.com/asset/?id=6034989543";
-		["usb"] = "http://www.roblox.com/asset/?id=6035030080";
-		["airplanemode_active"] = "http://www.roblox.com/asset/?id=6034983864";
-		["reset_tv"] = "http://www.roblox.com/asset/?id=6034996696";
-		["wallpaper"] = "http://www.roblox.com/asset/?id=6035030102";
-		["settings_system_daydream"] = "http://www.roblox.com/asset/?id=6035030081";
-		["bluetooth_searching"] = "http://www.roblox.com/asset/?id=6034989553";
-		["add_to_home_screen"] = "http://www.roblox.com/asset/?id=6034983858";
-		["screen_lock_portrait"] = "http://www.roblox.com/asset/?id=6034996706";
-		["data_usage"] = "http://www.roblox.com/asset/?id=6034989568";
-		["_auto_delete"] = "http://www.roblox.com/asset/?id=6031071068";
-		["_error"] = "http://www.roblox.com/asset/?id=6031071057";
-		["_notification_important"] = "http://www.roblox.com/asset/?id=6031071056";
-		["_add_alert"] = "http://www.roblox.com/asset/?id=6031071067";
-		["_warning"] = "http://www.roblox.com/asset/?id=6031071053";
-		["_error_outline"] = "http://www.roblox.com/asset/?id=6031071050";
-		["check_box_outline_blank"] = "http://www.roblox.com/asset/?id=6031068420";
-		["toggle_off"] = "http://www.roblox.com/asset/?id=6031068429";
-		["indeterminate_check_box"] = "http://www.roblox.com/asset/?id=6031068445";
-		["radio_button_checked"] = "http://www.roblox.com/asset/?id=6031068426";
-		["toggle_on"] = "http://www.roblox.com/asset/?id=6031068430";
-		["check_box"] = "http://www.roblox.com/asset/?id=6031068421";
-		["radio_button_unchecked"] = "http://www.roblox.com/asset/?id=6031068433";
-		["star"] = "http://www.roblox.com/asset/?id=6031068423";
-		["star_border"] = "http://www.roblox.com/asset/?id=6031068425";
-		["star_half"] = "http://www.roblox.com/asset/?id=6031068427";
-		["star_outline"] = "http://www.roblox.com/asset/?id=6031068428";
-		["multiline_chart"] = "http://www.roblox.com/asset/?id=6034941721";
-		["pie_chart"] = "http://www.roblox.com/asset/?id=6034973076";
-		["format_line_spacing"] = "http://www.roblox.com/asset/?id=6034910905";
-		["format_align_left"] = "http://www.roblox.com/asset/?id=6034900727";
-		["linear_scale"] = "http://www.roblox.com/asset/?id=6034941707";
-		["insert_photo"] = "http://www.roblox.com/asset/?id=6034941703";
-		["scatter_plot"] = "http://www.roblox.com/asset/?id=6034973094";
-		["post_add"] = "http://www.roblox.com/asset/?id=6034973083";
-		["format_textdirection_r_to_l"] = "http://www.roblox.com/asset/?id=6034925623";
-		["format_size"] = "http://www.roblox.com/asset/?id=6034910908";
-		["format_color_fill"] = "http://www.roblox.com/asset/?id=6034910903";
-		["format_paint"] = "http://www.roblox.com/asset/?id=6034925618";
-		["format_underlined"] = "http://www.roblox.com/asset/?id=6034925627";
-		["format_shapes"] = "http://www.roblox.com/asset/?id=6034910909";
-		["title"] = "http://www.roblox.com/asset/?id=6034934042";
-		["highlight"] = "http://www.roblox.com/asset/?id=6034925617";
-		["bar_chart"] = "http://www.roblox.com/asset/?id=6034898096";
-		["format_indent_increase"] = "http://www.roblox.com/asset/?id=6034900724";
-		["merge_type"] = "http://www.roblox.com/asset/?id=6034941705";
-		["bubble_chart"] = "http://www.roblox.com/asset/?id=6034925612";
-		["publish"] = "http://www.roblox.com/asset/?id=6034973085";
-		["format_indent_decrease"] = "http://www.roblox.com/asset/?id=6034900733";
-		["margin"] = "http://www.roblox.com/asset/?id=6034941701";
-		["table_rows"] = "http://www.roblox.com/asset/?id=6034934025";
-		["stacked_line_chart"] = "http://www.roblox.com/asset/?id=6034934039";
-		["border_clear"] = "http://www.roblox.com/asset/?id=6034898135";
-		["border_color"] = "http://www.roblox.com/asset/?id=6034898100";
-		["border_inner"] = "http://www.roblox.com/asset/?id=6034898131";
-		["insert_chart"] = "http://www.roblox.com/asset/?id=6034925628";
-		["border_top"] = "http://www.roblox.com/asset/?id=6034900726";
-		["padding"] = "http://www.roblox.com/asset/?id=6034973078";
-		["border_vertical"] = "http://www.roblox.com/asset/?id=6034900725";
-		["score"] = "http://www.roblox.com/asset/?id=6034934041";
-		["border_right"] = "http://www.roblox.com/asset/?id=6034898120";
-		["add_chart"] = "http://www.roblox.com/asset/?id=6034898093";
-		["space_bar"] = "http://www.roblox.com/asset/?id=6034934037";
-		["border_outer"] = "http://www.roblox.com/asset/?id=6034898104";
-		["mode_comment"] = "http://www.roblox.com/asset/?id=6034941700";
-		["attach_money"] = "http://www.roblox.com/asset/?id=6034898098";
-		["drag_handle"] = "http://www.roblox.com/asset/?id=6034910907";
-		["format_align_right"] = "http://www.roblox.com/asset/?id=6034900723";
-		["pie_chart_outlined"] = "http://www.roblox.com/asset/?id=6034973077";
-		["horizontal_rule"] = "http://www.roblox.com/asset/?id=6034925610";
-		["border_all"] = "http://www.roblox.com/asset/?id=6034898101";
-		["border_style"] = "http://www.roblox.com/asset/?id=6034898097";
-		["insert_comment"] = "http://www.roblox.com/asset/?id=6034925609";
-		["vertical_align_top"] = "http://www.roblox.com/asset/?id=6034973080";
-		["vertical_align_center"] = "http://www.roblox.com/asset/?id=6034934051";
-		["format_color_text"] = "http://www.roblox.com/asset/?id=6034910910";
-		["format_quote"] = "http://www.roblox.com/asset/?id=6034925629";
-		["height"] = "http://www.roblox.com/asset/?id=6034925613";
-		["add_comment"] = "http://www.roblox.com/asset/?id=6034898128";
-		["format_strikethrough"] = "http://www.roblox.com/asset/?id=6034910904";
-		["strikethrough_s"] = "http://www.roblox.com/asset/?id=6034934030";
-		["border_left"] = "http://www.roblox.com/asset/?id=6034898099";
-		["format_list_bulleted"] = "http://www.roblox.com/asset/?id=6034925620";
-		["format_italic"] = "http://www.roblox.com/asset/?id=6034910912";
-		["format_list_numbered"] = "http://www.roblox.com/asset/?id=6034925622";
-		["attach_file"] = "http://www.roblox.com/asset/?id=6034898102";
-		["wrap_text"] = "http://www.roblox.com/asset/?id=6034973118";
-		["insert_invitation"] = "http://www.roblox.com/asset/?id=6034973091";
-		["format_list_numbered_rtl"] = "http://www.roblox.com/asset/?id=6034910906";
-		["border_horizontal"] = "http://www.roblox.com/asset/?id=6034898105";
-		["format_align_center"] = "http://www.roblox.com/asset/?id=6034900718";
-		["format_textdirection_l_to_r"] = "http://www.roblox.com/asset/?id=6034925619";
-		["show_chart"] = "http://www.roblox.com/asset/?id=6034934032";
-		["insert_chart_outlined"] = "http://www.roblox.com/asset/?id=6034925606";
-		["vertical_align_bottom"] = "http://www.roblox.com/asset/?id=6034934023";
-		["subscript"] = "http://www.roblox.com/asset/?id=6034934059";
-		["format_align_justify"] = "http://www.roblox.com/asset/?id=6034900721";
-		["format_clear"] = "http://www.roblox.com/asset/?id=6034910902";
-		["notes"] = "http://www.roblox.com/asset/?id=6034973084";
-		["insert_drive_file"] = "http://www.roblox.com/asset/?id=6034941697";
-		["functions"] = "http://www.roblox.com/asset/?id=6034925614";
-		["insert_emoticon"] = "http://www.roblox.com/asset/?id=6034973079";
-		["insert_link"] = "http://www.roblox.com/asset/?id=6034973074";
-		["format_color_reset"] = "http://www.roblox.com/asset/?id=6034900743";
-		["monetization_on"] = "http://www.roblox.com/asset/?id=6034973115";
-		["short_text"] = "http://www.roblox.com/asset/?id=6034934035";
-		["mode_edit"] = "http://www.roblox.com/asset/?id=6034941708";
-		["superscript"] = "http://www.roblox.com/asset/?id=6034934034";
-		["table_chart"] = "http://www.roblox.com/asset/?id=6034973081";
-		["format_bold"] = "http://www.roblox.com/asset/?id=6034900732";
-		["money_off"] = "http://www.roblox.com/asset/?id=6034973088";
-		["border_bottom"] = "http://www.roblox.com/asset/?id=6034898094";
-		["text_fields"] = "http://www.roblox.com/asset/?id=6034934040";
-		["note"] = "http://www.roblox.com/asset/?id=6026663734";
-		["shuffle"] = "http://www.roblox.com/asset/?id=6026667003";
-		["library_books"] = "http://www.roblox.com/asset/?id=6026660085";
-		["library_music"] = "http://www.roblox.com/asset/?id=6026660075";
-		["surround_sound"] = "http://www.roblox.com/asset/?id=6026671209";
-		["forward_30"] = "http://www.roblox.com/asset/?id=6026660088";
-		["music_video"] = "http://www.roblox.com/asset/?id=6026663704";
-		["videocam_off"] = "http://www.roblox.com/asset/?id=6026671212";
-		["control_camera"] = "http://www.roblox.com/asset/?id=6026647916";
-		["explicit"] = "http://www.roblox.com/asset/?id=6026647913";
-		["3k_plus"] = "http://www.roblox.com/asset/?id=6026681598";
-		["fiber_pin"] = "http://www.roblox.com/asset/?id=6026660064";
-		["skip_previous"] = "http://www.roblox.com/asset/?id=6026667011";
-		["pause_circle_filled"] = "http://www.roblox.com/asset/?id=6026663718";
-		["video_settings"] = "http://www.roblox.com/asset/?id=6026671211";
-		["movie"] = "http://www.roblox.com/asset/?id=6026660081";
-		["add_to_queue"] = "http://www.roblox.com/asset/?id=6026647903";
-		["6k"] = "http://www.roblox.com/asset/?id=6026681579";
-		["web_asset"] = "http://www.roblox.com/asset/?id=6026671239";
-		["play_circle_outline"] = "http://www.roblox.com/asset/?id=6026663726";
-		["volume_off"] = "http://www.roblox.com/asset/?id=6026671224";
-		["mic_off"] = "http://www.roblox.com/asset/?id=6026660076";
-		["featured_play_list"] = "http://www.roblox.com/asset/?id=6026647932";
-		["pause_circle_outline"] = "http://www.roblox.com/asset/?id=6026663701";
-		["slow_motion_video"] = "http://www.roblox.com/asset/?id=6026681583";
-		["7k"] = "http://www.roblox.com/asset/?id=6026681584";
-		["playlist_add"] = "http://www.roblox.com/asset/?id=6026663728";
-		["fiber_smart_record"] = "http://www.roblox.com/asset/?id=6026660080";
-		["8k"] = "http://www.roblox.com/asset/?id=6026643014";
-		["hd"] = "http://www.roblox.com/asset/?id=6026660065";
-		["repeat_one_on"] = "http://www.roblox.com/asset/?id=6026666992";
-		["recent_actors"] = "http://www.roblox.com/asset/?id=6026663773";
-		["fiber_new"] = "http://www.roblox.com/asset/?id=6026647930";
-		["fiber_dvr"] = "http://www.roblox.com/asset/?id=6026647912";
-		["hearing_disabled"] = "http://www.roblox.com/asset/?id=6026660068";
-		["forward_10"] = "http://www.roblox.com/asset/?id=6026660062";
-		["4k_plus"] = "http://www.roblox.com/asset/?id=6026643005";
-		["repeat_one"] = "http://www.roblox.com/asset/?id=6026681590";
-		["equalizer"] = "http://www.roblox.com/asset/?id=6026647906";
-		["stop"] = "http://www.roblox.com/asset/?id=6026681576";
-		["2k"] = "http://www.roblox.com/asset/?id=6026643032";
-		["playlist_add_check"] = "http://www.roblox.com/asset/?id=6026663727";
-		["not_interested"] = "http://www.roblox.com/asset/?id=6026663743";
-		["videocam"] = "http://www.roblox.com/asset/?id=6026671213";
-		["sort_by_alpha"] = "http://www.roblox.com/asset/?id=6026667009";
-		["library_add"] = "http://www.roblox.com/asset/?id=6026660063";
-		["stop_circle"] = "http://www.roblox.com/asset/?id=6026681577";
-		["pause"] = "http://www.roblox.com/asset/?id=6026663719";
-		["new_releases"] = "http://www.roblox.com/asset/?id=6026663730";
-		["album"] = "http://www.roblox.com/asset/?id=6026647905";
-		["sd"] = "http://www.roblox.com/asset/?id=6026681582";
-		["volume_up"] = "http://www.roblox.com/asset/?id=6026671215";
-		["replay_5"] = "http://www.roblox.com/asset/?id=6026666993";
-		["high_quality"] = "http://www.roblox.com/asset/?id=6026660059";
-		["shuffle_on"] = "http://www.roblox.com/asset/?id=6026666996";
-		["play_arrow"] = "http://www.roblox.com/asset/?id=6026663699";
-		["snooze"] = "http://www.roblox.com/asset/?id=6026667006";
-		["closed_caption_disabled"] = "http://www.roblox.com/asset/?id=6026647900";
-		["subscriptions"] = "http://www.roblox.com/asset/?id=6026671207";
-		["skip_next"] = "http://www.roblox.com/asset/?id=6026667005";
-		["branding_watermark"] = "http://www.roblox.com/asset/?id=6026647911";
-		["speed"] = "http://www.roblox.com/asset/?id=6026681578";
-		["art_track"] = "http://www.roblox.com/asset/?id=6026647908";
-		["3k"] = "http://www.roblox.com/asset/?id=6026681574";
-		["4k"] = "http://www.roblox.com/asset/?id=6026643017";
-		["volume_mute"] = "http://www.roblox.com/asset/?id=6026671214";
-		["playlist_play"] = "http://www.roblox.com/asset/?id=6026663723";
-		["remove_from_queue"] = "http://www.roblox.com/asset/?id=6026663771";
-		["fast_forward"] = "http://www.roblox.com/asset/?id=6026647902";
-		["play_disabled"] = "http://www.roblox.com/asset/?id=6026663702";
-		["fast_rewind"] = "http://www.roblox.com/asset/?id=6026647942";
-		["5k"] = "http://www.roblox.com/asset/?id=6026681575";
-		["replay_10"] = "http://www.roblox.com/asset/?id=6026667007";
-		["video_library"] = "http://www.roblox.com/asset/?id=6026671208";
-		["loop"] = "http://www.roblox.com/asset/?id=6026660087";
-		["replay_circle_filled"] = "http://www.roblox.com/asset/?id=6026667002";
-		["5g"] = "http://www.roblox.com/asset/?id=6026643007";
-		["library_add_check"] = "http://www.roblox.com/asset/?id=6026660083";
-		["repeat"] = "http://www.roblox.com/asset/?id=6026666998";
-		["queue_play_next"] = "http://www.roblox.com/asset/?id=6026663700";
-		["forward_5"] = "http://www.roblox.com/asset/?id=6026660067";
-		["web"] = "http://www.roblox.com/asset/?id=6026671234";
-		["mic_none"] = "http://www.roblox.com/asset/?id=6026660066";
-		["queue"] = "http://www.roblox.com/asset/?id=6026663724";
-		["closed_caption_off"] = "http://www.roblox.com/asset/?id=6026647943";
-		["hearing"] = "http://www.roblox.com/asset/?id=6026660060";
-		["queue_music"] = "http://www.roblox.com/asset/?id=6026663725";
-		["airplay"] = "http://www.roblox.com/asset/?id=6026647929";
-		["9k"] = "http://www.roblox.com/asset/?id=6026643013";
-		["video_label"] = "http://www.roblox.com/asset/?id=6026671204";
-		["8k_plus"] = "http://www.roblox.com/asset/?id=6026643003";
-		["play_circle_filled"] = "http://www.roblox.com/asset/?id=6026663705";
-		["1k"] = "http://www.roblox.com/asset/?id=6026643002";
-		["fiber_manual_record"] = "http://www.roblox.com/asset/?id=6026647909";
-		["closed_caption"] = "http://www.roblox.com/asset/?id=6026647896";
-		["subtitles"] = "http://www.roblox.com/asset/?id=6026671203";
-		["featured_video"] = "http://www.roblox.com/asset/?id=6026647910";
-		["replay_30"] = "http://www.roblox.com/asset/?id=6026667010";
-		["10k"] = "http://www.roblox.com/asset/?id=6026643035";
-		["5k_plus"] = "http://www.roblox.com/asset/?id=6026643028";
-		["6k_plus"] = "http://www.roblox.com/asset/?id=6026643019";
-		["replay"] = "http://www.roblox.com/asset/?id=6026666999";
-		["repeat_on"] = "http://www.roblox.com/asset/?id=6026666994";
-		["1k_plus"] = "http://www.roblox.com/asset/?id=6026681580";
-		["2k_plus"] = "http://www.roblox.com/asset/?id=6026681588";
-		["games"] = "http://www.roblox.com/asset/?id=6026660074";
-		["volume_down"] = "http://www.roblox.com/asset/?id=6026671206";
-		["mic"] = "http://www.roblox.com/asset/?id=6026660078";
-		["call_to_action"] = "http://www.roblox.com/asset/?id=6026647898";
-		["7k_plus"] = "http://www.roblox.com/asset/?id=6026643012";
-		["av_timer"] = "http://www.roblox.com/asset/?id=6026647934";
-		["9k_plus"] = "http://www.roblox.com/asset/?id=6026681585";
-		["radio"] = "http://www.roblox.com/asset/?id=6026663698";
-		["10mp"] = "http://www.roblox.com/asset/?id=6031328149";
-		["20mp"] = "http://www.roblox.com/asset/?id=6031488940";
-		["wb_twighlight"] = "http://www.roblox.com/asset/?id=6034412760";
-		["movie_creation"] = "http://www.roblox.com/asset/?id=6034323681";
-		["crop_portrait"] = "http://www.roblox.com/asset/?id=6031630198";
-		["filter_5"] = "http://www.roblox.com/asset/?id=6031597518";
-		["broken_image"] = "http://www.roblox.com/asset/?id=6031471480";
-		["flip_camera_android"] = "http://www.roblox.com/asset/?id=6034333280";
-		["flip_camera_ios"] = "http://www.roblox.com/asset/?id=6034333267";
-		["circle"] = "http://www.roblox.com/asset/?id=6031625146";
-		["photo_camera_front"] = "http://www.roblox.com/asset/?id=6031771000";
-		["assistant"] = "http://www.roblox.com/asset/?id=6031360356";
-		["face_retouching_natural"] = "http://www.roblox.com/asset/?id=6034333274";
-		["palette"] = "http://www.roblox.com/asset/?id=6034316009";
-		["nature_people"] = "http://www.roblox.com/asset/?id=6034323711";
-		["14mp"] = "http://www.roblox.com/asset/?id=6031328161";
-		["gradient"] = "http://www.roblox.com/asset/?id=6034333261";
-		["filter_4"] = "http://www.roblox.com/asset/?id=6031597512";
-		["panorama_wide_angle_select"] = "http://www.roblox.com/asset/?id=6031770990";
-		["photo"] = "http://www.roblox.com/asset/?id=6031770993";
-		["grid_off"] = "http://www.roblox.com/asset/?id=6034333286";
-		["leak_add"] = "http://www.roblox.com/asset/?id=6034407074";
-		["landscape"] = "http://www.roblox.com/asset/?id=6034407069";
-		["exposure_plus_1"] = "http://www.roblox.com/asset/?id=6034328970";
-		["slideshow"] = "http://www.roblox.com/asset/?id=6031754546";
-		["camera_alt"] = "http://www.roblox.com/asset/?id=6031572307";
-		["audiotrack"] = "http://www.roblox.com/asset/?id=6031471489";
-		["filter_none"] = "http://www.roblox.com/asset/?id=6031600815";
-		["blur_off"] = "http://www.roblox.com/asset/?id=6031371055";
-		["crop_16_9"] = "http://www.roblox.com/asset/?id=6031630205";
-		["blur_on"] = "http://www.roblox.com/asset/?id=6031371068";
-		["brightness_4"] = "http://www.roblox.com/asset/?id=6031471483";
-		["details"] = "http://www.roblox.com/asset/?id=6034328968";
-		["panorama_horizontal"] = "http://www.roblox.com/asset/?id=6034315966";
-		["camera_rear"] = "http://www.roblox.com/asset/?id=6031572316";
-		["hdr_weak"] = "http://www.roblox.com/asset/?id=6034407083";
-		["collections"] = "http://www.roblox.com/asset/?id=6031625145";
-		["hdr_enhanced_select"] = "http://www.roblox.com/asset/?id=6034333281";
-		["adjust"] = "http://www.roblox.com/asset/?id=6031339048";
-		["burst_mode"] = "http://www.roblox.com/asset/?id=6031572306";
-		["nature"] = "http://www.roblox.com/asset/?id=6034323695";
-		["brightness_6"] = "http://www.roblox.com/asset/?id=6031572309";
-		["19mp"] = "http://www.roblox.com/asset/?id=6031339054";
-		["grain"] = "http://www.roblox.com/asset/?id=6034333288";
-		["receipt_long"] = "http://www.roblox.com/asset/?id=6031763428";
-		["photo_filter"] = "http://www.roblox.com/asset/?id=6031770992";
-		["edit"] = "http://www.roblox.com/asset/?id=6034328955";
-		["healing"] = "http://www.roblox.com/asset/?id=6034407071";
-		["exposure_neg_1"] = "http://www.roblox.com/asset/?id=6034328957";
-		["exposure"] = "http://www.roblox.com/asset/?id=6034328962";
-		["wb_shade"] = "http://www.roblox.com/asset/?id=6034315974";
-		["compare"] = "http://www.roblox.com/asset/?id=6031625151";
-		["cases"] = "http://www.roblox.com/asset/?id=6031572324";
-		["timer_3"] = "http://www.roblox.com/asset/?id=6031754540";
-		["exposure_plus_2"] = "http://www.roblox.com/asset/?id=6034328961";
-		["12mp"] = "http://www.roblox.com/asset/?id=6031328140";
-		["22mp"] = "http://www.roblox.com/asset/?id=6031360353";
-		["timer_off"] = "http://www.roblox.com/asset/?id=6031734881";
-		["auto_stories"] = "http://www.roblox.com/asset/?id=6031360360";
-		["rotate_left"] = "http://www.roblox.com/asset/?id=6031763427";
-		["wb_iridescent"] = "http://www.roblox.com/asset/?id=6034315972";
-		["shutter_speed"] = "http://www.roblox.com/asset/?id=6031763443";
-		["switch_video"] = "http://www.roblox.com/asset/?id=6031754536";
-		["23mp"] = "http://www.roblox.com/asset/?id=6031339045";
-		["euro"] = "http://www.roblox.com/asset/?id=6034328963";
-		["15mp"] = "http://www.roblox.com/asset/?id=6031328158";
-		["filter_center_focus"] = "http://www.roblox.com/asset/?id=6031600817";
-		["photo_library"] = "http://www.roblox.com/asset/?id=6031770998";
-		["mp"] = "http://www.roblox.com/asset/?id=6034323674";
-		["looks_4"] = "http://www.roblox.com/asset/?id=6034407089";
-		["filter_2"] = "http://www.roblox.com/asset/?id=6031597521";
-		["crop_3_2"] = "http://www.roblox.com/asset/?id=6034328956";
-		["auto_fix_normal"] = "http://www.roblox.com/asset/?id=6031371074";
-		["auto_fix_off"] = "http://www.roblox.com/asset/?id=6031360381";
-		["wb_auto"] = "http://www.roblox.com/asset/?id=6031734875";
-		["switch_camera"] = "http://www.roblox.com/asset/?id=6031754550";
-		["filter_vintage"] = "http://www.roblox.com/asset/?id=6031600811";
-		["photo_size_select_small"] = "http://www.roblox.com/asset/?id=6031763457";
-		["blur_linear"] = "http://www.roblox.com/asset/?id=6031488930";
-		["hdr_on"] = "http://www.roblox.com/asset/?id=6034333279";
-		["tag_faces"] = "http://www.roblox.com/asset/?id=6031754560";
-		["21mp"] = "http://www.roblox.com/asset/?id=6031339065";
-		["camera"] = "http://www.roblox.com/asset/?id=6031572312";
-		["image_aspect_ratio"] = "http://www.roblox.com/asset/?id=6034407073";
-		["filter_b_and_w"] = "http://www.roblox.com/asset/?id=6031600824";
-		["crop_landscape"] = "http://www.roblox.com/asset/?id=6031630202";
-		["13mp"] = "http://www.roblox.com/asset/?id=6031328137";
-		["grid_on"] = "http://www.roblox.com/asset/?id=6034333276";
-		["motion_photos_pause"] = "http://www.roblox.com/asset/?id=6034323668";
-		["filter_6"] = "http://www.roblox.com/asset/?id=6031597524";
-		["linked_camera"] = "http://www.roblox.com/asset/?id=6034407082";
-		["panorama_fish_eye"] = "http://www.roblox.com/asset/?id=6034315969";
-		["panorama"] = "http://www.roblox.com/asset/?id=6034315955";
-		["color_lens"] = "http://www.roblox.com/asset/?id=6031625148";
-		["lens"] = "http://www.roblox.com/asset/?id=6034407081";
-		["crop_din"] = "http://www.roblox.com/asset/?id=6031630208";
-		["exposure_neg_2"] = "http://www.roblox.com/asset/?id=6034328973";
-		["mic_external_off"] = "http://www.roblox.com/asset/?id=6034323672";
-		["crop_free"] = "http://www.roblox.com/asset/?id=6031630212";
-		["crop_original"] = "http://www.roblox.com/asset/?id=6031630204";
-		["panorama_photosphere_select"] = "http://www.roblox.com/asset/?id=6034315975";
-		["photo_size_select_actual"] = "http://www.roblox.com/asset/?id=6031771012";
-		["leak_remove"] = "http://www.roblox.com/asset/?id=6034407080";
-		["collections_bookmark"] = "http://www.roblox.com/asset/?id=6034328965";
-		["straighten"] = "http://www.roblox.com/asset/?id=6031754545";
-		["timelapse"] = "http://www.roblox.com/asset/?id=6031754541";
-		["picture_as_pdf"] = "http://www.roblox.com/asset/?id=6031763425";
-		["crop_rotate"] = "http://www.roblox.com/asset/?id=6031630203";
-		["control_point_duplicate"] = "http://www.roblox.com/asset/?id=6034328959";
-		["photo_camera_back"] = "http://www.roblox.com/asset/?id=6031771007";
-		["looks_3"] = "http://www.roblox.com/asset/?id=6034407088";
-		["motion_photos_off"] = "http://www.roblox.com/asset/?id=6034323670";
-		["rotate_right"] = "http://www.roblox.com/asset/?id=6031763429";
-		["view_compact"] = "http://www.roblox.com/asset/?id=6031734878";
-		["crop_7_5"] = "http://www.roblox.com/asset/?id=6031630197";
-		["style"] = "http://www.roblox.com/asset/?id=6031754538";
-		["exposure_zero"] = "http://www.roblox.com/asset/?id=6034329000";
-		["camera_front"] = "http://www.roblox.com/asset/?id=6031572318";
-		["hdr_strong"] = "http://www.roblox.com/asset/?id=6034333272";
-		["view_comfy"] = "http://www.roblox.com/asset/?id=6031734876";
-		["panorama_vertical"] = "http://www.roblox.com/asset/?id=6034315963";
-		["panorama_vertical_select"] = "http://www.roblox.com/asset/?id=6034315961";
-		["looks_two"] = "http://www.roblox.com/asset/?id=6034412757";
-		["filter_drama"] = "http://www.roblox.com/asset/?id=6031600813";
-		["center_focus_strong"] = "http://www.roblox.com/asset/?id=6031625147";
-		["18mp"] = "http://www.roblox.com/asset/?id=6031339064";
-		["7mp"] = "http://www.roblox.com/asset/?id=6031328139";
-		["wb_sunny"] = "http://www.roblox.com/asset/?id=6034412758";
-		["filter_9_plus"] = "http://www.roblox.com/asset/?id=6031600812";
-		["crop"] = "http://www.roblox.com/asset/?id=6034328964";
-		["vignette"] = "http://www.roblox.com/asset/?id=6031734905";
-		["brightness_2"] = "http://www.roblox.com/asset/?id=6031488938";
-		["crop_square"] = "http://www.roblox.com/asset/?id=6031630222";
-		["looks_5"] = "http://www.roblox.com/asset/?id=6034412764";
-		["flip"] = "http://www.roblox.com/asset/?id=6034333275";
-		["looks_one"] = "http://www.roblox.com/asset/?id=6034412761";
-		["flash_off"] = "http://www.roblox.com/asset/?id=6034333270";
-		["hdr_off"] = "http://www.roblox.com/asset/?id=6034333266";
-		["photo_album"] = "http://www.roblox.com/asset/?id=6031770989";
-		["motion_photos_paused"] = "http://www.roblox.com/asset/?id=6034323675";
-		["photo_camera"] = "http://www.roblox.com/asset/?id=6031770997";
-		["2mp"] = "http://www.roblox.com/asset/?id=6031328138";
-		["3mp"] = "http://www.roblox.com/asset/?id=6031328136";
-		["24mp"] = "http://www.roblox.com/asset/?id=6031360352";
-		["filter_9"] = "http://www.roblox.com/asset/?id=6031597534";
-		["6mp"] = "http://www.roblox.com/asset/?id=6031328131";
-		["remove_red_eye"] = "http://www.roblox.com/asset/?id=6031763426";
-		["4mp"] = "http://www.roblox.com/asset/?id=6031328152";
-		["add_a_photo"] = "http://www.roblox.com/asset/?id=6031339049";
-		["filter_3"] = "http://www.roblox.com/asset/?id=6031597513";
-		["crop_5_4"] = "http://www.roblox.com/asset/?id=6034328960";
-		["8mp"] = "http://www.roblox.com/asset/?id=6031328133";
-		["camera_roll"] = "http://www.roblox.com/asset/?id=6031572314";
-		["panorama_wide_angle"] = "http://www.roblox.com/asset/?id=6031770995";
-		["transform"] = "http://www.roblox.com/asset/?id=6031734873";
-		["flare"] = "http://www.roblox.com/asset/?id=6031600816";
-		["image_search"] = "http://www.roblox.com/asset/?id=6034407084";
-		["auto_awesome"] = "http://www.roblox.com/asset/?id=6031360365";
-		["motion_photos_on"] = "http://www.roblox.com/asset/?id=6034323669";
-		["rotate_90_degrees_ccw"] = "http://www.roblox.com/asset/?id=6031763456";
-		["filter_1"] = "http://www.roblox.com/asset/?id=6031597511";
-		["filter_tilt_shift"] = "http://www.roblox.com/asset/?id=6031600814";
-		["image"] = "http://www.roblox.com/asset/?id=6034407078";
-		["center_focus_weak"] = "http://www.roblox.com/asset/?id=6031625144";
-		["blur_circular"] = "http://www.roblox.com/asset/?id=6031488945";
-		["bedtime"] = "http://www.roblox.com/asset/?id=6031371054";
-		["auto_fix_high"] = "http://www.roblox.com/asset/?id=6031360355";
-		["monochrome_photos"] = "http://www.roblox.com/asset/?id=6034323678";
-		["flash_auto"] = "http://www.roblox.com/asset/?id=6034333287";
-		["5mp"] = "http://www.roblox.com/asset/?id=6031328144";
-		["photo_size_select_large"] = "http://www.roblox.com/asset/?id=6031763423";
-		["assistant_photo"] = "http://www.roblox.com/asset/?id=6031339052";
-		["animation"] = "http://www.roblox.com/asset/?id=6031625150";
-		["looks"] = "http://www.roblox.com/asset/?id=6034407096";
-		["17mp"] = "http://www.roblox.com/asset/?id=6031339055";
-		["panorama_horizontal_select"] = "http://www.roblox.com/asset/?id=6034315965";
-		["flash_on"] = "http://www.roblox.com/asset/?id=6034333271";
-		["iso"] = "http://www.roblox.com/asset/?id=6034407106";
-		["music_note"] = "http://www.roblox.com/asset/?id=6034323673";
-		["music_off"] = "http://www.roblox.com/asset/?id=6034323679";
-		["navigate_next"] = "http://www.roblox.com/asset/?id=6034315956";
-		["timer"] = "http://www.roblox.com/asset/?id=6031754564";
-		["loupe"] = "http://www.roblox.com/asset/?id=6034412770";
-		["navigate_before"] = "http://www.roblox.com/asset/?id=6034323696";
-		["brightness_1"] = "http://www.roblox.com/asset/?id=6031471488";
-		["brightness_7"] = "http://www.roblox.com/asset/?id=6031471491";
-		["tonality"] = "http://www.roblox.com/asset/?id=6031734891";
-		["brush"] = "http://www.roblox.com/asset/?id=6031572320";
-		["colorize"] = "http://www.roblox.com/asset/?id=6031625161";
-		["filter_7"] = "http://www.roblox.com/asset/?id=6031597515";
-		["16mp"] = "http://www.roblox.com/asset/?id=6031328168";
-		["timer_10"] = "http://www.roblox.com/asset/?id=6031734880";
-		["portrait"] = "http://www.roblox.com/asset/?id=6031763434";
-		["tune"] = "http://www.roblox.com/asset/?id=6031734877";
-		["image_not_supported"] = "http://www.roblox.com/asset/?id=6034407076";
-		["wb_cloudy"] = "http://www.roblox.com/asset/?id=6031734907";
-		["auto_awesome_motion"] = "http://www.roblox.com/asset/?id=6031360370";
-		["filter_8"] = "http://www.roblox.com/asset/?id=6031597532";
-		["brightness_5"] = "http://www.roblox.com/asset/?id=6031471479";
-		["movie_filter"] = "http://www.roblox.com/asset/?id=6034323687";
-		["add_photo_alternate"] = "http://www.roblox.com/asset/?id=6031471484";
-		["add_to_photos"] = "http://www.roblox.com/asset/?id=6031371075";
-		["texture"] = "http://www.roblox.com/asset/?id=6031754553";
-		["11mp"] = "http://www.roblox.com/asset/?id=6031328141";
-		["mic_external_on"] = "http://www.roblox.com/asset/?id=6034323671";
-		["looks_6"] = "http://www.roblox.com/asset/?id=6034412759";
-		["dehaze"] = "http://www.roblox.com/asset/?id=6031630200";
-		["control_point"] = "http://www.roblox.com/asset/?id=6031625131";
-		["panorama_photosphere"] = "http://www.roblox.com/asset/?id=6034412763";
-		["filter_frames"] = "http://www.roblox.com/asset/?id=6031600833";
-		["auto_awesome_mosaic"] = "http://www.roblox.com/asset/?id=6031371053";
-		["9mp"] = "http://www.roblox.com/asset/?id=6031328146";
-		["filter"] = "http://www.roblox.com/asset/?id=6031597514";
-		["brightness_3"] = "http://www.roblox.com/asset/?id=6031572317";
-		["dirty_lens"] = "http://www.roblox.com/asset/?id=6034328967";
-		["wb_incandescent"] = "http://www.roblox.com/asset/?id=6034316010";
-		["filter_hdr"] = "http://www.roblox.com/asset/?id=6031600819";
-		["textsms"] = "http://www.roblox.com/asset/?id=6035202006";
-		["comment"] = "http://www.roblox.com/asset/?id=6035181871";
-		["call_end"] = "http://www.roblox.com/asset/?id=6035173845";
-		["qr_code_scanner"] = "http://www.roblox.com/asset/?id=6035202022";
-		["phonelink_setup"] = "http://www.roblox.com/asset/?id=6035202025";
-		["call_merge"] = "http://www.roblox.com/asset/?id=6035173843";
-		["phonelink_erase"] = "http://www.roblox.com/asset/?id=6035202085";
-		["contact_mail"] = "http://www.roblox.com/asset/?id=6035181868";
-		["contact_phone"] = "http://www.roblox.com/asset/?id=6035181861";
-		["screen_share"] = "http://www.roblox.com/asset/?id=6035202008";
-		["present_to_all"] = "http://www.roblox.com/asset/?id=6035202020";
-		["stay_primary_portrait"] = "http://www.roblox.com/asset/?id=6035202009";
-		["message"] = "http://www.roblox.com/asset/?id=6035202033";
-		["sentiment_satisfied_alt"] = "http://www.roblox.com/asset/?id=6035202069";
-		["stay_current_portrait"] = "http://www.roblox.com/asset/?id=6035202004";
-		["voicemail"] = "http://www.roblox.com/asset/?id=6035202019";
-		["business"] = "http://www.roblox.com/asset/?id=6035173853";
-		["mail_outline"] = "http://www.roblox.com/asset/?id=6035190844";
-		["vpn_key"] = "http://www.roblox.com/asset/?id=6035202034";
-		["forward_to_inbox"] = "http://www.roblox.com/asset/?id=6035190840";
-		["contacts"] = "http://www.roblox.com/asset/?id=6035181864";
-		["phonelink_ring"] = "http://www.roblox.com/asset/?id=6035202066";
-		["domain_disabled"] = "http://www.roblox.com/asset/?id=6035181862";
-		["person_add_disabled"] = "http://www.roblox.com/asset/?id=6035202007";
-		["stay_primary_landscape"] = "http://www.roblox.com/asset/?id=6035202026";
-		["alternate_email"] = "http://www.roblox.com/asset/?id=6035173865";
-		["phone_disabled"] = "http://www.roblox.com/asset/?id=6035202028";
-		["email"] = "http://www.roblox.com/asset/?id=6035181866";
-		["mobile_screen_share"] = "http://www.roblox.com/asset/?id=6035202021";
-		["live_help"] = "http://www.roblox.com/asset/?id=6035190836";
-		["chat_bubble"] = "http://www.roblox.com/asset/?id=6035181858";
-		["stop_screen_share"] = "http://www.roblox.com/asset/?id=6035202042";
-		["location_on"] = "http://www.roblox.com/asset/?id=6035190846";
-		["chat_bubble_outline"] = "http://www.roblox.com/asset/?id=6035181869";
-		["dialer_sip"] = "http://www.roblox.com/asset/?id=6035181865";
-		["no_sim"] = "http://www.roblox.com/asset/?id=6035202030";
-		["list_alt"] = "http://www.roblox.com/asset/?id=6035190838";
-		["call"] = "http://www.roblox.com/asset/?id=6035173859";
-		["pause_presentation"] = "http://www.roblox.com/asset/?id=6035202015";
-		["invert_colors_off"] = "http://www.roblox.com/asset/?id=6035190842";
-		["call_missed_outgoing"] = "http://www.roblox.com/asset/?id=6035173847";
-		["stay_current_landscape"] = "http://www.roblox.com/asset/?id=6035202011";
-		["import_export"] = "http://www.roblox.com/asset/?id=6035202040";
-		["add_ic_call"] = "http://www.roblox.com/asset/?id=6035173839";
-		["dialpad"] = "http://www.roblox.com/asset/?id=6035181892";
-		["nat"] = "http://www.roblox.com/asset/?id=6035202082";
-		["unsubscribe"] = "http://www.roblox.com/asset/?id=6035202044";
-		["mark_chat_unread"] = "http://www.roblox.com/asset/?id=6035190841";
-		["portable_wifi_off"] = "http://www.roblox.com/asset/?id=6035202091";
-		["location_off"] = "http://www.roblox.com/asset/?id=6035202049";
-		["person_search"] = "http://www.roblox.com/asset/?id=6035202013";
-		["phonelink_lock"] = "http://www.roblox.com/asset/?id=6035202064";
-		["desktop_access_disabled"] = "http://www.roblox.com/asset/?id=6035181863";
-		["import_contacts"] = "http://www.roblox.com/asset/?id=6035190854";
-		["rss_feed"] = "http://www.roblox.com/asset/?id=6035202016";
-		["chat"] = "http://www.roblox.com/asset/?id=6035173838";
-		["print_disabled"] = "http://www.roblox.com/asset/?id=6035202041";
-		["mark_email_read"] = "http://www.roblox.com/asset/?id=6035202038";
-		["hourglass_top"] = "http://www.roblox.com/asset/?id=6035190886";
-		["clear_all"] = "http://www.roblox.com/asset/?id=6035181870";
-		["forum"] = "http://www.roblox.com/asset/?id=6035202002";
-		["qr_code"] = "http://www.roblox.com/asset/?id=6035202012";
-		["speaker_phone"] = "http://www.roblox.com/asset/?id=6035202018";
-		["rtt"] = "http://www.roblox.com/asset/?id=6035202010";
-		["domain_verification"] = "http://www.roblox.com/asset/?id=6035181867";
-		["app_registration"] = "http://www.roblox.com/asset/?id=6035173870";
-		["call_split"] = "http://www.roblox.com/asset/?id=6035173861";
-		["cell_wifi"] = "http://www.roblox.com/asset/?id=6035173852";
-		["phone_enabled"] = "http://www.roblox.com/asset/?id=6035202089";
-		["call_made"] = "http://www.roblox.com/asset/?id=6035173858";
-		["call_received"] = "http://www.roblox.com/asset/?id=6035173844";
-		["phone"] = "http://www.roblox.com/asset/?id=6035202017";
-		["ring_volume"] = "http://www.roblox.com/asset/?id=6035202032";
-		["mark_email_unread"] = "http://www.roblox.com/asset/?id=6035202027";
-		["hourglass_bottom"] = "http://www.roblox.com/asset/?id=6035202043";
-		["read_more"] = "http://www.roblox.com/asset/?id=6035202014";
-		["duo"] = "http://www.roblox.com/asset/?id=6035181860";
-		["more_time"] = "http://www.roblox.com/asset/?id=6035202036";
-		["wifi_calling"] = "http://www.roblox.com/asset/?id=6035202065";
-		["swap_calls"] = "http://www.roblox.com/asset/?id=6035202037";
-		["cancel_presentation"] = "http://www.roblox.com/asset/?id=6035173837";
-		["call_missed"] = "http://www.roblox.com/asset/?id=6035173850";
-		["mark_chat_read"] = "http://www.roblox.com/asset/?id=6035202031";
-		["text_snippet"] = "http://www.roblox.com/asset/?id=6031302995";
-		["snippet_folder"] = "http://www.roblox.com/asset/?id=6031302947";
-		["workspaces_outline"] = "http://www.roblox.com/asset/?id=6031302952";
-		["file_download"] = "http://www.roblox.com/asset/?id=6031302931";
-		["request_quote"] = "http://www.roblox.com/asset/?id=6031302941";
-		["approval"] = "http://www.roblox.com/asset/?id=6031302928";
-		["drive_folder_upload"] = "http://www.roblox.com/asset/?id=6031302929";
-		["rule_folder"] = "http://www.roblox.com/asset/?id=6031302940";
-		["attach_email"] = "http://www.roblox.com/asset/?id=6031302935";
-		["topic"] = "http://www.roblox.com/asset/?id=6031302976";
-		["upload_file"] = "http://www.roblox.com/asset/?id=6031302959";
-		["attachment"] = "http://www.roblox.com/asset/?id=6031302921";
-		["file_download_done"] = "http://www.roblox.com/asset/?id=6031302926";
-		["drive_file_move_outline"] = "http://www.roblox.com/asset/?id=6031302924";
-		["cloud_upload"] = "http://www.roblox.com/asset/?id=6031302992";
-		["cloud_circle"] = "http://www.roblox.com/asset/?id=6031302919";
-		["folder_shared"] = "http://www.roblox.com/asset/?id=6031302945";
-		["cloud_download"] = "http://www.roblox.com/asset/?id=6031302917";
-		["file_upload"] = "http://www.roblox.com/asset/?id=6031302996";
-		["workspaces_filled"] = "http://www.roblox.com/asset/?id=6031302961";
-		["cloud_queue"] = "http://www.roblox.com/asset/?id=6031302916";
-		["cloud"] = "http://www.roblox.com/asset/?id=6031302918";
-		["folder_open"] = "http://www.roblox.com/asset/?id=6031302934";
-		["grid_view"] = "http://www.roblox.com/asset/?id=6031302950";
-		["cloud_off"] = "http://www.roblox.com/asset/?id=6031302993";
-		["create_new_folder"] = "http://www.roblox.com/asset/?id=6031302933";
-		["cloud_done"] = "http://www.roblox.com/asset/?id=6031302927";
-		["folder"] = "http://www.roblox.com/asset/?id=6031302932";
-		["drive_file_move"] = "http://www.roblox.com/asset/?id=6031302922";
-		["drive_file_rename_outline"] = "http://www.roblox.com/asset/?id=6031302994";
-		["notifications_active"] = "http://www.roblox.com/asset/?id=6034304908";
-		["sentiment_neutral"] = "http://www.roblox.com/asset/?id=6034230636";
-		["sick"] = "http://www.roblox.com/asset/?id=6034230642";
-		["poll"] = "http://www.roblox.com/asset/?id=6034267991";
-		["emoji_events"] = "http://www.roblox.com/asset/?id=6034275726";
-		["groups"] = "http://www.roblox.com/asset/?id=6034281935";
-		["sports_soccer"] = "http://www.roblox.com/asset/?id=6034227075";
-		["person_add"] = "http://www.roblox.com/asset/?id=6034287514";
-		["mood_bad"] = "http://www.roblox.com/asset/?id=6034295706";
-		["person_remove_alt_1"] = "http://www.roblox.com/asset/?id=6034287515";
-		["king_bed"] = "http://www.roblox.com/asset/?id=6034281948";
-		["architecture"] = "http://www.roblox.com/asset/?id=6034275730";
-		["deck"] = "http://www.roblox.com/asset/?id=6034295703";
-		["group_add"] = "http://www.roblox.com/asset/?id=6034281909";
-		["sports_basketball"] = "http://www.roblox.com/asset/?id=6034230649";
-		["emoji_symbols"] = "http://www.roblox.com/asset/?id=6034281899";
-		["switch_account"] = "http://www.roblox.com/asset/?id=6034227138";
-		["remove_moderator"] = "http://www.roblox.com/asset/?id=6034267998";
-		["coronavirus"] = "http://www.roblox.com/asset/?id=6034275724";
-		["people"] = "http://www.roblox.com/asset/?id=6034287513";
-		["person"] = "http://www.roblox.com/asset/?id=6034287594";
-		["elderly"] = "http://www.roblox.com/asset/?id=6034295698";
-		["clean_hands"] = "http://www.roblox.com/asset/?id=6034275729";
-		["emoji_flags"] = "http://www.roblox.com/asset/?id=6034304898";
-		["psychology"] = "http://www.roblox.com/asset/?id=6034287516";
-		["person_add_alt"] = "http://www.roblox.com/asset/?id=6034267994";
-		["sports_volleyball"] = "http://www.roblox.com/asset/?id=6034227139";
-		["domain"] = "http://www.roblox.com/asset/?id=6034275722";
-		["emoji_objects"] = "http://www.roblox.com/asset/?id=6034281900";
-		["ios_share"] = "http://www.roblox.com/asset/?id=6034281941";
-		["history_edu"] = "http://www.roblox.com/asset/?id=6034281934";
-		["share"] = "http://www.roblox.com/asset/?id=6034230648";
-		["military_tech"] = "http://www.roblox.com/asset/?id=6034295711";
-		["sports_kabaddi"] = "http://www.roblox.com/asset/?id=6034227141";
-		["cake"] = "http://www.roblox.com/asset/?id=6034295702";
-		["engineering"] = "http://www.roblox.com/asset/?id=6034281908";
-		["emoji_food_beverage"] = "http://www.roblox.com/asset/?id=6034304883";
-		["notifications_none"] = "http://www.roblox.com/asset/?id=6034308947";
-		["emoji_people"] = "http://www.roblox.com/asset/?id=6034281904";
-		["thumb_down_alt"] = "http://www.roblox.com/asset/?id=6034227069";
-		["sentiment_very_satisfied"] = "http://www.roblox.com/asset/?id=6034230650";
-		["nights_stay"] = "http://www.roblox.com/asset/?id=6034304881";
-		["reduce_capacity"] = "http://www.roblox.com/asset/?id=6034268013";
-		["add_moderator"] = "http://www.roblox.com/asset/?id=6034295699";
-		["science"] = "http://www.roblox.com/asset/?id=6034230640";
-		["pages"] = "http://www.roblox.com/asset/?id=6034304892";
-		["sentiment_satisfied"] = "http://www.roblox.com/asset/?id=6034230668";
-		["plus_one"] = "http://www.roblox.com/asset/?id=6034268012";
-		["party_mode"] = "http://www.roblox.com/asset/?id=6034287521";
-		["person_remove"] = "http://www.roblox.com/asset/?id=6034267996";
-		["single_bed"] = "http://www.roblox.com/asset/?id=6034230651";
-		["mood"] = "http://www.roblox.com/asset/?id=6034295704";
-		["public"] = "http://www.roblox.com/asset/?id=6034287522";
-		["sports_rugby"] = "http://www.roblox.com/asset/?id=6034227073";
-		["sports_handball"] = "http://www.roblox.com/asset/?id=6034227074";
-		["person_add_alt_1"] = "http://www.roblox.com/asset/?id=6034287519";
-		["people_alt"] = "http://www.roblox.com/asset/?id=6034287518";
-		["notifications_off"] = "http://www.roblox.com/asset/?id=6034304894";
-		["whatshot"] = "http://www.roblox.com/asset/?id=6034287525";
-		["emoji_transportation"] = "http://www.roblox.com/asset/?id=6034281894";
-		["outdoor_grill"] = "http://www.roblox.com/asset/?id=6034304900";
-		["sentiment_very_dissatisfied"] = "http://www.roblox.com/asset/?id=6034230659";
-		["masks"] = "http://www.roblox.com/asset/?id=6034295710";
-		["luggage"] = "http://www.roblox.com/asset/?id=6034295708";
-		["sports_motorsports"] = "http://www.roblox.com/asset/?id=6034227071";
-		["sports_esports"] = "http://www.roblox.com/asset/?id=6034227061";
-		["location_city"] = "http://www.roblox.com/asset/?id=6034304889";
-		["sports_golf"] = "http://www.roblox.com/asset/?id=6034227060";
-		["sentiment_dissatisfied"] = "http://www.roblox.com/asset/?id=6034230637";
-		["no_luggage"] = "http://www.roblox.com/asset/?id=6034304891";
-		["fireplace"] = "http://www.roblox.com/asset/?id=6034281910";
-		["emoji_nature"] = "http://www.roblox.com/asset/?id=6034281896";
-		["group"] = "http://www.roblox.com/asset/?id=6034281901";
-		["thumb_up_alt"] = "http://www.roblox.com/asset/?id=6034227076";
-		["sports_tennis"] = "http://www.roblox.com/asset/?id=6034227068";
-		["facebook"] = "http://www.roblox.com/asset/?id=6034281898";
-		["sports_mma"] = "http://www.roblox.com/asset/?id=6034227072";
-		["person_outline"] = "http://www.roblox.com/asset/?id=6034268008";
-		["sports_baseball"] = "http://www.roblox.com/asset/?id=6034230652";
-		["sports_cricket"] = "http://www.roblox.com/asset/?id=6034230660";
-		["people_outline"] = "http://www.roblox.com/asset/?id=6034287528";
-		["notifications_paused"] = "http://www.roblox.com/asset/?id=6034304896";
-		["emoji_emotions"] = "http://www.roblox.com/asset/?id=6034275731";
-		["follow_the_signs"] = "http://www.roblox.com/asset/?id=6034281911";
-		["sanitizer"] = "http://www.roblox.com/asset/?id=6034287586";
-		["self_improvement"] = "http://www.roblox.com/asset/?id=6034230634";
-		["notifications"] = "http://www.roblox.com/asset/?id=6034308946";
-		["public_off"] = "http://www.roblox.com/asset/?id=6034287538";
-		["recommend"] = "http://www.roblox.com/asset/?id=6034287524";
-		["sports_football"] = "http://www.roblox.com/asset/?id=6034227067";
-		["sports_hockey"] = "http://www.roblox.com/asset/?id=6034227064";
-		["school"] = "http://www.roblox.com/asset/?id=6034230641";
-		["connect_without_contact"] = "http://www.roblox.com/asset/?id=6034275800";
-		["sports"] = "http://www.roblox.com/asset/?id=6034230647";
-		["construction"] = "http://www.roblox.com/asset/?id=6034275725";
-		["inventory"] = "http://www.roblox.com/asset/?id=6035056487";
-		["add_box"] = "http://www.roblox.com/asset/?id=6035047375";
-		["how_to_reg"] = "http://www.roblox.com/asset/?id=6035053288";
-		["unarchive"] = "http://www.roblox.com/asset/?id=6035078921";
-		["block_flipped"] = "http://www.roblox.com/asset/?id=6035047378";
-		["file_copy"] = "http://www.roblox.com/asset/?id=6035053293";
-		["bolt"] = "http://www.roblox.com/asset/?id=6035047381";
-		["remove_circle_outline"] = "http://www.roblox.com/asset/?id=6035067843";
-		["move_to_inbox"] = "http://www.roblox.com/asset/?id=6035067838";
-		["save_alt"] = "http://www.roblox.com/asset/?id=6035067842";
-		["weekend"] = "http://www.roblox.com/asset/?id=6035078894";
-		["where_to_vote"] = "http://www.roblox.com/asset/?id=6035078913";
-		["biotech"] = "http://www.roblox.com/asset/?id=6035047385";
-		["report_off"] = "http://www.roblox.com/asset/?id=6035067830";
-		["clear"] = "http://www.roblox.com/asset/?id=6035047409";
-		["redo"] = "http://www.roblox.com/asset/?id=6035056483";
-		["link"] = "http://www.roblox.com/asset/?id=6035056475";
-		["drafts"] = "http://www.roblox.com/asset/?id=6035053297";
-		["push_pin"] = "http://www.roblox.com/asset/?id=6035056481";
-		["reply"] = "http://www.roblox.com/asset/?id=6035067844";
-		["undo"] = "http://www.roblox.com/asset/?id=6035078896";
-		["archive"] = "http://www.roblox.com/asset/?id=6035047379";
-		["add"] = "http://www.roblox.com/asset/?id=6035047377";
-		["insights"] = "http://www.roblox.com/asset/?id=6035067839";
-		["flag"] = "http://www.roblox.com/asset/?id=6035053279";
-		["save"] = "http://www.roblox.com/asset/?id=6035067857";
-		["text_format"] = "http://www.roblox.com/asset/?id=6035078890";
-		["content_cut"] = "http://www.roblox.com/asset/?id=6035053280";
-		["ballot"] = "http://www.roblox.com/asset/?id=6035047386";
-		["remove"] = "http://www.roblox.com/asset/?id=6035067836";
-		["calculate"] = "http://www.roblox.com/asset/?id=6035047384";
-		["report"] = "http://www.roblox.com/asset/?id=6035067826";
-		["markunread"] = "http://www.roblox.com/asset/?id=6035056476";
-		["delete_sweep"] = "http://www.roblox.com/asset/?id=6035053301";
-		["gesture"] = "http://www.roblox.com/asset/?id=6035053287";
-		["link_off"] = "http://www.roblox.com/asset/?id=6035056484";
-		["forward"] = "http://www.roblox.com/asset/?id=6035053298";
-		["reply_all"] = "http://www.roblox.com/asset/?id=6035067824";
-		["how_to_vote"] = "http://www.roblox.com/asset/?id=6035053295";
-		["square_foot"] = "http://www.roblox.com/asset/?id=6035078918";
-		["outlined_flag"] = "http://www.roblox.com/asset/?id=6035056486";
-		["add_circle"] = "http://www.roblox.com/asset/?id=6035047380";
-		["stacked_bar_chart"] = "http://www.roblox.com/asset/?id=6035078892";
-		["policy"] = "http://www.roblox.com/asset/?id=6035056512";
-		["backspace"] = "http://www.roblox.com/asset/?id=6035047397";
-		["sort"] = "http://www.roblox.com/asset/?id=6035078888";
-		["content_paste"] = "http://www.roblox.com/asset/?id=6035053285";
-		["low_priority"] = "http://www.roblox.com/asset/?id=6035056491";
-		["font_download"] = "http://www.roblox.com/asset/?id=6035053275";
-		["shield"] = "http://www.roblox.com/asset/?id=6035078889";
-		["waves"] = "http://www.roblox.com/asset/?id=6035078898";
-		["select_all"] = "http://www.roblox.com/asset/?id=6035067834";
-		["dynamic_feed"] = "http://www.roblox.com/asset/?id=6035053289";
-		["mail"] = "http://www.roblox.com/asset/?id=6035056477";
-		["amp_stories"] = "http://www.roblox.com/asset/?id=6035047382";
-		["filter_list"] = "http://www.roblox.com/asset/?id=6035053294";
-		["send"] = "http://www.roblox.com/asset/?id=6035067832";
-		["create"] = "http://www.roblox.com/asset/?id=6035053304";
-		["stream"] = "http://www.roblox.com/asset/?id=6035078897";
-		["next_week"] = "http://www.roblox.com/asset/?id=6035067835";
-		["inbox"] = "http://www.roblox.com/asset/?id=6035067831";
-		["add_link"] = "http://www.roblox.com/asset/?id=6035047374";
-		["content_copy"] = "http://www.roblox.com/asset/?id=6035053278";
-		["remove_circle"] = "http://www.roblox.com/asset/?id=6035067837";
-		["add_circle_outline"] = "http://www.roblox.com/asset/?id=6035047391";
-		["block"] = "http://www.roblox.com/asset/?id=6035047387";
-		["tag"] = "http://www.roblox.com/asset/?id=6035078895";
-		["beach_access"] = "http://www.roblox.com/asset/?id=6035107923";
-		["stroller"] = "http://www.roblox.com/asset/?id=6035161535";
-		["family_restroom"] = "http://www.roblox.com/asset/?id=6035121916";
-		["corporate_fare"] = "http://www.roblox.com/asset/?id=6035121908";
-		["no_meeting_room"] = "http://www.roblox.com/asset/?id=6035153649";
-		["do_not_touch"] = "http://www.roblox.com/asset/?id=6035121915";
-		["ac_unit"] = "http://www.roblox.com/asset/?id=6035107929";
-		["business_center"] = "http://www.roblox.com/asset/?id=6035107933";
-		["spa"] = "http://www.roblox.com/asset/?id=6035153639";
-		["no_flash"] = "http://www.roblox.com/asset/?id=6035145424";
-		["no_cell"] = "http://www.roblox.com/asset/?id=6035145376";
-		["room_service"] = "http://www.roblox.com/asset/?id=6035153648";
-		["tapas"] = "http://www.roblox.com/asset/?id=6035161533";
-		["microwave"] = "http://www.roblox.com/asset/?id=6035145367";
-		["meeting_room"] = "http://www.roblox.com/asset/?id=6035145361";
-		["wash"] = "http://www.roblox.com/asset/?id=6035161540";
-		["escalator"] = "http://www.roblox.com/asset/?id=6035121939";
-		["house_siding"] = "http://www.roblox.com/asset/?id=6035145393";
-		["food_bank"] = "http://www.roblox.com/asset/?id=6035121921";
-		["foundation"] = "http://www.roblox.com/asset/?id=6035121918";
-		["elevator"] = "http://www.roblox.com/asset/?id=6035121912";
-		["room_preferences"] = "http://www.roblox.com/asset/?id=6035153642";
-		["do_not_step"] = "http://www.roblox.com/asset/?id=6035121910";
-		["free_breakfast"] = "http://www.roblox.com/asset/?id=6035145363";
-		["house"] = "http://www.roblox.com/asset/?id=6035145364";
-		["child_care"] = "http://www.roblox.com/asset/?id=6035107927";
-		["night_shelter"] = "http://www.roblox.com/asset/?id=6035145378";
-		["child_friendly"] = "http://www.roblox.com/asset/?id=6035121942";
-		["checkroom"] = "http://www.roblox.com/asset/?id=6035107931";
-		["hot_tub"] = "http://www.roblox.com/asset/?id=6035145382";
-		["dry"] = "http://www.roblox.com/asset/?id=6035121909";
-		["charging_station"] = "http://www.roblox.com/asset/?id=6035107925";
-		["all_inclusive"] = "http://www.roblox.com/asset/?id=6035107920";
-		["bento"] = "http://www.roblox.com/asset/?id=6035107924";
-		["no_backpack"] = "http://www.roblox.com/asset/?id=6035145368";
-		["storefront"] = "http://www.roblox.com/asset/?id=6035161534";
-		["no_food"] = "http://www.roblox.com/asset/?id=6035145372";
-		["backpack"] = "http://www.roblox.com/asset/?id=6035107928";
-		["stairs"] = "http://www.roblox.com/asset/?id=6035153637";
-		["carpenter"] = "http://www.roblox.com/asset/?id=6035107955";
-		["no_stroller"] = "http://www.roblox.com/asset/?id=6035153661";
-		["roofing"] = "http://www.roblox.com/asset/?id=6035153656";
-		["umbrella"] = "http://www.roblox.com/asset/?id=6035161550";
-		["sports_bar"] = "http://www.roblox.com/asset/?id=6035153638";
-		["apartment"] = "http://www.roblox.com/asset/?id=6035107922";
-		["smoke_free"] = "http://www.roblox.com/asset/?id=6035153647";
-		["pool"] = "http://www.roblox.com/asset/?id=6035153655";
-		["bathtub"] = "http://www.roblox.com/asset/?id=6035107939";
-		["no_drinks"] = "http://www.roblox.com/asset/?id=6035145390";
-		["escalator_warning"] = "http://www.roblox.com/asset/?id=6035121930";
-		["wheelchair_pickup"] = "http://www.roblox.com/asset/?id=6035161536";
-		["smoking_rooms"] = "http://www.roblox.com/asset/?id=6035153636";
-		["rice_bowl"] = "http://www.roblox.com/asset/?id=6035153662";
-		["tty"] = "http://www.roblox.com/asset/?id=6035161541";
-		["no_photography"] = "http://www.roblox.com/asset/?id=6035153664";
-		["casino"] = "http://www.roblox.com/asset/?id=6035107936";
-		["fence"] = "http://www.roblox.com/asset/?id=6035121923";
-		["grass"] = "http://www.roblox.com/asset/?id=6035145359";
-		["countertops"] = "http://www.roblox.com/asset/?id=6035121914";
-		["kitchen"] = "http://www.roblox.com/asset/?id=6035145362";
-		["golf_course"] = "https://www.roblox.com/asset/?id=6035145423";
-		["soap"] = "http://www.roblox.com/asset/?id=6035153645";
-		["water_damage"] = "http://www.roblox.com/asset/?id=6035161563";
-		["airport_shuttle"] = "http://www.roblox.com/asset/?id=6035107921";
-		["fitness_center"] = "http://www.roblox.com/asset/?id=6035121907";
-		["baby_changing_station"] = "http://www.roblox.com/asset/?id=6035107930";
-		["fire_extinguisher"] = "http://www.roblox.com/asset/?id=6035121913";
-		["sparkle"] = "http://www.roblox.com/asset/?id=4483362748"
-	}
-}
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+local Camera = workspace.CurrentCamera
+local Mouse = Player:GetMouse()
+local GuiInset, _ = GuiService:GetGuiInset()
+GuiInset = GuiInset.Y - 20
+local themeEvent = Instance.new("BindableEvent")
 
--- Other Variables
-local request = (syn and syn.request) or (http and http.request) or http_request or nil
-local tweeninfo = TweenInfo.new(0.3, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
-local PresetGradients = {
-	["Nightlight (Classic)"] = {Color3.fromRGB(147, 255, 239), Color3.fromRGB(201,211,233), Color3.fromRGB(255, 167, 227)},
-	["Nightlight (Neo)"] = {Color3.fromRGB(117, 164, 206), Color3.fromRGB(123, 201, 201), Color3.fromRGB(224, 138, 175)},
-	Starlight = {Color3.fromRGB(147, 255, 239), Color3.fromRGB(181, 206, 241), Color3.fromRGB(214, 158, 243)},
-	Solar = {Color3.fromRGB(242, 157, 76), Color3.fromRGB(240, 179, 81), Color3.fromRGB(238, 201, 86)},
-	Sparkle = {Color3.fromRGB(199, 130, 242), Color3.fromRGB(221, 130, 238), Color3.fromRGB(243, 129, 233)},
-	Lime = {Color3.fromRGB(170, 255, 127), Color3.fromRGB(163, 220, 138), Color3.fromRGB(155, 185, 149)},
-	Vine = {Color3.fromRGB(0, 191, 143), Color3.fromRGB(0, 126, 94), Color3.fromRGB(0, 61, 46)},
-	Cherry = {Color3.fromRGB(148, 54, 54), Color3.fromRGB(168, 67, 70), Color3.fromRGB(188, 80, 86)},
-	Daylight = {Color3.fromRGB(51, 156, 255), Color3.fromRGB(89, 171, 237), Color3.fromRGB(127, 186, 218)},
-	Blossom = {Color3.fromRGB(255, 165, 243), Color3.fromRGB(213, 129, 231), Color3.fromRGB(170, 92, 218)},
-}
+local mainAcrylic = false
+local notificationAcrylic = true
+local acrylicEvent = Instance.new("BindableEvent")
+local notificationAcrylicEvent = Instance.new("BindableEvent")
+local acrylicFlag = false -- I do logic like this cus im scared weird and/or conditions fuck up as true may be behind or sm
+if getgenv then
+	if getgenv().NoAnticheat == nil or getgenv().NoAnticheat == true then
+		acrylicFlag = true
+	end
+	if getgenv().SecureMode then
+		acrylicFlag = false
+	end
+else
+	if RunService:IsStudio() then
+		acrylicFlag = true
+	end
+end
+
+local isStudio = RunService:IsStudio() or false
+local website = "nebulasoftworks.xyz/starlight"
+local Acrylic = isStudio and require(ReplicatedStorage.AcrylicBundled)
+	or loadstring(game:HttpGet("https://raw." .. website .. "/AcrylicModule.luau"))()
+Acrylic.Init()
+
+local Request = (fluxus and fluxus.request)
+	or (http and http.request)
+	or http_request
+	or request
 
 -- ============================================================
 -- Asset cache helpers (getcustomasset / getsynasset wrapper)
 -- ============================================================
-local AssetCacheFolder = "Luna/Assets"
+local AssetCacheFolder = "Starlight/Assets"
 local GetCustomAsset = getcustomasset or getsynasset
 
 local function EnsureAssetFolder()
-    if not makefolder or not isfolder then return false end
-    if not isfolder(AssetCacheFolder) then
-        local ok = pcall(makefolder, AssetCacheFolder)
-        if not ok then return false end
-    end
-    return true
+	if not makefolder or not isfolder then
+		return false
+	end
+	if not isfolder(AssetCacheFolder) then
+		local ok = pcall(makefolder, AssetCacheFolder)
+		if not ok then
+			return false
+		end
+	end
+	return true
 end
 
--- Download-once-then-cache helper. Returns a local path (custom asset)
--- if supported, otherwise returns the original remote URL so nothing breaks.
 local function Asset(remoteUrl, cacheName)
-    if not GetCustomAsset or not writefile or not isfile then
-        return remoteUrl
-    end
-    if not EnsureAssetFolder() then
-        return remoteUrl
-    end
+	if not GetCustomAsset or not writefile or not isfile then
+		return remoteUrl
+	end
+	if not EnsureAssetFolder() then
+		return remoteUrl
+	end
 
-    local path = AssetCacheFolder .. "/" .. cacheName
-    if not isfile(path) then
-        local ok, data = pcall(function()
-            return game:HttpGet(remoteUrl)
-        end)
-        if not ok or not data or #data == 0 then
-            return remoteUrl
-        end
-        local wrote = pcall(writefile, path, data)
-        if not wrote then
-            return remoteUrl
-        end
-    end
+	local path = AssetCacheFolder .. "/" .. cacheName
+	if not isfile(path) then
+		local ok, data = pcall(function()
+			return game:HttpGet(remoteUrl)
+		end)
+		if not ok or not data or #data == 0 then
+			return remoteUrl
+		end
+		local wrote = pcall(writefile, path, data)
+		if not wrote then
+			return remoteUrl
+		end
+	end
 
-    local ok, result = pcall(GetCustomAsset, path)
-    if not ok or not result then
-        return remoteUrl
-    end
-    return result
+	local ok, result = pcall(GetCustomAsset, path)
+	if not ok or not result then
+		return remoteUrl
+	end
+	return result
 end
 
--- Extract the numeric id from any Roblox asset URL / rbxassetid string
--- and route it through Asset(). Returns nil if no id could be found.
-local function RobloxIdToAsset(idOrUrl, cacheName)
-    if not idOrUrl then return nil end
-    local s = tostring(idOrUrl)
-    local id = s:match("id=(%d+)") or s:match("rbxassetid://(%d+)") or s:match("^(%d+)$")
-    if not id then return nil end
-    local url = "https://assetdelivery.roblox.com/v1/asset/?id=" .. id
-    return Asset(url, cacheName)
+local function AssetId(id, cacheName)
+	if id == nil or tostring(id) == "" then
+		return ""
+	end
+	local value = tostring(id)
+	local numericId = value:match("id=(%d+)")
+		or value:match("rbxassetid://(%d+)")
+		or value:match("^(%d+)$")
+	if not numericId then
+		return value
+	end
+	local name = cacheName or ("Asset_" .. numericId .. ".png")
+	if not name:match("%.[A-Za-z0-9]+$") then
+		name = name .. ".png"
+	end
+	return Asset(
+		"https://assetdelivery.roblox.com/v1/asset/?id=" .. numericId,
+		name
+	)
 end
 
--- ============================================================
--- GetIcon
--- ============================================================
-local function GetIcon(icon, source)
-    if source == "Custom" then
-        -- icon is expected to be a raw Roblox asset id (string or number)
-        local id = tostring(icon):match("(%d+)")
-        if id and not isStudio then
-            return RobloxIdToAsset(id, "Custom_" .. id .. ".png")
-        end
-        return "rbxassetid://" .. tostring(icon)
+--//SUBSECTION : Classes
 
-    elseif source == "Lucide" then
-        -- full credit to latte softworks :)
-        local iconData = not isStudio
-            and game:HttpGet("https://raw.githubusercontent.com/latte-soft/lucide-roblox/refs/heads/master/lib/Icons.luau")
-        local icons = isStudio and IconModule.Lucide or loadstring(iconData)()
+local String = {}
+local Table = {}
+local Color = {}
 
-        if not isStudio then
-            icon = string.match(string.lower(icon), "^%s*(.*)%s*$") :: string
-            local sizedicons = icons['48px']
+local Tween = {}
+setmetatable(Tween, {
+	__call = function(self, object: Instance, goal: table, callback, tweenin)
+		local tween = TweenService:Create(object, tweenin or Tween.Info(), goal)
+		tween.Completed:Connect(callback or function() end)
+		tween:Play()
+	end,
+})
 
-            local r = sizedicons[icon]
-            if not r then
-                error("Lucide Icons: Failed to find icon by the name of \"" .. icon .. "\.", 2)
-            end
+local Themes = {
 
-            local rirs = r[2]
-            local riro = r[3]
+	Starlight = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(23, 25, 29),
+			Medium = Color3.fromRGB(27, 29, 33),
+			Light = Color3.fromRGB(33, 34, 38),
+			Groupbox = Color3.fromRGB(33, 36, 42),
+			Highlight = Color3.fromRGB(17, 19, 22),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(165, 165, 165),
+			Dark = Color3.fromRGB(65, 69, 77),
+			MediumHover = Color3.fromRGB(185, 185, 185),
+			DarkHover = Color3.fromRGB(85, 89, 97),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(117, 128, 149),
+			Shadow = Color3.fromRGB(19, 21, 24),
+			LighterShadow = Color3.fromRGB(24, 25, 30),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(230, 186, 251)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(161, 169, 225)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(138, 201, 242)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(241, 212, 251)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(187, 192, 225)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(195, 227, 242)),
+			}),
+		},
+	},
+	["Hollywood Dark"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(8, 8, 8),
+			Medium = Color3.fromRGB(12, 12, 12),
+			Light = Color3.fromRGB(15, 15, 15),
+			Groupbox = Color3.fromRGB(14, 14, 14),
+			Highlight = Color3.fromRGB(13, 13, 13),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(165, 165, 165),
+			Dark = Color3.fromRGB(77, 77, 77),
+			MediumHover = Color3.fromRGB(185, 185, 185),
+			DarkHover = Color3.fromRGB(97, 97, 97),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(199, 199, 199),
+			Shadow = Color3.fromRGB(21, 21, 21),
+			LighterShadow = Color3.fromRGB(30, 30, 30),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(230, 186, 251)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(161, 169, 225)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(138, 201, 242)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(241, 212, 251)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(187, 192, 225)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(195, 227, 242)),
+			}),
+		},
+	},
+	["Hollywood Light"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(240, 240, 240),
+			Medium = Color3.fromRGB(250, 250, 250),
+			Light = Color3.fromRGB(255, 255, 255),
+			Groupbox = Color3.fromRGB(245, 245, 245),
+			Highlight = Color3.fromRGB(217, 217, 217),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(40, 40, 40),
+			Medium = Color3.fromRGB(145, 145, 145),
+			Dark = Color3.fromRGB(190, 190, 190),
+			MediumHover = Color3.fromRGB(125, 125, 125),
+			DarkHover = Color3.fromRGB(170, 170, 170),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(40, 40, 40),
+			Shadow = Color3.fromRGB(179, 179, 179),
+			LighterShadow = Color3.fromRGB(30, 30, 30),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(178, 101, 199)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(73, 77, 135)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(79, 166, 207)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(221, 156, 239)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(135, 146, 214)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(137, 200, 229)),
+			}),
+		},
+	},
+	Orca = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(12, 12, 12),
+			Medium = Color3.fromRGB(8, 8, 8),
+			Light = Color3.fromRGB(6, 6, 6),
+			Groupbox = Color3.fromRGB(8, 8, 8),
+			Highlight = Color3.fromRGB(20, 20, 20),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(254, 238, 255),
+			Medium = Color3.fromRGB(199, 195, 186),
+			Dark = Color3.fromRGB(61, 51, 62),
+			MediumHover = Color3.fromRGB(185, 177, 160),
+			DarkHover = Color3.fromRGB(81, 71, 82),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(193, 61, 191),
+			Shadow = Color3.fromRGB(12, 12, 12),
+			LighterShadow = Color3.fromRGB(15, 15, 15),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 170, 0)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 85, 127)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(224, 71, 255)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(255, 202, 78)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 123, 143)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(255, 151, 253)),
+			}),
+		},
+	},
+	Glacier = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(240, 238, 240),
+			Medium = Color3.fromRGB(239, 246, 250),
+			Light = Color3.fromRGB(244, 254, 255),
+			Groupbox = Color3.fromRGB(246, 250, 250),
+			Highlight = Color3.fromRGB(191, 211, 217),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(0, 0, 0),
+			Light = Color3.fromRGB(40, 40, 40),
+			Medium = Color3.fromRGB(145, 145, 145),
+			Dark = Color3.fromRGB(190, 190, 190),
+			MediumHover = Color3.fromRGB(125, 125, 125),
+			DarkHover = Color3.fromRGB(170, 170, 170),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(56, 63, 66),
+			Shadow = Color3.fromRGB(164, 175, 179),
+			LighterShadow = Color3.fromRGB(209, 209, 209),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(196, 222, 255)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 234, 192)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(198, 225, 254)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(228, 239, 255)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(255, 241, 222)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(230, 242, 254)),
+			}),
+		},
+	},
+	Pacific = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(12, 12, 12),
+			Medium = Color3.fromRGB(14, 14, 14),
+			Light = Color3.fromRGB(6, 6, 6),
+			Groupbox = Color3.fromRGB(8, 8, 8),
+			Highlight = Color3.fromRGB(20, 20, 20),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(225, 255, 227),
+			Medium = Color3.fromRGB(173, 199, 196),
+			Dark = Color3.fromRGB(51, 62, 61),
+			MediumHover = Color3.fromRGB(157, 185, 179),
+			DarkHover = Color3.fromRGB(72, 82, 80),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(85, 255, 127),
+			Shadow = Color3.fromRGB(12, 12, 12),
+			LighterShadow = Color3.fromRGB(15, 15, 15),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(85, 255, 255)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(85, 255, 127)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(0, 170, 127)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(161, 253, 255)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(175, 255, 198)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(75, 170, 133)),
+			}),
+		},
+	},
+	Neo = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(240, 240, 240),
+			Medium = Color3.fromRGB(250, 250, 250),
+			Light = Color3.fromRGB(255, 255, 255),
+			Groupbox = Color3.fromRGB(245, 245, 245),
+			Highlight = Color3.fromRGB(217, 217, 217),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(40, 40, 40),
+			Medium = Color3.fromRGB(145, 145, 145),
+			Dark = Color3.fromRGB(190, 190, 190),
+			MediumHover = Color3.fromRGB(125, 125, 125),
+			DarkHover = Color3.fromRGB(170, 170, 170),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(40, 40, 40),
+			Shadow = Color3.fromRGB(200, 200, 200),
+			LighterShadow = Color3.fromRGB(225, 225, 225),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(7, 7, 7)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(20, 20, 20)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(8, 8, 8)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(26, 26, 26)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(17, 17, 17)),
+			}),
+		},
+	},
+	["Neo (Dark)"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(13, 13, 13),
+			Medium = Color3.fromRGB(16, 16, 16),
+			Light = Color3.fromRGB(21, 21, 21),
+			Groupbox = Color3.fromRGB(24, 24, 24),
+			Highlight = Color3.fromRGB(16, 16, 16),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(20, 20, 20),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(165, 165, 165),
+			Dark = Color3.fromRGB(77, 77, 77),
+			MediumHover = Color3.fromRGB(185, 185, 185),
+			DarkHover = Color3.fromRGB(97, 97, 97),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(199, 199, 199),
+			Shadow = Color3.fromRGB(21, 21, 21),
+			LighterShadow = Color3.fromRGB(30, 30, 30),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(220, 220, 220)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(198, 198, 198)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(230, 230, 230)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(241, 241, 241)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(214, 214, 214)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(253, 253, 253)),
+			}),
+		},
+	},
+	Crimson = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(11, 11, 15),
+			Medium = Color3.fromRGB(18, 18, 24),
+			Light = Color3.fromRGB(11, 11, 15),
+			Groupbox = Color3.fromRGB(18, 18, 24),
+			Highlight = Color3.fromRGB(18, 18, 24),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(224, 224, 224),
+			Medium = Color3.fromRGB(147, 147, 149),
+			Dark = Color3.fromRGB(67, 67, 78),
+			MediumHover = Color3.fromRGB(177, 177, 179),
+			DarkHover = Color3.fromRGB(97, 97, 107),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(107, 107, 109),
+			Shadow = Color3.fromRGB(12, 12, 12),
+			LighterShadow = Color3.fromRGB(15, 15, 15),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(216, 79, 104)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(199, 92, 112)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(216, 79, 104)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(199, 92, 112)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(216, 79, 104)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(199, 92, 112)),
+			}),
+		},
+	},
+	--Matcha = {},
+	Nebula = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(1, 4, 9),
+			Medium = Color3.fromRGB(14, 18, 26),
+			Light = Color3.fromRGB(13, 17, 23),
+			Groupbox = Color3.fromRGB(13, 17, 23),
+			Highlight = Color3.fromRGB(14, 18, 26),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(243, 243, 243),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(170, 177, 191),
+			Dark = Color3.fromRGB(33, 38, 45),
+			MediumHover = Color3.fromRGB(186, 194, 209),
+			DarkHover = Color3.fromRGB(84, 97, 115),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(201, 209, 217),
+			Shadow = Color3.fromRGB(12, 12, 12),
+			LighterShadow = Color3.fromRGB(15, 15, 15),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(94, 255, 236)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(172, 164, 255)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(191, 0, 255)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(179, 255, 240)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(214, 202, 255)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(220, 133, 255)),
+			}),
+		},
+	},
 
-            if type(r[1]) ~= "number" or type(rirs) ~= "table" or type(riro) ~= "table" then
-                error("Lucide Icons: Internal error: Invalid auto-generated asset entry")
-            end
+	Evergreen = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(41, 50, 54),
+			Medium = Color3.fromRGB(45, 53, 59),
+			Light = Color3.fromRGB(52, 63, 68),
+			Groupbox = Color3.fromRGB(45, 52, 54),
+			Highlight = Color3.fromRGB(45, 53, 59),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(224, 224, 224),
+			Medium = Color3.fromRGB(211, 198, 170),
+			Dark = Color3.fromRGB(122, 132, 120),
+			MediumHover = Color3.fromRGB(177, 177, 179),
+			DarkHover = Color3.fromRGB(97, 97, 107),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(211, 198, 170),
+			Shadow = Color3.fromRGB(43, 48, 47),
+			LighterShadow = Color3.fromRGB(48, 54, 53),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(167, 192, 128)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(145, 177, 89)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(167, 192, 128)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(145, 177, 89)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(167, 192, 128)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(145, 177, 89)),
+			}),
+		},
+	},
+	Ubuntu = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(50, 50, 50),
+			Medium = Color3.fromRGB(56, 56, 56),
+			Light = Color3.fromRGB(62, 62, 62),
+			Groupbox = Color3.fromRGB(62, 62, 62),
+			Highlight = Color3.fromRGB(50, 50, 50),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(141, 141, 141),
+			Dark = Color3.fromRGB(50, 50, 50),
+			MediumHover = Color3.fromRGB(100, 100, 100),
+			DarkHover = Color3.fromRGB(70, 70, 70),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(226, 88, 30),
+			Shadow = Color3.fromRGB(25, 25, 25),
+			LighterShadow = Color3.fromRGB(50, 50, 50),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(226, 88, 30)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(226, 114, 70)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(226, 88, 30)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(226, 108, 61)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(226, 149, 111)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(226, 108, 61)),
+			}),
+		},
+	},
+	Luna = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(21, 20, 25),
+			Medium = Color3.fromRGB(26, 25, 31),
+			Light = Color3.fromRGB(37, 35, 44),
+			Groupbox = Color3.fromRGB(39, 34, 43),
+			Highlight = Color3.fromRGB(22, 22, 31),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(203, 203, 203),
+			Dark = Color3.fromRGB(66, 63, 76),
+			MediumHover = Color3.fromRGB(227, 227, 227),
+			DarkHover = Color3.fromRGB(98, 98, 98),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(64, 61, 76),
+			Shadow = Color3.fromRGB(32, 28, 35),
+			LighterShadow = Color3.fromRGB(45, 39, 49),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(117, 164, 206)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(123, 201, 201)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(224, 138, 175)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(152, 193, 221)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(181, 235, 231)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(244, 175, 202)),
+			}),
+		},
+	},
+	["Tokyo Night"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(22, 22, 31),
+			Medium = Color3.fromRGB(28, 28, 40),
+			Light = Color3.fromRGB(25, 25, 37),
+			Groupbox = Color3.fromRGB(25, 25, 37),
+			Highlight = Color3.fromRGB(22, 22, 31),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(167, 160, 185),
+			Dark = Color3.fromRGB(80, 78, 98),
+			MediumHover = Color3.fromRGB(180, 167, 206),
+			DarkHover = Color3.fromRGB(88, 82, 130),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(144, 101, 163),
+			Shadow = Color3.fromRGB(40, 40, 48),
+			LighterShadow = Color3.fromRGB(40, 40, 48),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(132, 116, 163)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(133, 122, 194)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(132, 116, 163)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(133, 122, 194)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(132, 116, 163)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(133, 122, 194)),
+			}),
+		},
+	},
+	OperaGX = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(15, 13, 18),
+			Medium = Color3.fromRGB(12, 11, 15),
+			Light = Color3.fromRGB(11, 9, 16),
+			Groupbox = Color3.fromRGB(6, 5, 8),
+			Highlight = Color3.fromRGB(13, 11, 18),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(170, 170, 170),
+			Dark = Color3.fromRGB(80, 78, 98),
+			MediumHover = Color3.fromRGB(190, 190, 190),
+			DarkHover = Color3.fromRGB(122, 117, 130),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(250, 30, 78),
+			Shadow = Color3.fromRGB(24, 23, 26),
+			LighterShadow = Color3.fromRGB(40, 40, 48),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(250, 30, 78)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(216, 27, 62)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(250, 30, 78)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(216, 27, 62)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(250, 30, 78)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(216, 27, 62)),
+			}),
+		},
+	},
+	BBot = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(35, 35, 35),
+			Medium = Color3.fromRGB(40, 40, 40),
+			Light = Color3.fromRGB(30, 30, 30),
+			Groupbox = Color3.fromRGB(30, 30, 30),
+			Highlight = Color3.fromRGB(35, 35, 35),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(255, 255, 255),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(180, 180, 180),
+			Dark = Color3.fromRGB(82, 82, 82),
+			MediumHover = Color3.fromRGB(150, 150, 150),
+			DarkHover = Color3.fromRGB(112, 112, 112),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(144, 101, 163),
+			Shadow = Color3.fromRGB(20, 20, 20),
+			LighterShadow = Color3.fromRGB(40, 40, 40),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(126, 72, 163)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(144, 101, 163)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(167, 97, 218)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(170, 98, 221)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(124, 75, 148)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(179, 131, 218)),
+			}),
+		},
+	},
+	["Hollywood Fluent"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(25, 25, 25),
+			Medium = Color3.fromRGB(36, 36, 36),
+			Light = Color3.fromRGB(36, 36, 36),
+			Groupbox = Color3.fromRGB(30, 30, 30),
+			Highlight = Color3.fromRGB(40, 40, 40),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(26, 34, 42),
+			Light = Color3.fromRGB(255, 255, 255),
+			Medium = Color3.fromRGB(165, 165, 165),
+			Dark = Color3.fromRGB(77, 77, 77),
+			MediumHover = Color3.fromRGB(185, 185, 185),
+			DarkHover = Color3.fromRGB(97, 97, 97),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(180, 180, 180),
+			Shadow = Color3.fromRGB(42, 42, 42),
+			LighterShadow = Color3.fromRGB(35, 35, 35),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(174, 216, 232)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(160, 210, 232)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(174, 216, 232)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(187, 219, 232)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(176, 214, 232)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(187, 219, 232)),
+			}),
+		},
+	},
+	["Catppuccin Mocha"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(24, 24, 37),       -- base
+			Medium = Color3.fromRGB(30, 30, 46),     -- mantle
+			Light = Color3.fromRGB(30, 30, 46),     
+			Groupbox = Color3.fromRGB(30, 30, 46),
+			Highlight = Color3.fromRGB(49, 50, 68)  -- surface0
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(205, 214, 244),  -- text
+			Light = Color3.fromRGB(205, 214, 244),
+			Medium = Color3.fromRGB(166, 173, 200),  -- subtext0
+			Dark = Color3.fromRGB(88, 91, 112),    -- overlay0
+			MediumHover = Color3.fromRGB(186, 194, 222),
+			DarkHover = Color3.fromRGB(127, 132, 156),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(137, 180, 250), -- blue
+			Shadow = Color3.fromRGB(17, 17, 27),     -- crust
+			LighterShadow = Color3.fromRGB(24, 24, 37),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(245, 194, 231)), -- pink
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(203, 166, 247)), -- mauve
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(137, 180, 250)), -- blue
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.0, Color3.fromRGB(250, 217, 233)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(214, 178, 255)),
+				ColorSequenceKeypoint.new(1.0, Color3.fromRGB(166, 200, 255)),
+			}),
+		},
+	},
+	["Catppuccin Macchiato"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(24, 25, 38),
+			Medium = Color3.fromRGB(36, 39, 58),
+			Light = Color3.fromRGB(48, 52, 70),
+			Groupbox = Color3.fromRGB(42, 45, 63),
+			Highlight = Color3.fromRGB(54, 58, 79),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(202, 211, 245),
+			Light = Color3.fromRGB(202, 211, 245),
+			Medium = Color3.fromRGB(165, 173, 203),
+			Dark = Color3.fromRGB(110, 115, 141),
+			MediumHover = Color3.fromRGB(184, 192, 224),
+			DarkHover = Color3.fromRGB(129, 135, 165),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(183, 189, 248),
+			Shadow = Color3.fromRGB(18, 19, 32),
+			LighterShadow = Color3.fromRGB(24, 25, 38),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(238, 153, 160)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(183, 189, 248)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(245, 189, 230)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(244, 184, 191)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(198, 202, 255)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(250, 212, 239)),
+			}),
+		},
+	},
 
-            local irs = Vector2.new(rirs[1], rirs[2])
-            local iro = Vector2.new(riro[1], riro[2])
+	["Catppuccin Frappe"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(48, 52, 70),
+			Medium = Color3.fromRGB(65, 69, 89),
+			Light = Color3.fromRGB(81, 87, 109),
+			Groupbox = Color3.fromRGB(72, 78, 100),
+			Highlight = Color3.fromRGB(92, 97, 122),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(198, 208, 245),
+			Light = Color3.fromRGB(198, 208, 245),
+			Medium = Color3.fromRGB(165, 173, 206),
+			Dark = Color3.fromRGB(115, 121, 148),
+			MediumHover = Color3.fromRGB(180, 189, 220),
+			DarkHover = Color3.fromRGB(136, 142, 170),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(166, 218, 149),
+			Shadow = Color3.fromRGB(40, 44, 61),
+			LighterShadow = Color3.fromRGB(48, 52, 70),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(239, 159, 118)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(229, 200, 144)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(166, 218, 149)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(245, 182, 148)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(238, 215, 170)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(190, 232, 178)),
+			}),
+		},
+	},
 
-            -- Route the spritesheet through the custom asset cache too.
-            -- The Lucide spritesheet is a single big image so we cache it once
-            -- under a shared name to avoid re-downloading it for every icon.
-            local image = "rbxassetid://" .. r[1]
-            if not isStudio then
-                local cached = Asset(
-                    "https://assetdelivery.roblox.com/v1/asset/?id=" .. tostring(r[1]),
-                    "Lucide_48px_spritesheet.png"
-                )
-                if cached then image = cached end
-            end
+	["Catppuccin Latte"] = {
+		Backgrounds = {
+			Dark = Color3.fromRGB(239, 241, 245),
+			Medium = Color3.fromRGB(220, 224, 232),
+			Light = Color3.fromRGB(230, 233, 239),
+			Groupbox = Color3.fromRGB(216, 222, 233),
+			Highlight = Color3.fromRGB(204, 208, 218),
+		},
+		Foregrounds = {
+			Active = Color3.fromRGB(76, 79, 105),
+			Light = Color3.fromRGB(76, 79, 105),
+			Medium = Color3.fromRGB(108, 111, 133),
+			Dark = Color3.fromRGB(156, 160, 176),
+			MediumHover = Color3.fromRGB(92, 95, 119),
+			DarkHover = Color3.fromRGB(137, 142, 162),
+		},
+		Miscellaneous = {
+			Divider = Color3.fromRGB(64, 160, 43),
+			Shadow = Color3.fromRGB(76, 79, 105),
+			LighterShadow = Color3.fromRGB(108, 111, 133),
+		},
+		Accents = {
+			Main = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(254, 100, 11)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(223, 142, 29)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(64, 160, 43)),
+			}),
+			Brighter = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 132, 60)),
+				ColorSequenceKeypoint.new(0.5, Color3.fromRGB(235, 175, 80)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(122, 190, 90)),
+			}),
+		},
+	},
+	--PHub = {},
+	--Serika = {},
+	--Rust = {},
+	--Matcha = {},
+	--Vaporwave = {},
+}
 
-            local asset = {
-                id = image,
-                imageRectSize = irs,
-                imageRectOffset = iro,
-            }
-
-            return asset
-        else
-            -- Studio has no getcustomasset — fall back to a placeholder
-            return "rbxassetid://10723434557"
-        end
-
-    else
-        if icon ~= nil and IconModule[source] then
-            local sourceicon = IconModule[source]
-            local url = sourceicon[icon]
-            if not url then return nil end
-
-            -- Every Material entry is an http://www.roblox.com/asset/?id=NNN
-            -- or a plain rbxassetid:// string — route both through the cache.
-            if not isStudio then
-                local cached = RobloxIdToAsset(
-                    url,
-                    source .. "_" .. tostring(icon) .. ".png"
-                )
-                if cached then return cached end
-            end
-
-            return url
-        else
-            return nil
-        end
-    end
+local function deepCopy(tbl)
+	if type(tbl) ~= "table" then
+		return tbl
+	end
+	local copy = {}
+	for k, v in pairs(tbl) do
+		copy[k] = deepCopy(v)
+	end
+	return copy
 end
-local function RemoveTable(tablre, value)
-	for i,v in pairs(tablre) do
-		if tostring(v) == tostring(value) then
+Starlight.Themes = Themes
+Starlight.CurrentTheme = deepCopy(Themes.Starlight)
+
+--//ENDSUBSECTION
+
+function Tween.Info(style: string?, direction: string?, time: number?)
+	style = style or "Exponential"
+	direction = direction or "Out"
+	time = time or 0.5
+	return TweenInfo.new(time, Enum.EasingStyle[style], Enum.EasingDirection[direction])
+end
+
+local NebulaIcons = isStudio and require(ReplicatedStorage.NebulaIcons)
+
+local connections = {}
+
+--// ENDSECTION
+
+--// SECTION : Methods
+
+-- used so the index system allows for universal linking without breaking
+local function GetNestedValue(tbl, path)
+	local current = tbl
+	for segment in string.gmatch(path, "[^%.]+") do
+		if typeof(current) ~= "table" then
+			return nil
+		end
+		current = current[segment]
+	end
+	return current
+end
+local ClassInterfacer = {
+
+	["Button"] = {},
+	["Toggle"] = {
+		"CurrentValue",
+	},
+	["Slider"] = {
+		"CurrentValue",
+	},
+	["Input"] = {
+		"CurrentValue",
+	},
+	["Label"] = {},
+	["Paragraph"] = {},
+	["Divider"] = {},
+	--["Image"] = {}, ["Viewport"] = {}, ["Stepper"] = {}, ["Radio"] = {},
+	["Bind"] = {
+		"CurrentValue",
+	},
+	["ColorPicker"] = {
+		"CurrentValue",
+		"Transparency",
+	},
+	["Dropdown"] = {
+		"CurrentOption",
+	},
+}
+
+local ConfigMethods = {
+	Save = function(Idx, Data, Type)
+		if Type == "ColorPicker" then
+			local appendedData = {}
+			for i, v in pairs(Data) do
+				if i == "CurrentValue" then
+					appendedData[i] = Color.Unpack(v)
+				else
+					appendedData[i] = v
+				end
+			end
+			return {
+				type = Type,
+				idx = Idx,
+				data = appendedData,
+			}
+		else
+			return {
+				type = Type,
+				idx = Idx,
+				data = Data,
+			}
+		end
+	end,
+	Load = function(Idx, Data, Path)
+		if GetNestedValue(Starlight.Window.TabSections, Idx) then
+			if GetNestedValue(Starlight.Window.TabSections, Idx) then
+				for key, value in pairs(Data) do
+					if table.find(ClassInterfacer[GetNestedValue(Starlight.Window.TabSections, Idx).Class], key) then
+						GetNestedValue(Starlight.Window.TabSections, Idx):Set({ [key] = value })
+					end
+				end
+			end
+		end
+	end,
+	UpdateOld = function(oldPath, newPath)
+		local list = listfiles(oldPath) or {}
+
+		for i = 1, #list do
+			local file = list[i]
+			if file:sub(-#Starlight.FileSystem.FileExtension) == Starlight.FileSystem.FileExtension then
+				local content = readfile(file)
+
+				local pos = file:find(Starlight.FileSystem.FileExtension, 1, true)
+				local start = pos
+
+				local char = file:sub(pos, pos)
+				while char ~= "/" and char ~= "\\" and char ~= "" do
+					pos = pos - 1
+					char = file:sub(pos, pos)
+				end
+
+				if char == "/" or char == "\\" then
+					local name = file:sub(pos + 1, start - 1)
+					if name ~= "options" then
+						writefile(`{newPath}/{name}{Starlight.FileSystem.FileExtension}`, content)
+					end
+				end
+
+				delfile(file)
+			end
+		end
+	end,
+}
+
+local ThemeMethods = {
+	bindTheme = function(object: GuiObject, property, themeKey)
+		local function set()
+			pcall(task.spawn, function()
+				if
+					object.ClassName == "UIGradient"
+					and typeof(GetNestedValue(Starlight.CurrentTheme, themeKey)) == "Color3"
+				then
+					object[property] = ColorSequence.new({
+						ColorSequenceKeypoint.new(0, GetNestedValue(Starlight.CurrentTheme, themeKey)),
+						ColorSequenceKeypoint.new(1, GetNestedValue(Starlight.CurrentTheme, themeKey)),
+					})
+					return
+				end
+
+				object[property] = GetNestedValue(Starlight.CurrentTheme, themeKey)
+			end)
+		end
+
+		themeEvent.Event:Connect(set)
+		set()
+	end,
+	encodeTheme = function(theme)
+		local function serialize(data)
+			if typeof(data) == "Color3" then
+				return { __type = "Color3", R = data.R * 255, G = data.G * 255, B = data.B * 255 }
+			elseif typeof(data) == "ColorSequence" then
+				local keypoints = {}
+				for _, kp in ipairs(data.Keypoints) do
+					table.insert(keypoints, {
+						Time = kp.Time,
+						Value = { R = kp.Value.R * 255, G = kp.Value.G * 255, B = kp.Value.B * 255 },
+					})
+				end
+				return { __type = "ColorSequence", Keypoints = keypoints }
+			elseif type(data) == "table" then
+				local newTbl = {}
+				for k, v in pairs(data) do
+					newTbl[k] = serialize(v)
+				end
+				return newTbl
+			end
+			return data
+		end
+
+		local serialized = serialize(theme)
+		local success, encoded = pcall(HttpService.JSONEncode, HttpService, serialized)
+		if not success then
+			return false, "Failed to encode into JSON Data."
+		end
+		return true, encoded
+	end,
+	decodeTheme = function(data)
+		local function deserialize(value)
+			if type(value) == "table" then
+				if value.__type == "Color3" then
+					return Color3.fromRGB(value.R, value.G, value.B)
+				elseif value.__type == "ColorSequence" then
+					local keypoints = {}
+					for _, kp in ipairs(value.Keypoints) do
+						table.insert(
+							keypoints,
+							ColorSequenceKeypoint.new(kp.Time, Color3.fromRGB(kp.Value.R, kp.Value.G, kp.Value.B))
+						)
+					end
+					return ColorSequence.new(keypoints)
+				else
+					local newTbl = {}
+					for k, v in pairs(value) do
+						newTbl[k] = deserialize(v)
+					end
+					return newTbl
+				end
+			end
+			return value
+		end
+
+		local success, decoded = pcall(HttpService.JSONDecode, HttpService, data)
+		if not success then
+			return false, "Failed to decode JSON data."
+		end
+		return deserialize(decoded)
+	end,
+}
+
+-- Removes item from a provided table via the value of the item
+-- and tablre is not a typo, table was already taken by roblox's core scripting
+function Table.Remove(tablre: table, value)
+	for i, v in pairs(tablre) do
+		if v == value then
 			table.remove(tablre, i)
 		end
 	end
 end
 
-local function Kwargify(defaults, passed)
-	for i, v in pairs(defaults) do
-		if passed[i] == nil then
-			passed[i] = v
-		end
-	end
-	return passed
+-- Returns a table with RGB Values of the provided Color
+function Color.Unpack(Color: Color3)
+	return { R = Color.R * 255, G = Color.G * 255, B = Color.B * 255 }
 end
 
-local function PackColor(Color)
-	return {R = Color.R * 255, G = Color.G * 255, B = Color.B * 255}
-end    
-
-local function UnpackColor(Color)
+-- Returns a color with the RGB Values of the provided table
+function Color.Pack(Color: table)
 	return Color3.fromRGB(Color.R, Color.G, Color.B)
 end
 
-function tween(object, goal, callback, tweenin)
-	local tween = TweenService:Create(object,tweenin or tweeninfo, goal)
-	tween.Completed:Connect(callback or function() end)
-	tween:Play()
-end
+-- Deprecated with the new AcrylicModule system.
+--[=[
+-- Creates the BlurBehind Effect for the transparent theme
+local function BlurModule(Frame : Frame)
+	local universalDof;
+	for i,v in pairs(Lighting:GetChildren()) do
 
-local function BlurModule(Frame)
-	local RunService = game:GetService('RunService')
-	local camera = workspace.CurrentCamera
-	local MTREL = "Glass"
-	local binds = {}
-	local root = Instance.new('Folder', camera)
-	root.Name = 'LunaBlur'
+		if v:IsA("DepthOfFieldEffect")
+			and not string.find(v.Name, "starlightBlur_", nil) then
 
-	local gTokenMH = 99999999
-	local gToken = math.random(1, gTokenMH)
-
-	local DepthOfField = Instance.new('DepthOfFieldEffect', game:GetService('Lighting'))
-	DepthOfField.FarIntensity = 0
-	DepthOfField.FocusDistance = 51.6
-	DepthOfField.InFocusRadius = 50
-	DepthOfField.NearIntensity = 6
-	DepthOfField.Name = "DPT_"..gToken
-
-	local frame = Instance.new('Frame')
-	frame.Parent = Frame
-	frame.Size = UDim2.new(0.95, 0, 0.95, 0)
-	frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-	frame.AnchorPoint = Vector2.new(0.5, 0.5)
-	frame.BackgroundTransparency = 1
-
-	local GenUid; do -- Generate unique names for RenderStepped bindings
-		local id = 0
-		function GenUid()
-			id = id + 1
-			return 'neon::'..tostring(id)
-		end
-	end
-
-	do
-		local function IsNotNaN(x)
-			return x == x
-		end
-		local continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
-		while not continue do
-			RunService.RenderStepped:wait()
-			continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
-		end
-	end
-
-	local DrawQuad; do
-
-		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
-		local sz = 0.22
-		local function DrawTriangle(v1, v2, v3, p0, p1) -- I think Stravant wrote this function
-
-			local s1 = (v1 - v2).magnitude
-			local s2 = (v2 - v3).magnitude
-			local s3 = (v3 - v1).magnitude
-			local smax = max(s1, s2, s3)
-			local A, B, C
-			if s1 == smax then
-				A, B, C = v1, v2, v3
-			elseif s2 == smax then
-				A, B, C = v2, v3, v1
-			elseif s3 == smax then
-				A, B, C = v3, v1, v2
-			end
-
-			local para = ( (B-A).x*(C-A).x + (B-A).y*(C-A).y + (B-A).z*(C-A).z ) / (A-B).magnitude
-			local perp = sqrt((C-A).magnitude^2 - para*para)
-			local dif_para = (A - B).magnitude - para
-
-			local st = CFrame.new(B, A)
-			local za = CFrame.Angles(pi/2,0,0)
-
-			local cf0 = st
-
-			local Top_Look = (cf0 * za).lookVector
-			local Mid_Point = A + CFrame.new(A, B).lookVector * para
-			local Needed_Look = CFrame.new(Mid_Point, C).lookVector
-			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
-
-			local ac = CFrame.Angles(0, 0, acos(dot))
-
-			cf0 = cf0 * ac
-			if ((cf0 * za).lookVector - Needed_Look).magnitude > 0.01 then
-				cf0 = cf0 * CFrame.Angles(0, 0, -2*acos(dot))
-			end
-			cf0 = cf0 * CFrame.new(0, perp/2, -(dif_para + para/2))
-
-			local cf1 = st * ac * CFrame.Angles(0, pi, 0)
-			if ((cf1 * za).lookVector - Needed_Look).magnitude > 0.01 then
-				cf1 = cf1 * CFrame.Angles(0, 0, 2*acos(dot))
-			end
-			cf1 = cf1 * CFrame.new(0, perp/2, dif_para/2)
-
-			if not p0 then
-				p0 = Instance.new('Part')
-				p0.FormFactor = 'Custom'
-				p0.TopSurface = 0
-				p0.BottomSurface = 0
-				p0.Anchored = true
-				p0.CanCollide = false
-				p0.CastShadow = false
-				p0.Material = MTREL
-				p0.Size = Vector3.new(sz, sz, sz)
-				local mesh = Instance.new('SpecialMesh', p0)
-				mesh.MeshType = 2
-				mesh.Name = 'WedgeMesh'
-			end
-			p0.WedgeMesh.Scale = Vector3.new(0, perp/sz, para/sz)
-			p0.CFrame = cf0
-
-			if not p1 then
-				p1 = p0:clone()
-			end
-			p1.WedgeMesh.Scale = Vector3.new(0, perp/sz, dif_para/sz)
-			p1.CFrame = cf1
-
-			return p0, p1
-		end
-
-		function DrawQuad(v1, v2, v3, v4, parts)
-			parts[1], parts[2] = DrawTriangle(v1, v2, v3, parts[1], parts[2])
-			parts[3], parts[4] = DrawTriangle(v3, v2, v4, parts[3], parts[4])
-		end
-	end
-
-	if binds[frame] then
-		return binds[frame].parts
-	end
-
-	local uid = GenUid()
-	local parts = {}
-	local f = Instance.new('Folder', root)
-	f.Name = frame.Name
-
-	local parents = {}
-	do
-		local function add(child)
-			if child:IsA'GuiObject' then
-				parents[#parents + 1] = child
-				add(child.Parent)
-			end
-		end
-		add(frame)
-	end
-
-	local function UpdateOrientation(fetchProps)
-		local properties = {
-			Transparency = 0.98;
-			BrickColor = BrickColor.new('Institutional white');
-		}
-		local zIndex = 1 - 0.05*frame.ZIndex
-
-		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
-		local tr, bl = Vector2.new(br.x, tl.y), Vector2.new(tl.x, br.y)
-		do
-			local rot = 0;
-			for _, v in ipairs(parents) do
-				rot = rot + v.Rotation
-			end
-			if rot ~= 0 and rot%180 ~= 0 then
-				local mid = tl:lerp(br, 0.5)
-				local s, c = math.sin(math.rad(rot)), math.cos(math.rad(rot))
-				local vec = tl
-				tl = Vector2.new(c*(tl.x - mid.x) - s*(tl.y - mid.y), s*(tl.x - mid.x) + c*(tl.y - mid.y)) + mid
-				tr = Vector2.new(c*(tr.x - mid.x) - s*(tr.y - mid.y), s*(tr.x - mid.x) + c*(tr.y - mid.y)) + mid
-				bl = Vector2.new(c*(bl.x - mid.x) - s*(bl.y - mid.y), s*(bl.x - mid.x) + c*(bl.y - mid.y)) + mid
-				br = Vector2.new(c*(br.x - mid.x) - s*(br.y - mid.y), s*(br.x - mid.x) + c*(br.y - mid.y)) + mid
-			end
-		end
-		DrawQuad(
-			camera:ScreenPointToRay(tl.x, tl.y, zIndex).Origin, 
-			camera:ScreenPointToRay(tr.x, tr.y, zIndex).Origin, 
-			camera:ScreenPointToRay(bl.x, bl.y, zIndex).Origin, 
-			camera:ScreenPointToRay(br.x, br.y, zIndex).Origin, 
-			parts
-		)
-		if fetchProps then
-			for _, pt in pairs(parts) do
-				pt.Parent = f
-			end
-			for propName, propValue in pairs(properties) do
-				for _, pt in pairs(parts) do
-					pt[propName] = propValue
-				end
-			end
+			universalDof = v
 		end
 
 	end
+	if universalDof == nil then
+		universalDof = Instance.new("DepthOfFieldEffect")
+		universalDof.FarIntensity = 0
+		universalDof.NearIntensity = 0
+		universalDof.FocusDistance = 500
+		universalDof.InFocusRadius = 500
+		universalDof.Enabled = true
+	end
 
-	UpdateOrientation(true)
-	RunService:BindToRenderStep(uid, 2000, UpdateOrientation)
-end
+	local partRoot = Camera:FindFirstChild("Starlight Blur Elements") or Instance.new("Folder", Camera)
+	partRoot.Name = "Starlight Blur Elements"
 
-local function unpackt(array : table)
+	local blurSize         = Vector2.new(5, 2)
+	local partSize         = 0.01
+	local partTransparency = 0.99
 
-	local val = ""
-	local i = 0
-	for _,v in pairs(array) do
-		if i < 3 then
-			val = val .. v .. ", "
-			i += 1
+	Frame:SetAttribute("BlurIntensity", 1)
+
+	local blurObject          = universalDof:Clone()
+	blurObject.NearIntensity  = Frame:GetAttribute("BlurIntensity")
+	blurObject.FocusDistance  = universalDof.FocusDistance
+	blurObject.InFocusRadius = universalDof.InFocusRadius
+	blurObject.FarIntensity = universalDof.FarIntensity
+	blurObject.Parent         = Lighting
+	blurObject.Name = "starlightBlur_" .. Frame.Name .. HttpService:GenerateGUID(false)
+
+	universalDof:GetPropertyChangedSignal("FarIntensity"):Connect(function()
+		blurObject.FarIntensity = universalDof.FarIntensity
+	end)
+	universalDof:GetPropertyChangedSignal("InFocusRadius"):Connect(function()
+		blurObject.InFocusRadius = universalDof.InFocusRadius
+	end)
+	universalDof:GetPropertyChangedSignal("FocusDistance"):Connect(function()
+		blurObject.FocusDistance = universalDof.FocusDistance
+	end)
+	universalDof:GetPropertyChangedSignal("Enabled"):Connect(function()
+		if universalDof.Enabled == false then
+			blurObject.FarIntensity = 0
+			blurObject.FocusDistance = 500
+			blurObject.InFocusRadius = 500
 		else
-			val = "Various"
-			break
+			blurObject.FarIntensity = universalDof.FarIntensity
+			blurObject.InFocusRadius = universalDof.InFocusRadius
+			blurObject.FocusDistance = universalDof.FocusDistance
+		end
+	end)
+
+	local PartsList         = {}
+	local BlursList         = {}
+	local BlurObjects       = {}
+	local BlurredGui        = {}
+
+	BlurredGui.__index      = BlurredGui
+
+	local function rayPlaneIntersect(planePos, planeNormal, rayOrigin, rayDirection)
+		local n = planeNormal
+		local d = rayDirection
+		local v = rayOrigin - planePos
+
+		local num = n.x*v.x + n.y*v.y + n.z*v.z
+		local den = n.x*d.x + n.y*d.y + n.z*d.z
+		local a = -num / den
+
+		return rayOrigin + a * rayDirection, a
+	end
+
+	local function rebuildPartsList()
+		PartsList = {}
+		BlursList = {}
+		for blurObj, part in pairs(BlurObjects) do
+			table.insert(PartsList, part)
+			table.insert(BlursList, blurObj)
 		end
 	end
 
+	function BlurredGui.new(frame, shape)
+		local blurPart        = Instance.new("Part")
+		blurPart.Size         = Vector3.new(1, 1, 1) * 0.01
+		blurPart.Anchored     = true
+		blurPart.CanCollide   = false
+		blurPart.CanTouch     = false
+		blurPart.Material     = Enum.Material.Glass
+		blurPart.Transparency = partTransparency
+		blurPart.Parent       = partRoot
+		blurPart.Color = Color3.new(1,1,1)
+
+		local mesh
+		if (shape == "Rectangle") then
+			mesh        = Instance.new("BlockMesh")
+			mesh.Parent = blurPart
+		elseif (shape == "Oval") then
+			mesh          = Instance.new("SpecialMesh")
+			mesh.MeshType = Enum.MeshType.Sphere
+			mesh.Parent   = blurPart
+		end
+
+		local ignoreInset = false
+		local currentObj  = frame
+
+		while true do
+			currentObj = currentObj.Parent
+
+			if (currentObj and currentObj:IsA("ScreenGui")) then
+				ignoreInset = currentObj.IgnoreGuiInset
+				break
+			elseif (currentObj == nil) then
+				break
+			end
+		end
+
+		local new = setmetatable({
+			Frame          = frame;
+			Part           = blurPart;
+			Mesh           = mesh;
+			IgnoreGuiInset = ignoreInset;
+		}, BlurredGui)
+
+		BlurObjects[new] = blurPart
+		rebuildPartsList()
+
+		game:GetService("RunService"):BindToRenderStep("...", Enum.RenderPriority.Camera.Value + 1, function()
+			blurPart.CFrame = Camera.CFrame
+			BlurredGui.updateAll()
+		end)
+		return new
+	end
+
+	local function updateGui(blurObj)
+		if (not blurObj.Frame.Visible) then
+			blurObj.Part.Transparency = 1
+			return
+		end
+
+		local frame  = blurObj.Frame
+		local part   = blurObj.Part
+		local mesh   = blurObj.Mesh
+
+		part.Transparency = partTransparency
+
+		local corner0 = frame.AbsolutePosition + blurSize
+		local corner1 = corner0 + frame.AbsoluteSize - blurSize*2
+		local ray0, ray1
+		ray0 = Camera:ScreenPointToRay(corner0.X, corner0.Y, 1)
+		ray1 = Camera:ScreenPointToRay(corner1.X, corner1.Y, 1)
+
+		local planeOrigin = Camera.CFrame.Position + Camera.CFrame.LookVector * (0.05 - Camera.NearPlaneZ)
+		local planeNormal = Camera.CFrame.LookVector
+		local pos0 = rayPlaneIntersect(planeOrigin, planeNormal, ray0.Origin, ray0.Direction)
+		local pos1 = rayPlaneIntersect(planeOrigin, planeNormal, ray1.Origin, ray1.Direction)
+
+		local pos0 = Camera.CFrame:PointToObjectSpace(pos0)
+		local pos1 = Camera.CFrame:PointToObjectSpace(pos1)
+
+		local size   = pos1 - pos0
+		local center = (pos0 + pos1)/2
+
+		mesh.Offset = center
+		mesh.Scale  = size / partSize
+	end
+
+	function BlurredGui.updateAll()
+		blurObject.NearIntensity = tonumber(Frame:GetAttribute("BlurIntensity"))
+
+		for i = 1, #BlursList do
+			updateGui(BlursList[i])
+		end
+
+		local cframes = table.create(#BlursList, workspace.CurrentCamera.CFrame)
+		workspace:BulkMoveTo(PartsList, cframes, Enum.BulkMoveMode.FireCFrameChanged)
+
+		--blurObject.FocusDistance = 0.25 - Camera.NearPlaneZ
+	end
+
+	function BlurredGui:Destroy()
+		self.Part:Destroy()
+		BlurObjects[self] = nil
+		rebuildPartsList()
+	end
+
+	BlurredGui.new(Frame, "Rectangle")
+
+	BlurredGui.updateAll()
+	return BlurredGui
+end
+]=]
+
+-- Unpacks A Table, Returning it as string containing a list of the values
+--[Obsolete "So apparently... theres a function called table.concat and it does exactly what this does. So yea, i didnt know lmao"]
+function Table.Unpack(array: table)
+	local val = ""
+	for _, v in pairs(array) do
+		val = val .. tostring(v) .. ", "
+	end
+
+	val = string.sub(val, 1, #val - 2)
 	return val
 end
 
--- Interface Management
-local LunaUI
-if isStudio then
-    LunaUI = script.Parent:WaitForChild("Luna UI")
-else
-    local gca = getcustomasset or getsynasset
-    if not gca then
-        error("This executor doesn't support getcustomasset/getsynasset. Cannot load UI.")
-    end
-
-    local folder = "Luna/Assets"
-    if not isfolder(folder) then makefolder(folder) end
-    local path = folder .. "/LunaUi.rbxm"
-
-    if not isfile(path) then
-        local url = "http://zenixcore.xyz/script/scripts/LunaUi.rbxm"
-        local ok, data = pcall(function() return game:HttpGet(url) end)
-        if not ok or not data or #data == 0 then
-            error("Failed to download LunaUi.rbxm from " .. url .. ": " .. tostring(data))
-        end
-        writefile(path, data)
-    end
-
-    local ok, result = pcall(function()
-        return game:GetObjects(gca(path))[1]
-    end)
-    if not ok or not result then
-        error("Failed to load LunaUi.rbxm: " .. tostring(result))
-    end
-    LunaUI = result
+function String.IsEmptyOrNull(str: string)
+	if str == nil then
+		return true
+	end
+	if type(str) ~= "string" then
+		return false
+	end
+	if str == "" or str:match("^%s*$") then
+		return true
+	end
+	return false
 end
 
-local SizeBleh = nil
+--// SUBSECTION : Window Methods
 
-local function Hide(Window, bind, notif)
-	SizeBleh = Window.Size
-	bind = string.split(tostring(bind), "Enum.KeyCode.")
-	bind = bind[2]
-	if notif then
-		Luna:Notification({Title = "Interface Hidden", Content = "The interface has been hidden, you may reopen the interface by Pressing the UI Bind In Settings ("..tostring(bind)..")", Icon = "visibility_off"})
-	end
-	tween(Window, {BackgroundTransparency = 1})
-	tween(Window.Elements, {BackgroundTransparency = 1})
-	tween(Window.Line, {BackgroundTransparency = 1})
-	tween(Window.Title.Title, {TextTransparency = 1})
-	tween(Window.Title.subtitle, {TextTransparency = 1})
-	tween(Window.Logo, {ImageTransparency = 1})
-	tween(Window.Navigation.Line, {BackgroundTransparency = 1})
+-- this is a way to allow for tweening cus roblox doesnt have opacity yet and my lazy ass is not gonna be able to set each and every value without crashing out - also this makes it extremely future/change proof
+-- Table for Transparency Values Of All Instances
+local TransparencyValues = {
+	["TEMPLATE"] = {
+		BackgroundTransparency = nil,
+		TextTransparency = nil,
+		Transparency = nil,
+		ImageTransparency = nil,
+	},
+}
+-- sometimes it breaks for no reason, so just throw nothing if it does to prevent errors
+setmetatable(TransparencyValues, {
+	__index = function()
+		return
+	end,
+})
 
-	for _, TopbarButton in ipairs(Window.Controls:GetChildren()) do
-		if TopbarButton.ClassName == "Frame" then
-			tween(TopbarButton, {BackgroundTransparency = 1})
-			tween(TopbarButton.UIStroke, {Transparency = 1})
-			tween(TopbarButton.ImageLabel, {ImageTransparency = 1})
-			TopbarButton.Visible = false
+local oldSizeX, oldSizeY, oldPosX, oldPosY
+
+-- Hides the given object
+local function Hide(Interface, JustHide: boolean?, Notify: boolean?, Bind: string?)
+	JustHide = JustHide or false
+
+	TransparencyValues[Interface.Name] = TransparencyValues[Interface.Name] or {}
+	-- Clear Table
+	table.clear(TransparencyValues[Interface.Name])
+
+	for i, v in pairs(Interface:GetDescendants()) do
+		if
+			v.ClassName ~= "Folder"
+			and v.ClassName ~= "UICorner"
+			and v.ClassName ~= "StringValue"
+			and v.ClassName ~= "Color3Value"
+			and v.ClassName ~= "UIListLayout"
+			and v.ClassName ~= "UITextSizeConstraint"
+			and v.ClassName ~= "UIPadding"
+			and v.ClassName ~= "UIPageLayout"
+			and v.ClassName ~= "UISizeConstraint"
+			and v.ClassName ~= "UIAspectRatioConstraint"
+		then
+			-- Create And Set Subtables
+			if JustHide == false then
+				v:SetAttribute("InstanceID", HttpService:GenerateGUID(false)) -- we are doing this cus roblox fucking removed/disabled the UniqueId feature, and stuff might have the same name
+
+				TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")] = {}
+
+				if v.ClassName == "Frame" then
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency =
+						v.BackgroundTransparency
+				end
+
+				if v.ClassName == "TextLabel" or v.ClassName == "TextBox" or v.ClassName == "TextButton" then
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency =
+						v.BackgroundTransparency
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency =
+						v.TextTransparency
+				end
+
+				if v.ClassName == "ImageLabel" or v.ClassName == "ImageButton" then
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency =
+						v.BackgroundTransparency
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency =
+						v.ImageTransparency
+				end
+
+				-- do this cus roblox gui stuff have a although deprecated class, its still accesible by scripts
+				-- and sets text and transparency values which is smth we dont want
+				if v.ClassName == "UIStroke" or v.ClassName == "UIGradient" then
+					TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency = v.Transparency
+				end
+			end
+
+			-- Actually Hide The Stuff
+			if v.ClassName == "Frame" then
+				Tween(v, { BackgroundTransparency = 1 })
+			end
+
+			if v.ClassName == "TextLabel" or v.ClassName == "TextBox" or v.ClassName == "TextButton" then
+				Tween(v, { BackgroundTransparency = 1 })
+				Tween(v, { TextTransparency = 1 })
+			end
+
+			if v.ClassName == "ImageLabel" or v.ClassName == "ImageButton" then
+				Tween(v, { BackgroundTransparency = 1 })
+				Tween(v, { ImageTransparency = 1 })
+			end
+
+			if v.ClassName == "UIStroke" or Interface.ClassName == "UIGradient" then
+				Tween(v, { Transparency = 1 })
+			end
 		end
 	end
-	for _, tabbtn in ipairs(Window.Navigation.Tabs:GetChildren()) do
-		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "InActive Template" then
-			TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-			TweenService:Create(tabbtn.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-			TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+
+	if Interface.ClassName ~= "ScreenGui" then
+		if JustHide == false then
+			Interface:SetAttribute("InstanceID", HttpService:GenerateGUID(false)) -- we are doing this cus roblox fucking removed/disabled the UniqueId feature, and stuff might have the same name
+
+			TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")] = {}
+
+			if Interface.ClassName == "Frame" then
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency =
+					Interface.BackgroundTransparency
+			end
+
+			if
+				Interface.ClassName == "TextLabel"
+				or Interface.ClassName == "TextBox"
+				or Interface.ClassName == "TextButton"
+			then
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency =
+					Interface.BackgroundTransparency
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency =
+					Interface.TextTransparency
+			end
+
+			if Interface.ClassName == "ImageLabel" or Interface.ClassName == "ImageButton" then
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency =
+					Interface.BackgroundTransparency
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency =
+					Interface.ImageTransparency
+			end
+
+			-- do this cus roblox gui stuff have a although deprecated class, its still accesible by scripts
+			-- and sets text and transparency values which is smth we dont want
+			if Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient" then
+				TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency =
+					Interface.Transparency
+			end
+		end
+
+		-- Actually Hide The Stuff
+		if Interface.ClassName == "Frame" then
+			Tween(Interface, { BackgroundTransparency = 1 })
+		end
+
+		if
+			Interface.ClassName == "TextLabel"
+			or Interface.ClassName == "TextBox"
+			or Interface.ClassName == "TextButton"
+		then
+			Tween(Interface, { BackgroundTransparency = 1 })
+			Tween(Interface, { TextTransparency = 1 })
+		end
+
+		if Interface.ClassName == "ImageLabel" or Interface.ClassName == "ImageButton" then
+			Tween(Interface, { BackgroundTransparency = 1 })
+			Tween(Interface, { ImageTransparency = 1 })
+		end
+
+		if Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient" then
+			Tween(Interface, { Transparency = 1 })
 		end
 	end
 
-	task.wait(0.28)
-	Window.Size = UDim2.new(0,0,0,0)
-	Window.Parent.ShadowHolder.Visible = false
-	task.wait()
-	Window.Elements.Parent.Visible = false
-	Window.Visible = false
+	-- hide popups
+	if InputManager then
+		if not isStudio and Starlight.Instance.MobileToggle.Visible then
+			InputManager:SendTouchEvent(
+				0, 0, 0, 0
+			)
+	
+			InputManager:SendTouchEvent(
+				0, 2, 0, 0
+			)
+		elseif not isStudio then
+			InputManager:SendMouseButtonEvent(
+				0, 0, 0, true, game, 0
+			)
+	
+			InputManager:SendMouseButtonEvent(
+				0, 0, 0, false, game, 0
+			)
+		end
+	end
+	
+	task.wait(0.18)
+	if Interface.ClassName == "ScreenGui" then
+		Interface.Enabled = false
+	else
+		Interface.Visible = false
+	end
+
+	if Notify then
+		if Starlight.Instance.MobileToggle.Visible then
+			Starlight:Notification({
+				Title = "Interface Hidden",
+				Icon = 87575513726659,
+				Content = "The Interface Has Been Hidden. You May Reopen It By Pressing The Small Icon Button. ",
+				Duration = 2,
+			})
+		else
+			Starlight:Notification({
+				Title = "Interface Hidden",
+				Icon = 87575513726659,
+				Content = "The Interface Has Been Hidden. You May Reopen It By Pressing The " .. Bind .. " Key.  ",
+				Duration = 2,
+			})
+		end
+	end
+
+	Starlight.Minimized = true
 end
 
+-- Unhides the given object which has been hidden by hide
+local function Unhide(Interface)
+	if Interface.ClassName == "ScreenGui" then
+		Interface.Enabled = true
+	else
+		Interface.Visible = true
+	end
 
-if gethui then
-	LunaUI.Parent = gethui()
-elseif syn and syn.protect_gui then 
-	syn.protect_gui(LunaUI)
-	LunaUI.Parent = CoreGui
-elseif not isStudio and CoreGui:FindFirstChild("RobloxGui") then
-	LunaUI.Parent = CoreGui:FindFirstChild("RobloxGui")
-elseif not isStudio then
-	LunaUI.Parent = CoreGui
-end
+	for i, v in pairs(Interface:GetDescendants()) do
+		if
+			v.ClassName ~= "Folder"
+			and v.ClassName ~= "UICorner"
+			and v.ClassName ~= "StringValue"
+			and v.ClassName ~= "Color3Value"
+			and v.ClassName ~= "UIListLayout"
+			and v.ClassName ~= "UITextSizeConstraint"
+			and v.ClassName ~= "UIPadding"
+			and v.ClassName ~= "UIPageLayout"
+			and v.ClassName ~= "UISizeConstraint"
+			and v.ClassName ~= "UIAspectRatioConstraint"
+		then
+			pcall(function()
+				if
+					(v.ClassName == "Frame")
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency
+					~= nil
+				then
+					Tween(
+						v,
+						{
+							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+						}
+					)
+				end
 
-if gethui then
-	for _, Interface in ipairs(gethui():GetChildren()) do
-		if Interface.Name == LunaUI.Name and Interface ~= LunaUI then
-			Hide(Interface.SmartWindow)
-			Interface.Enabled = false
-			Interface.Name = "Luna-Old"
+				if
+					(v.ClassName == "TextLabel" or v.ClassName == "TextBox" or v.ClassName == "TextButton")
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency ~= nil
+				then
+					Tween(
+						v,
+						{
+							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+						}
+					)
+					Tween(
+						v,
+						{
+							TextTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].TextTransparency,
+						}
+					)
+				end
+
+				if
+					(v.ClassName == "ImageLabel" or v.ClassName == "ImageButton")
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency
+				then
+					Tween(
+						v,
+						{
+							BackgroundTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].BackgroundTransparency,
+						}
+					)
+					Tween(
+						v,
+						{
+							ImageTransparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].ImageTransparency,
+						}
+					)
+				end
+
+				if
+					(v.ClassName == "UIStroke" or Interface.ClassName == "UIGradient")
+					and TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency
+				then
+					Tween(
+						v,
+						{ Transparency = TransparencyValues[Interface.Name][v:GetAttribute("InstanceID")].Transparency }
+					)
+				end
+			end)
 		end
 	end
-elseif not isStudio then
-	for _, Interface in ipairs(CoreGui:GetChildren()) do
-		if Interface.Name == LunaUI.Name and Interface ~= LunaUI then
-			Hide(Interface.SmartWindow)
-			Interface.Enabled = false
-			Interface.Name = "Luna-Old"
+
+	pcall(function()
+		if Interface.ClassName ~= "ScreenGui" then
+			if
+				(Interface.ClassName == "Frame")
+				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency
+				~= nil
+			then
+				Tween(
+					Interface,
+					{
+						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
+							"InstanceID"
+						)].BackgroundTransparency,
+					}
+				)
+			end
+
+			if
+				(
+					Interface.ClassName == "TextLabel"
+						or Interface.ClassName == "TextBox"
+						or Interface.ClassName == "TextButton"
+				)
+					and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
+					and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency ~= nil
+			then
+				Tween(
+					Interface,
+					{
+						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
+							"InstanceID"
+						)].BackgroundTransparency,
+					}
+				)
+				Tween(
+					Interface,
+					{
+						TextTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].TextTransparency,
+					}
+				)
+			end
+
+			if
+				(Interface.ClassName == "ImageLabel" or Interface.ClassName == "ImageButton")
+				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].BackgroundTransparency ~= nil
+				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency
+			then
+				Tween(
+					Interface,
+					{
+						BackgroundTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute(
+							"InstanceID"
+						)].BackgroundTransparency,
+					}
+				)
+				Tween(
+					Interface,
+					{
+						ImageTransparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].ImageTransparency,
+					}
+				)
+			end
+
+			if
+				(Interface.ClassName == "UIStroke" or Interface.ClassName == "UIGradient")
+				and TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency
+			then
+				Tween(
+					Interface,
+					{
+						Transparency = TransparencyValues[Interface.Name][Interface:GetAttribute("InstanceID")].Transparency,
+					}
+				)
+			end
 		end
-	end
+	end)
+
+	Starlight.Minimized = false
 end
 
-LunaUI.Enabled = false
-LunaUI.SmartWindow.Visible = false
-LunaUI.Notifications.Template.Visible = false
-LunaUI.DisplayOrder = 1000000000
+-- Maximizes the window
+local function Maximize(Window: Frame)
+	oldSizeX = Window.Size.X.Offset
+	oldSizeY = Window.Size.Y.Offset
+	oldPosX = Window.Position.X.Offset
+	oldPosY = Window.Position.Y.Offset
 
-local Main : Frame = LunaUI.SmartWindow
-local Dragger = Main.Drag
-local dragBar = LunaUI.Drag
-local dragInteract = dragBar and dragBar.Interact or nil
-local dragBarCosmetic = dragBar and dragBar.Drag or nil
-local Elements = Main.Elements.Interactions
-local LoadingFrame = Main.LoadingFrame
-local Navigation = Main.Navigation
-local Tabs = Navigation.Tabs
-local Notifications = LunaUI.Notifications
-local KeySystem : Frame = Main.KeySystem
+	Tween(Window, { Size = UDim2.new(1, -2, 1, -2) }, nil, Tween.Info(nil, nil, 0.38))
+	Tween(Window, { Position = UDim2.fromOffset(1, 1) }, nil, Tween.Info(nil, nil, 0.38))
 
--- local function LoadConfiguration(Configuration, autoload)
--- 	local Data = HttpService:JSONDecode(Configuration)
--- 	local changed
--- 	local notified = false
+	Starlight.Maximized = true
+end
 
--- 	-- Iterate through current UI elements' flags
--- 	for FlagName, Flag in pairs(Luna.Flags) do
--- 		local FlagValue = Data[FlagName]
+-- Unmaximizes the window and sets it to its previous size
+local function Unmaximize(Window: Frame, Dragging: boolean?)
+	Dragging = Dragging or false
 
--- 		if FlagValue then
--- 			task.spawn(function()
--- 				if Flag.Type == "ColorPicker" then
--- 					changed = true
--- 					Flag:Set(UnpackColor(FlagValue))
--- 				else
--- 					if (Flag.CurrentValue or Flag.CurrentKeybind or Flag.CurrentOption or Flag.Color) ~= FlagValue then 
--- 						changed = true
--- 						Flag:Set(FlagValue) 	
--- 					end
--- 				end
--- 			end)
--- 		else
--- 			notified = true
--- 			Luna:Notification({Title = "Config Error", Content = "Luna was unable to load or find '"..FlagName.. "'' in the current script. Check ".. website .." for help.", Icon = "flag"})
--- 		end
--- 	end
--- 	if autoload and notified == false then
--- 		Luna:Notification({
--- 			Title = "Config Autoloaded",
--- 			Content = "The Configuration Has Been Automatically Loaded. Thank You For Using Luna Library",
--- 			Icon = "file-code-2",
--- 			ImageSource = "Lucide"
--- 		})
--- 	elseif notified == false then
--- 		Luna:Notification({
--- 			Title = "Config Loaded",
--- 			Content = "The Configuration Has Been Loaded. Thank You For Using Luna Library",
--- 			Icon = "file-code-2",
--- 			ImageSource = "Lucide"
--- 		})
--- 	end
+	Window.UICorner.CornerRadius = UDim.new(0, 8)
 
--- 	return changed
--- end
+	Tween(Window, { Size = UDim2.fromOffset(oldSizeX, oldSizeY) })
+	if not Dragging then
+		Tween(Window, { Position = UDim2.fromOffset(oldPosX, oldPosY) })
+	end
 
--- local function SaveConfiguration(Configuration, ConfigFolder, hasRoot)
--- 	local Data = {}
--- 	for i,v in pairs(Luna.Flags) do
--- 		if v.Type == "ColorPicker" then
--- 			Data[i] = PackColor(v.Color)
--- 		else
--- 			Data[i] = v.CurrentValue or v.CurrentBind or v.CurrentOption or v.Color
--- 		end
--- 	end	
--- 	if hasRoot then
--- 		writefile(ConfigurationFolder .. "/" .. hasRoot .. "/" .. ConfigFolder .. "/" .. Configuration .. ConfigurationExtension, tostring(HttpService:JSONEncode(Data)))
--- 	else
--- 		writefile(ConfigurationFolder .. "/" .. "/" .. ConfigFolder .. Configuration .. ConfigurationExtension, tostring(HttpService:JSONEncode(Data)))
--- 	end
--- end
+	Starlight.Maximized = false
+end
 
--- local function SetAutoload(ConfigName, ConfigFolder, hasRoot)
--- 	if hasRoot then
--- 		writefile(ConfigurationFolder .. "/" .. hasRoot .. "/" .. ConfigFolder .. "/" .. "autoload.txt", tostring(ConfigName) .. ConfigurationExtension)
--- 	else
--- 		writefile(ConfigurationFolder .. "/" .. "/" .. ConfigFolder .. "autoload.txt", tostring(ConfigName) .. ConfigurationExtension)
--- 	end
--- end
+-- Add a tooltip to the element
+local function AddToolTip(InfoStr, HoverInstance)
+	local label = Instance.new("TextLabel")
+	label.Text = InfoStr or ""
+	label.AnchorPoint = Vector2.new(0, 0.5)
+	label.Position = UDim2.new(0, 4, 0.5, 0)
+	label.TextSize = 15
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.FontFace = Font.fromId(12187365364, Enum.FontWeight.Regular)
+	label.TextWrapped = true
+	label.BackgroundTransparency = 1
+	label.TextColor3 = Color3.new(1, 1, 1)
 
--- local function LoadAutoLoad(ConfigFolder, hasRoot)
--- 	local autoload = isfile(ConfigurationFolder .. "/" .. "/" .. ConfigFolder .. "autoload.txt")
--- 	if hasRoot then
--- 		autoload = isfile(ConfigurationFolder .. "/" .. hasRoot .. "/" .. ConfigFolder .. "/" .. "autoload.txt")
--- 	end
+	local tooltip = Instance.new("Frame")
+	tooltip.ZIndex = 300
+	tooltip.Parent = Starlight.Instance.Tooltips
+	tooltip.Name = HoverInstance.Name
 
--- 	if autoload then
--- 		if hasRoot then
--- 			LoadConfiguration(readfile(ConfigurationFolder .. "/" .. hasRoot .. "/" .. ConfigFolder .. "/" .. readfile(ConfigurationFolder .. "/" .. hasRoot .. "/" .. ConfigFolder .. "/" .. "autoload.txt")), true)
--- 		else
--- 			LoadConfiguration(readfile(ConfigurationFolder .. "/" .. ConfigFolder .. "/" .. readfile(ConfigurationFolder .. "/" .. ConfigFolder .. "/" .. "autoload.txt")), true)
--- 		end
--- 	end
--- end
+	label.ZIndex = tooltip.ZIndex + 1
+	label.Parent = tooltip
+	label.Size = UDim2.fromOffset(math.huge, math.huge)
+	if label.TextBounds.X > 180 then
+		label.Size = UDim2.fromOffset(180, math.huge)
+	end
+	label.Size = UDim2.fromOffset(label.TextBounds.X, label.TextBounds.Y)
+	tooltip.Size = UDim2.fromOffset(label.Size.X.Offset + 8, label.Size.Y.Offset + 6)
 
-local function Draggable(Bar, Window, enableTaptic, tapticOffset)
+	tooltip.Visible = false
+
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, 3)
+	corner.Parent = tooltip
+
+	local stroke = Instance.new("UIStroke")
+	stroke.Color = Color3.fromRGB(65, 66, 77)
+	stroke.Parent = tooltip
+
+	local hoverTime = 0
+	local IsHovering = false
+	local lastMousePos = nil
+	local threshold = 0.44
+
+	local function updateTooltipPos()
+		tooltip.Position = UDim2.fromOffset(Mouse.X + 15, Mouse.Y + 20)
+	end
+
+	if HoverInstance then
+		HoverInstance.MouseEnter:Connect(function()
+			IsHovering = true
+			lastMousePos = Vector2.new(Mouse.X, Mouse.Y)
+			hoverTime = 0
+		end)
+
+		HoverInstance.MouseLeave:Connect(function()
+			IsHovering = false
+			tooltip.Visible = false
+		end)
+
+		HoverInstance:GetPropertyChangedSignal("AbsolutePosition"):Connect(function()
+			local p, pos, size = Mouse, HoverInstance.AbsolutePosition, HoverInstance.AbsoluteSize
+			if not (p.X >= pos.X and p.X <= pos.X + size.X and p.Y >= pos.Y and p.Y <= pos.Y + size.Y) then
+				IsHovering = false
+				tooltip.Visible = false
+			else
+				IsHovering = true
+				lastMousePos = Vector2.new(Mouse.X, Mouse.Y)
+				hoverTime = 0
+			end
+		end)
+
+		RunService.RenderStepped:Connect(function(dt)
+			if not IsHovering then
+				return
+			end
+
+			local currentPos = Vector2.new(Mouse.X, Mouse.Y)
+			if (currentPos - lastMousePos).magnitude > 0 then
+				tooltip.Visible = false
+				hoverTime = 0
+				lastMousePos = currentPos
+			else
+				hoverTime += dt
+				if hoverTime >= threshold then
+					updateTooltipPos()
+					if not String.IsEmptyOrNull(label.Text) then
+						RunService.RenderStepped:Wait()
+						tooltip.Visible = true
+					end
+				end
+			end
+		end)
+	end
+
+	updateTooltipPos()
+	do -- Theme Binding
+		ThemeMethods.bindTheme(tooltip, "BackgroundColor3", "Backgrounds.Medium")
+		ThemeMethods.bindTheme(stroke, "Color", "Foregrounds.Dark")
+		ThemeMethods.bindTheme(label, "TextColor3", "Foregrounds.Light")
+	end
+	tooltip.ClipsDescendants = false
+	label.ClipsDescendants = false
+
+	return label
+end
+
+-- A Function to make an object movable via dragging another object
+-- Taken From Luna Interface Suite, A Nebula Softworks Product
+local function makeDraggable(Bar, Window: Frame, dragBar, enableTaptic, tapticOffset)
 	pcall(function()
 		local Dragging, DragInput, MousePos, FramePos
 
-		local function connectFunctions()
+		local dragInteract = dragBar and dragBar.Interact
+		local dragBarCosmetic = dragBar and dragBar.DragCosmetic
+
+		local function connectMethods()
 			if dragBar and enableTaptic then
 				dragBar.MouseEnter:Connect(function()
 					if not Dragging then
-						TweenService:Create(dragBarCosmetic, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 0.5, Size = UDim2.new(0, 120, 0, 4)}):Play()
+						Tween(
+							dragBarCosmetic,
+							{ BackgroundTransparency = 0.5, Size = UDim2.new(0, 120, 0, 4) },
+							nil,
+							TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+						)
 					end
 				end)
 
 				dragBar.MouseLeave:Connect(function()
 					if not Dragging then
-						TweenService:Create(dragBarCosmetic, TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {BackgroundTransparency = 0.7, Size = UDim2.new(0, 100, 0, 4)}):Play()
+						Tween(
+							dragBarCosmetic,
+							{ BackgroundTransparency = 0.7, Size = UDim2.new(0, 100, 0, 4) },
+							nil,
+							TweenInfo.new(0.25, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+						)
 					end
 				end)
 			end
 		end
 
-		connectFunctions()
+		connectMethods()
 
 		Bar.InputBegan:Connect(function(Input)
-			if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+			if
+				Input.UserInputType == Enum.UserInputType.MouseButton1
+				or Input.UserInputType == Enum.UserInputType.Touch
+			then
 				Dragging = true
 				MousePos = Input.Position
 				FramePos = Window.Position
 
 				if enableTaptic then
-					TweenService:Create(dragBarCosmetic, TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 110, 0, 4), BackgroundTransparency = 0}):Play()
+					Tween(
+						dragBarCosmetic,
+						{ Size = UDim2.new(0, 110, 0, 4), BackgroundTransparency = 0 },
+						nil,
+						TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+					)
 				end
 
 				Input.Changed:Connect(function()
 					if Input.UserInputState == Enum.UserInputState.End then
 						Dragging = false
-						connectFunctions()
+						connectMethods()
 
 						if enableTaptic then
-							TweenService:Create(dragBarCosmetic, TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {Size = UDim2.new(0, 100, 0, 4), BackgroundTransparency = 0.7}):Play()
+							Tween(
+								dragBarCosmetic,
+								{ Size = UDim2.new(0, 100, 0, 4), BackgroundTransparency = 0.7 },
+								nil,
+								TweenInfo.new(0.35, Enum.EasingStyle.Back, Enum.EasingDirection.Out)
+							)
 						end
 					end
 				end)
@@ -2209,5114 +2017,9031 @@ local function Draggable(Bar, Window, enableTaptic, tapticOffset)
 		end)
 
 		Bar.InputChanged:Connect(function(Input)
-			if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
+			if
+				Input.UserInputType == Enum.UserInputType.MouseMovement
+				or Input.UserInputType == Enum.UserInputType.Touch
+			then
 				DragInput = Input
 			end
 		end)
 
+		local debounce = false
 		UserInputService.InputChanged:Connect(function(Input)
 			if Input == DragInput and Dragging then
+				debounce = true
+				if Starlight.Maximized then
+					Unmaximize(Window, true)
+				end
 				local Delta = Input.Position - MousePos
 
-				local newMainPosition = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)
-				TweenService:Create(Window, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Position = newMainPosition}):Play()
+				local newMainPosition = UDim2.new(
+					FramePos.X.Scale,
+					FramePos.X.Offset + Delta.X,
+					FramePos.Y.Scale,
+					FramePos.Y.Offset + Delta.Y
+				)
+				Tween(
+					Window,
+					{ Position = newMainPosition },
+					nil,
+					TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+				)
 
 				if dragBar then
-					local newDragBarPosition = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y + 240)
-					dragBar.Position = newDragBarPosition
+					local newDragBarPosition = UDim2.new(
+						FramePos.X.Scale,
+						FramePos.X.Offset + Delta.X + Window.Size.X.Offset / 2,
+						FramePos.Y.Scale,
+						FramePos.Y.Offset + Delta.Y + Window.Size.Y.Offset + 10
+					)
+					Tween(dragBar, { Position = newDragBarPosition }, function()
+						debounce = false
+					end, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out))
 				end
 			end
 		end)
 
+		Window:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+			if not debounce then
+				local newMainPosition = UDim2.new(
+					Window.Position.X.Scale,
+					Window.Position.X.Offset,
+					Window.Position.Y.Scale,
+					Window.Position.Y.Offset
+				)
+				local newDragBarPosition = UDim2.new(
+					Window.Position.X.Scale,
+					Window.Position.X.Offset + Window.Size.X.Offset / 2,
+					Window.Position.Y.Scale,
+					Window.Position.Y.Offset + Window.Size.Y.Offset + 10
+				)
+				Tween(
+					dragBar,
+					{ Position = newDragBarPosition },
+					nil,
+					TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+				)
+			end
+		end)
 	end)
 end
 
-function Luna:Notification(data) -- action e.g open messages
+--// ENDSUBSECTION
+
+--// ENDSECTION
+
+--// SECTION : Interface Management
+
+-- Interface Model
+local modelId = debugV and 136653172778765 or 132866968194043
+
+local StarlightUI: ScreenGui = isStudio and script.Parent:WaitForChild("Starlight V2")
+	or game:GetObjects("rbxassetid://" .. modelId)[1]
+local buildAttempts = 0
+local correctBuild = false
+local warned = false
+
+repeat
+	if
+		StarlightUI.Resources:FindFirstChild("Build")
+		and StarlightUI.Resources.Build.Value == Starlight.InterfaceBuild
+	then
+		correctBuild = true
+		break
+	end
+
+	toDestroy, StarlightUI =
+		StarlightUI,
+		isStudio and script.Parent:FindFirstChild("Starlight V2") or game:GetObjects("rbxassetid://" .. modelId)[1]
+	if toDestroy and not isStudio then
+		toDestroy:Destroy()
+	end
+
+	buildAttempts += 1
+
+until buildAttempts >= 2
+
+StarlightUI.Name = (((getgenv and getgenv().InterfaceName) or StarlightUI.Name) or "Starlight Interface Suite")
+Starlight.Instance = StarlightUI
+StarlightUI.Enabled = false
+if not isStudio then
+	pcall(function()
+		StarlightUI.OnTopOfCoreBlur = true
+	end)
+end
+
+-- Sets The Interface Into Roblox's GUI
+if gethui then
+	StarlightUI.Parent = gethui()
+elseif not isStudio and CoreGui:FindFirstChild("RobloxGui") then
+	StarlightUI.Parent = CoreGui:FindFirstChild("RobloxGui")
+elseif not isStudio then
+	StarlightUI.Parent = CoreGui
+end
+
+-- hides all old interfaces
+if gethui then
+	for _, Interface in ipairs(gethui():GetChildren()) do
+		if Interface.Name == StarlightUI.Name and Interface ~= StarlightUI then
+			Hide(Interface, true)
+			--task.wait()
+			Interface:Destroy()
+		end
+	end
+elseif not isStudio and CoreGui:FindFirstChild("RobloxGui") then
+	for _, Interface in ipairs(CoreGui:FindFirstChild("RobloxGui"):GetChildren()) do
+		if Interface.Name == StarlightUI.Name and Interface ~= StarlightUI then
+			Hide(Interface, true)
+			--task.wait()
+			Interface:Destroy()
+		end
+	end
+elseif not isStudio then
+	for _, Interface in ipairs(CoreGui:GetChildren()) do
+		if Interface.Name == StarlightUI.Name and Interface ~= StarlightUI then
+			Hide(Interface, true)
+			--task.wait()
+			Interface:Destroy()
+		end
+	end
+else
+	for _, Interface in ipairs(PlayerGui:GetChildren()) do
+		if Interface.Name == StarlightUI.Name and Interface ~= StarlightUI then
+			Hide(Interface, true)
+			--task.wait()
+			Interface:Destroy()
+		end
+	end
+end
+
+-- sets the starting variables
+StarlightUI.MainWindow.Visible = false
+StarlightUI.MainWindow.AnchorPoint = Vector2.zero
+StarlightUI.MainWindow.Position = UDim2.fromOffset(
+	Camera.ViewportSize.X / 2 - StarlightUI.MainWindow.Size.X.Offset / 2,
+	((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2) - (GuiInset / 2)
+)
+StarlightUI:WaitForChild("Drag").Position = UDim2.new(
+	0.5,
+	0,
+	0,
+	((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2)
+	- (GuiInset / 2)
+		+ StarlightUI.MainWindow.Size.Y.Offset
+		+ 10
+)
+
+--// SUBSECTION : Interface Variables
+
+local mainWindow: Frame = StarlightUI.MainWindow
+local Resources = StarlightUI.Resources
+local navigation: Frame = mainWindow.Sidebar.Navigation
+local tabs: Frame = mainWindow.Content.ContentMain.Elements
+local Resizing = false -- Not Implemented as of Alpha Release 2
+local ResizePos = false -- Not Implemented as of Alpha Release 2
+
+local GUICanvasSize = { X = Camera.ViewportSize.X, Y = Camera.ViewportSize.Y - GuiInset }
+
+--// SUBSECTION : Interface Variables
+
+local mainWindow: Frame = StarlightUI.MainWindow
+local Resources = StarlightUI.Resources
+local navigation: Frame = mainWindow.Sidebar.Navigation
+local tabs: Frame = mainWindow.Content.ContentMain.Elements
+local Resizing = false -- Not Implemented as of Alpha Release 2
+local ResizePos = false -- Not Implemented as of Alpha Release 2
+
+local GUICanvasSize = { X = Camera.ViewportSize.X, Y = Camera.ViewportSize.Y - GuiInset }
+
+--// ENDSUBSECTION
+
+if UserInputService.TouchEnabled then
+	StarlightUI.Notifications.Interactable = false
+end
+
+if PlayerGui:FindFirstChild("TouchGui") then
+	local controlFrame = PlayerGui:FindFirstChild("TouchGui"):FindFirstChild("TouchControlFrame")
+	local jumpButton = controlFrame and controlFrame:FindFirstChild("JumpButton")
+
+	local function check()
+		if jumpButton and jumpButton.Visible then
+			StarlightUI.Notifications.Position = UDim2.new(1, -20, 1, -(24 + jumpButton.AbsoluteSize.Y))
+		else
+			StarlightUI.Notifications.Position = UDim2.new(1, -20, 1, -20)
+		end
+	end
+
+	if jumpButton then
+		jumpButton:GetPropertyChangedSignal("Visible"):Connect(check)
+	end
+
+	check()
+end
+
+--// ENDSECTION
+
+--// SECTION : Library Methods
+
+-- Sets what to do on destruction
+function Starlight:OnDestroy(func)
+	Starlight.DestroyFunction = func
+end
+
+-- Destroys The Interface
+function Starlight:Destroy()
+	task.wait()
+	StarlightUI:Destroy()
+end
+StarlightUI.Destroying:Connect(function()
+	pcall(Starlight.DestroyFunction)
+	for i, v in pairs(connections) do
+		v:Disconnect()
+	end
+	if Starlight.Window then
+		for _, tabSection in pairs(Starlight.Window.TabSections) do
+			tabSection:Destroy()
+		end
+	end
+	for i, v in pairs(Starlight) do
+		v = nil
+	end
+	if Camera:FindFirstChild("Starlight Blur Elements") then
+		for _, blur in pairs(Camera:FindFirstChild("Starlight Blur Elements"):GetChildren()) do
+			blur:Destroy()
+		end
+		--Camera:FindFirstChild("Starlight Blur Elements"):Destroy()
+	end
+end)
+
+function Starlight:Notification(data)
+	--[[
+	NotificationSettings = {
+		Title = string,
+		Content = string,
+		Icon = number, **
+		Duration = number, **
+	}
+	]]
+
+	--[[if not correctBuild and not warned then
+		warned = true
+		warn('Starlight | Build Mismatch')
+		warn('Starlight may run into issues as it seems you are running an incompatible interface version ('.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or 'No Build') ..'). of Starlight\n\nThis version of Starlight is intended for interface build '..Starlight.InterfaceBuild..'.\nTry rerunning the script. If the issue persists, join our discord for support.')
+		pcall(function()
+			Starlight:Notification({
+				Title = "Starlight - Build Mistmatch",
+				Content = 'Starlight may run into issues as it seems you are running an incompatible interface version ('.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or 'No Build') ..'). of Starlight\n\nThis version of Starlight is intended for interface build '..Starlight.InterfaceBuild..'. \nTry rerunning the script. If the issue persists, join our discord for support.',
+				Icon = 129398364168201
+			})
+		end)
+	end]]
+
 	task.spawn(function()
-		data = Kwargify({
-			Title = "Missing Title",
-			Content = "Missing or Unknown Content",
-			Icon = "view_in_ar",
-			ImageSource = "Material"
-		}, data or {})
+		local creationTime = tick()
 
 		-- Notification Object Creation
-		local newNotification = Notifications.Template:Clone()
+		local newNotification = Resources.Elements.NotificationTemplate:Clone()
 		newNotification.Name = data.Title
-		newNotification.Parent = Notifications
-		newNotification.LayoutOrder = #Notifications:GetChildren()
+		newNotification.Parent = StarlightUI.Notifications
+		newNotification.LayoutOrder = #StarlightUI.Notifications:GetChildren()
 		newNotification.Visible = false
-		BlurModule(newNotification)
+		local AcrylicObject = Acrylic.AcrylicPaint()
+		pcall(function()
+			AcrylicObject.AddParent(newNotification)
+			AcrylicObject.Frame.Parent = newNotification
+		end)
+
+		local function setDuration(elapsed)
+			if elapsed <= 4 then
+				newNotification.Time.Text = "now"
+			elseif elapsed < 60 then
+				newNotification.Time.Text = math.floor(elapsed) .. "s ago"
+			elseif elapsed < 3600 then
+				newNotification.Time.Text = math.floor(elapsed / 60) .. "m ago"
+			else
+				newNotification.Time.Text = math.floor(elapsed / 3600) .. "h ago"
+			end
+		end
+
+		task.spawn(function() end)
+		table.insert(
+			connections,
+			RunService.RenderStepped:Connect(function()
+				pcall(setDuration, tick() - creationTime)
+			end)
+		)
+
+		notificationAcrylicEvent.Event:Connect(function()
+			if newNotification.BackgroundTransparency == 1 then
+				return
+			end
+			TweenService:Create(
+				newNotification,
+				TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+				{ BackgroundTransparency = notificationAcrylic and (mainAcrylic and 0.55 or 0.375) or 0 }
+			):Play()
+		end)
 
 		-- Set Data
 		newNotification.Title.Text = data.Title
-		newNotification.Description.Text = data.Content 
-		newNotification.Icon.Image = GetIcon(data.Icon, data.ImageSource)
+		newNotification.Description.Text = data.Content
+		newNotification.Icon.Image = AssetId(data.Icon, "Notification_" .. tostring(data.Icon) .. ".png")
 
 		-- Set initial transparency values
-		newNotification.BackgroundTransparency = 1
-		newNotification.Title.TextTransparency = 1
-		newNotification.Description.TextTransparency = 1
-		newNotification.UIStroke.Transparency = 1
-		newNotification.Shadow.ImageTransparency = 1
-		newNotification.Icon.ImageTransparency = 1
-		newNotification.Icon.BackgroundTransparency = 1
+		Hide(newNotification, false, false, false)
 
 		task.wait()
 
 		-- Calculate textbounds and set initial values
-		newNotification.Size = UDim2.new(1, 0, 0, -Notifications:FindFirstChild("UIListLayout").Padding.Offset)
-
-		newNotification.Icon.Size = UDim2.new(0, 28, 0, 28)
-		newNotification.Icon.Position = UDim2.new(0, 16, 0.5, -1)
+		newNotification.Size =
+			UDim2.new(1, 0, 0, -StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset)
 
 		newNotification.Visible = true
 
 		newNotification.Description.Size = UDim2.new(1, -65, 0, math.huge)
-		local bounds = newNotification.Description.TextBounds.Y + 55
-		newNotification.Description.Size = UDim2.new(1,-65,0, bounds - 35)
-		newNotification.Size = UDim2.new(1, 0, 0, -Notifications:FindFirstChild("UIListLayout").Padding.Offset)
-		TweenService:Create(newNotification, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Size = UDim2.new(1, 0, 0, bounds)}):Play()
+		local bounds = newNotification.Description.TextBounds.Y
+		newNotification.Description.Size = UDim2.new(1, -65, 0, bounds + 2)
+		newNotification.Size =
+			UDim2.new(1, 0, 0, -StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset)
+		task.wait()
+		TweenService:Create(
+			newNotification,
+			TweenInfo.new(0.6, Enum.EasingStyle.Exponential),
+			{ Size = UDim2.new(1, 0, 0, bounds + 50) }
+		):Play()
 
 		task.wait(0.15)
-		TweenService:Create(newNotification, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.45}):Play()
-		TweenService:Create(newNotification.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-		task.wait(0.05)
-
-		TweenService:Create(newNotification.Icon, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-
-		task.wait(0.05)
-		TweenService:Create(newNotification.Description, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0.35}):Play()
-		TweenService:Create(newNotification.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {Transparency = 0.95}):Play()
-		TweenService:Create(newNotification.Shadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0.82}):Play()
-
-		local waitDuration = math.min(math.max((#newNotification.Description.Text * 0.1) + 2.5, 3), 10)
-		task.wait(data.Duration or waitDuration)
-
-		newNotification.Icon.Visible = false
-		TweenService:Create(newNotification, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-		TweenService:Create(newNotification.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-		TweenService:Create(newNotification.Shadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-		TweenService:Create(newNotification.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-		TweenService:Create(newNotification.Description, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-
-		TweenService:Create(newNotification, TweenInfo.new(1, Enum.EasingStyle.Exponential), {Size = UDim2.new(1, -90, 0, 0)}):Play()
-
-		task.wait(1)
-
-		TweenService:Create(newNotification, TweenInfo.new(1, Enum.EasingStyle.Exponential), {Size = UDim2.new(1, -90, 0, -Notifications:FindFirstChild("UIListLayout").Padding.Offset)}):Play()
-
-		newNotification.Visible = false
-		newNotification:Destroy()
-	end)
-end
-
-local function Unhide(Window, currentTab)
-	Window.Size = SizeBleh
-	Window.Elements.Visible = true
-	Window.Visible = true
-	task.wait()
-	tween(Window, {BackgroundTransparency = 0.2})
-	tween(Window.Elements, {BackgroundTransparency = 0.08})
-	tween(Window.Line, {BackgroundTransparency = 0})
-	tween(Window.Title.Title, {TextTransparency = 0})
-	tween(Window.Title.subtitle, {TextTransparency = 0})
-	tween(Window.Logo, {ImageTransparency = 0})
-	tween(Window.Navigation.Line, {BackgroundTransparency = 0})
-
-	for _, TopbarButton in ipairs(Window.Controls:GetChildren()) do
-		if TopbarButton.ClassName == "Frame" and TopbarButton.Name ~= "Theme" then
-			TopbarButton.Visible = true
-			tween(TopbarButton, {BackgroundTransparency = 0.25})
-			tween(TopbarButton.UIStroke, {Transparency = 0.5})
-			tween(TopbarButton.ImageLabel, {ImageTransparency = 0.25})
-		end
-	end
-	for _, tabbtn in ipairs(Window.Navigation.Tabs:GetChildren()) do
-		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "InActive Template" then
-			if tabbtn.Name == currentTab then
-				TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-				TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.41}):Play()
-			end
-			TweenService:Create(tabbtn.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-			TweenService:Create(tabbtn.DropShadowHolder.DropShadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-		end
-	end
-
-end
-
-local MainSize
-local MinSize 
-if Camera.ViewportSize.X > 774 and Camera.ViewportSize.Y > 503 then
-	MainSize = UDim2.fromOffset(675, 424)
-	MinSize = UDim2.fromOffset(500, 42)
-else
-	MainSize = UDim2.fromOffset(Camera.ViewportSize.X - 100, Camera.ViewportSize.Y - 100)
-	MinSize = UDim2.fromOffset(Camera.ViewportSize.X - 275, 42)
-end
-
-local function Maximise(Window)
-	Window.Controls.ToggleSize.ImageLabel.Image = "rbxassetid://10137941941"
-	tween(Window, {Size = MainSize})
-	Window.Elements.Visible = true
-	Window.Navigation.Visible = true
-end
-
-local function Minimize(Window)
-	Window.Controls.ToggleSize.ImageLabel.Image = "rbxassetid://11036884234"
-	Window.Elements.Visible = false
-	Window.Navigation.Visible = false
-	tween(Window, {Size = MinSize})
-end
-
-
-function Luna:CreateWindow(WindowSettings)
-
-	WindowSettings = Kwargify({
-		Name = "Luna UI Example Window",
-		Subtitle = "",
-		LogoID = "6031097225",
-		LoadingEnabled = true,
-		LoadingTitle = "Luna Interface Suite",
-		LoadingSubtitle = "by Nebula Softworks",
-
-		ConfigSettings = {},
-
-		KeySystem = false,
-		KeySettings = {}
-	}, WindowSettings or {})
-
-	WindowSettings.ConfigSettings = Kwargify({
-		RootFolder = nil,
-		ConfigFolder = "Big Hub"
-	}, WindowSettings.ConfigSettings or {})
-
-	WindowSettings.KeySettings = Kwargify({
-		Title = WindowSettings.Name,
-		Subtitle = "Key System",
-		Note = "No Instructions",
-		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
-		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-		Key = {""}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
-		SecondAction = {}	
-	}, WindowSettings.KeySettings or {})
-
-	WindowSettings.KeySettings.SecondAction = Kwargify({
-		Enabled = false,
-		Type = "Discord", -- Link/Discord
-		Parameter = "" -- for discord, add the invite link like home tab. for link, type the link of ur key sys
-	}, WindowSettings.KeySettings.SecondAction)
-
-	local Passthrough = false
-
-	local Window = { Bind = Enum.KeyCode.K, CurrentTab = nil, State = true, Size = false, Settings = nil }
-
-	Main.Title.Title.Text = WindowSettings.Name
-	Main.Title.subtitle.Text = WindowSettings.Subtitle
-	Main.Logo.Image = "rbxassetid://" .. WindowSettings.LogoID
-	Main.Visible = true
-	Main.BackgroundTransparency = 1
-	Main.Size = MainSize
-	Main.Size = UDim2.fromOffset(Main.Size.X.Offset - 70, Main.Size.Y.Offset - 55)
-	Main.Parent.ShadowHolder.Size = Main.Size
-	LoadingFrame.Frame.Frame.Title.TextTransparency = 1
-	LoadingFrame.Frame.Frame.Subtitle.TextTransparency = 1
-	LoadingFrame.Version.TextTransparency = 1
-	LoadingFrame.Frame.ImageLabel.ImageTransparency = 1
-
-	tween(Elements.Parent, {BackgroundTransparency = 1})
-	Elements.Parent.Visible = false
-
-	LoadingFrame.Frame.Frame.Title.Text = WindowSettings.LoadingTitle
-	LoadingFrame.Frame.Frame.Subtitle.Text = WindowSettings.LoadingSubtitle
-	LoadingFrame.Version.Text = LoadingFrame.Frame.Frame.Title.Text == "Luna Interface Suite" and Release or "Luna UI"
-
-	Navigation.Player.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size48x48)
-	Navigation.Player.Namez.Text = Players.LocalPlayer.DisplayName
-	Navigation.Player.TextLabel.Text = Players.LocalPlayer.Name
-
-	for i,v in pairs(Main.Controls:GetChildren()) do
-		v.Visible = false
-	end
-
-	Main:GetPropertyChangedSignal("Position"):Connect(function()
-		Main.Parent.ShadowHolder.Position = Main.Position
-	end)
-	Main:GetPropertyChangedSignal("Size"):Connect(function()
-		Main.Parent.ShadowHolder.Size = Main.Size
-	end)
-
-	LoadingFrame.Visible = true
-
-	-- pcall(function()
-	-- 	if not isfolder(ConfigurationFolder) then
-	-- 		makefolder(ConfigurationFolder)
-	-- 	end
-	-- 	if WindowSettings.ConfigSettings.RootFolder then
-	-- 		if not isfolder(ConfigurationFolder .. WindowSettings.ConfigSettings.RootFolder) then
-	-- 			makefolder(ConfigurationFolder .. WindowSettings.ConfigSettings.RootFolder)
-	-- 			if not isfolder(ConfigurationFolder .. WindowSettings.ConfigSettings.RootFolder .. WindowSettings.ConfigSettings.ConfigFolder) then
-	-- 				makefolder(ConfigurationFolder .. WindowSettings.ConfigSettings.RootFolder .. WindowSettings.ConfigSettings.ConfigFolder)
-	-- 			end
-	-- 		end
-	-- 	else
-	-- 		if not isfolder(ConfigurationFolder .. WindowSettings.ConfigSettings.ConfigFolder) then
-	-- 			makefolder(ConfigurationFolder .. WindowSettings.ConfigSettings.ConfigFolder)
-	-- 		end
-	-- 	end
-
-	-- 	LoadAutoLoad(WindowSettings.ConfigSettings.ConfigFolder, WindowSettings.ConfigSettings.RootFolder)
-	-- end)
-
-	LunaUI.Enabled = true
-
-	BlurModule(Main)
-
-	if WindowSettings.KeySystem then
-		local KeySettings = WindowSettings.KeySettings
-		
-		Draggable(Dragger, Main)
-		Draggable(LunaUI.MobileSupport, LunaUI.MobileSupport)
-		if dragBar then Draggable(dragInteract, Main, true, 255) end
-
-		if not WindowSettings.KeySettings then
-			Passthrough = true
-			return
-		end
-		
-		WindowSettings.KeySettings.FileName = "key"
-
-		if typeof(WindowSettings.KeySettings.Key) == "string" then WindowSettings.KeySettings.Key = {WindowSettings.KeySettings.Key} end
-
-		local direc = WindowSettings.KeySettings.SaveInRoot and "Luna/Configurations/" .. WindowSettings.ConfigSettings.RootFolder .. "/" .. WindowSettings.ConfigSettings.ConfigFolder .. "/Key System/" or "Luna/Configurations/" ..  WindowSettings.ConfigSettings.ConfigFolder .. "/Key System/"
-
-		if isfile and isfile(direc .. WindowSettings.KeySettings.FileName .. ".luna") then
-			for i, Key in ipairs(WindowSettings.KeySettings.Key) do
-				if string.find(readfile(direc .. WindowSettings.KeySettings.FileName .. ".luna"), Key) then
-					Passthrough = true
-					break
-				end
-			end
-		end
-
-		if not Passthrough then
-
-			local Btn = KeySystem.Action.Copy
-			local typesys = KeySettings.SecondAction.Type
-			
-			if typesys == "Discord" then
-				Btn = KeySystem.Action.Discord
-			end
-
-			local AttemptsRemaining = math.random(2, 5)
-
-			KeySystem.Visible = true
-			KeySystem.Title.Text = WindowSettings.KeySettings.Title
-			KeySystem.Subtitle.Text = WindowSettings.KeySettings.Subtitle
-			KeySystem.textshit.Text = WindowSettings.KeySettings.Note
-
-			if KeySettings.SecondAction.Enabled == true then
-				Btn.Visible = true
-			end
-			
-			Btn.Interact.MouseButton1Click:Connect(function()
-				if typesys == "Discord" then
-					setclipboard(tostring("https://discord.gg/"..KeySettings.SecondAction.Parameter)) -- Hunter if you see this I added copy also was too lazy to send u msg
-					if request then
-						request({
-							Url = 'http://127.0.0.1:6463/rpc?v=1',
-							Method = 'POST',
-							Headers = {
-								['Content-Type'] = 'application/json',
-								Origin = 'https://discord.com'
-							},
-							Body = HttpService:JSONEncode({
-								cmd = 'INVITE_BROWSER',
-								nonce = HttpService:GenerateGUID(false),
-								args = {code = KeySettings.SecondAction.Parameter}
-							})
-						})
-					end
-				else
-					setclipboard(tostring(KeySettings.SecondAction.Parameter))
-				end
+		pcall(function()
+			TweenService:Create(
+				newNotification,
+				TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+				{ BackgroundTransparency = notificationAcrylic and (mainAcrylic and 0.55 or 0.375) or 0 }
+			):Play()
+			pcall(function()
+				TweenService:Create(
+					newNotification.Acrylic.shadow,
+					TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+					{ ImageTransparency = 0.7 }
+				):Play()
+				TweenService:Create(
+					newNotification.Acrylic.tint,
+					TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+					{ ImageTransparency = 0.98 }
+				):Play()
+				TweenService:Create(
+					newNotification.Acrylic.Noise,
+					TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+					{ ImageTransparency = 0.9 }
+				):Play()
 			end)
-
-			KeySystem.Action.Submit.Interact.MouseButton1Click:Connect(function()
-				if #KeySystem.Input.InputBox.Text == 0 then return end
-				local KeyFound = false
-				local FoundKey = ''
-				for _, Key in ipairs(WindowSettings.KeySettings.Key) do
-					if KeySystem.Input.InputBox.Text == Key then
-						KeyFound = true
-						FoundKey = Key
-						break
-					end
-				end
-				if KeyFound then 
-					for _, instance in pairs(KeySystem:GetDescendants()) do
-						if instance.ClassName ~= "UICorner" and instance.ClassName ~= "UIPadding" then
-							if instance.ClassName ~= "UIStroke" and instance.ClassName ~= "UIListLayout" then
-								tween(instance, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "ImageButton" then
-								tween(instance, {ImageTransparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "TextLabel" then
-								tween(instance, {TextTransparency = 1}, nil,TweenInfo.new(0.4, Enum.EasingStyle.Exponential))
-							end
-							if instance.ClassName == "UIStroke" then
-								tween(instance, {Transparency = 1}, nil,TweenInfo.new(0.5, Enum.EasingStyle.Exponential))
-							end
-						end
-					end
-					tween(KeySystem, {BackgroundTransparency = 1}, nil,TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-					task.wait(0.51)
-					Passthrough = true
-					KeySystem.Visible = false
-					if WindowSettings.KeySettings.SaveKey then
-						if writefile then
-							writefile(direc .. WindowSettings.KeySettings.FileName .. ".luna", FoundKey)
-						end
-						Luna:Notification({Title = "Key System", Content = "The key for this script has been saved successfully.", Icon = "lock_open"})
-					end
-				else
-					if AttemptsRemaining == 0 then
-
-						game.Players.LocalPlayer:Kick("No Attempts Remaining")
-						game:Shutdown()
-					end
-					KeySystem.Input.InputBox.Text = "Incorrect Key"
-					AttemptsRemaining = AttemptsRemaining - 1
-					task.wait(0.4)
-					KeySystem.Input.InputBox.Text = ""
-				end
-			end)
-
-			KeySystem.Close.MouseButton1Click:Connect(function()
-				
-				Luna:Destroy()
-			end)
-		end
-	end
-
-	if WindowSettings.KeySystem then
-		repeat task.wait() until Passthrough
-	end
-
-	if WindowSettings.LoadingEnabled then
-		task.wait(0.3)
-		TweenService:Create(LoadingFrame.Frame.Frame.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-		TweenService:Create(LoadingFrame.Frame.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-		task.wait(0.05)
-		TweenService:Create(LoadingFrame.Frame.Frame.Subtitle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-		TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-		task.wait(0.29)
-		TweenService:Create(LoadingFrame.Frame.ImageLabel, TweenInfo.new(1.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out, 2, false, 0.2), {Rotation = 450}):Play()
-
-		task.wait(3.32)
-
-		TweenService:Create(LoadingFrame.Frame.Frame.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-		TweenService:Create(LoadingFrame.Frame.ImageLabel, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-		task.wait(0.05)
-		TweenService:Create(LoadingFrame.Frame.Frame.Subtitle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-		TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-		wait(0.3)
-		TweenService:Create(LoadingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-	end
-
-	TweenService:Create(Main, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {BackgroundTransparency = 0.2, Size = MainSize}):Play()
-	TweenService:Create(Main.Parent.ShadowHolder, TweenInfo.new(0.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = MainSize}):Play()
-	TweenService:Create(Main.Title.Title, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-	TweenService:Create(Main.Title.subtitle, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-	TweenService:Create(Main.Logo, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
-	TweenService:Create(Navigation.Player.icon.ImageLabel, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
-	TweenService:Create(Navigation.Player.icon.UIStroke, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Transparency = 0}):Play()
-	TweenService:Create(Main.Line, TweenInfo.new(0.35, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-	wait(0.4)
-	LoadingFrame.Visible = false
-
-	Draggable(Dragger, Main)
-	Draggable(LunaUI.MobileSupport, LunaUI.MobileSupport)
-	if dragBar then Draggable(dragInteract, Main, true, 255) end
-
-	Elements.Template.LayoutOrder = 1000000000
-	Elements.Template.Visible = false
-	Navigation.Tabs["InActive Template"].LayoutOrder = 1000000000
-	Navigation.Tabs["InActive Template"].Visible = false
-
-	local FirstTab = true
-
-	function Window:CreateHomeTab(HomeTabSettings)
-
-		HomeTabSettings = Kwargify({
-			Icon = 1,
-			SupportedExecutors = {"Vega X", "Delta", "Nihon", "Xeno"}, -- THESE DEFAULTS ARE PLACEHOLDERS!! I DO NOT ADVERTISE THESE, THEY ARE JUS THE FIRST THAT CAME TO MIND. I HAVE NO IDEA WHETHER THEYA RE RATS (they prob are) AND IM NOT RESPONSIBLE IF U GET VIRUSES FROM INSTALLING AFTER SEEING THIS LIST
-			DiscordInvite = "noinvitelink" -- The disvord invite link. Do not include the link so for example if my invite was discord.gg/nebula I would put nebula
-		}, HomeTabSettings or {})
-
-		local HomeTab = {}
-
-		local HomeTabButton = Navigation.Tabs.Home
-		HomeTabButton.Visible = true
-		if HomeTabSettings.Icon == 2 then
-			HomeTabButton.ImageLabel.Image = GetIcon("dashboard", "Material")
-		end
-
-		local HomeTabPage = Elements.Home
-		HomeTabPage.Visible = true
-
-		function HomeTab:Activate()
-			tween(HomeTabButton.ImageLabel, {ImageColor3 = Color3.fromRGB(255,255,255)})
-			tween(HomeTabButton, {BackgroundTransparency = 0})
-			tween(HomeTabButton.UIStroke, {Transparency = 0.41})
-
-			Elements.UIPageLayout:JumpTo(HomeTabPage)
+			TweenService:Create(
+				newNotification.Shadow.antumbraShadow,
+				TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+				{ ImageTransparency = 0.94 }
+			):Play()
+			TweenService:Create(
+				newNotification.Shadow.penumbraShadow,
+				TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+				{ ImageTransparency = 0.55 }
+			):Play()
+			TweenService:Create(
+				newNotification.Shadow.umbraShadow,
+				TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+				{ ImageTransparency = 0.4 }
+			):Play()
+			TweenService
+				:Create(
+					newNotification.Title,
+					TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+					{ TextTransparency = 0 }
+				)
+				:Play()
 
 			task.wait(0.05)
 
-			for _, OtherTabButton in ipairs(Navigation.Tabs:GetChildren()) do
-				if OtherTabButton.Name ~= "InActive Template" and OtherTabButton.ClassName == "Frame" and OtherTabButton ~= HomeTabButton then
-					tween(OtherTabButton.ImageLabel, {ImageColor3 = Color3.fromRGB(221,221,221)})
-					tween(OtherTabButton, {BackgroundTransparency = 1})
-					tween(OtherTabButton.UIStroke, {Transparency = 1})
+			TweenService
+				:Create(
+					newNotification.Icon,
+					TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+					{ ImageTransparency = 0 }
+				)
+				:Play()
+
+			task.wait(0.05)
+			TweenService:Create(
+				newNotification.Description,
+				TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+				{ TextTransparency = 0.35 }
+			):Play()
+			TweenService
+				:Create(
+					newNotification.Time,
+					TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+					{ TextTransparency = 0.35 }
+				)
+				:Play()
+			TweenService
+				:Create(
+					newNotification.UIStroke,
+					TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+					{ Transparency = 0.95 }
+				)
+				:Play()
+
+			-- Theme Binding
+			do
+				ThemeMethods.bindTheme(newNotification, "BackgroundColor3", "Backgrounds.Medium")
+				ThemeMethods.bindTheme(newNotification.UIStroke, "Color", "Foregrounds.Dark")
+				for _, shadow in pairs(newNotification.Shadow:GetChildren()) do
+					ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.LighterShadow")
+				end
+				ThemeMethods.bindTheme(newNotification.Icon, "ImageColor3", "Foregrounds.Light")
+				ThemeMethods.bindTheme(newNotification.Description, "TextColor3", "Foregrounds.Light")
+				ThemeMethods.bindTheme(newNotification.Title, "TextColor3", "Foregrounds.Light")
+				ThemeMethods.bindTheme(newNotification.Time, "TextColor3", "Foregrounds.Light")
+			end
+		end)
+
+		data.Duration = data.Duration or math.min(math.max((#newNotification.Description.Text * 0.1) + 2.5, 3), 10)
+		if data.Duration >= 0 then
+			task.wait(data.Duration)
+
+			pcall(function()
+				if not Starlight.NotificationsOpen then
+					newNotification.Icon.Visible = false
+					TweenService:Create(
+						newNotification,
+						TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+						{ BackgroundTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.UIStroke,
+						TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+						{ Transparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Shadow.antumbraShadow,
+						TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+						{ ImageTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Shadow.penumbraShadow,
+						TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+						{ ImageTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Shadow.umbraShadow,
+						TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+						{ ImageTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Title,
+						TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+						{ TextTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Description,
+						TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+						{ TextTransparency = 1 }
+					):Play()
+					TweenService:Create(
+						newNotification.Time,
+						TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+						{ TextTransparency = 1 }
+					):Play()
+
+					TweenService:Create(
+						newNotification,
+						TweenInfo.new(1, Enum.EasingStyle.Exponential),
+						{ Size = UDim2.new(1, -90, 0, 0) }
+					):Play()
+
+					Tween(
+						newNotification,
+						{
+							Size = UDim2.new(
+								1,
+								-90,
+								0,
+								-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
+							),
+						},
+						function()
+							newNotification.Visible = false
+						end,
+						TweenInfo.new(1, Enum.EasingStyle.Exponential)
+					)
 				end
 
-			end
-
-			Window.CurrentTab = "Home"
+				CollectionService:AddTag(newNotification, "__starlight_ExpiredNotification")
+			end)
 		end
+		return newNotification
+	end)
+end
 
-		HomeTab:Activate()
-		FirstTab = false
-		HomeTabButton.Interact.MouseButton1Click:Connect(function()
-			HomeTab:Activate()
+-- Create the Window
+function Starlight:CreateWindow(WindowSettings)
+	-- The Options Table
+	--[[
+	
+	WindowSettings = {
+		Name = string,
+		Subtitle = string,
+		Icon = number (asset id), **
+		
+		LoadingEnabled = bool,
+		LoadingSettings = {
+			Style = number,
+			Title = string,
+			Subtitle = string,
+			Logo = number (asset id), **
+		},
+		
+		BuildWarnings = bool, **
+		InterfaceAdvertisingPrompts = bool, **
+		NotifyOnCallbackError = bool,
+		
+		FileSettings = {
+			RootFolder = string, **
+			ConfigFolder = string,**  
+			ThemeFolder = string, **
+		},
+		
+		DefaultSize = UDim2, **
+		
+		KeySystem = {
+			Enabled = bool,
+			Title = string, ****
+			Subtitle = string, ****
+			Note = string, ****
+			
+			SaveKey = bool, ****
+			KeyFile = string, ****
+			
+			KeyObtainLink = string, ****
+			Discord = string, ****
+			
+			HttpKey = bool, ****
+			Keys = {string, string...}, ****
+		},
+		
+		Discord = { -- u can still have it in the home tab, this is just auto join
+			Enabled = bool,
+			RememberJoins = bool, ****
+			Link = string ****
+		},
+	}
+	
+	]]
+	--
+
+	if
+		not correctBuild
+		and not warned
+		and (WindowSettings.BuildWarnings == nil and true or WindowSettings.BuildWarnings)
+	then
+		warned = true
+		warn("Starlight | Build Mismatch")
+		warn(
+			"Starlight may run into issues as it seems you are running an incompatible interface version ("
+				.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or "No Build")
+				.. "). of Starlight\n\nThis version of Starlight is intended for interface build "
+				.. Starlight.InterfaceBuild
+				.. ".\nTry rerunning the script. If the issue persists, join our discord for support."
+		)
+		pcall(function()
+			Starlight:Notification({
+				Title = "Starlight - Build Mistmatch",
+				Content = "Starlight may run into issues as it seems you are running an incompatible interface version ("
+					.. (StarlightUI.Resources:FindFirstChild("Build") and StarlightUI.Resources:FindFirstChild("Build").Value or "No Build")
+					.. "). of Starlight\n\nThis version of Starlight is intended for interface build "
+					.. Starlight.InterfaceBuild
+					.. ". \nTry rerunning the script. If the issue persists, join our discord for support.",
+				Icon = 129398364168201,
+			})
+		end)
+	end
+
+	WindowSettings.FileSettings = WindowSettings.FileSettings or {}
+	local hasOld = WindowSettings.ConfigurationSettings ~= nil
+	if WindowSettings.FileSettings.RootFolder == nil and hasOld then
+		WindowSettings.FileSettings.RootFolder = WindowSettings.ConfigurationSettings.RootFolder
+	end
+	if WindowSettings.FileSettings.ConfigFolder == nil and hasOld then
+		WindowSettings.FileSettings.ConfigFolder = WindowSettings.ConfigurationSettings.FolderName
+	end
+
+	local root = WindowSettings.FileSettings.RootFolder
+	local folder = WindowSettings.FileSettings.ConfigFolder
+	local folderpath = root ~= nil and root .. "/" .. folder or folder
+
+	if root ~= nil then
+		WindowSettings.FileSettings.ThemesInRoot = WindowSettings.FileSettings.ThemesInRoot == nil and true
+			or WindowSettings.FileSettings.ThemesInRoot
+	end
+
+	if WindowSettings.NotifyOnCallbackError == nil then
+		WindowSettings.NotifyOnCallbackError = true
+	end
+	Starlight.FileSystem.AutoloadConfigPath = `{Starlight.FileSystem.Folder}/{folderpath}/configs/`
+	if WindowSettings.FileSettings.ThemesInRoot then
+		Starlight.FileSystem.AutoloadThemePath = `{Starlight.FileSystem.Folder}/{root}/themes/`
+	else
+		Starlight.FileSystem.AutoloadThemePath = `{Starlight.FileSystem.Folder}/{folderpath}/themes/`
+	end
+
+	Starlight.FileSystem:BuildFolderTree(WindowSettings.FileSettings)
+
+	Starlight.Window = {
+		Instance = mainWindow,
+		TabSections = {},
+		CurrentTab = nil,
+		Settings = nil,
+		CurrentSize = mainWindow.Size,
+
+		Values = WindowSettings,
+	}
+
+	--// SUBSECTION : Initial Code
+	do
+		local AcrylicObject = Acrylic.AcrylicPaint()
+		local AcrylicObject2 = Acrylic.AcrylicPaint()
+		pcall(function()
+			AcrylicObject.AddParent(mainWindow)
+			AcrylicObject.Frame.Parent = mainWindow
+			AcrylicObject.Model.Size = Vector3.new(1.0, 1.032, 0.001)
+			AcrylicObject2.AddParent(StarlightUI.MobileToggle)
+			AcrylicObject2.Frame.Parent = StarlightUI.MobileToggle
+			AcrylicObject2.Model.Size = Vector3.new(1.0, 1.0, 0.001)
 		end)
 
-
-		HomeTabPage.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-		HomeTabPage.player.Text.Text = "Hello, " .. Players.LocalPlayer.DisplayName
-		HomeTabPage.player.user.Text = Players.LocalPlayer.Name .. " - ".. WindowSettings.Name
-
-		HomeTabPage.detailsholder.dashboard.Client.Title.Text = (isStudio and "Debugging (Studio)" or identifyexecutor()) or "Your Executor Does Not Support identifyexecutor."
-		for i,v in pairs(HomeTabSettings.SupportedExecutors) do
-			if isStudio then HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Luna Interface Suite - Debugging Mode" break end
-			if v == identifyexecutor() then
-				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Supports This Script."
-				break
+		acrylicEvent.Event:Connect(function()
+			notificationAcrylicEvent:Fire()
+			if mainAcrylic then
+				Tween(mainWindow, { BackgroundTransparency = 0.6 })
+				Tween(mainWindow.Content.ContentMain, { BackgroundTransparency = 0.6 })
+				for _, cornerrepair in pairs(mainWindow.Content.ContentMain.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0.6 })
+				end
+				Tween(mainWindow.Content.Topbar, { BackgroundTransparency = 0.5 })
+				for _, cornerrepair in pairs(mainWindow.Content.Topbar.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0.5 })
+				end
+				Tween(mainWindow.Sidebar, { BackgroundTransparency = 0.45 })
+				for _, cornerrepair in pairs(mainWindow.Sidebar.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0.45 })
+				end
+				Tween(StarlightUI.MobileToggle.Backdrop, { BackgroundTransparency = 0.5 })
+				Tween(StarlightUI.MobileToggle.Backdrop.UIStroke, { Transparency = 0.5 })
+				AcrylicObject.Frame.shadow.Visible = true
 			else
-				HomeTabPage.detailsholder.dashboard.Client.Subtitle.Text = "Your Executor Isn't Officialy Supported By This Script."
-				break
+				Tween(mainWindow, { BackgroundTransparency = 0 })
+				Tween(mainWindow.Content.ContentMain, { BackgroundTransparency = 0 })
+				for _, cornerrepair in pairs(mainWindow.Content.ContentMain.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0 })
+				end
+				Tween(mainWindow.Content.Topbar, { BackgroundTransparency = 0 })
+				for _, cornerrepair in pairs(mainWindow.Content.Topbar.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0 })
+				end
+				Tween(mainWindow.Sidebar, { BackgroundTransparency = 0 })
+				for _, cornerrepair in pairs(mainWindow.Sidebar.CornerRepairs:GetChildren()) do
+					Tween(cornerrepair, { ImageTransparency = 0 })
+				end
+				Tween(StarlightUI.MobileToggle.Backdrop, { BackgroundTransparency = 0 })
+				Tween(StarlightUI.MobileToggle.Backdrop.UIStroke, { Transparency = 0 })
+				AcrylicObject.Frame.shadow.Visible = false
+			end
+		end)
+
+		mainWindow.Content.ContentMain.Elements.Tab_TEMPLATE.Visible = false
+		local loadingScreenLogoChanged = false
+
+		mainWindow["New Loading Screen"].Visible = true
+		mainWindow.ModalOverlay.Visible = true
+
+		mainWindow.Size = WindowSettings.DefaultSize ~= nil and WindowSettings.DefaultSize or mainWindow.Size
+		if (GUICanvasSize.X - 50) <= mainWindow.AbsoluteSize.X then
+			mainWindow.Size = UDim2.new(0, GUICanvasSize.X - 50, mainWindow.Size.Y.Scale, mainWindow.Size.Y.Offset)
+		end
+		if (GUICanvasSize.Y - 50) <= mainWindow.AbsoluteSize.Y then
+			mainWindow.Size = UDim2.new(mainWindow.Size.X.Scale, mainWindow.Size.X.Offset, 0, GUICanvasSize.Y - 50)
+		end
+
+		mainWindow.Sidebar.Icon.Image = AssetId(WindowSettings.Icon, "Window.png")
+		mainWindow.Sidebar.Header.Text = WindowSettings.Name or ""
+		mainWindow.Content.Topbar.Headers.Subheader.Text = WindowSettings.Subtitle or ""
+		StarlightUI.MobileToggle.Image = WindowSettings.Icon ~= nil
+			and AssetId(WindowSettings.Icon, "WindowMobile.png")
+			or AssetId(6031097229, "MobileToggle.png")
+
+		local size = mainWindow.Size
+		mainWindow.Size = WindowSettings.LoadingEnabled and UDim2.fromOffset(500, 325) or mainWindow.Size
+		StarlightUI.MainWindow.Position = UDim2.fromOffset(
+			Camera.ViewportSize.X / 2 - StarlightUI.MainWindow.Size.X.Offset / 2,
+			((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2) - (GuiInset / 2)
+		)
+		StarlightUI.Drag.Position = UDim2.new(
+			0.5,
+			0,
+			0,
+			((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2)
+			- (GuiInset / 2)
+				+ mainWindow.Size.Y.Offset
+				+ 10
+		)
+
+		mainWindow.ModalOverlay.Visible = false
+		--[[mainWindow["Loading Screen"].Version.Text = WindowSettings.LoadingSettings.Title == "Starlight Interface Suite" and Release or "Starlight Interface Suite " .. Release
+		mainWindow["Loading Screen"].Frame.SubFrame.Title.Text = WindowSettings.LoadingSettings.Title or ""
+		mainWindow["Loading Screen"].Frame.SubFrame.Subtitle.Text = WindowSettings.LoadingSettings.Subtitle or ""]]
+		if WindowSettings.LoadingSettings then
+			if WindowSettings.LoadingSettings.Logo then
+				mainWindow["New Loading Screen"].Frame.ImageLabel.Image.Image = "rbxassetid://"
+					.. WindowSettings.LoadingSettings.Logo
+				mainWindow["New Loading Screen"].Frame.ImageLabel.Image.Size = UDim2.fromScale(1, 1)
+				loadingScreenLogoChanged = true
 			end
 		end
 
-		-- Stolen From Sirius Stuff Begins Here
+		mainWindow.Sidebar.Player.PlayerIcon.Image =
+			Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size48x48)
+		mainWindow.Sidebar.Player.Header.Text = Player.DisplayName
+		mainWindow.Sidebar.Player.subheader.Text = Player.Name
 
-		HomeTabPage.detailsholder.dashboard.Discord.Interact.MouseButton1Click:Connect(function()
-			setclipboard(tostring("https://discord.gg/"..HomeTabSettings.DiscordInvite)) -- Hunter if you see this I added copy also was too lazy to send u msg
-			if request then
-				request({
-					Url = 'http://127.0.0.1:6463/rpc?v=1',
-					Method = 'POST',
-					Headers = {
-						['Content-Type'] = 'application/json',
-						Origin = 'https://discord.com'
-					},
-					Body = HttpService:JSONEncode({
-						cmd = 'INVITE_BROWSER',
-						nonce = HttpService:GenerateGUID(false),
-						args = {code = HomeTabSettings.DiscordInvite}
-					})
-				})
+		ContentProvider:PreloadAsync({
+			"rbxassetid://116767744785553", -- cursor
+			"rbxassetid://90155503712202", -- cursor shadow
+			"rbxassetid://18824089198", -- player blurred
+			"rbxassetid://129398364168201", -- warning
+			"rbxassetid://3926305904", -- dropdown arrows
+			"rbxassetid://108613279334326", -- linking colorpicker
+			"rbxassetid://6031625148", -- rainbow colorpicker
+			"rbxassetid://4155801252", -- color picker
+			"rbxassetid://16423157073", -- close
+			"rbxassetid://123097456061373", -- minimise
+			"rbxassetid://114684871091583", -- maximise
+			"rbxassetid://6034304908", -- notification
+			"rbxassetid://8445471332", -- search
+			"rbxassetid://92421933997743", -- Corner Repair
+			"rbxassetid://80990588449079", -- loading circle
+		}, function(asset)
+			if debugV then
+				print(`loaded asset {asset}`)
 			end
 		end)
+
+		-- Theme Binding
+		do
+			ThemeMethods.bindTheme(StarlightUI.MobileToggle.Backdrop, "BackgroundColor3", "Backgrounds.Dark")
+			ThemeMethods.bindTheme(StarlightUI.MobileToggle.Backdrop.UIStroke, "Color", "Foregrounds.Dark")
+			for _, shadow in pairs(StarlightUI.MobileToggle.Backdrop.DropShadowHolder:GetChildren()) do
+				ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.Shadow")
+			end
+
+			ThemeMethods.bindTheme(mainWindow, "BackgroundColor3", "Backgrounds.Dark")
+			ThemeMethods.bindTheme(mainWindow.UIStroke.Accent, "Color", "Accents.Brighter")
+			for _, shadow in pairs(mainWindow.DropShadowHolder:GetChildren()) do
+				ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.Shadow")
+			end
+			ThemeMethods.bindTheme(mainWindow.ModalOverlay, "BackgroundColor3", "Backgrounds.Groupbox")
+			ThemeMethods.bindTheme(mainWindow.Sidebar, "BackgroundColor3", "Backgrounds.Light")
+			for _, cornerrepair in pairs(mainWindow.Sidebar.CornerRepairs:GetChildren()) do
+				ThemeMethods.bindTheme(cornerrepair, "ImageColor3", "Backgrounds.Light")
+			end
+			ThemeMethods.bindTheme(mainWindow.Sidebar.DropShadowHolder.DropShadow, "ImageColor3", "Foregrounds.Dark")
+			ThemeMethods.bindTheme(mainWindow.Sidebar.Header, "TextColor3", "Foregrounds.Light")
+			ThemeMethods.bindTheme(mainWindow.Sidebar.Player.PlayerIcon, "BackgroundColor3", "Backgrounds.Groupbox")
+			ThemeMethods.bindTheme(mainWindow.Sidebar.Player.Header, "TextColor3", "Foregrounds.Light")
+			ThemeMethods.bindTheme(mainWindow.Sidebar.Player.Header.Icon.Accent, "Color", "Accents.Main")
+			ThemeMethods.bindTheme(mainWindow.Sidebar.Player.subheader, "TextColor3", "Foregrounds.Medium")
+			ThemeMethods.bindTheme(mainWindow.Content.Topbar, "BackgroundColor3", "Backgrounds.Medium")
+			for _, cornerrepair in pairs(mainWindow.Content.Topbar.CornerRepairs:GetChildren()) do
+				ThemeMethods.bindTheme(cornerrepair, "ImageColor3", "Backgrounds.Medium")
+			end
+			ThemeMethods.bindTheme(mainWindow.Content.Topbar.Headers.Subheader, "TextColor3", "Foregrounds.Medium")
+			for _, control in pairs(mainWindow.Content.Topbar.Controls:GetChildren()) do
+				if control.ClassName ~= "TextButton" then
+					continue
+				end
+				ThemeMethods.bindTheme(control, "BackgroundColor3", "Foregrounds.Dark")
+			end
+			ThemeMethods.bindTheme(mainWindow.Content.Topbar.NotificationCenterIcon, "ImageColor3", "Foregrounds.Dark")
+			ThemeMethods.bindTheme(mainWindow.Content.Topbar.Search, "ImageColor3", "Foregrounds.Dark")
+			ThemeMethods.bindTheme(mainWindow.Content.ContentMain, "BackgroundColor3", "Backgrounds.Dark")
+			for _, cornerrepair in pairs(mainWindow.Content.ContentMain.CornerRepairs:GetChildren()) do
+				ThemeMethods.bindTheme(cornerrepair, "ImageColor3", "Backgrounds.Dark")
+			end
+
+			ThemeMethods.bindTheme(StarlightUI.Drag.DragCosmetic, "BackgroundColor3", "Foregrounds.Light")
+
+			ThemeMethods.bindTheme(mainWindow["New Loading Screen"], "BackgroundColor3", "Backgrounds.Medium")
+			for _, shadow in pairs(mainWindow["New Loading Screen"].shadows:GetChildren()) do
+				ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.LighterShadow")
+			end
+			ThemeMethods.bindTheme(mainWindow["New Loading Screen"].Version, "TextColor3", "Foregrounds.Medium")
+			ThemeMethods.bindTheme(
+				mainWindow["New Loading Screen"].Frame.SubFrame.Title,
+				"TextColor3",
+				"Foregrounds.Light"
+			)
+			ThemeMethods.bindTheme(
+				mainWindow["New Loading Screen"].Frame.SubFrame.Title.playerName,
+				"TextColor3",
+				"Foregrounds.Light"
+			)
+			ThemeMethods.bindTheme(
+				mainWindow["New Loading Screen"].Frame.SubFrame.Subtitle,
+				"TextColor3",
+				"Foregrounds.Medium"
+			)
+			if not loadingScreenLogoChanged then
+				ThemeMethods.bindTheme(
+					mainWindow["New Loading Screen"].Frame.ImageLabel.Image,
+					"ImageColor3",
+					"Foregrounds.Light"
+				)
+			end
+			ThemeMethods.bindTheme(
+				mainWindow["New Loading Screen"].Frame.ImageLabel.Player,
+				"BackgroundColor3",
+				"Backgrounds.Groupbox"
+			)
+		end
+
+		task.spawn(function()
+			if WindowSettings.LoadingEnabled then
+				mainWindow.Visible = true
+				StarlightUI.Drag.Visible = true
+				StarlightUI.MobileToggle.Visible = UserInputService.TouchEnabled
+					--and not UserInputService.KeyboardEnabled
+
+				local main = mainWindow["New Loading Screen"]
+				local shadows = main.shadows
+				local content = main.Frame
+				local versionLabel = main.Version
+
+				local imgContainer = content.ImageLabel
+				local textLabels = content.SubFrame
+
+				local loadingCircle = imgContainer.Image
+				local playerIcon = imgContainer.Player
+
+				local subtitle = textLabels.Subtitle
+				local title = textLabels.Title
+
+				StarlightUI.MainWindow.Position = UDim2.fromOffset(
+					Camera.ViewportSize.X / 2 - StarlightUI.MainWindow.Size.X.Offset / 2,
+					((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2) - (GuiInset / 2)
+				)
+				StarlightUI.Drag.Position = UDim2.new(
+					0.5,
+					0,
+					0,
+					((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2)
+					- (GuiInset / 2)
+						+ mainWindow.Size.Y.Offset
+						+ 10
+				)
+
+				for _, shadow in pairs(shadows:GetChildren()) do
+					shadow.ImageTransparency = 1
+				end
+				for _, shadow in pairs(mainWindow.DropShadowHolder:GetChildren()) do
+					shadow.ImageTransparency = 1
+				end
+				versionLabel.TextTransparency = 1
+				loadingCircle.ImageTransparency = 1
+				subtitle.TextTransparency = 1
+				title.TextTransparency = 1
+
+				title.Text = WindowSettings.LoadingSettings and WindowSettings.LoadingSettings.Title
+					or "Starlight Interface Suite"
+				versionLabel.Text = title.Text == "Starlight Interface Suite" and Release or `Starlight UI {Release}`
+				title.playerName.Text = Player.DisplayName
+				playerIcon.Image = Players:GetUserThumbnailAsync(
+					Player.UserId,
+					Enum.ThumbnailType.HeadShot,
+					Enum.ThumbnailSize.Size352x352
+				)
+
+				Tween(main, { BackgroundTransparency = 0 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				for _, shadow in pairs(shadows:GetChildren()) do
+					local trans = {
+						antumbraShadow = 0.9,
+						penumbraShadow = 0.45,
+						umbraShadow = 0.1,
+					}
+
+					Tween(shadow, { ImageTransparency = trans[shadow.Name] }, nil, Tween.Info("Quint", "InOut", 0.2))
+				end
+				Tween(versionLabel, { TextTransparency = 0 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				task.wait(0.076)
+				Tween(loadingCircle, { ImageTransparency = 0 }, nil, Tween.Info(nil, "InOut", 0.7))
+				Tween(title, { TextTransparency = 0 }, nil, Tween.Info(nil, "InOut", 0.7))
+				task.wait(0.05)
+				Tween(subtitle, { TextTransparency = 0 }, nil, Tween.Info(nil, "InOut", 0.7))
+
+				if not loadingScreenLogoChanged then
+					Tween(
+						loadingCircle,
+						{ Rotation = 450 },
+						nil,
+						TweenInfo.new(1.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out, 2, false, 0.2)
+					)
+				else
+					if WindowSettings.LoadingSettings.IconAnimation then
+						pcall(WindowSettings.LoadingSettings.IconAnimation, loadingCircle)
+					end
+				end
+
+				task.wait(3.24)
+
+				subtitle.Text = "Loaded!"
+				task.wait(0.5)
+
+				subtitle.Text = "Logging In..."
+				task.wait(1.72)
+
+				subtitle.Text = WindowSettings.LoadingSettings
+					and (WindowSettings.LoadingSettings.Subtitle or WindowSettings.LoadingSettings.Title)
+					or "Welcome To Starlight!"
+				Tween(title, { TextTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				Tween(title.playerName, { Position = UDim2.new(0, -8, 0, 0) }, nil, Tween.Info("Quint", "InOut", 0.85))
+				Tween(
+					playerIcon,
+					{ Size = UDim2.new(1, -10, 1, -10), Position = UDim2.new(0.5, 0, 0.5, -6) },
+					nil,
+					Tween.Info("Back", "InOut", 1.4)
+				)
+				Tween(loadingCircle, { ImageTransparency = 1 }, nil, Tween.Info(nil, nil, 0.38))
+
+				task.wait(1.5)
+
+				Tween(mainWindow, {
+					Size = size,
+					Position = UDim2.fromOffset(
+						Camera.ViewportSize.X / 2 - size.X.Offset / 2,
+						((Camera.ViewportSize.Y / 2 - GuiInset) - size.Y.Offset / 2) - (GuiInset / 2)
+					),
+				}, nil, Tween.Info(nil, nil, 1.1))
+				Tween(StarlightUI.Drag, {
+					Position = UDim2.new(
+						0.5,
+						0,
+						0,
+						((Camera.ViewportSize.Y / 2 - GuiInset) - size.Y.Offset / 2)
+						- (GuiInset / 2)
+							+ size.Y.Offset
+							+ 10
+					),
+				}, nil, Tween.Info(nil, nil, 1.1))
+
+				Tween(mainWindow.DropShadowHolder.umbraShadow, {
+					ImageTransparency = 0,
+				}, nil, Tween.Info(nil, nil, 1.5))
+				Tween(mainWindow.DropShadowHolder.antumbraShadow, {
+					ImageTransparency = 0.94,
+				}, nil, Tween.Info(nil, nil, 1.5))
+				Tween(mainWindow.DropShadowHolder.penumbraShadow, {
+					ImageTransparency = 0.55,
+				}, nil, Tween.Info(nil, nil, 1.5))
+				for _, shadow in pairs(shadows:GetChildren()) do
+					Tween(shadow, { ImageTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 1.2))
+				end
+
+				Tween(
+					playerIcon,
+					{ Size = UDim2.new(1, 10, 1, 10), ImageTransparency = 1 },
+					nil,
+					Tween.Info("Back", "InOut", 0.9)
+				)
+				Tween(title.playerName, { Position = UDim2.new(0, 0, 1, 0) }, nil, Tween.Info("Quint", "InOut", 0.85))
+				Tween(subtitle, { TextTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				Tween(versionLabel, { TextTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				task.wait(0.08)
+				Tween(playerIcon, { BackgroundTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				task.wait(1.1 - 0.08)
+				Tween(main, { BackgroundTransparency = 1 }, nil, Tween.Info("Quint", "InOut", 0.2))
+				-- like this cus uhh tween method dont got all the properties
+				--[[if not loadingScreenLogoChanged then
+				TweenService:Create(mainWindow["Loading Screen"].Frame.ImageLabel, TweenInfo.new(1.7, Enum.EasingStyle.Back, Enum.EasingDirection.Out, 2, false, 0.2), {Rotation = 450}):Play()
+			end
+
+			task.wait(3)
+
+			Hide(mainWindow["Loading Screen"], true, false, false)
+
+			task.wait()
+
+			Tween(mainWindow, {
+				Size = UDim2.fromOffset(mainWindow.Size.X.Offset + 65, mainWindow.Size.Y.Offset + 55),
+				Position = UDim2.fromOffset(
+					Camera.ViewportSize.X / 2 - StarlightUI.MainWindow.Size.X.Offset / 2 - 65/2,
+					((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2) - (GuiInset/2) - 55/2
+				)
+			})
+			Tween(StarlightUI.Drag, {
+				Position = UDim2.new(0.5, 0, 0, ((Camera.ViewportSize.Y / 2 - GuiInset) - StarlightUI.MainWindow.Size.Y.Offset / 2) - (GuiInset/2) + mainWindow.Size.Y.Offset + 10)
+			})]]
+			end
+
+			mainWindow["New Loading Screen"].Visible = false
+
+			mainWindow.Visible = true
+			StarlightUI.Drag.Visible = true
+			StarlightUI.MobileToggle.Visible = UserInputService.TouchEnabled
+		end)
+
+		makeDraggable(mainWindow.Content.Topbar, mainWindow, StarlightUI.Drag)
+		makeDraggable(mainWindow.Sidebar, mainWindow, StarlightUI.Drag)
+		makeDraggable(StarlightUI.MobileToggle, StarlightUI.MobileToggle, nil)
+		if StarlightUI.Drag then
+			makeDraggable(StarlightUI.Drag.Interact, mainWindow, StarlightUI.Drag, true, nil, StarlightUI.Drag)
+		end
+
+		--if not WindowSettings.LoadingEnabled then task.wait(.15) end
+	end
+
+	--// ENDSUBSECTION
+	--// SUBSECTION : User Methods
+
+	function Starlight.Window:PromptDialog(ModalSettings)
+		--[[
+		Name = "Header",
+   		Content = "Description",
+    	Type = 1,
+    	Actions = { 
+        	Primary = {
+            	Name = "Okay!",
+            	Icon = NebulaIcons:GetIcon("check", "Material"),
+            	Callback = function()
+
+            	end
+        	}, 
+        	{
+            	Name = "Cancel",
+            	Callback = function()
+					
+            	end
+        	},
+    	}
+    	OR
+    	Type = 2,
+    	Actions = {
+        	{
+            	PlaceholderText = ""
+            	...from input
+            	
+            	Callback = function(Text)
+					
+            	end
+        	},
+    	}
+		]]
+
+		ModalSettings.Type = ModalSettings.Type or 1
+
+		local Modal = {
+			Open = false,
+			Values = ModalSettings,
+		}
+
+		Modal.Instance = mainWindow.ModalOverlay.Template:Clone()
+		Modal.Instance.Holder.Actions.Primary:Destroy()
+		Modal.Instance.Holder.Actions.Secondary:Destroy()
+		Modal.Instance.Holder.Actions.Input:Destroy()
+		Modal.Instance.Name = "Dialog"
+		mainWindow.Content.Interactable = false
+
+		repeat
+			task.wait()
+		until Modal.Instance.Holder ~= nil
+		Modal.Instance.Holder:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+			pcall(function()
+				Modal.Instance.Size =
+					UDim2.fromOffset(400, Modal.Instance.Holder and Modal.Instance.Holder.AbsoluteSize.Y or 0)
+			end)
+		end)
+		Modal.Instance.Size = UDim2.fromOffset(400, Modal.Instance.Holder and Modal.Instance.Holder.AbsoluteSize.Y)
+
+		-- Theme Binding
+		do
+			ThemeMethods.bindTheme(Modal.Instance, "BackgroundColor3", "Miscellaneous.LighterShadow")
+			ThemeMethods.bindTheme(Modal.Instance.UIStroke, "Color", "Foregrounds.Dark")
+			for _, shadow in pairs(Modal.Instance.DropShadowHolder:GetChildren()) do
+				ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.LighterShadow")
+			end
+
+			acrylicEvent.Event:Connect(function()
+				if mainAcrylic then
+					Modal.Instance.BackgroundTransparency = 0.7
+				else
+					Modal.Instance.BackgroundTransparency = 0.05
+				end
+			end)
+		end
+
+		local connection
+		local function close(x)
+			Tween(Modal.Instance.UIScale, { Scale = 1.25 })
+			Hide(Modal.Instance)
+			Tween(mainWindow.ModalOverlay, { BackgroundTransparency = 1, ImageTransparency = 1 }, function()
+				Modal.Instance:Destroy()
+			end)
+			task.wait(0.18)
+			mainWindow.ModalOverlay.Visible = false
+			mainWindow.Content.Interactable = true
+			if x then
+				x()
+			end
+			connection:Disconnect()
+		end
+
+		connection = mainWindow.ModalOverlay.MouseButton1Click:Connect(close)
+
+		Modal.Instance.Holder.Header.TextLabel.Text = Modal.Values.Name
+		Modal.Instance.Holder.Header.Icon.Visible = not String.IsEmptyOrNull(Modal.Values.Icon)
+		if Modal.Instance.Holder.Header.Icon.Visible == false then
+			Modal.Instance.Holder.Header.TextLabel.Position = UDim2.fromOffset(5, 0)
+		else
+			Modal.Instance.Holder.Header.TextLabel.Position = UDim2.fromOffset(36, 0)
+		end
+		Modal.Instance.Holder.Header.Icon.Image = not String.IsEmptyOrNull(Modal.Values.Icon)
+			and AssetId(Modal.Values.Icon)
+			or ""
+		Modal.Instance.Holder.Content.TextLabel.Text = Modal.Values.Content
+
+		if Modal.Values.Type == 1 then
+			for Key, Action in pairs(Modal.Values.Actions) do
+				local ActionButton: TextButton = nil
+				if Key == "Primary" then
+					ActionButton = mainWindow.ModalOverlay.Template.Holder.Actions.Primary:Clone()
+
+					ThemeMethods.bindTheme(ActionButton.Backdrop.Accent, "Color", "Accents.Main")
+					ThemeMethods.bindTheme(ActionButton.Backdrop.UIStroke.Accent, "Color", "Accents.Main")
+					ThemeMethods.bindTheme(ActionButton.Header.Icon, "ImageColor3", "Foregrounds.Active")
+					ThemeMethods.bindTheme(ActionButton.Header.Header, "TextColor3", "Foregrounds.Active")
+				else
+					ActionButton = mainWindow.ModalOverlay.Template.Holder.Actions.Secondary:Clone()
+
+					ThemeMethods.bindTheme(ActionButton.Backdrop, "BackgroundColor3", "Backgrounds.Groupbox")
+					ThemeMethods.bindTheme(ActionButton.Backdrop.UIStroke, "Color", "Foregrounds.Dark")
+					ThemeMethods.bindTheme(ActionButton.Backdrop.Shadow, "BackgroundColor3", "Backgrounds.Dark")
+					ThemeMethods.bindTheme(ActionButton.Header.Icon, "ImageColor3", "Foregrounds.Light")
+					ThemeMethods.bindTheme(ActionButton.Header.Icon, "ImageColor3", "Foregrounds.Light")
+					ThemeMethods.bindTheme(ActionButton.Header.Header, "TextColor3", "Foregrounds.Light")
+				end
+
+				ActionButton.Parent = Modal.Instance.Holder.Actions
+				ActionButton.Header.Icon.Image = not String.IsEmptyOrNull(Action.Icon)
+					and AssetId(Action.Icon)
+					or ""
+				ActionButton.Header.Icon.Visible = not String.IsEmptyOrNull(Action.Icon)
+				ActionButton.Header.Header.Text = Action.Name
+
+				ActionButton.MouseButton1Click:Connect(function()
+					close(function()
+						local Success, Response = pcall(Action.Callback)
+
+						if not Success then
+							warn(`Starlight Interface Suite - Callback Error | Dialog {Modal.Values.Name}`)
+							print(Response)
+							if WindowSettings.NotifyOnCallbackError then
+								Starlight:Notification({
+									Title = Modal.Values.Name .. " Callback Error",
+									Content = tostring(Response),
+									Icon = 129398364168201,
+								})
+							end
+						end
+					end)
+				end)
+			end
+		else
+			Modal.Instance.Holder.Actions.UIListLayout.FillDirection = Enum.FillDirection.Vertical
+			for _, Action in pairs(Modal.Values.Actions) do
+				Action.CurrentValue = Action.CurrentValue or ""
+				Action.PlaceholderText = Action.PlaceholderText or ""
+				Action.Numeric = Action.Numeric or false
+				Action.Enter = Action.Enter or true
+				Action.MaxCharacters = Action.MaxCharacters or -1
+				if Action.RemoveTextOnFocus == nil then
+					Action.RemoveTextOnFocus = true
+				end
+
+				local ActionInput = mainWindow.ModalOverlay.Template.Holder.Actions.Input:Clone()
+				ThemeMethods.bindTheme(ActionInput, "BackgroundColor3", "Backgrounds.Dark")
+				ThemeMethods.bindTheme(ActionInput.UIStroke, "Color", "Foregrounds.Dark")
+				ThemeMethods.bindTheme(ActionInput.PART_Input, "PlaceholderColor3", "Foregrounds.Medium")
+				ThemeMethods.bindTheme(ActionInput.PART_Input, "TextColor3", "Foregrounds.Light")
+
+				ActionInput.Visible = true
+				ActionInput.Parent = Modal.Instance.Holder.Actions
+				ActionInput.PART_Input.FocusLost:Connect(function(Enter)
+					if not ActionInput then
+						return
+					end
+
+					close(function()
+						if Action.Enter then
+							local Success, Response = pcall(function()
+								Action.Callback(Action.CurrentValue)
+							end)
+
+							if not Success then
+								warn(`Starlight Interface Suite - Callback Error | Dialog {Modal.Values.Name}`)
+								print(Response)
+								if WindowSettings.NotifyOnCallbackError then
+									Starlight:Notification({
+										Title = Modal.Values.Name .. " Callback Error",
+										Content = tostring(Response),
+										Icon = 129398364168201,
+									})
+								end
+							end
+						end
+
+						if Action.RemoveTextAfterFocusLost then
+							ActionInput.PART_Input.Text = ""
+							Action.CurrentValue = ""
+						end
+					end)
+				end)
+
+				ActionInput.Interact.Focused:Connect(function()
+					ActionInput.Interact:ReleaseFocus()
+					ActionInput.PART_Input:CaptureFocus()
+				end)
+
+				ActionInput.MouseEnter:Connect(function()
+					Tween(ActionInput.UIStroke, { Color = Starlight.CurrentTheme.Foregrounds.DarkHover })
+				end)
+				ActionInput.MouseLeave:Connect(function()
+					Tween(ActionInput.UIStroke, { Color = Starlight.CurrentTheme.Foregrounds.Dark })
+				end)
+
+				if Action.Numeric then
+					ActionInput.PART_Input:GetPropertyChangedSignal("Text"):Connect(function()
+						local text = ActionInput.PART_Input.Text
+						if not tonumber(text) and text ~= "." then
+							ActionInput.PART_Input.Text = text:match("[0-9.]*") or ""
+						end
+					end)
+				end
+
+				ActionInput.PART_Input:GetPropertyChangedSignal("Text"):Connect(function()
+					if Action.MaxCharacters < 0 then
+						if (#ActionInput.PART_Input.Text - 1) == Action.MaxCharacters then
+							ActionInput.PART_Input.Text = ActionInput.PART_Input.Text:sub(1, Action.MaxCharacters)
+						end
+					end
+					Action.CurrentValue = ActionInput.PART_Input.Text
+				end)
+
+				ActionInput.PART_Input.PlaceholderText = Action.PlaceholderText or ""
+				ActionInput.PART_Input.Text = Action.CurrentValue
+				ActionInput.PART_Input.ClearTextOnFocus = Action.RemoveTextOnFocus
+			end
+		end
+
+		Hide(Modal.Instance)
+		--task.wait()
+		Tween(Modal.Instance.UIScale, { Scale = 1 })
+		Unhide(Modal.Instance)
+		task.wait(0.1)
+		mainWindow.ModalOverlay.Visible = true
+		Tween(mainWindow.ModalOverlay, { BackgroundTransparency = 0.2, ImageTransparency = 0.1 })
+
+		Modal.Instance.Parent = mainWindow.ModalOverlay
+		--return Modal
+	end
+
+	local prebuiltTabSection = nil
+
+	local homeTabCalled: boolean? = false
+	function Starlight.Window:CreateHomeTab(TabSettings)
+		TabSettings.UnsupportedExecutors = TabSettings.UnsupportedExecutors or {}
+		TabSettings.SupportedExecutors = TabSettings.SupportedExecutors or {}
+		TabSettings.DiscordInvite = TabSettings.DiscordInvite or ""
+		TabSettings.Changelog = TabSettings.Changelog or {}
+		TabSettings.IconStyle = TabSettings.IconStyle or 1
+
+		if homeTabCalled then
+			return
+		end
+		homeTabCalled = true
+
+		local Tab = {
+			Instances = {},
+			Values = TabSettings,
+			Groupboxes = {},
+			Index = "prebuilthometab",
+
+			Active = false,
+			Hover = false,
+		}
+
+		if not prebuiltTabSection then
+			prebuiltTabSection = Starlight.Window:CreateTabSection()
+			prebuiltTabSection.Instance.LayoutOrder = -1
+		end
+
+		local executorname = identifyexecutor and identifyexecutor() or "Roblox Studio"
+
+		Tab.Instances.Button = navigation.NavigationSectionTemplate.TabButtonTemplate:Clone()
+		Tab.Instances.Button.Visible = true
+
+		Tab.Instances.Button.Header.Text = "Dashboard"
+		Tab.Instances.Button.Name = "HomeTab"
+
+		Tab.Instances.Button.Icon.Image = Tab.Values.IconStyle == 1
+			and AssetId(97461687077117, "TabAccent.png")
+			or AssetId(11295288868, "TabDefault.png")
+
+		Tab.Instances.Page = tabs["HomeTab"]
+		Tab.Instances.Page.Visible = true
+
+		Tab.Instances.Page.LayoutOrder = -1
+
+		local function Activate() -- so i dont have to rewrite shit again
+			Tween(Tab.Instances.Button, { BackgroundTransparency = 0.5 })
+			Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+			Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+			Tab.Instances.Button.Icon.AccentBrighter.Enabled = true
+			Tab.Instances.Button.Header.AccentBrighter.Enabled = true
+
+			for i, v in pairs(Starlight.Window.TabSections) do
+				for _, tab in pairs(v.Tabs) do
+					tab.Active = false
+				end
+			end
+
+			for _, OtherTabSection in pairs(navigation:GetChildren()) do
+				for _, OtherTab in pairs(OtherTabSection:GetChildren()) do
+					if OtherTab.ClassName == "Frame" and OtherTab ~= Tab.Instances.Button then
+						Tween(OtherTab, { BackgroundTransparency = 1 })
+						Tween(OtherTab.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+						Tween(OtherTab.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+						OtherTab.Icon.AccentBrighter.Enabled = false
+						OtherTab.Header.AccentBrighter.Enabled = false
+					end
+				end
+			end
+
+			Tab.Active = true
+			Starlight.Window.CurrentTab = Tab
+			tabs.UIPageLayout:JumpTo(Tab.Instances.Page)
+		end
+
+		repeat
+			task.wait()
+		until Tab.Instances.Page.Parent == tabs
+		Activate()
+
+		Tab.Instances.Button.Interact["MouseButton1Click"]:Connect(Activate)
+
+		Tab.Instances.Button.MouseEnter:Connect(function()
+			Tab.Hover = true
+			if not Tab.Active then
+				Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+			end
+		end)
+
+		Tab.Instances.Button.MouseLeave:Connect(function()
+			Tab.Hover = false
+			if not Tab.Active then
+				Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+				Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+			end
+		end)
+
+		Tab.Instances.Page.InputBegan:Connect(function(input)
+			if
+				input.KeyCode == Enum.KeyCode.LeftShift
+				or input.KeyCode == Enum.KeyCode.RightShift
+				or input.UserInputType == Enum.UserInputType.Touch
+			then
+				Tab.Instances.Page.ScrollingEnabled = true
+			end
+		end)
+		Tab.Instances.Page.InputEnded:Connect(function(input)
+			if
+				input.KeyCode == Enum.KeyCode.LeftShift
+				or input.KeyCode == Enum.KeyCode.RightShift
+				or input.UserInputType == Enum.UserInputType.Touch
+			then
+				Tab.Instances.Page.ScrollingEnabled = false
+			end
+		end)
+
+		if TabSettings.Backdrop then
+			if TabSettings.Backdrop == 0 then
+				Tab.Instances.Page.ImageBackdrop.Image = "https://www.roblox.com/asset-thumbnail/image?assetId="
+					.. game.PlaceId
+					.. "&width=768&height=432&format=png"
+			else
+				Tab.Instances.Page.ImageBackdrop.Image = AssetId(TabSettings.Backdrop, "Backdrop_" .. tostring(TabIndex) .. ".png")
+				Tab.Instances.Page.ImageBackdrop.Visible = not Tab.Instances.Page.ImageBackdrop.Visible
+				Tab.Instances.Page.ImageBackdrop.Visible = not Tab.Instances.Page.ImageBackdrop.Visible
+			end
+		else
+			Tab.Instances.Page.ImageBackdrop.Image = "rbxassetid://78881404248017"
+		end
+
+		Tab.Instances.Page.playerDisplay.Text = `Welcome, {Player.DisplayName}`
+		Tab.Instances.Page.Thumbnail.ImageLabel.Image =
+			Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
+
+		task.spawn(function()
+			connections.__homeTabTime = RunService.RenderStepped:Connect(function()
+				local t = os.date("*t")
+				local hour = t.hour
+
+				local formatted = string.format("%02d : %02d : %02d", hour, t.min, t.sec)
+				local greetingString = ""
+				if hour >= 4 and hour < 12 then
+					greetingString = "Good Morning!"
+				elseif hour >= 12 and hour < 19 then
+					greetingString = "How's Your Day Going?"
+				elseif hour >= 19 and hour <= 23 then
+					greetingString = "Sweet Dreams."
+				else
+					greetingString = "Jeez you should be asleep..."
+				end
+				Tab.Instances.Page.playerUser.Text = `{greetingString} | {Player.Name}`
+
+				Tab.Instances.Page.clock.Text =
+					`{formatted}\n{string.format("%02d / %02d / %02d", t.day, t.month, t.year % 100)}`
+			end)
+		end)
+
+		for _, column in pairs(Tab.Instances.Page.Holder:GetChildren()) do
+			if column.ClassName ~= "Frame" then
+				continue
+			end
+
+			for _, button in pairs(column:GetChildren()) do
+				if button.ClassName ~= "Frame" then
+					continue
+				end
+
+				button.Interact.MouseEnter:Connect(function()
+					Tween(button.Hover, { BackgroundTransparency = 0 })
+				end)
+				button.Interact.MouseLeave:Connect(function()
+					Tween(button.Hover, { BackgroundTransparency = 1 })
+				end)
+			end
+		end
+		Tab.Instances.Page.Holder.Left.Discord.Interact.MouseButton1Click:Connect(function()
+			setclipboard(tostring("https://discord.gg/" .. TabSettings.DiscordInvite))
+			if Request then
+				pcall(function()
+					Request({
+						Url = "http://127.0.0.1:6463/rpc?v=1",
+						Method = "POST",
+						Headers = {
+							["Content-Type"] = "application/json",
+							Origin = "https://discord.com",
+						},
+						Body = HttpService:JSONEncode({
+							cmd = "INVITE_BROWSER",
+							nonce = HttpService:GenerateGUID(false),
+							args = { code = TabSettings.DiscordInvite },
+						}),
+					})
+				end)
+			end
+		end)
+
+		table.insert(TabSettings.UnsupportedExecutors, "Roblox Studio")
+
+		Tab.Instances.Page.Holder.Center.Executor.Header.Text = executorname
+		if table.find(TabSettings.SupportedExecutors, executorname) then
+			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "Your Executor Is Supported By \nThis Script."
+		end
+		if table.find(TabSettings.UnsupportedExecutors, executorname) then
+			Tab.Instances.Page.Holder.Center.Executor.Subheader.Text = "Your Executor Is Unsupported \nBy This Script."
+		end
+
+		Tab.Instances.Page.Holder.Left.Server.Subheader.Text = "Currently Playing "
+			.. MarketplaceService:GetProductInfo(game.PlaceId).Name
+		Tab.Instances.Page.Holder.Left.Server.Frame.serverregion.Text = '<font size="14" color="#FFF" weight="semibold">Region</font>\n'
+			.. Localization:GetCountryRegionForPlayerAsync(Player)
+		
+		Tab.Instances.Page.Holder.Left.Server.Frame.copyjoin.MouseButton1Click:Connect(function()
+			setclipboard(`game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, "{game.JobId}", game:GetService("Players").LocalPlayer)`)
+		end)
+		
+		local function updatePlayerCount()
+			Tab.Instances.Page.Holder.Left.Server.Frame.playercount.Text = '<font size="14" color="#FFF" weight="semibold">Players</font>\n'
+				.. #Players:GetChildren()
+				.. (#Players:GetChildren() > 1 and " Players" or " Player")
+				.. " In\nThis Server"
+			Tab.Instances.Page.Holder.Left.Server.Frame.maxplayers.Text = '<font size="14" color="#FFF" weight="semibold">Capacity</font>\n'
+				.. Players.MaxPlayers
+				.. (Players.MaxPlayers > 1 and " Players" or " Player")
+				.. " In\ncan join."
+		end
+		local function protectedUpdate() -- apparently creating less funcs and locals help with memory so im doing this
+			pcall(updatePlayerCount)
+		end
+		updatePlayerCount()
+		local localconnections =
+			{ Players.ChildAdded:Connect(protectedUpdate), Players.ChildRemoved:Connect(protectedUpdate) }
+		Tab.Instances.Page.Holder.Left.Server.Frame.playercount.Destroying:Connect(function()
+			for _, connection in pairs(localconnections) do
+				connection:Disconnect()
+			end
+		end)
+		for _, connection in pairs(localconnections) do
+			table.insert(connections, connection)
+		end
+
+		local function getPing()
+			return math.round(((isStudio and Players.LocalPlayer:GetNetworkPing() or StatsService.PerformanceStats.Ping:GetValue()) * 2) / 0.01)
+		end
+		local TimeFunction = RunService:IsRunning() and time or os.clock
+
+		local LastIteration, Start
+		local FrameUpdateTable = {}
 
 		local friendsCooldown = 0
-		local function getPing() return math.clamp(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue(), 10, 700) end
-
 		local function checkFriends()
 			if friendsCooldown == 0 then
-
 				friendsCooldown = 25
 
 				local playersFriends = {}
 				local friendsInTotal = 0
-				local onlineFriends = 0 
-				local friendsInGame = 0 
+				local onlineFriends = #Player:GetFriendsOnline()
+				local friendsInGame = 0
 
 				local list = Players:GetFriendsAsync(Player.UserId)
-				while true do -- loop through all the pages
+				while true do
 					for _, data in list:GetCurrentPage() do
-						friendsInTotal +=1
-						table.insert(playersFriends, Data)
+						friendsInTotal += 1
+						table.insert(playersFriends, data)
 					end
 
 					if list.IsFinished then
 						-- stop the loop since this is the last page
 						break
-					else 
+					else
 						-- go to the next page
 						list:AdvanceToNextPageAsync()
 					end
 				end
-				for i, v in pairs(Player:GetFriendsOnline()) do
-					onlineFriends += 1
-				end
-
-				for i,v in pairs(playersFriends) do
+				for i, v in pairs(playersFriends) do
 					if Players:FindFirstChild(v.Username) then
-						friendsInGame = friendsInGame + 1
+						friendsInGame += 1
 					end
 				end
 
-				HomeTabPage.detailsholder.dashboard.Friends.All.Value.Text = tostring(friendsInTotal).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.Offline.Value.Text = tostring(friendsInTotal - onlineFriends).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.Online.Value.Text = tostring(onlineFriends).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.InGame.Value.Text = tostring(friendsInGame).." friends"
-
+				Tab.Instances.Page.Holder.Right.Friends.Frame.total.Text = '<font size="14" color="#FFF" weight="semibold">Total</font>\n'
+					.. tostring(friendsInTotal)
+					.. " friends"
+				Tab.Instances.Page.Holder.Right.Friends.Frame.offline.Text = '<font size="14" color="#FFF" weight="semibold">Offline</font>\n'
+					.. tostring(friendsInTotal - onlineFriends)
+					.. " friends"
+				Tab.Instances.Page.Holder.Right.Friends.Frame.online.Text = '<font size="14" color="#FFF" weight="semibold">Online</font>\n'
+					.. tostring(onlineFriends)
+					.. " friends"
+				Tab.Instances.Page.Holder.Right.Friends.Frame.inserver.Text = '<font size="14" color="#FFF" weight="semibold">In Server</font>\n'
+					.. tostring(friendsInGame)
+					.. " friends"
 			else
 				friendsCooldown -= 1
 			end
 		end
 
-		local function format(Int)
-			return string.format("%02i", Int)
-		end
-
-		local function convertToHMS(Seconds)
-			local Minutes = (Seconds - Seconds%60)/60
-			Seconds = Seconds - Minutes*60
-			local Hours = (Minutes - Minutes%60)/60
-			Minutes = Minutes - Hours*60
-			return format(Hours)..":"..format(Minutes)..":"..format(Seconds)
-		end
-
-		coroutine.wrap(function()
-			while task.wait() do
-
-
-				-- Players
-				HomeTabPage.detailsholder.dashboard.Server.Players.Value.Text = #Players:GetPlayers().." playing"
-				HomeTabPage.detailsholder.dashboard.Server.MaxPlayers.Value.Text = Players.MaxPlayers.." players can join this server"
-
-				-- Ping
-				HomeTabPage.detailsholder.dashboard.Server.Latency.Value.Text = isStudio and tostring(math.round((Players.LocalPlayer:GetNetworkPing() * 2 ) / 0.01)) .."ms" or tostring(math.floor(getPing()) .."ms")
-
-				-- Time
-				HomeTabPage.detailsholder.dashboard.Server.Time.Value.Text = convertToHMS(time())
-
-				-- Region
-				HomeTabPage.detailsholder.dashboard.Server.Region.Value.Text = Localization:GetCountryRegionForPlayerAsync(Players.LocalPlayer)
-
-				checkFriends()
+		local function HeartbeatUpdate()
+			LastIteration = TimeFunction()
+			for Index = #FrameUpdateTable, 1, -1 do
+				FrameUpdateTable[Index + 1] = FrameUpdateTable[Index] >= LastIteration - 1 and FrameUpdateTable[Index]
+					or nil
 			end
-		end)()
 
-		-- Stolen From Sirius Stuff ends here
+			FrameUpdateTable[1] = LastIteration
+			Tab.Instances.Page.Holder.Left.Server.Frame.latency.Text =
+				`<font size="14" color="#FFF" weight="semibold">Latency</font>\n{tostring(
+					math.floor(
+						TimeFunction() - Start >= 1 and #FrameUpdateTable
+						or #FrameUpdateTable / (TimeFunction() - Start)
+					)
+				)} FPS\n{getPing()}ms`
 
+			local function convertToHMS(elapsed)
+				if elapsed <= 4 then
+					return "now"
+				elseif elapsed < 60 then
+					return math.floor(elapsed) .. "s"
+				elseif elapsed < 3600 then
+					return math.floor(elapsed / 60) .. "m"
+				else
+					return math.floor(elapsed / 3600) .. "h"
+				end
+			end
+
+			Tab.Instances.Page.Holder.Left.Server.Frame.time.Text = '<font size="14" color="#FFF" weight="semibold">Players</font>\n'
+				.. convertToHMS(time())
+		end
+		
+		if TabSettings.Changelog[1] then
+			Tab.Instances.Page.Holder.Center.Changelog.latest.Visible = true
+			Tab.Instances.Page.Holder.Center.Changelog.latest.Header.Text = TabSettings.Changelog[1].Title
+			Tab.Instances.Page.Holder.Center.Changelog.latest.date.Text = TabSettings.Changelog[1].Date
+			Tab.Instances.Page.Holder.Center.Changelog.latest.desc.Text = TabSettings.Changelog[1].Description
+		end
+
+		checkFriends()
+		Start = TimeFunction()
+		connections.__fpscheck = RunService.Heartbeat:Connect(HeartbeatUpdate)
+
+		ThemeMethods.bindTheme(Tab.Instances.Button, "BackgroundColor3", "Backgrounds.Dark")
+		ThemeMethods.bindTheme(Tab.Instances.Button.Accent, "Color", "Accents.Main")
+		ThemeMethods.bindTheme(Tab.Instances.Button.Icon.AccentBrighter, "Color", "Accents.Brighter")
+		ThemeMethods.bindTheme(Tab.Instances.Button.Header.AccentBrighter, "Color", "Accents.Brighter")
+		ThemeMethods.bindTheme(Tab.Instances.Button.Icon, "ImageColor3", "Foregrounds.Medium")
+		ThemeMethods.bindTheme(Tab.Instances.Button.Header, "TextColor3", "Foregrounds.Medium")
+		themeEvent.Event:Connect(function()
+			if tabs.UIPageLayout.CurrentPage == Tab.Instances.Page then
+				Activate()
+			end
+		end)
+		ThemeMethods.bindTheme(Tab.Instances.Page.Fade, "BackgroundColor3", "Backgrounds.Dark")
+		ThemeMethods.bindTheme(Tab.Instances.Page.Fade2, "BackgroundColor3", "Backgrounds.Dark")
+		ThemeMethods.bindTheme(Tab.Instances.Page.Thumbnail, "BackgroundColor3", "Backgrounds.Dark")
+		for _, shadow in pairs(Tab.Instances.Page.Thumbnail.DropShadowHolder:GetChildren()) do
+			ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.Shadow")
+		end
+		ThemeMethods.bindTheme(Tab.Instances.Page.Thumbnail.UIStroke, "Color", "Foregrounds.Dark")
+		for _, text in pairs(Tab.Instances.Page:GetChildren()) do
+			if text.ClassName ~= "TextLabel" then
+				continue
+			end
+			ThemeMethods.bindTheme(text, "TextColor3", "Foregrounds.Light")
+		end
+		for _, side in pairs(Tab.Instances.Page.Holder:GetChildren()) do
+			if side.ClassName ~= "Frame" then
+				continue
+			end
+
+			for _, panel in pairs(side:GetChildren()) do
+				if panel.ClassName ~= "Frame" then
+					continue
+				end
+
+				ThemeMethods.bindTheme(panel, "BackgroundColor3", "Backgrounds.Light")
+				ThemeMethods.bindTheme(panel.DropShadow, "ImageColor3", "Miscellaneous.Shadow")
+				ThemeMethods.bindTheme(panel.Header, "TextColor3", "Foregrounds.Light")
+				ThemeMethods.bindTheme(panel.Header.Icon, "ImageColor3", "Foregrounds.Light")
+			end
+		end
+
+		function Tab:Destroy()
+			Tab.Instances.Page:Destroy()
+			Tab.Instances.Button:Destroy()
+			connections.__homeTabTime:Disconnect()
+		end
+
+		Tab.Instances.Button.Parent = prebuiltTabSection.Instance
+		prebuiltTabSection.Tabs["prebuilthometab"] = Tab
+		return Tab
 	end
 
-	function Window:CreateTab(TabSettings)
+	function Starlight.Window:CreateTabSection(Name: string, Visible)
+		Visible = Visible or (Name ~= nil and true or false)
+		Name = Name or "Empty Section"
 
-		local Tab = {}
+		local TabSection = {
+			Tabs = {},
+			Name = Name,
+		}
 
-		TabSettings = Kwargify({
-			Name = "Tab",
-			ShowTitle = true,
-			Icon = "view_in_ar",
-			ImageSource = "Material" 
-		}, TabSettings or {})
+		TabSection.Instance = navigation.NavigationSectionTemplate:Clone()
+		TabSection.Instance.TabButtonTemplate:Destroy()
+		TabSection.Instance.Visible = true
 
-		local TabButton = Navigation.Tabs["InActive Template"]:Clone()
+		TabSection.Instance.Header.Text = Name
+		TabSection.Instance.Name = "TAB_SECTION_" .. Name
+		TabSection.Instance.Header.Visible = Visible
 
-		TabButton.Name = TabSettings.Name
-		TabButton.TextLabel.Text = TabSettings.Name
-		TabButton.Parent = Navigation.Tabs
-		TabButton.ImageLabel.Image = GetIcon(TabSettings.Icon, TabSettings.ImageSource)
-
-		TabButton.Visible = true
-
-		local TabPage = Elements.Template:Clone()
-		TabPage.Name = TabSettings.Name
-		TabPage.Title.Visible = TabSettings.ShowTitle
-		TabPage.Title.Text = TabSettings.Name
-		TabPage.Visible = true
-
-		Tab.Page = TabPage
-
-		if TabSettings.ShowTitle == false then
-			TabPage.UIPadding.PaddingTop = UDim.new(0,10)
+		-- Theme Binding
+		do
+			ThemeMethods.bindTheme(TabSection.Instance.Header, "TextColor3", "Foregrounds.Medium")
 		end
 
-		TabPage.LayoutOrder = #Elements:GetChildren() - 3
+		--// SUBSECTION : User Methods
 
-		for _, TemplateElement in ipairs(TabPage:GetChildren()) do
-			if TemplateElement.ClassName == "Frame" or TemplateElement.ClassName == "TextLabel" and TemplateElement.Name ~= "Title" then
-				TemplateElement:Destroy()
+		function TabSection:Set(NewName)
+			Name = NewName
+			TabSection.Instance.Header.Text = Name
+			TabSection.Instance.Name = "TAB_SECTION_" .. Name
+			Starlight.Window.TabSections[Name] = TabSection
+		end
+
+		function TabSection:Destroy()
+			TabSection.Instance:Destroy()
+			for _, tab in pairs(TabSection.Tabs) do
+				tab:Destroy()
 			end
+			TabSection = nil
 		end
-		TabPage.Parent = Elements
 
-		function Tab:Activate()
-			tween(TabButton.ImageLabel, {ImageColor3 = Color3.fromRGB(255,255,255)})
-			tween(TabButton, {BackgroundTransparency = 0})
-			tween(TabButton.UIStroke, {Transparency = 0.41})
+		function TabSection:CreateCustomTab(TabSettings, TabIndex)
+			-- Tab Settings Table
+			--[[
+			
+			TabSettings = {
+				Name = string,
+				Columns = number, (ranged from 1-3)
+				Icon = number/string, **
+			}
+			
+			]]
 
-			Elements.UIPageLayout:JumpTo(TabPage)
+			TabSettings.Icon = TabSettings.Icon or ""
+			local Tab = {
+				Instances = {},
+				Values = TabSettings,
+				Groupboxes = {},
+				Index = TabIndex,
 
-			task.wait(0.05)
+				Active = false,
+				Hover = false,
+			}
 
-			for _, OtherTabButton in ipairs(Navigation.Tabs:GetChildren()) do
-				if OtherTabButton.Name ~= "InActive Template" and OtherTabButton.ClassName == "Frame" and OtherTabButton ~= TabButton then
-					tween(OtherTabButton.ImageLabel, {ImageColor3 = Color3.fromRGB(221,221,221)})
-					tween(OtherTabButton, {BackgroundTransparency = 1})
-					tween(OtherTabButton.UIStroke, {Transparency = 1})
+			Tab.Instances.Button = navigation.NavigationSectionTemplate.TabButtonTemplate:Clone()
+			Tab.Instances.Button.Visible = true
+
+			Tab.Instances.Button.Header.Text = TabSettings.Name
+			Tab.Instances.Button.Name = "TAB_" .. TabIndex
+
+			Tab.Instances.Button.Header.UIPadding.PaddingLeft =
+				UDim.new(0, not String.IsEmptyOrNull(Tab.Values.Icon) and 36 or 8)
+			Tab.Instances.Button.Icon.Image = AssetId(Tab.Values.Icon)
+
+			Tab.Instances.Page = tabs["Tab_TEMPLATE"]:Clone()
+			for i, v in pairs(Tab.Instances.Page:GetChildren()) do
+				if v.ClassName == "ScrollingFrame" then
+					v:Destroy()
+				end
+			end
+			Tab.Instances.Page.Visible = true
+			Tab.Instances.Page.Name = "TAB_" .. TabIndex
+			Tab.Instances.Page.Parent = tabs
+
+			Tab.Instances.Page.LayoutOrder = #tabs:GetChildren() - 2
+
+			local function Activate() -- so i dont have to rewrite shit again
+				Tween(Tab.Instances.Button, { BackgroundTransparency = 0.5 })
+				Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				Tab.Instances.Button.Icon.AccentBrighter.Enabled = true
+				Tab.Instances.Button.Header.AccentBrighter.Enabled = true
+
+				for i, v in pairs(Starlight.Window.TabSections) do
+					for _, tab in pairs(v.Tabs) do
+						tab.Active = false
+					end
 				end
 
+				for _, OtherTabSection in pairs(navigation:GetChildren()) do
+					for _, OtherTab in pairs(OtherTabSection:GetChildren()) do
+						if OtherTab.ClassName == "Frame" and OtherTab ~= Tab.Instances.Button then
+							Tween(OtherTab, { BackgroundTransparency = 1 })
+							Tween(OtherTab.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+							Tween(OtherTab.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+							OtherTab.Icon.AccentBrighter.Enabled = false
+							OtherTab.Header.AccentBrighter.Enabled = false
+						end
+					end
+				end
+
+				Tab.Active = true
+				Starlight.Window.CurrentTab = Tab
+				tabs.UIPageLayout:JumpTo(Tab.Instances.Page)
 			end
 
-			Window.CurrentTab = TabSettings.Name
+			if Starlight.Window.CurrentTab == nil then
+				--task.spawn(function()
+				repeat
+					task.wait()
+				until Tab.Instances.Page.Parent == tabs
+				Activate()
+				--end)
+			end
+
+			Tab.Instances.Button.Interact["MouseButton1Click"]:Connect(Activate)
+
+			Tab.Instances.Button.MouseEnter:Connect(function()
+				Tab.Hover = true
+				if not Tab.Active then
+					Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+					Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				end
+			end)
+
+			Tab.Instances.Button.MouseLeave:Connect(function()
+				Tab.Hover = false
+				if not Tab.Active then
+					Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+					Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+				end
+			end)
+
+			Tab.Instances.Page.InputBegan:Connect(function(input)
+				if
+					input.KeyCode == Enum.KeyCode.LeftShift
+					or input.KeyCode == Enum.KeyCode.RightShift
+					or input.UserInputType == Enum.UserInputType.Touch
+				then
+					Tab.Instances.Page.ScrollingEnabled = true
+				end
+			end)
+			Tab.Instances.Page.InputEnded:Connect(function(input)
+				if
+					input.KeyCode == Enum.KeyCode.LeftShift
+					or input.KeyCode == Enum.KeyCode.RightShift
+					or input.UserInputType == Enum.UserInputType.Touch
+				then
+					Tab.Instances.Page.ScrollingEnabled = false
+				end
+			end)
+
+			ThemeMethods.bindTheme(Tab.Instances.Button, "BackgroundColor3", "Backgrounds.Dark")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Accent, "Color", "Accents.Main")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Icon.AccentBrighter, "Color", "Accents.Brighter")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Header.AccentBrighter, "Color", "Accents.Brighter")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Icon, "ImageColor3", "Foregrounds.Medium")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Header, "TextColor3", "Foregrounds.Medium")
+			themeEvent.Event:Connect(function()
+				if tabs.UIPageLayout.CurrentPage == Tab.Instances.Page then
+					Activate()
+				end
+			end)
+
+			TabSettings.Page.Parent = Tab.Instances.Page
+
+			--// SUBSECTION : User Methods
+
+			function Tab:Set(NewTabSettings)
+				TabSettings = NewTabSettings
+				Tab.Values = TabSettings
+				Tab.Instances.Button.Header.Text = TabSettings.Name
+				Tab.Instances.Button.Name = "TAB_" .. TabIndex
+				Tab.Instances.Page.Name = "TAB_" .. TabIndex
+				Tab.Instances.Button.Icon.Image = AssetId(TabSettings.Icon, "Tab_" .. tostring(TabIndex) .. ".png")
+				Starlight.Window.TabSections[Name].Tabs[TabIndex].Values = Tab.Values
+			end
+
+			function Tab:Destroy()
+				Tab.Instances.Button:Destroy()
+				Tab.Instances.Page:Destroy()
+				for _, groupbox in pairs(Tab.Groupboxes) do
+					groupbox:Destroy()
+				end
+				Tab = nil
+			end
+
+			--// ENDSUBSECTION
+
+			Tab.Instances.Button.Parent = Starlight.Window.TabSections[Name].Instance
+			Starlight.Window.TabSections[Name].Tabs[TabIndex] = Tab
+			return Starlight.Window.TabSections[Name].Tabs[TabIndex]
 		end
 
-		if FirstTab then
-			Tab:Activate()
-		end
+		function TabSection:CreateTab(TabSettings, TabIndex)
+			-- Tab Settings Table
+			--[[
+			
+			TabSettings = {
+				Name = string,
+				Columns = number, (ranged from 1-3)
+				Icon = number/string, **
+			}
+			
+			]]
 
-		task.wait(0.01)
+			TabSettings.Icon = TabSettings.Icon or ""
+			local Tab = {
+				Instances = {},
+				Values = TabSettings,
+				Groupboxes = {},
+				Index = TabIndex,
 
-		TabButton.Interact.MouseButton1Click:Connect(function()
-			Tab:Activate()
-		end)
+				Active = false,
+				Hover = false,
+			}
 
-		FirstTab = false
+			Tab.Instances.Button = navigation.NavigationSectionTemplate.TabButtonTemplate:Clone()
+			Tab.Instances.Button.Visible = true
 
-		-- Section
-		function Tab:CreateSection(name : string)
+			Tab.Instances.Button.Header.Text = TabSettings.Name
+			Tab.Instances.Button.Name = "TAB_" .. TabIndex
 
-			local Section = {}
+			Tab.Instances.Button.Header.UIPadding.PaddingLeft =
+				UDim.new(0, not String.IsEmptyOrNull(Tab.Values.Icon) and 36 or 8)
+			Tab.Instances.Button.Icon.Image = AssetId(Tab.Values.Icon)
 
-			if name == nil then name = "Section" end
+			Tab.Instances.Page = tabs["Tab_TEMPLATE"]:Clone()
+			for i, v in pairs(Tab.Instances.Page:GetChildren()) do
+				if v.ClassName == "ScrollingFrame" then
+					v:Destroy()
+				end
+			end
+			Tab.Instances.Page.Visible = true
+			Tab.Instances.Page.Name = "TAB_" .. TabIndex
+			Tab.Instances.Page.Parent = tabs
 
-			Section.Name = name
+			Tab.Instances.Page.LayoutOrder = #tabs:GetChildren() - 2
 
-			local Sectiont = Elements.Template.Section:Clone()
-			Sectiont.Text = name
-			Sectiont.Visible = true
-			Sectiont.Parent = TabPage
-			local TabPage = Sectiont.Frame
+			local function Activate() -- so i dont have to rewrite shit again
+				Tween(Tab.Instances.Button, { BackgroundTransparency = 0.5 })
+				Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				Tab.Instances.Button.Icon.AccentBrighter.Enabled = true
+				Tab.Instances.Button.Header.AccentBrighter.Enabled = true
 
-			Sectiont.TextTransparency = 1
-			tween(Sectiont, {TextTransparency = 0})
+				for i, v in pairs(Starlight.Window.TabSections) do
+					for _, tab in pairs(v.Tabs) do
+						tab.Active = false
+					end
+				end
 
-			function Section:Set(NewSection)
-				Sectiont.Text = NewSection
+				for _, OtherTabSection in pairs(navigation:GetChildren()) do
+					for _, OtherTab in pairs(OtherTabSection:GetChildren()) do
+						if OtherTab.ClassName == "Frame" and OtherTab ~= Tab.Instances.Button then
+							Tween(OtherTab, { BackgroundTransparency = 1 })
+							Tween(OtherTab.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+							Tween(OtherTab.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+							OtherTab.Icon.AccentBrighter.Enabled = false
+							OtherTab.Header.AccentBrighter.Enabled = false
+						end
+					end
+				end
+
+				Tab.Active = true
+				Starlight.Window.CurrentTab = Tab
+				tabs.UIPageLayout:JumpTo(Tab.Instances.Page)
 			end
 
-			function Section:Destroy()
-				Sectiont:Destroy()
+			if Starlight.Window.CurrentTab == nil then
+				--task.spawn(function()
+				repeat
+					task.wait()
+				until Tab.Instances.Page.Parent == tabs
+				Activate()
+				--end)
 			end
 
-			-- Divider
-			function Section:CreateDivider()
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local b = Elements.Template.Divider:Clone()
-				b.Parent = TabPage
-				b.Size = UDim2.new(1,0,0,18)
-				b.Line.BackgroundTransparency = 1
-				tween(b.Line, {BackgroundTransparency = 0})
+			Tab.Instances.Button.Interact["MouseButton1Click"]:Connect(Activate)
+
+			Tab.Instances.Button.MouseEnter:Connect(function()
+				Tab.Hover = true
+				if not Tab.Active then
+					Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+					Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+				end
+			end)
+
+			Tab.Instances.Button.MouseLeave:Connect(function()
+				Tab.Hover = false
+				if not Tab.Active then
+					Tween(Tab.Instances.Button.Icon, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+					Tween(Tab.Instances.Button.Header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+				end
+			end)
+
+			Tab.Instances.Page.InputBegan:Connect(function(input)
+				if
+					input.KeyCode == Enum.KeyCode.LeftShift
+					or input.KeyCode == Enum.KeyCode.RightShift
+					or input.UserInputType == Enum.UserInputType.Touch
+				then
+					Tab.Instances.Page.ScrollingEnabled = true
+				end
+			end)
+			Tab.Instances.Page.InputEnded:Connect(function(input)
+				if
+					input.KeyCode == Enum.KeyCode.LeftShift
+					or input.KeyCode == Enum.KeyCode.RightShift
+					or input.UserInputType == Enum.UserInputType.Touch
+				then
+					Tab.Instances.Page.ScrollingEnabled = false
+				end
+			end)
+
+			for i = 1, TabSettings.Columns do
+				local column = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate:Clone()
+				column.Parent = Tab.Instances.Page
+				column.LayoutOrder = i
+				column.Name = "Column_" .. i
+				for i, v in column:GetChildren() do
+					if v.ClassName == "Frame" then
+						v:Destroy()
+					end
+				end
+
+				local fadetop = mainWindow.Content.ContentMain.FadesTop.Fade:Clone()
+				fadetop.Name = "FADE_" .. TabIndex
+				fadetop.Size = UDim2.new(1 / TabSettings.Columns, -10 / TabSettings.Columns, 0, 40)
+				fadetop.LayoutOrder = i
+
+				local fadebottom = mainWindow.Content.ContentMain.FadesBottom.Fade:Clone()
+				fadebottom.Name = "FADE_" .. TabIndex
+				fadebottom.Size = UDim2.new(1 / TabSettings.Columns, -10 / TabSettings.Columns, 0, 40)
+				fadebottom.LayoutOrder = i
+
+				ThemeMethods.bindTheme(fadetop.UIGradient, "Color", "Backgrounds.Dark")
+				ThemeMethods.bindTheme(fadebottom.UIGradient, "Color", "Backgrounds.Dark")
+
+				local basetrans = 0
+
+				local function updTop()
+					if column.CanvasPosition.Y ~= 0 then
+						fadetop.BackgroundTransparency = basetrans
+					else
+						fadetop.BackgroundTransparency = 1
+					end
+					fadetop.Visible = tabs.UIPageLayout.CurrentPage == Tab.Instances.Page
+				end
+
+				local function updBottom()
+					if column.CanvasPosition.Y + column.AbsoluteWindowSize.Y ~= column.AbsoluteCanvasSize.Y then
+						fadebottom.BackgroundTransparency = basetrans
+					else
+						fadebottom.BackgroundTransparency = 1
+					end
+					fadebottom.Visible = tabs.UIPageLayout.CurrentPage == Tab.Instances.Page
+				end
+				acrylicEvent.Event:Connect(function()
+					if mainAcrylic then
+						basetrans = 0.7
+						updTop()
+						updBottom()
+					else
+						basetrans = 0
+						updBottom()
+						updBottom()
+					end
+				end)
+
+				column:GetPropertyChangedSignal("CanvasPosition"):Connect(updTop)
+				column:GetPropertyChangedSignal("CanvasPosition"):Connect(updBottom)
+				tabs.UIPageLayout:GetPropertyChangedSignal("CurrentPage"):Connect(updTop)
+				tabs.UIPageLayout:GetPropertyChangedSignal("CurrentPage"):Connect(updBottom)
+
+				task.delay(1.2, function()
+					updTop()
+					updBottom()
+				end)
+
+				fadetop.Parent = mainWindow.Content.ContentMain.FadesTop
+				fadebottom.Parent = mainWindow.Content.ContentMain.FadesBottom
 			end
 
-			-- Button
-			function Section:CreateButton(ButtonSettings)
-				TabPage.Position = UDim2.new(0,0,0,28)
+			ThemeMethods.bindTheme(Tab.Instances.Button, "BackgroundColor3", "Backgrounds.Dark")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Accent, "Color", "Accents.Main")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Icon.AccentBrighter, "Color", "Accents.Brighter")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Header.AccentBrighter, "Color", "Accents.Brighter")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Icon, "ImageColor3", "Foregrounds.Medium")
+			ThemeMethods.bindTheme(Tab.Instances.Button.Header, "TextColor3", "Foregrounds.Medium")
+			themeEvent.Event:Connect(function()
+				if tabs.UIPageLayout.CurrentPage == Tab.Instances.Page then
+					Activate()
+				end
+			end)
 
-				ButtonSettings = Kwargify({
-					Name = "Button",
-					Description = nil,
-					Callback = function()
+			--// SUBSECTION : User Methods
 
-					end,
-				}, ButtonSettings or {})
+			function Tab:Set(NewTabSettings)
+				TabSettings = NewTabSettings
+				Tab.Values = TabSettings
+				Tab.Instances.Button.Header.Text = TabSettings.Name
+				Tab.Instances.Button.Name = "TAB_" .. TabIndex
+				Tab.Instances.Page.Name = "TAB_" .. TabIndex
+				Tab.Instances.Button.Icon.Image = AssetId(TabSettings.Icon, "Tab_" .. tostring(TabIndex) .. ".png")
+				Starlight.Window.TabSections[Name].Tabs[TabIndex].Values = Tab.Values
+			end
 
-				local ButtonV = {
-					Hover = false,
-					Settings = ButtonSettings
+			function Tab:Destroy()
+				Tab.Instances.Button:Destroy()
+				Tab.Instances.Page:Destroy()
+				for _, groupbox in pairs(Tab.Groupboxes) do
+					groupbox:Destroy()
+				end
+				Tab = nil
+			end
+
+			-- deprecated as its kinda useless, groupbox seperate ur stuff already and dividers are in groupboxes. like rlly, these being in the actual tabs are useless
+			--[[function Tab:CreateDivider(Column) -- will be changed in next update to be other items where its linked back to the library
+				local Divider = {}
+
+				Divider.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate.Divider:Clone()
+				Divider.Instance.Parent = Tab.Instances.Page["Column_" .. Column]
+
+				function Divider:Destroy()
+					Divider.Instance:Destroy()
+				end
+
+				return Divider
+			end]]
+
+			function Tab:CreateGroupbox(GroupboxSettings, GroupIndex)
+				--[[
+				GroupboxSettings = {
+					Name = string,
+					Icon = number/string, **
+					Column = number,**
+					Style = number, **
+				}
+				]]
+
+				GroupboxSettings.Icon = GroupboxSettings.Icon or ""
+				GroupboxSettings.Column = GroupboxSettings.Column or 1
+				GroupboxSettings.Style = GroupboxSettings.Style or 1
+
+				local Groupbox = {
+					Values = GroupboxSettings,
+					Elements = {},
+					ParentingItem = nil,
+					Index = GroupIndex,
+					ClassName = "Groupbox",
 				}
 
+				local GroupboxTemplateInstance = nil
 
-				local Button
-				if ButtonSettings.Description == nil and ButtonSettings.Description ~= "" then
-					Button = Elements.Template.Button:Clone()
-				else
-					Button = Elements.Template.ButtonDesc:Clone()
-				end
-				Button.Name = ButtonSettings.Name
-				Button.Title.Text = ButtonSettings.Name
-				if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-					Button.Desc.Text = ButtonSettings.Description
-				end
-				Button.Visible = true
-				Button.Parent = TabPage
-
-				Button.UIStroke.Transparency = 1
-				Button.Title.TextTransparency = 1
-				if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-					Button.Desc.TextTransparency = 1
-				end
-
-				TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-				TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Button.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-				if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-					TweenService:Create(Button.Desc, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-				end
-
-				Button.Interact["MouseButton1Click"]:Connect(function()
-					local Success,Response = pcall(ButtonSettings.Callback)
-
-					if not Success then
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Button.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ButtonSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Button.Title.Text = ButtonSettings.Name
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+				task.spawn(function()
+					Groupbox.Instance = nil
+					if GroupboxSettings.Style == 1 then
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate["Groupbox_Style1"]:Clone()
+						for i, v in pairs(Groupbox.Instance.PART_Content:GetChildren()) do
+							if v.ClassName == "Frame" then
+								v:Destroy()
+							end
+						end
 					else
-						tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
-						wait(0.2)
-						if ButtonV.Hover then
-							tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate2["Groupbox_Style2"]:Clone()
+					end
+					Groupbox.Instance.PART_Content:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+						Groupbox.Instance.PART_Backdrop.Inner.Visible = false
+						Groupbox.Instance.PART_Backdrop.Inner.Size = UDim2.fromOffset(
+							Groupbox.Instance.PART_Backdrop.AbsoluteSize.X - 2,
+							Groupbox.Instance.PART_Backdrop.AbsoluteSize.Y - 2
+						)
+						Groupbox.Instance.PART_Backdrop.Inner.Visible = true
+					end)
+					Groupbox.Instance.PART_Backdrop.Inner.Visible = false
+					Groupbox.Instance.PART_Backdrop.Inner.Size = UDim2.fromOffset(
+						Groupbox.Instance.PART_Backdrop.AbsoluteSize.X - 2,
+						Groupbox.Instance.PART_Backdrop.AbsoluteSize.Y - 2
+					)
+					Groupbox.Instance.PART_Backdrop.Inner.Visible = true
+
+					Groupbox.ParentingItem = Groupbox.Instance.PART_Content
+
+					GroupboxTemplateInstance =
+						tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate["Groupbox_Style1"].PART_Content
+
+					Groupbox.Instance.Header.Text = GroupboxSettings.Name
+					Groupbox.Instance.Header.UIPadding.PaddingLeft =
+						UDim.new(0, not String.IsEmptyOrNull(GroupboxSettings.Icon) and 32 or 6)
+					Groupbox.Instance.Header.Icon.Image = AssetId(
+						GroupboxSettings.Icon,
+						"Groupbox_" .. tostring(GroupboxIndex) .. ".png"
+					)
+					Groupbox.Instance.Name = "GROUPBOX_" .. GroupIndex
+
+					ThemeMethods.bindTheme(Groupbox.Instance.Header, "TextColor3", "Foregrounds.Medium")
+					ThemeMethods.bindTheme(Groupbox.Instance.Header.Icon, "ImageColor3", "Foregrounds.Medium")
+					ThemeMethods.bindTheme(Groupbox.Instance.PART_Backdrop, "BackgroundColor3", "Backgrounds.Medium")
+					ThemeMethods.bindTheme(
+						Groupbox.Instance.PART_Backdrop.Inner,
+						"BackgroundColor3",
+						"Backgrounds.Groupbox"
+					)
+					ThemeMethods.bindTheme(Groupbox.Instance.PART_Backdrop.UIStroke, "Color", "Miscellaneous.Shadow")
+
+					acrylicEvent.Event:Connect(function()
+						if mainAcrylic then
+							Groupbox.Instance.PART_Backdrop.BackgroundTransparency = 0.7
+							Groupbox.Instance.PART_Backdrop.Inner.BackgroundTransparency = 0.7
+							Groupbox.Instance.PART_Backdrop.UIStroke.Transparency = 0.6
 						else
-							tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-						end
-					end
-				end)
-
-				Button["MouseEnter"]:Connect(function()
-					ButtonV.Hover = true
-					tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-
-				Button["MouseLeave"]:Connect(function()
-					ButtonV.Hover = false
-					tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-
-				function ButtonV:Set(ButtonSettings2)
-					ButtonSettings2 = Kwargify({
-						Name = ButtonSettings.Name,
-						Description = ButtonSettings.Description,
-						Callback = ButtonSettings.Callback
-					}, ButtonSettings2 or {})
-
-					ButtonSettings = ButtonSettings2
-					ButtonV.Settings = ButtonSettings2
-
-					Button.Name = ButtonSettings.Name
-					Button.Title.Text = ButtonSettings.Name
-					if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" and Button.Desc ~= nil then
-						Button.Desc.Text = ButtonSettings.Description
-					end
-				end
-
-				function ButtonV:Destroy()
-					Button.Visible = false
-					Button:Destroy()
-				end
-
-				return ButtonV
-			end
-
-			-- Label
-			function Section:CreateLabel(LabelSettings)
-				TabPage.Position = UDim2.new(0,0,0,28)
-
-				local LabelV = {}
-
-				LabelSettings = Kwargify({
-					Text = "Label",
-					Style = 1
-				}, LabelSettings or {}) 
-
-				LabelV.Settings = LabelSettings
-
-				local Label
-				if LabelSettings.Style == 1 then
-					Label = Elements.Template.Label:Clone()
-				elseif LabelSettings.Style == 2 then
-					Label = Elements.Template.Info:Clone()
-				elseif LabelSettings.Style == 3 then
-					Label = Elements.Template.Warn:Clone()
-				end
-
-				Label.Text.Text = LabelSettings.Text
-				Label.Visible = true
-				Label.Parent = TabPage
-
-				Label.BackgroundTransparency = 1
-				Label.UIStroke.Transparency = 1
-				Label.Text.TextTransparency = 1
-
-				if LabelSettings.Style ~= 1 then
-					TweenService:Create(Label, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.8}):Play()
-				else
-					TweenService:Create(Label, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-				end
-				TweenService:Create(Label.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Label.Text, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-				function LabelV:Set(NewLabel)
-					LabelSettings.Text = NewLabel
-					LabelV.Settings = LabelSettings
-					Label.Text.Text = NewLabel
-				end
-
-				function LabelV:Destroy()
-					Label.Visible = false
-					Label:Destroy()
-				end
-
-				return LabelV
-			end
-
-			-- Paragraph
-			function Section:CreateParagraph(ParagraphSettings)
-				TabPage.Position = UDim2.new(0,0,0,28)
-
-				ParagraphSettings = Kwargify({
-					Title = "Paragraph",
-					Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis lacus sed tempus eleifend. Mauris interdum bibendum felis, in tempor augue egestas vel. Praesent tristique consectetur ex, eu pretium sem placerat non. Vestibulum a nisi sit amet augue facilisis consectetur sit amet et nunc. Integer fermentum ornare cursus. Pellentesque sed ultricies metus, ut egestas metus. Vivamus auctor erat ac sapien vulputate, nec ultricies sem tempor. Quisque leo lorem, faucibus nec pulvinar nec, congue eu velit. Duis sodales massa efficitur imperdiet ultrices. Donec eros ipsum, ornare pharetra purus aliquam, tincidunt elementum nisi. Ut mi tortor, feugiat eget nunc vitae, facilisis interdum dui. Vivamus ullamcorper nunc dui, a dapibus nisi pretium ac. Integer eleifend placerat nibh, maximus malesuada tellus. Cras in justo in ligula scelerisque suscipit vel vitae quam."
-				}, ParagraphSettings or {})
-
-				local ParagraphV = {
-					Settings = ParagraphSettings
-				}
-
-				local Paragraph = Elements.Template.Paragraph:Clone()
-				Paragraph.Title.Text = ParagraphSettings.Title
-				Paragraph.Text.Text = ParagraphSettings.Text
-				Paragraph.Visible = true
-				Paragraph.Parent = TabPage
-
-				Paragraph.BackgroundTransparency = 1
-				Paragraph.UIStroke.Transparency = 1
-				Paragraph.Title.TextTransparency = 1
-				Paragraph.Text.TextTransparency = 1
-
-				TweenService:Create(Paragraph, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-				TweenService:Create(Paragraph.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Paragraph.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-				TweenService:Create(Paragraph.Text, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-				function ParagraphV:Update()
-					Paragraph.Text.Size = UDim2.new(Paragraph.Text.Size.X.Scale, Paragraph.Text.Size.X.Offset, 0, math.huge)
-					Paragraph.Text.Size = UDim2.new(Paragraph.Text.Size.X.Scale, Paragraph.Text.Size.X.Offset, 0, Paragraph.Text.TextBounds.Y)
-					tween(Paragraph, {Size = UDim2.new(Paragraph.Size.X.Scale, Paragraph.Size.X.Offset, 0, Paragraph.Text.TextBounds.Y + 40)})
-				end
-
-				function ParagraphV:Set(NewParagraphSettings)
-
-					NewParagraphSettings = Kwargify({
-						Title = ParagraphSettings.Title,
-						Text = ParagraphSettings.Text
-					}, NewParagraphSettings or {})
-
-					ParagraphV.Settings = NewParagraphSettings
-
-					Paragraph.Title.Text = NewParagraphSettings.Title
-					Paragraph.Text.Text = NewParagraphSettings.Text
-
-					ParagraphV:Update()
-
-				end
-
-				function ParagraphV:Destroy()
-					Paragraph.Visible = false
-					Paragraph:Destroy()
-				end
-
-				ParagraphV:Update()
-
-				return ParagraphV
-			end
-
-			-- Slider
-			function Section:CreateSlider(SliderSettings, Flag)
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local SliderV = { IgnoreConfig = false, Class = "Slider", Settings = SliderSettings }
-
-				SliderSettings = Kwargify({
-					Name = "Slider",
-					Range = {0, 200},
-					Increment = 1,
-					CurrentValue = 100,
-					Callback = function(Value)
-
-					end,
-				}, SliderSettings or {})
-
-				local SLDragging = false
-				local Slider = Elements.Template.Slider:Clone()
-				local SliderMain = Slider:FindFirstChild("Main")
-				if not SliderMain then
-					for _, child in ipairs(Slider:GetChildren()) do
-						if child:IsA("GuiObject") and child:FindFirstChild("Progress") then
-							SliderMain = child
-							break
-						end
-					end
-				end
-				if not SliderMain then
-					return SliderV
-				end
-				Slider.Name = SliderSettings.Name .. " - Slider"
-				Slider.Title.Text = SliderSettings.Name
-				Slider.Visible = true
-				Slider.Parent = TabPage
-
-				Slider.BackgroundTransparency = 1
-				Slider.UIStroke.Transparency = 1
-				Slider.Title.TextTransparency = 1
-
-				TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-				TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-				SliderMain.Progress.Size =	UDim2.new(0, SliderMain.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
-
-				Slider.Value.Text = tostring(SliderSettings.CurrentValue)
-				SliderV.CurrentValue = Slider.Value.Text
-
-				SliderSettings.Callback(SliderSettings.CurrentValue)
-
-				Slider["MouseEnter"]:Connect(function()
-					tween(Slider.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-
-				Slider["MouseLeave"]:Connect(function()
-					tween(Slider.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-
-				Slider.Interact.InputBegan:Connect(function(Input)
-					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then 
-						SLDragging = true 
-					end 
-				end)
-
-				Slider.Interact.InputEnded:Connect(function(Input) 
-					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then 
-						SLDragging = false 
-					end 
-				end)
-
-				Slider.Interact.MouseButton1Down:Connect(function()
-					local Current = SliderMain.Progress.AbsolutePosition.X + SliderMain.Progress.AbsoluteSize.X
-					local Start = Current
-					local Location
-					local Loop; Loop = RunService.Stepped:Connect(function()
-						if SLDragging then
-							Location = UserInputService:GetMouseLocation().X
-							Current = Current + 0.025 * (Location - Start)
-
-							if Location < SliderMain.AbsolutePosition.X then
-								Location = SliderMain.AbsolutePosition.X
-							elseif Location > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
-								Location = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
-							end
-
-							if Current < SliderMain.AbsolutePosition.X + 5 then
-								Current = SliderMain.AbsolutePosition.X + 5
-							elseif Current > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
-								Current = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
-							end
-
-							if Current <= Location and (Location - Start) < 0 then
-								Start = Location
-							elseif Current >= Location and (Location - Start) > 0 then
-								Start = Location
-							end
-							SliderMain.Progress.Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X, 1, 0)
-							local NewValue = SliderSettings.Range[1] + (Location - SliderMain.AbsolutePosition.X) / SliderMain.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
-
-							NewValue = math.floor(NewValue / SliderSettings.Increment + 0.5) * (SliderSettings.Increment * 10000000) / 10000000
-
-							Slider.Value.Text = tostring(NewValue)
-
-							if SliderSettings.CurrentValue ~= NewValue then
-								local Success, Response = pcall(function()
-									SliderSettings.Callback(NewValue)
-								end)
-								if not Success then
-									TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-									TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-									TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-									Slider.Title.Text = "Callback Error"
-									print("Luna Interface Suite | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-									wait(0.5)
-									Slider.Title.Text = SliderSettings.Name
-									TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-									TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-									TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-								end
-
-								SliderSettings.CurrentValue = NewValue
-								SliderV.CurrentValue = SliderSettings.CurrentValue
-								-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-							end
-						else
-							TweenService:Create(SliderMain.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X > 5 and Location - SliderMain.AbsolutePosition.X or 5, 1, 0)}):Play()
-							Loop:Disconnect()
+							Groupbox.Instance.PART_Backdrop.BackgroundTransparency = 0
+							Groupbox.Instance.PART_Backdrop.Inner.BackgroundTransparency = 0
+							Groupbox.Instance.PART_Backdrop.UIStroke.Transparency = 0
 						end
 					end)
 				end)
 
-				local function Set(NewVal, bleh)
-
-					NewVal = NewVal or SliderSettings.CurrentValue
-
-					TweenService:Create(SliderMain.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, SliderMain.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
-					if not bleh then Slider.Value.Text = tostring(NewVal) end
-					local Success, Response = pcall(function()
-						SliderSettings.Callback(NewVal)
+				-- Now removed due to autosizing actually working
+				--[[
+				if GroupboxSettings.Style == 2 then
+					Groupbox.Instance["PART_Content"]:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+						Groupbox.Instance["PART_Backdrop"].Size = UDim2.new(1,0,0, Groupbox.Instance["PART_Content"].AbsoluteSize.Y)
 					end)
-					if not Success then
-						TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Slider.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Slider.Title.Text = SliderSettings.Name
-						TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(30, 33, 40)}):Play()
-						TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					end
-
-					SliderSettings.CurrentValue = NewVal
-					SliderV.CurrentValue = SliderSettings.CurrentValue
-					-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-
 				end
+				]]
 
-				function SliderV:UpdateValue(Value)
-					Set(tonumber(Value))
-				end 
+				function Groupbox:Set(NewGroupboxSettings)
+					local oldInstance = Groupbox.Instance
 
-				Slider.Value:GetPropertyChangedSignal("Text"):Connect(function()
-					local text = Slider.Value.Text
-					if not tonumber(text) and text ~= "." then
-						Slider.Value.Text = text:match("[0-9.]*") or ""
-					end
-					if SliderSettings.Range[2] < (tonumber(Slider.Value.Text) or 0) then Slider.Value.Text = SliderSettings.Range[2] end
-					Slider.Value.Size = UDim2.fromOffset(Slider.Value.TextBounds.X, 23)
-					Set(tonumber(Slider.Value.Text), true)
-				end)
-
-				function SliderV:Set(NewSliderSettings)
-					NewSliderSettings = Kwargify({
-						Name = SliderSettings.Name,
-						Range = SliderSettings.Range,
-						Increment = SliderSettings.Increment,
-						CurrentValue = SliderSettings.CurrentValue,
-						Callback = SliderSettings.Callback
-					}, NewSliderSettings or {})
-
-					SliderSettings = NewSliderSettings
-					SliderV.Settings = NewSliderSettings
-
-					Slider.Name = SliderSettings.Name .. " - Slider"
-					Slider.Title.Text = SliderSettings.Name
-
-					Set()
-
-					-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-				end
-
-				function SliderV:Destroy()
-					Slider.Visible = false
-					Slider:Destroy()
-				end
-
-				if Flag then
-					Luna.Options[Flag] = SliderV
-				end
-
-				if Slider:FindFirstChild("Main") then
-					LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-						local main = Slider:FindFirstChild("Main")
-						local color = main and main:FindFirstChild("color")
-						local stroke = main and main:FindFirstChild("UIStroke")
-						if color then color.Color = Luna.ThemeGradient end
-						if stroke then
-							local strokeColor = stroke:FindFirstChild("color")
-							if strokeColor then strokeColor.Color = Luna.ThemeGradient end
+					if NewGroupboxSettings.Style == 1 then
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate["Groupbox_Style1"]:Clone()
+						for i, v in pairs(Groupbox.Instance.PartContent:GetChildren()) do
+							if v.ClassName == "Frame" then
+								v:Destroy()
+							end
 						end
-					end)
-				end
-
-				return SliderV
-
-			end
-
-			-- Toggle
-			function Section:CreateToggle(ToggleSettings, Flag)    
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local ToggleV = { IgnoreConfig = false, Class = "Toggle" }
-
-				ToggleSettings = Kwargify({
-					Name = "Toggle",
-					Description = nil,
-					CurrentValue = false,
-					Callback = function(Value)
-					end,
-				}, ToggleSettings or {})
-
-
-				local Toggle
-
-				if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-					Toggle = Elements.Template.ToggleDesc:Clone()
-				else
-					Toggle = Elements.Template.Toggle:Clone()
-				end
-
-				Toggle.Visible = true
-				Toggle.Parent = TabPage
-
-				Toggle.Name = ToggleSettings.Name .. " - Toggle"
-				Toggle.Title.Text = ToggleSettings.Name
-				if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-					Toggle.Desc.Text = ToggleSettings.Description
-				end
-
-				Toggle.UIStroke.Transparency = 1
-				Toggle.Title.TextTransparency = 1
-				if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-					Toggle.Desc.TextTransparency = 1
-				end
-
-				TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-				if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-					TweenService:Create(Toggle.Desc, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-				end
-				TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Toggle.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-				local function Set(bool)
-					if bool then
-						Toggle.toggle.color.Enabled = true
-						Toggle.toggle.color.Transparency = NumberSequence.new(0)
-						tween(Toggle.toggle, {BackgroundTransparency = 0})
-
-						Toggle.toggle.UIStroke.color.Enabled = true
-						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(0)
-						tween(Toggle.toggle.UIStroke, {Color = Color3.new(255,255,255)})
-
-						tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(255,255,255), Position = UDim2.new(1,-23,0.5,0), BackgroundTransparency = 0.45})
 					else
-						Toggle.toggle.color.Enabled = false
-						Toggle.toggle.color.Transparency = NumberSequence.new(1)
-						Toggle.toggle.UIStroke.color.Enabled = false
-						Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
-
-						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
-						Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
-
-						tween(Toggle.toggle, {BackgroundTransparency = 1})
-
-						tween(Toggle.toggle.val, {BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
+						Groupbox.Instance = tabs["Tab_TEMPLATE"].ScrollingCollumnTemplate2["Groupbox_Style2"]:Clone()
 					end
 
-					ToggleV.CurrentValue = bool
-				end
+					Groupbox.ParentingItem = Groupbox.Instance.PART_Content
 
-				Toggle.Interact.MouseButton1Click:Connect(function()
-					ToggleSettings.CurrentValue = not ToggleSettings.CurrentValue
-					Set(ToggleSettings.CurrentValue)
-
-					local Success, Response = pcall(function()
-						ToggleSettings.Callback(ToggleSettings.CurrentValue)
-					end)
-					if not Success then
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Toggle.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Toggle.Title.Text = ToggleSettings.Name
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+					if GroupboxSettings.Style == 1 then
+						for _, element in pairs(oldInstance:GetChildren()) do
+							if element.ClassName ~= "Frame" then
+								element:Destroy()
+							end
+							element.Parent = Groupbox.ParentingItem
+						end
+					elseif GroupboxSettings.Style == 2 then
+						for _, element in pairs(oldInstance.PART_Content:GetChildren()) do
+							if element.ClassName ~= "Frame" then
+								element:Destroy()
+							end
+							element.Parent = Groupbox.ParentingItem
+						end
 					end
-				end)
+					oldInstance:Destroy()
 
-				Toggle["MouseEnter"]:Connect(function()
-					tween(Toggle.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
+					Groupbox.Instance.Header.Text = NewGroupboxSettings.Name
+					Groupbox.Instance.Header.Icon.Image = AssetId(
+						NewGroupboxSettings.Icon,
+						"Groupbox_" .. tostring(GroupboxIndex) .. ".png"
+					)
+					Groupbox.Instance.Name = "GROUPBOX_" .. GroupIndex
+					Groupbox.Instance.Parent = Tab.Instances.Page["Column_" .. NewGroupboxSettings.Column]
 
-				Toggle["MouseLeave"]:Connect(function()
-					tween(Toggle.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Values =
+						NewGroupboxSettings
+				end
 
-				Set(ToggleSettings.CurrentValue)
-				if ToggleSettings.CurrentValue then
-					local Success, Response = pcall(function()
-						ToggleSettings.Callback(ToggleSettings.CurrentValue)
-					end)
-					if not Success then
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Toggle.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Toggle.Title.Text = ToggleSettings.Name
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+				function Groupbox:Destroy()
+					Groupbox.Instance:Destroy()
+					for _, element in pairs(Groupbox.Elements) do
+						element:Destroy()
 					end
+					Groupbox = nil
 				end
 
-				function ToggleV:UpdateState(State)
-					ToggleSettings.CurrentValue = State
-					Set(ToggleSettings.CurrentValue)
-				end
+				--// SUBSECTION : Legacy User Methods
 
-				function ToggleV:Set(NewToggleSettings)
+				--[=[
 
-					NewToggleSettings = Kwargify({
-						Name = ToggleSettings.Name,
-						Description = ToggleSettings.Description,
-						CurrentValue = ToggleSettings.CurrentValue,
-						Callback = ToggleSettings.Callback
-					}, NewToggleSettings or {})
+				function Groupbox:CreatePrimaryButton(ElementSettings) -- these will be merged in the next update where we allow style changing.
 
-					ToggleV.Settings = NewToggleSettings
-					ToggleSettings = NewToggleSettings
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						ImageSource = string, **
+						
+						Callback = function(nil),
+					}
+					-]]
+					
 
-					Toggle.Name = ToggleSettings.Name .. " - Toggle"
-					Toggle.Title.Text = ToggleSettings.Name
-					if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" and Toggle.Desc ~= nil then
-						Toggle.Desc.Text = ToggleSettings.Description
-					end
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
 
-					Set(ToggleSettings.CurrentValue)
+					local Element = {
+						Values = ElementSettings
+					}
 
-					ToggleV.CurrentValue = ToggleSettings.CurrentValue
+					Element.Instance = GroupboxTemplateInstance["Button_TEMPLATE_Style1"]:Clone()
+					Element.Instance.Visible = true
+					Element.Instance["PART_Backdrop"].DropShadowHolder.DropShadow.ImageTransparency = 1
+					Element.Instance.Parent = Groupbox.ParentingItem
 
-					local Success, Response = pcall(function()
-						ToggleSettings.Callback(ToggleSettings.CurrentValue)
-					end)
-					if not Success then
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
-						Toggle.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Toggle.Title.Text = ToggleSettings.Name
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					end
-				end
-
-				function ToggleV:Destroy()
-					Toggle.Visible = false
-					Toggle:Destroy()
-				end
-
-				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-					if ToggleSettings.CurrentValue then
-						Toggle.toggle.color.Color = Luna.ThemeGradient
-						Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
+					Element.Instance.Name = "BUTTON_" .. ElementSettings.Name
+					Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
+					Element.Instance["PART_Backdrop"].Header.Icon.Visible = ElementSettings.Icon ~= nil
+					if Element.Instance["PART_Backdrop"].Header.Icon.Visible == false then
+						Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,6)
 					else
-						Toggle.toggle.color.Enabled = false
-						Toggle.toggle.color.Transparency = NumberSequence.new(1)
-						Toggle.toggle.UIStroke.color.Enabled = false
-						Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
-						Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
+						Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,32)
 					end
-				end)
+					Element.Instance["PART_Backdrop"].Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
 
-				if Flag then
-					Luna.Options[Flag] = ToggleV
-				end
-
-				return ToggleV
-
-			end
-
-			-- Bind
-			function Section:CreateBind(BindSettings, Flag)
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local BindV = { Class = "Keybind", IgnoreConfig = false, Settings = BindSettings, Active = false }
-
-				BindSettings = Kwargify({
-					Name = "Bind",
-					Description = nil,
-					CurrentBind = "Q",
-					HoldToInteract = false, -- setting this makes the Bind in toggle mode
-					Callback = function(Bind)
-						-- The function that takes place when the Bind is pressed
-						-- The variable (Bind) is a boolean for whether the Bind is being held or not (HoldToInteract needs to be true) or whether the Bind is currently active
-					end,
-
-					OnChangedCallback = function(Bind)
-						-- The function that takes place when the binded key changes
-						-- The variable (Bind) is a Enum.KeyCode for the new Binded Key
-					end,
-				}, BindSettings or {})
-
-				local CheckingForKey = false
-
-				local Bind
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-					Bind = Elements.Template.BindDesc:Clone()
-				else
-					Bind = Elements.Template.Bind:Clone()
-				end
-
-				Bind.Visible = true
-				Bind.Parent = TabPage
-
-				Bind.Name = BindSettings.Name
-				Bind.Title.Text = BindSettings.Name
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-					Bind.Desc.Text = BindSettings.Description
-				end
-
-				Bind.Title.TextTransparency = 1
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-					Bind.Desc.TextTransparency = 1
-				end
-				Bind.BindFrame.BackgroundTransparency = 1
-				Bind.BindFrame.UIStroke.Transparency = 1
-				Bind.BindFrame.BindBox.TextTransparency = 1
-
-				TweenService:Create(Bind, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-				TweenService:Create(Bind.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-					TweenService:Create(Bind.Desc, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-				end
-				TweenService:Create(Bind.BindFrame, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.9}):Play()
-				TweenService:Create(Bind.BindFrame.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.3}):Play()
-				TweenService:Create(Bind.BindFrame.BindBox, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-
-				Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-				Bind.BindFrame.BindBox.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 42)
-
-				Bind.BindFrame.BindBox.Focused:Connect(function()
-					CheckingForKey = true
-					Bind.BindFrame.BindBox.Text = ""
-				end)
-
-				Bind.BindFrame.BindBox.FocusLost:Connect(function()
-					CheckingForKey = false
-					if Bind.BindFrame.BindBox.Text == (nil or "") then
-						Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-					end
-				end)
-
-				Bind["MouseEnter"]:Connect(function()
-					tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-
-				Bind["MouseLeave"]:Connect(function()
-					tween(Bind.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-				UserInputService.InputBegan:Connect(function(input, processed)
-
-					if CheckingForKey then
-						if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Window.Bind then
-							local SplitMessage = string.split(tostring(input.KeyCode), ".")
-							local NewKeyNoEnum = SplitMessage[3]
-							Bind.BindFrame.BindBox.Text = tostring(NewKeyNoEnum)
-							BindSettings.CurrentBind = tostring(NewKeyNoEnum)
-							local Success, Response = pcall(function()
-								BindSettings.OnChangedCallback(BindSettings.CurrentBind)
-							end)
-							if not Success then
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-								TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-								Bind.Title.Text = "Callback Error"
-								print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-								wait(0.5)
-								Bind.Title.Text = BindSettings.Name
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-								TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+					function Element:Set(NewElementSettings)
+						for i,v in pairs(ElementSettings) do
+							if NewElementSettings[i] == nil then
+								NewElementSettings[i] = v
 							end
-							Bind.BindFrame.BindBox:ReleaseFocus()
 						end
-					elseif BindSettings.CurrentBind ~= nil
-						and Enum.KeyCode[BindSettings.CurrentBind] ~= nil
-						and input.KeyCode == Enum.KeyCode[BindSettings.CurrentBind]
-						and not processed then -- Test
-						local Held = true
-						local Connection
-						Connection = input.Changed:Connect(function(prop)
-							if prop == "UserInputState" then
-								Connection:Disconnect()
-								Held = false
-							end
-						end)
 
-						if not BindSettings.HoldToInteract then
-							BindV.Active = not BindV.Active
-							local Success, Response = pcall(function()
-								BindSettings.Callback(BindV.Active)
-							end)
-							if not Success then
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-								TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-								Bind.Title.Text = "Callback Error"
-								print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-								wait(0.5)
-								Bind.Title.Text = BindSettings.Name
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-								TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-								TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-							end
+						ElementSettings = NewElementSettings
+
+						Element.Values = ElementSettings
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = ElementSettings
+
+						Element.Instance.Name = "BUTTON_" .. ElementSettings.Name
+						Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
+						Element.Instance["PART_Backdrop"].Header.Icon.Visible = ElementSettings.Icon ~= nil
+						if Element.Instance["PART_Backdrop"].Header.Icon.Visible == false then
+							Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,6)
 						else
-							wait(0.1)
-							if Held then
-								local Loop; Loop = RunService.Stepped:Connect(function()
-									if not Held then
-										local Success, Response = pcall(function()
-											BindSettings.Callback(false)
-										end)
-										if not Success then
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-											TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-											Bind.Title.Text = "Callback Error"
-											print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-											wait(0.5)
-											Bind.Title.Text = BindSettings.Name
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-											TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-										end 
-										Loop:Disconnect()
-									else
-										local Success, Response = pcall(function()
-											BindSettings.Callback(true)
-										end)
-										if not Success then
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-											TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-											Bind.Title.Text = "Callback Error"
-											print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-											wait(0.5)
-											Bind.Title.Text = BindSettings.Name
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-											TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-											TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-										end
-									end
-								end)	
-							end
+							Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,32)
 						end
-					end
-				end)
-
-				Bind.BindFrame.BindBox:GetPropertyChangedSignal("Text"):Connect(function()
-					TweenService:Create(Bind.BindFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 30)}):Play()
-				end)
-
-				function BindV:Set(NewBindSettings)
-
-					NewBindSettings = Kwargify({
-						Name = BindSettings.Name,
-						Description = BindSettings.Description,
-						CurrentBind =  BindSettings.CurrentBind,
-						HoldToInteract = BindSettings.HoldToInteract,
-						Callback = BindSettings.Callback
-					}, NewBindSettings or {})
-
-					BindV.Settings = NewBindSettings
-					BindSettings = NewBindSettings
-
-					Bind.Name = BindSettings.Name
-					Bind.Title.Text = BindSettings.Name
-					if BindSettings.Description ~= nil and BindSettings.Description ~= "" and Bind.Desc ~= nil then
-						Bind.Desc.Text = BindSettings.Description
+						Element.Instance["PART_Backdrop"].Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name].Values = ElementSettings
 					end
 
-					Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-					Bind.BindFrame.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 42)
-
-
-					BindV.CurrentBind = BindSettings.CurrentBind
-				end
-
-				function BindV:Destroy()
-					Bind.Visible = false
-					Bind:Destroy()
-				end
-
-				if Flag then
-					Luna.Options[Flag] = BindV
-				end
-
-				-- Luna.Flags[BindSettings.Flag] = BindSettings
-
-				return BindV
-
-			end
-
-			-- Dynamic Input
-			function Section:CreateInput(InputSettings, Flag)
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local InputV = { IgnoreConfig = false, Class = "Input", Settings = InputSettings }
-
-				InputSettings = Kwargify({
-					Name = "Dynamic Input",
-					Description = nil,
-					CurrentValue = "",
-					PlaceholderText = "Input Placeholder",
-					RemoveTextAfterFocusLost = false,
-					Numeric = false,
-					Enter = false,
-					MaxCharacters = nil,
-					Callback = function(Text)
-
-					end, -- 52
-				}, InputSettings or {})
-
-				InputV.CurrentValue = InputSettings.CurrentValue
-
-				local descriptionbool
-				if InputSettings.Description ~= nil and InputSettings.Description ~= "" then
-					descriptionbool = true
-				end
-
-				local Input 
-				if descriptionbool then
-					Input = Elements.Template.InputDesc:Clone()
-				else
-					Input = Elements.Template.Input:Clone()
-				end
-
-				Input.Name = InputSettings.Name
-				Input.Title.Text = InputSettings.Name
-				if descriptionbool then Input.Desc.Text = InputSettings.Description end
-				Input.Visible = true
-				Input.Parent = TabPage
-
-				Input.BackgroundTransparency = 1
-				Input.UIStroke.Transparency = 1
-				Input.Title.TextTransparency = 1
-				if descriptionbool then Input.Desc.TextTransparency = 1 end
-				Input.InputFrame.BackgroundTransparency = 1
-				Input.InputFrame.UIStroke.Transparency = 1
-				Input.InputFrame.InputBox.TextTransparency = 1
-
-				TweenService:Create(Input, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-				TweenService:Create(Input.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				TweenService:Create(Input.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-				if descriptionbool then TweenService:Create(Input.Desc, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play() end
-				TweenService:Create(Input.InputFrame, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.9}):Play()
-				TweenService:Create(Input.InputFrame.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.3}):Play()
-				TweenService:Create(Input.InputFrame.InputBox, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-				Input.InputFrame.InputBox.PlaceholderText = InputSettings.PlaceholderText
-				Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 30)
-
-				Input.InputFrame.InputBox.FocusLost:Connect(function(bleh)
-
-					if InputSettings.Enter then
-						if bleh then
-							local Success, Response = pcall(function()
-								InputSettings.Callback(Input.InputFrame.InputBox.Text)
-								InputV.CurrentValue = Input.InputFrame.InputBox.Text
-							end)
-							if not Success then
-								TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-								TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-								TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-								Input.Title.Text = "Callback Error"
-								print("Luna Interface Suite | "..InputSettings.Name.." Callback Error " ..tostring(Response))
-								wait(0.5)
-								Input.Title.Text = InputSettings.Name
-								TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-								TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-								TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-							end
-						end
+					function Element:Destroy()
+						Element.Instance:Destroy()
 					end
 
-					if InputSettings.RemoveTextAfterFocusLost then
-						Input.InputFrame.InputBox.Text = ""
-					end
+					Element.Instance.MouseEnter:Connect(function()
+						Tween(Element.Instance["PART_Backdrop"].DropShadowHolder.DropShadow, {ImageTransparency = 0.73})
+					end)
 
-				end)
+					Element.Instance.MouseLeave:Connect(function()
+						Tween(Element.Instance["PART_Backdrop"].DropShadowHolder.DropShadow, {ImageTransparency = 1})
 
-				if InputSettings.Numeric then
-					Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
-						local text = Input.InputFrame.InputBox.Text
-						if not tonumber(text) and text ~= "." then
-							Input.InputFrame.InputBox.Text = text:match("[0-9.]*") or ""
+						if Element.Instance["PART_Backdrop"].AccentBrighter.Enabled == true then
+							Element.Instance["PART_Backdrop"].AccentBrighter.Enabled = false
+							Element.Instance["PART_Backdrop"].Accent.Enabled = true
 						end
 					end)
-				end
 
-				Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
-					if tonumber(InputSettings.MaxCharacters) then
-						if (#Input.InputFrame.InputBox.Text - 1) == InputSettings.MaxCharacters then
-							Input.InputFrame.InputBox.Text = Input.InputFrame.InputBox.Text:sub(1, InputSettings.MaxCharacters)
-						end
-					end
-					TweenService:Create(Input.InputFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 30)}):Play()
-					if not InputSettings.Enter then
-						local Success, Response = pcall(function()
-							InputSettings.Callback(Input.InputFrame.InputBox.Text)
-						end)
+					Element.Instance.Interact.MouseButton1Click:Connect(function()
+						local Success,Response = pcall(Element.Values.Callback)
+
 						if not Success then
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-							TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							Input.Title.Text = "Callback Error"
-							print("Luna Interface Suite | "..InputSettings.Name.." Callback Error " ..tostring(Response))
+							Element.Instance["PART_Backdrop"].Header.Text = "Callback Error"
+							warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+							print(tostring(Response))
 							wait(0.5)
-							Input.Title.Text = InputSettings.Name
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-							TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+							Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
 						end
-					end
-					InputV.CurrentValue = Input.InputFrame.InputBox.Text				
-				end)
-
-				Input["MouseEnter"]:Connect(function()
-					tween(Input.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-
-				Input["MouseLeave"]:Connect(function()
-					tween(Input.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-
-
-				function InputV:Set(NewInputSettings)
-
-					NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
-
-					InputV.Settings = NewInputSettings
-					InputSettings = NewInputSettings
-
-					Input.Name = InputSettings.Name
-					Input.Title.Text = InputSettings.Name
-					if InputSettings.Description ~= nil and InputSettings.Description ~= "" and Input.Desc ~= nil then
-						Input.Desc.Text = InputSettings.Description
-					end
-
-					Input.InputFrame.InputBox:CaptureFocus()
-					Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
-					Input.InputFrame.InputBox:ReleaseFocus()
-					Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 42)
-
-					InputV.CurrentValue = InputSettings.CurrentValue
-				end
-
-				function InputV:Destroy()
-					Input.Visible = false
-					Input:Destroy()
-				end
-
-				if Flag then
-					Luna.Options[Flag] = InputV
-				end
-
-
-				return InputV
-
-			end
-
-			-- Dropdown
-			function Section:CreateDropdown(DropdownSettings, Flag)
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local DropdownV = { IgnoreConfig = false, Class = "Dropdown", Settings = DropdownSettings}
-
-				DropdownSettings = Kwargify({
-					Name = "Dropdown",
-					Description = nil,
-					Options = {"Option 1", "Option 2"},
-					CurrentOption = {"Option 1"},
-					MultipleOptions = false,
-					SpecialType = nil, -- currently onl player, might add more soon
-					Callback = function(Options)
-						-- The function that takes place when the selected option is changed
-						-- The variable (Options) is a table of strings for the current selected options or a string if multioptions is false
-					end,
-				}, DropdownSettings or {})
-
-				DropdownV.CurrentOption = DropdownSettings.CurrentOption
-
-				local descriptionbool = false
-				if DropdownSettings.Description ~= nil and DropdownSettings.Description ~= "" then
-					descriptionbool = true
-				end
-				local closedsize
-				local openedsize
-				if descriptionbool then
-					closedsize = 48
-					openedsize = 170
-				elseif not descriptionbool then
-					closedsize = 38
-					openedsize = 160
-				end
-				local opened = false
-
-				local Dropdown
-				if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
-
-				Dropdown.Name = DropdownSettings.Name
-				Dropdown.Title.Text = DropdownSettings.Name
-				if descriptionbool then Dropdown.Desc.Text = DropdownSettings.Description end
-
-				Dropdown.Parent = TabPage
-				Dropdown.Visible = true
-
-				local function Toggle()
-					opened = not opened
-					if opened then
-						tween(Dropdown.icon, {Rotation = 180})
-						tween(Dropdown, {Size = UDim2.new(1, -25, 0, openedsize)})
-					else
-						tween(Dropdown.icon, {Rotation = 0})
-						tween(Dropdown, {Size = UDim2.new(1, -25, 0, closedsize)})
-					end
-				end
-
-				local function SafeCallback(param, c2)
-					local Success, Response = pcall(function()
-						DropdownSettings.Callback(param)
 					end)
-					if not Success then
-						TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Dropdown.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..DropdownSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Dropdown.Title.Text = DropdownSettings.Name
-						TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+
+					Element.Instance.Interact.MouseButton1Down:Connect(function()
+						Element.Instance["PART_Backdrop"].AccentBrighter.Enabled = true
+						Element.Instance["PART_Backdrop"].Accent.Enabled = false
+					end)
+
+					Element.Instance.Interact.MouseButton1Up:Connect(function()
+						Element.Instance["PART_Backdrop"].AccentBrighter.Enabled = false
+						Element.Instance["PART_Backdrop"].Accent.Enabled = true
+					end)
+
+					if GroupboxSettings.Style == 2 then
+						Groupbox.Instance["PART_Backdrop"].Size = UDim2.new(1,0,0, Groupbox.Instance["PART_Backdrop"].AbsoluteSize.Y)
 					end
-					if Success and c2 then
-						c2()
-					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
 				end
 
-				-- fixed by justhey
-				Dropdown.Selected:GetPropertyChangedSignal("Text"):Connect(function()
-					local text = Dropdown.Selected.Text:lower()
-					for _, Item in ipairs(Dropdown.List:GetChildren()) do
-						if Item:IsA("TextLabel") and Item.Name ~= "Template" then
-							Item.Visible = text == "" or string.find(Item.Name:lower(), text, 1, true) ~= nil
-						end
-					end
-				end)
+				function Groupbox:CreateSecondaryButton(ElementSettings) -- these will be merged in the next update where we allow style changing.
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
 
+					local Element = {
+						Values = ElementSettings
+					}
 
-				local function Clear()
-					for _, option in ipairs(Dropdown.List:GetChildren()) do
-						if option.ClassName == "TextLabel" and option.Name ~= "Template" then
-							option:Destroy()
-						end
-					end
-				end
+					Element.Instance = GroupboxTemplateInstance["Button_TEMPLATE_Style2"]:Clone()
+					Element.Instance.Visible = true
+					Element.Instance.Parent = Groupbox.ParentingItem
 
-				local function ActivateColorSingle(name)
-					for _, Option in pairs(Dropdown.List:GetChildren()) do
-						if Option.ClassName == "TextLabel" and Option.Name ~= "Template" then
-							tween(Option, {BackgroundTransparency = 0.98})
-						end
-					end
-
-					Toggle()
-					tween(Dropdown.List[name], {BackgroundTransparency = 0.95, TextColor3 = Color3.fromRGB(240,240,240)})
-				end
-
-				local function Refresh()
-					Clear()
-					for i,v in pairs(DropdownSettings.Options) do
-						local Option = Dropdown.List.Template:Clone()
-						local optionhover = false
-						Option.Text = v
-						if v == "Template" then v = "Template (Name)" end
-						Option.Name = v
-						Option.Interact.MouseButton1Click:Connect(function()
-							local bleh
-							if DropdownSettings.MultipleOptions then
-								if table.find(DropdownSettings.CurrentOption, v) then
-									RemoveTable(DropdownSettings.CurrentOption, v)
-									DropdownV.CurrentOption = DropdownSettings.CurrentOption
-									if not optionhover then
-										tween(Option, {TextColor3 = Color3.fromRGB(200,200,200)})
-									end
-									tween(Option, {BackgroundTransparency = 0.98})
-								else
-									table.insert(DropdownSettings.CurrentOption, v)
-									DropdownV.CurrentOption = DropdownSettings.CurrentOption
-									tween(Option, {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-								end
-								bleh = DropdownSettings.CurrentOption
-							else
-								DropdownSettings.CurrentOption = {v}
-								bleh = v
-								DropdownV.CurrentOption = bleh
-								ActivateColorSingle(v)
-							end
-
-							SafeCallback(bleh, function()
-								if DropdownSettings.MultipleOptions then
-									if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-										if #DropdownSettings.CurrentOption == 1 then
-											Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-										elseif #DropdownSettings.CurrentOption == 0 then
-											Dropdown.Selected.PlaceholderText = "None"
-										else
-											Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-										end
-									else
-										DropdownSettings.CurrentOption = {}
-										Dropdown.Selected.PlaceholderText = "None"
-									end
-								end
-								if not DropdownSettings.MultipleOptions then
-									Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-								end
-								Dropdown.Selected.Text = ""
-							end)
-						end)
-						Option.Visible = true
-						Option.Parent = Dropdown.List
-						Option.MouseEnter:Connect(function()
-							optionhover = true
-							if Option.BackgroundTransparency == 0.95 then
-								return
-							else
-								tween(Option, {TextColor3 = Color3.fromRGB(240,240,240)})
-							end
-						end)
-						Option.MouseLeave:Connect(function()
-							optionhover = false
-							if Option.BackgroundTransparency == 0.95 then
-								return
-							else
-								tween(Option, {TextColor3 = Color3.fromRGB(200,200,200)})
-							end
-						end)	
-					end
-				end
-
-				local function PlayerTableRefresh()
-					for i,v in pairs(DropdownSettings.Options) do
-						table.remove(DropdownSettings.Options, i)
-					end
-
-					for i,v in pairs(Players:GetChildren()) do
-						table.insert(DropdownSettings.Options, v.Name)
-					end
-				end
-
-				Dropdown.Interact.MouseButton1Click:Connect(function()
-					Toggle()
-				end)
-
-				Dropdown["MouseEnter"]:Connect(function()
-					tween(Dropdown.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-
-				Dropdown["MouseLeave"]:Connect(function()
-					tween(Dropdown.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-
-				if DropdownSettings.SpecialType == "Player" then
-
-					for i,v in pairs(DropdownSettings.Options) do
-						table.remove(DropdownSettings.Options, i)
-					end
-					PlayerTableRefresh()
-					DropdownSettings.CurrentOption = DropdownSettings.Options[1]
-
-					Players.PlayerAdded:Connect(function() PlayerTableRefresh() end)
-					Players.PlayerRemoving:Connect(function() PlayerTableRefresh() end)
-
-				end
-
-				Refresh()
-
-				if DropdownSettings.CurrentOption then
-					if type(DropdownSettings.CurrentOption) == "string" then
-						DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
-					end
-					if not DropdownSettings.MultipleOptions and type(DropdownSettings.CurrentOption) == "table" then
-						DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption[1]}
-					end
-				else
-					DropdownSettings.CurrentOption = {}
-				end
-
-				if not DropdownSettings.MultipleOptions then
-					local currentOption = DropdownSettings.CurrentOption[1]
-					if type(currentOption) ~= "string" or not Dropdown.List:FindFirstChild(currentOption) then
-						DropdownSettings.CurrentOption = {}
-					end
-				end
-
-				local bleh, ind = nil,0
-				for i,v in pairs(DropdownSettings.CurrentOption) do
-					ind = ind + 1
-				end
-				if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
-				SafeCallback(bleh)
-				if type(bleh) == "string" then
-					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-				elseif type(bleh) == "table" then
-					for _, value in pairs(bleh) do
-						if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
-							tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-						end
-					end
-				end
-
-				if DropdownSettings.MultipleOptions then
-					if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-						if #DropdownSettings.CurrentOption == 1 then
-							Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-						elseif #DropdownSettings.CurrentOption == 0 then
-							Dropdown.Selected.PlaceholderText = "None"
-						else
-							Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-						end
+					Element.Instance.Name = "BUTTON_" .. ElementSettings.Name
+					Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
+					Element.Instance["PART_Backdrop"].Header.Icon.Visible = ElementSettings.Icon ~= nil
+					if Element.Instance["PART_Backdrop"].Header.Icon.Visible == false then
+						Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,6)
 					else
-						DropdownSettings.CurrentOption = {}
-						Dropdown.Selected.PlaceholderText = "None"
+						Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,32)
 					end
-					for _, name in pairs(DropdownSettings.CurrentOption) do
-						tween(Dropdown.List[name], {TextColor3 = Color3.fromRGB(227,227,227), BackgroundTransparency = 0.95})
-					end
-				else
-					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-				end
-				Dropdown.Selected.Text = ""
+					Element.Instance["PART_Backdrop"].Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
 
-				function DropdownV:Set(NewDropdownSettings)
-					NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
-
-					DropdownV.Settings = NewDropdownSettings
-					DropdownSettings = NewDropdownSettings
-
-					Dropdown.Name = DropdownSettings.Name
-					Dropdown.Title.Text = DropdownSettings.Name
-					if DropdownSettings.Description ~= nil and DropdownSettings.Description ~= "" and Dropdown.Desc ~= nil then
-						Dropdown.Desc.Text = DropdownSettings.Description
-					end
-
-					if DropdownSettings.SpecialType == "Player" then
-
-						for i,v in pairs(DropdownSettings.Options) do
-							table.remove(DropdownSettings.Options, i)
+					function Element:Set(NewElementSettings)
+						for i,v in pairs(ElementSettings) do
+							if NewElementSettings[i] == nil then
+								NewElementSettings[i] = v
+							end
 						end
-						PlayerTableRefresh()
-						DropdownSettings.CurrentOption = DropdownSettings.Options[1]                    
-						Players.PlayerAdded:Connect(function() PlayerTableRefresh() end)
-						Players.PlayerRemoving:Connect(function() PlayerTableRefresh() end)
 
+						ElementSettings = NewElementSettings
+
+						Element.Values = ElementSettings
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = ElementSettings
+
+						Element.Instance.Name = "BUTTON_" .. ElementSettings.Name
+						Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
+						Element.Instance["PART_Backdrop"].Header.Icon.Visible = ElementSettings.Icon ~= nil
+						if Element.Instance["PART_Backdrop"].Header.Icon.Visible == false then
+							Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,6)
+						else
+							Element.Instance["PART_Backdrop"].Header.UIPadding.PaddingLeft = UDim.new(0,32)
+						end
+						Element.Instance["PART_Backdrop"].Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name].Values = ElementSettings
+					end
+
+					function Element:Destroy()
+						Element.Instance:Destroy()
+					end
+
+					Element.Instance.MouseEnter:Connect(function()
+						Tween(Element.Instance["PART_Backdrop"], {BackgroundColor3 = Color3.fromRGB(31, 33, 38)})
+					end)
+
+					Element.Instance.MouseLeave:Connect(function()
+						Tween(Element.Instance["PART_Backdrop"], {BackgroundColor3 = Color3.fromRGB(27, 29, 34)})
+					end)
+
+					Element.Instance.Interact.MouseButton1Click:Connect(function()
+						local Success,Response = pcall(ElementSettings.Callback)
+
+						if not Success then
+							Element.Instance["PART_Backdrop"].Header.Text = "Callback Error"
+							warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+							print(tostring(Response))
+							wait(0.5)
+							Element.Instance["PART_Backdrop"].Header.Text = ElementSettings.Name
+						end
+					end)
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
+				end
+
+				function Groupbox:CreateCheckbox(ElementSettings) -- will be merged with switch in next update via styles. adding a checkbox icon soon
+
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						ImageSource = string, **
+						InitialCallback = bool, **
+						CurrentValue = bool, **
+						
+						Callback = function(bool),
+					}
+					--]]
+
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
+					ElementSettings.InitialCallback = ElementSettings.InitialCallback or true
+					ElementSettings.CurrentValue = ElementSettings.CurrentValue or false
+
+					local Element = {
+						Values = ElementSettings,
+					}
+
+					Element.Instance = GroupboxTemplateInstance.Checkbox_TEMPLATE_Disabled:Clone()
+					Element.Instance.Visible = true
+					Element.Instance.Parent = Groupbox.ParentingItem
+
+					Element.Instance.Name = "CHECKBOX_" .. ElementSettings.Name
+					Element.Instance.Header.Text = ElementSettings.Name
+					Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+					if Element.Instance.Header.Icon.Visible == false then
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+					else
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+					end
+					Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+					local function Set(bool)
+						if bool then
+							Tween(Element.Instance.Checkbox, {BackgroundTransparency = 0})
+						else
+							Tween(Element.Instance.Checkbox, {BackgroundTransparency = 0.9})
+						end
+
+						Element.Values.CurrentValue = bool
+					end
+
+					--starting
+					do
+						Set(Element.Values.CurrentValue)
+						if ElementSettings.InitialCallback then
+							local Success,Response = pcall(function()
+								ElementSettings.Callback(Element.Values.CurrentValue)
+							end)
+
+							if not Success then
+								Element.Instance.Header.Text = "Callback Error"
+								warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+								print(tostring(Response))
+								wait(0.5)
+								Element.Instance.Header.Text = ElementSettings.Name
+							end
+						end
+					end
+
+					Element.Instance.Checkbox.MouseEnter:Connect(function()
+						Element.Instance.Checkbox.AccentBrighter.Enabled = true
+						Element.Instance.Checkbox.Accent.Enabled = false
+					end)
+
+					Element.Instance.Checkbox.MouseLeave:Connect(function()
+						Element.Instance.Checkbox.AccentBrighter.Enabled = false
+						Element.Instance.Checkbox.Accent.Enabled = true
+					end)
+
+					Element.Instance.Checkbox.Interact.MouseButton1Click:Connect(function()
+						Element.Values.CurrentValue = not Element.Values.CurrentValue
+						Set(Element.Values.CurrentValue)
+
+						local Success,Response = pcall(function()
+							Element.Values.Callback(Element.Values.CurrentValue)
+						end)
+
+						if not Success then
+							Element.Instance.Header.Text = "Callback Error"
+							warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+							print(tostring(Response))
+							wait(0.5)
+							Element.Instance.Header.Text = ElementSettings.Name
+						end
+					end)
+
+					function Element:Set(NewElementSettings)
+						for i,v in pairs(ElementSettings) do
+							if NewElementSettings[i] == nil then
+								NewElementSettings[i] = v
+							end
+						end
+
+						ElementSettings = NewElementSettings
+
+						Element.Values = ElementSettings
+
+						Element.Instance.Name = "CHECKBOX_" .. ElementSettings.Name
+						Element.Instance.Header.Text = ElementSettings.Name
+						Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+						end
+						Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name].Values = ElementSettings
+					end
+
+					function Element:Destroy()
+						Element.Instance:Destroy()
+					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
+				end
+
+				function Groupbox:CreateSwitch(ElementSettings)
+
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						ImageSource = string, **
+						InitialCallback = bool, **
+						CurrentValue = bool, **
+						
+						Callback = function(bool),
+					}
+					]]
+
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
+					ElementSettings.InitialCallback = ElementSettings.InitialCallback or true
+					ElementSettings.CurrentValue = ElementSettings.CurrentValue or false
+
+					local Element = {
+						Values = ElementSettings,
+					}
+
+					Element.Instance = GroupboxTemplateInstance.Switch_TEMPLATE_Disabled:Clone()
+					Element.Instance.Visible = true
+					Element.Instance.Parent = Groupbox.ParentingItem
+
+					Element.Instance.Name = "SWITCH_" .. ElementSettings.Name
+					Element.Instance.Header.Text = ElementSettings.Name
+					Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+					if Element.Instance.Header.Icon.Visible == false then
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+					else
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+					end
+					Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+					local function Set(bool)
+						if bool then
+							Tween(Element.Instance.Switch, {BackgroundTransparency = 0, BackgroundColor3 = Color3.fromRGB(255,255,255)})
+							Tween(Element.Instance.Switch.Knob, {Position = UDim2.new(0,20,.5,0), BackgroundColor3 = Color3.fromRGB(255,255,255), BackgroundTransparency = 0})
+							Tween(Element.Instance.Switch.UIStroke, {Color = Color3.fromRGB(255,255,255)})
+							Tween(Element.Instance.Switch.DropShadowHolder.DropShadow, {ImageTransparency = 0})
+							Element.Instance.Switch.Accent.Enabled = true
+							Element.Instance.Switch.UIStroke.Accent.Enabled = true
+						else
+							Tween(Element.Instance.Switch, {BackgroundTransparency = 1, BackgroundColor3 = Color3.fromRGB(165,165,165)})
+							Tween(Element.Instance.Switch.Knob, {Position = UDim2.new(0,0,.5,0), BackgroundColor3 = Color3.fromRGB(165,165,165), BackgroundTransparency = 0.5})
+							Tween(Element.Instance.Switch.UIStroke, {Color = Color3.fromRGB(165,165,165)})
+							Tween(Element.Instance.Switch.DropShadowHolder.DropShadow, {ImageTransparency = 1})
+							Element.Instance.Switch.Accent.Enabled = false
+							Element.Instance.Switch.UIStroke.Accent.Enabled = false
+						end
+
+						Element.Values.CurrentValue = bool
+					end
+
+					--starting
+					do
+						Set(Element.Values.CurrentValue)
+						if ElementSettings.InitialCallback then
+							local Success,Response = pcall(function()
+								ElementSettings.Callback(Element.Values.CurrentValue)
+							end)
+
+							if not Success then
+								Element.Instance.Header.Text = "Callback Error"
+								warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+								print(tostring(Response))
+								wait(0.5)
+								Element.Instance.Header.Text = ElementSettings.Name
+							end
+						end
+					end
+
+					Element.Instance.Switch.Interact.MouseButton1Click:Connect(function()
+						Element.Values.CurrentValue = not Element.Values.CurrentValue
+						Set(Element.Values.CurrentValue)
+
+						local Success,Response = pcall(function()
+							ElementSettings.Callback(Element.Values.CurrentValue)
+						end)
+
+						if not Success then
+							Element.Instance.Header.Text = "Callback Error"
+							warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+							print(tostring(Response))
+							wait(0.5)
+							Element.Instance.Header.Text = ElementSettings.Name
+						end
+					end)
+
+					function Element:Set(NewElementSettings)
+						for i,v in pairs(ElementSettings) do
+							if NewElementSettings[i] == nil then
+								NewElementSettings[i] = v
+							end
+						end
+
+						ElementSettings = NewElementSettings
+
+						Element.Values = ElementSettings
+
+						Element.Instance.Name = "SWITCH_" .. ElementSettings.Name
+						Element.Instance.Header.Text = ElementSettings.Name
+						Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+						end
+						Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name].Values = ElementSettings
+					end
+
+					function Element:Destroy()
+						Element.Instance:Destroy()
+					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
+				end
+
+
+				-- coded by justhey the goat
+				function Groupbox:CreateDropdown(ElementSettings)
+					
+					-[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						ImageSource = string, **
+						Options = table, {string ...}
+						CurrentOption = table/string, {string ...} **
+						MultipleOptions = bool, **
+						Special = number, ** -- 0/nil for none, 1 for Player, 2 for Teams, more hopefully coming soon
+						
+						Callback = function(table)
+					}
+					]]
+
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
+					ElementSettings.CurrentOption = ElementSettings.CurrentOption or ({ElementSettings.Options[1]})
+					ElementSettings.MultipleOptions = ElementSettings.MultipleOptions or false
+					ElementSettings.Special = ElementSettings.Special or 0
+
+					local Element = {
+						Values = ElementSettings,
+						Instances = {},
+						State = false
+					}
+
+					Element.Instances.Element = GroupboxTemplateInstance.Dropdown_TEMPLATE:Clone()
+					Element.Instances.Element.Parent = Groupbox.ParentingItem
+					Element.Instances.Element.Visible = true
+
+					Element.Instances.Element.Name = "DROPDOWN_" .. ElementSettings.Name
+					Element.Instances.Element.Header.Text = ElementSettings.Name
+
+
+					Element.Instances.Popup = mainWindow["Popup Overlay"].Dropdown_TEMPLATE:Clone()
+					Element.Instances.Popup.Parent = mainWindow["Popup Overlay"]
+					Element.Instances.Popup.Header.Text = ElementSettings.Name
+
+
+					--// Interaction System \\--
+					Element.Instances.Element.Icon.MouseButton1Click:Connect(function()
+						mainWindow["Popup Overlay"].Visible = true
+						Element.Instances.Popup.Visible = true
+
+						UserInputService.InputBegan:Connect(function(i, g)
+							if g or i.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
+							local p, pos, size = i.Position, Element.Instances.Popup.AbsolutePosition, Element.Instances.Popup.AbsoluteSize
+							if not (p.X >= pos.X and p.X <= pos.X + size.X and p.Y >= pos.Y and p.Y <= pos.Y + size.Y) then
+								mainWindow["Popup Overlay"].Visible = false
+								Element.Instances.Popup.Visible = false
+							end
+						end)
+					end)
+
+					local function ActivateColorSingle(name)
+						for _, Option in pairs(Element.Instances.Popup.Content:GetChildren()) do
+							if Option.ClassName == "Frame" and not string.find(Option.Name, "Option_Template") then
+								Tween(Option, {BackgroundTransparency = 1})
+								Tween(Option.Header, {TextColor3 = Color3.fromRGB(100, 100, 100)})
+								Option.Header.Accent.Enabled = false
+								Option.Icon.Accent.Enabled = false
+							end
+						end
+
+
+						Tween(Element.Instances.Popup.Content[name], {BackgroundTransparency = 0.8})
+						Tween(Element.Instances.Popup.Content[name].Header, {TextColor3 = Color3.fromRGB(255,255,255)})
+						Element.Instances.Popup.Content[name].Header.Accent.Enabled = true
+						Element.Instances.Popup.Content[name].Icon.Accent.Enabled = true
+
+					end
+
+					local function CB(Sel, Func)
+						local Success, Response = pcall(function()
+							ElementSettings.Callback(Sel)
+						end)
+
+						if Success and Func then
+							Func()
+						end
+					end
+
+					local function Refresh()
+						for i,v in pairs(ElementSettings.Options) do
+							local Option = Element.Instances.Popup.Content.Option_TEMPLATE:Clone()
+							local OptionHover = false
+
+							Option.Header.Text = v
+							Option.Name = v
+
+							Option.Interact.MouseButton1Click:Connect(function()
+								local Selected
+								if ElementSettings.MultipleOptions then
+									if table.find(ElementSettings.CurrentOption, v) then
+										RemoveTable(ElementSettings.CurrentOption, v)
+
+										if not OptionHover then
+											Tween(Option.Header, {TextColor3 = Color3.fromRGB(100, 100, 100)})
+										end
+										Option.BackgroundTransparency = 1
+										Option.Header.Accent.Enabled = false
+										Option.Icon.Accent.Enabled = false
+									else
+										table.insert(ElementSettings.CurrentOption, v)
+										Tween(Option.Header, {TextColor3 = Color3.fromRGB(255, 255, 255)})
+										Option.BackgroundTransparency = 0.8
+										Option.Header.Accent.Enabled = true
+										Option.Icon.Accent.Enabled = true
+									end
+									Selected = ElementSettings.CurrentOption
+
+								else
+									ElementSettings.CurrentOption = {v}
+									Selected = v
+
+									ActivateColorSingle(v)
+								end
+
+
+
+								CB(Selected, function()
+									if ElementSettings.MultipleOptions then
+										if not ElementSettings.CurrentOption and type(ElementSettings.CurrentOption) == "table" then
+											ElementSettings.CurrentOption = {}
+										end
+									end
+								end)
+							end)
+
+
+							Option.Visible = true
+							Option.Parent = Element.Instances.Popup.Content
+
+							Option.Interact.MouseEnter:Connect(function()
+								OptionHover = true
+								if Option.Header.Accent.Enabled then
+									return
+								else
+									Tween(Option.Header, {TextColor3 = Color3.fromRGB(200,200,200)})
+								end
+							end)
+
+							Option.Interact.MouseLeave:Connect(function()
+								OptionHover = false
+								if Option.Header.Accent.Enabled then
+									return
+								else
+									Tween(Option.Header, {TextColor3 = Color3.fromRGB(100,100,100)})
+								end
+							end)	
+
+						end
 					end
 
 					Refresh()
 
-					if DropdownSettings.CurrentOption then
-						if type(DropdownSettings.CurrentOption) == "string" then
-							DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
+					if ElementSettings.CurrentOption then
+						if type(ElementSettings.CurrentOption) == "string" then
+							ElementSettings.CurrentOption = {ElementSettings.CurrentOption}
 						end
-						if not DropdownSettings.MultipleOptions and type(DropdownSettings.CurrentOption) == "table" then
-							DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption[1]}
+						if not ElementSettings.MultipleOptions and type(ElementSettings.CurrentOption) == "table" then
+							ElementSettings.CurrentOption = {ElementSettings.CurrentOption[1]}
 						end
 					else
-						DropdownSettings.CurrentOption = {}
+						ElementSettings.CurrentOption = {}
 					end
 
-					local bleh, ind = nil,0
-					for i,v in pairs(DropdownSettings.CurrentOption) do
+					local Selected, ind = nil,0
+					for i,v in pairs(ElementSettings.CurrentOption) do
 						ind = ind + 1
 					end
-					if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
-					SafeCallback(bleh)
-					for _, Option in pairs(Dropdown.List:GetChildren()) do
-						if Option.ClassName == "TextLabel" then
-							tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
-						end
-					end
-					if type(bleh) == "string" then
-						tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-					elseif type(bleh) == "table" then
-						for _, value in pairs(bleh) do
-							if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
-								tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-							end
-						end
-					end
-
-					if DropdownSettings.MultipleOptions then
-						if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-							if #DropdownSettings.CurrentOption == 1 then
-								Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-							elseif #DropdownSettings.CurrentOption == 0 then
-								Dropdown.Selected.PlaceholderText = "None"
-							else
-								Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-							end
-						else
-							DropdownSettings.CurrentOption = {}
-							Dropdown.Selected.PlaceholderText = "None"
-						end
-						for _, name in pairs(DropdownSettings.CurrentOption) do
-							tween(Dropdown.List[name], {TextColor3 = Color3.fromRGB(227,227,227), BackgroundTransparency = 0.95})
-						end
+					if ind == 1 then Selected = ElementSettings.CurrentOption[1] else Selected = ElementSettings.CurrentOption end
+					CB(Selected)
+					if type(Selected) == "string" then 
+						Tween(Element.Instances.Popup.Content[Selected], {BackgroundTransparency = 0.8})
+						Tween(Element.Instances.Popup.Content[Selected].Header, {TextColor3 = Color3.fromRGB(255,255,255)})
+						Element.Instances.Popup.Content[Selected].Header.Accent.Enabled = true
+						Element.Instances.Popup.Content[Selected].Icon.Accent.Enabled = true
 					else
-						Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-					end
-					Dropdown.Selected.Text = ""
-
-					-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
-
-				end
-
-				function DropdownV:Destroy()
-					Dropdown.Visible = false
-					Dropdown:Destroy()
-				end
-
-				if Flag then
-					Luna.Options[Flag] = DropdownV
-				end
-
-				-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
-
-				return DropdownV
-
-			end
-
-			-- Color Picker
-			function Section:CreateColorPicker(ColorPickerSettings, Flag) -- by Rayfield/Throit
-				TabPage.Position = UDim2.new(0,0,0,28)
-				local ColorPickerV = {IgnoreClass = false, Class = "Colorpicker", Settings = ColorPickerSettings}
-
-				ColorPickerSettings = Kwargify({
-					Name = "Color Picker",
-					Color = Color3.fromRGB(255,255,255),
-					Callback = function(Value)
-						-- The function that takes place every time the color picker is moved/changed
-						-- The variable (Value) is a Color3fromRGB value based on which color is selected
-					end
-				}, ColorPickerSettings or {})
-
-				local function Color3ToHex(color)
-					return string.format("#%02X%02X%02X", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
-				end
-
-				ColorPickerV.Color = Color3ToHex(ColorPickerSettings.Color)
-
-				local closedsize = UDim2.new(0, 75, 0, 22)
-				local openedsize = UDim2.new(0, 219, 0, 129)
-
-				local ColorPicker = Elements.Template.ColorPicker:Clone()
-				local Background = ColorPicker.CPBackground
-				local Display = Background.Display
-				local Main = Background.MainCP
-				local Slider = ColorPicker.ColorSlider
-
-				ColorPicker.Name = ColorPickerSettings.Name
-				ColorPicker.Title.Text = ColorPickerSettings.Name
-				ColorPicker.Visible = true
-				ColorPicker.Parent = TabPage
-				ColorPicker.Size = UDim2.new(1.042, -25,0, 38)
-				Background.Size = closedsize
-				Display.BackgroundTransparency = 0
-
-				ColorPicker["MouseEnter"]:Connect(function()
-					tween(ColorPicker.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-				end)
-				ColorPicker["MouseLeave"]:Connect(function()
-					tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-				end)
-
-				local function SafeCallback(param, c2)
-					local Success, Response = pcall(function()
-						ColorPickerSettings.Callback(param)
-					end)
-					if not Success then
-						TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(ColorPicker.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						ColorPicker.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..ColorPickerSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						ColorPicker.Title.Text = ColorPickerSettings.Name
-						TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(ColorPicker.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					end
-					if Success and c2 then
-						c2()
-					end
-				end
-
-				local opened = false
-
-				local mouse = game.Players.LocalPlayer:GetMouse()
-				Main.Image = "http://www.roblox.com/asset/?id=11415645739"
-				local mainDragging = false 
-				local sliderDragging = false 
-				ColorPicker.Interact.MouseButton1Down:Connect(function()
-					if not opened then
-						opened = true 
-						tween(ColorPicker, {Size = UDim2.new( 1.042, -25,0, 165)}, nil, TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-						tween(Background, {Size = openedsize})
-						tween(Display, {BackgroundTransparency = 1})
-					else
-						opened = false
-						tween(ColorPicker, {Size = UDim2.new(1.042, -25,0, 38)}, nil, TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-						tween(Background, {Size = closedsize})
-						tween(Display, {BackgroundTransparency = 0})
-					end
-				end)
-				UserInputService.InputEnded:Connect(function(input, gameProcessed) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then 
-						mainDragging = false
-						sliderDragging = false
-					end end)
-				Main.MouseButton1Down:Connect(function()
-					if opened then
-						mainDragging = true 
-					end
-				end)
-				Main.MainPoint.MouseButton1Down:Connect(function()
-					if opened then
-						mainDragging = true 
-					end
-				end)
-				Slider.MouseButton1Down:Connect(function()
-					sliderDragging = true 
-				end)
-				Slider.SliderPoint.MouseButton1Down:Connect(function()
-					sliderDragging = true 
-				end)
-				local h,s,v = ColorPickerSettings.Color:ToHSV()
-				local color = Color3.fromHSV(h,s,v) 
-				local r,g,b = math.floor((h*255)+0.5),math.floor((s*255)+0.5),math.floor((v*255)+0.5)
-				local hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-				ColorPicker.HexInput.InputBox.Text = hex
-				local function setDisplay(hp,sp,vp)
-					--Main
-					Main.MainPoint.Position = UDim2.new(s,-Main.MainPoint.AbsoluteSize.X/2,1-v,-Main.MainPoint.AbsoluteSize.Y/2)
-					Main.MainPoint.ImageColor3 = Color3.fromHSV(hp,sp,vp)
-					Background.BackgroundColor3 = Color3.fromHSV(hp,1,1)
-					Display.BackgroundColor3 = Color3.fromHSV(hp,sp,vp)
-					--Slider 
-					local x = hp * Slider.AbsoluteSize.X
-					Slider.SliderPoint.Position = UDim2.new(0,x-Slider.SliderPoint.AbsoluteSize.X/2,0.5,0)
-					Slider.SliderPoint.ImageColor3 = Color3.fromHSV(hp,1,1)
-					local color = Color3.fromHSV(hp,sp,vp) 
-					local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					ColorPicker.RInput.InputBox.Text = tostring(r)
-					ColorPicker.GInput.InputBox.Text = tostring(g)
-					ColorPicker.BInput.InputBox.Text = tostring(b)
-					hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-					ColorPicker.HexInput.InputBox.Text = hex
-				end
-				setDisplay(h,s,v)
-				ColorPicker.HexInput.InputBox.FocusLost:Connect(function()
-					if not pcall(function()
-							local r, g, b = string.match(ColorPicker.HexInput.InputBox.Text, "^#?(%w%w)(%w%w)(%w%w)$")
-							local rgbColor = Color3.fromRGB(tonumber(r, 16),tonumber(g, 16), tonumber(b, 16))
-							h,s,v = rgbColor:ToHSV()
-							hex = ColorPicker.HexInput.InputBox.Text
-							setDisplay()
-							ColorPickerSettings.Color = rgbColor
-						end) 
-					then 
-						ColorPicker.HexInput.InputBox.Text = hex 
-					end
-					local r,g,b = math.floor((h*255)+0.5),math.floor((s*255)+0.5),math.floor((v*255)+0.5)
-					ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-					SafeCallback( Color3.fromRGB(r,g,b))
-				end)
-				--RGB
-				local function rgbBoxes(box,toChange)
-					local value = tonumber(box.Text) 
-					local color = Color3.fromHSV(h,s,v) 
-					local oldR,oldG,oldB = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					local save 
-					if toChange == "R" then save = oldR;oldR = value elseif toChange == "G" then save = oldG;oldG = value else save = oldB;oldB = value end
-					if value then 
-						value = math.clamp(value,0,255)
-						h,s,v = Color3.fromRGB(oldR,oldG,oldB):ToHSV()
-						setDisplay()
-					else 
-						box.Text = tostring(save)
-					end
-					local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-				end
-				ColorPicker.RInput.InputBox.FocusLost:connect(function()
-					rgbBoxes(ColorPicker.RInput.InputBox,"R")
-					SafeCallback(Color3.fromRGB(r,g,b))
-				end)
-				ColorPicker.GInput.InputBox.FocusLost:connect(function()
-					rgbBoxes(ColorPicker.GInput.InputBox,"G")
-					SafeCallback(Color3.fromRGB(r,g,b))
-				end)
-				ColorPicker.BInput.InputBox.FocusLost:connect(function()
-					rgbBoxes(ColorPicker.BInput.InputBox,"B")
-					SafeCallback(Color3.fromRGB(r,g,b))
-				end)
-				RunService.RenderStepped:connect(function()
-					if mainDragging then 
-						local localX = math.clamp(mouse.X-Main.AbsolutePosition.X,0,Main.AbsoluteSize.X)
-						local localY = math.clamp(mouse.Y-Main.AbsolutePosition.Y,0,Main.AbsoluteSize.Y)
-						Main.MainPoint.Position = UDim2.new(0,localX-Main.MainPoint.AbsoluteSize.X/2,0,localY-Main.MainPoint.AbsoluteSize.Y/2)
-						s = localX / Main.AbsoluteSize.X
-						v = 1 - (localY / Main.AbsoluteSize.Y)
-						Display.BackgroundColor3 = Color3.fromHSV(h,s,v)
-						Main.MainPoint.ImageColor3 = Color3.fromHSV(h,s,v)
-						Background.BackgroundColor3 = Color3.fromHSV(h,1,1)
-						local color = Color3.fromHSV(h,s,v) 
-						local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-						ColorPicker.RInput.InputBox.Text = tostring(r)
-						ColorPicker.GInput.InputBox.Text = tostring(g)
-						ColorPicker.BInput.InputBox.Text = tostring(b)
-						ColorPicker.HexInput.InputBox.Text = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-						SafeCallback(Color3.fromRGB(r,g,b))
-						ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-						ColorPickerV.Color = ColorPickerSettings.Color
-					end
-					if sliderDragging then 
-						local localX = math.clamp(mouse.X-Slider.AbsolutePosition.X,0,Slider.AbsoluteSize.X)
-						h = localX / Slider.AbsoluteSize.X
-						Display.BackgroundColor3 = Color3.fromHSV(h,s,v)
-						Slider.SliderPoint.Position = UDim2.new(0,localX-Slider.SliderPoint.AbsoluteSize.X/2,0.5,0)
-						Slider.SliderPoint.ImageColor3 = Color3.fromHSV(h,1,1)
-						Background.BackgroundColor3 = Color3.fromHSV(h,1,1)
-						Main.MainPoint.ImageColor3 = Color3.fromHSV(h,s,v)
-						local color = Color3.fromHSV(h,s,v) 
-						local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-						ColorPicker.RInput.InputBox.Text = tostring(r)
-						ColorPicker.GInput.InputBox.Text = tostring(g)
-						ColorPicker.BInput.InputBox.Text = tostring(b)
-						ColorPicker.HexInput.InputBox.Text = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-						SafeCallback(Color3.fromRGB(r,g,b))
-						ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-						ColorPickerV.Color = ColorPickerSettings.Color
-					end
-				end)
-
-				function ColorPickerV:Set(NewColorPickerSettings)
-
-					NewColorPickerSettings = Kwargify(ColorPickerSettings, NewColorPickerSettings or {})
-
-					ColorPickerV.Settings = NewColorPickerSettings
-					ColorPickerSettings = NewColorPickerSettings
-
-					ColorPicker.Name = ColorPickerSettings.Name
-					ColorPicker.Title.Text = ColorPickerSettings.Name
-					ColorPicker.Visible = true
-
-					local h,s,v = ColorPickerSettings.Color:ToHSV()
-					local color = Color3.fromHSV(h,s,v) 
-					local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					local hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-					ColorPicker.HexInput.InputBox.Text = hex
-					setDisplay(h,s,v)
-					SafeCallback(Color3.fromRGB(r,g,b))
-
-					ColorPickerV.Color = ColorPickerSettings.Color
-				end
-
-				function ColorPickerV:Destroy()
-					ColorPicker:Destroy()
-				end
-
-				if Flag then
-					Luna.Options[Flag] = ColorPickerV
-				end
-
-				SafeCallback(ColorPickerSettings.Color)
-
-				return ColorPickerV
-			end
-
-			return Section
-
-		end
-
-		-- Divider
-		function Tab:CreateDivider()
-			local b = Elements.Template.Divider:Clone()
-			b.Parent = TabPage
-			b.Line.BackgroundTransparency = 1
-			tween(b.Line, {BackgroundTransparency = 0})
-		end
-
-		-- Button
-		function Tab:CreateButton(ButtonSettings)
-
-			ButtonSettings = Kwargify({
-				Name = "Button",
-				Description = nil,
-				Callback = function()
-
-				end,
-			}, ButtonSettings or {})
-
-			local ButtonV = {
-				Hover = false,
-				Settings = ButtonSettings
-			}
-
-
-			local Button
-			if ButtonSettings.Description == nil and ButtonSettings.Description ~= "" then
-				Button = Elements.Template.Button:Clone()
-			else
-				Button = Elements.Template.ButtonDesc:Clone()
-			end
-			Button.Name = ButtonSettings.Name
-			Button.Title.Text = ButtonSettings.Name
-			if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-				Button.Desc.Text = ButtonSettings.Description
-			end
-			Button.Visible = true
-			Button.Parent = TabPage
-
-			Button.UIStroke.Transparency = 1
-			Button.Title.TextTransparency = 1
-			if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-				Button.Desc.TextTransparency = 1
-			end
-
-			TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Button.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-			if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" then
-				TweenService:Create(Button.Desc, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-			end
-
-			Button.Interact["MouseButton1Click"]:Connect(function()
-				local Success,Response = pcall(ButtonSettings.Callback)
-
-				if not Success then
-					TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					Button.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..ButtonSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Button.Title.Text = ButtonSettings.Name
-					TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Button, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(Button.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				else
-					tween(Button.UIStroke, {Color = Color3.fromRGB(136, 131, 163)})
-					wait(0.2)
-					if ButtonV.Hover then
-						tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-					else
-						tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-					end
-				end
-			end)
-
-			Button["MouseEnter"]:Connect(function()
-				ButtonV.Hover = true
-				tween(Button.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Button["MouseLeave"]:Connect(function()
-				ButtonV.Hover = false
-				tween(Button.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-			function ButtonV:Set(ButtonSettings2)
-				ButtonSettings2 = Kwargify({
-					Name = ButtonSettings.Name,
-					Description = ButtonSettings.Description,
-					Callback = ButtonSettings.Callback
-				}, ButtonSettings2 or {})
-
-				ButtonSettings = ButtonSettings2
-				ButtonV.Settings = ButtonSettings2
-
-				Button.Name = ButtonSettings.Name
-				Button.Title.Text = ButtonSettings.Name
-				if ButtonSettings.Description ~= nil and ButtonSettings.Description ~= "" and Button.Desc ~= nil then
-					Button.Desc.Text = ButtonSettings.Description
-				end
-			end
-
-			function ButtonV:Destroy()
-				Button.Visible = false
-				Button:Destroy()
-			end
-
-			return ButtonV
-		end
-
-		-- Label
-		function Tab:CreateLabel(LabelSettings)
-
-			local LabelV = {}
-
-			LabelSettings = Kwargify({
-				Text = "Label",
-				Style = 1
-			}, LabelSettings or {}) 
-
-			LabelV.Settings = LabelSettings
-
-			local Label
-			if LabelSettings.Style == 1 then
-				Label = Elements.Template.Label:Clone()
-			elseif LabelSettings.Style == 2 then
-				Label = Elements.Template.Info:Clone()
-			elseif LabelSettings.Style == 3 then
-				Label = Elements.Template.Warn:Clone()
-			end
-
-			Label.Text.Text = LabelSettings.Text
-			Label.Visible = true
-			Label.Parent = TabPage
-
-			Label.BackgroundTransparency = 1
-			Label.UIStroke.Transparency = 1
-			Label.Text.TextTransparency = 1
-
-			if LabelSettings.Style ~= 1 then
-				TweenService:Create(Label, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.8}):Play()
-			else
-				TweenService:Create(Label, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-			end
-			TweenService:Create(Label.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Label.Text, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-			function LabelV:Set(NewLabel)
-				LabelSettings.Text = NewLabel
-				LabelV.Settings = LabelSettings
-				Label.Text.Text = NewLabel
-			end
-
-			function LabelV:Destroy()
-				Label.Visible = false
-				Label:Destroy()
-			end
-
-			return LabelV
-		end
-
-		-- Paragraph
-		function Tab:CreateParagraph(ParagraphSettings)
-
-			ParagraphSettings = Kwargify({
-				Title = "Paragraph",
-				Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis lacus sed tempus eleifend. Mauris interdum bibendum felis, in tempor augue egestas vel. Praesent tristique consectetur ex, eu pretium sem placerat non. Vestibulum a nisi sit amet augue facilisis consectetur sit amet et nunc. Integer fermentum ornare cursus. Pellentesque sed ultricies metus, ut egestas metus. Vivamus auctor erat ac sapien vulputate, nec ultricies sem tempor. Quisque leo lorem, faucibus nec pulvinar nec, congue eu velit. Duis sodales massa efficitur imperdiet ultrices. Donec eros ipsum, ornare pharetra purus aliquam, tincidunt elementum nisi. Ut mi tortor, feugiat eget nunc vitae, facilisis interdum dui. Vivamus ullamcorper nunc dui, a dapibus nisi pretium ac. Integer eleifend placerat nibh, maximus malesuada tellus. Cras in justo in ligula scelerisque suscipit vel vitae quam."
-			}, ParagraphSettings or {})
-
-			local ParagraphV = {
-				Settings = ParagraphSettings
-			}
-
-			local Paragraph = Elements.Template.Paragraph:Clone()
-			Paragraph.Title.Text = ParagraphSettings.Title
-			Paragraph.Text.Text = ParagraphSettings.Text
-			Paragraph.Visible = true
-			Paragraph.Parent = TabPage
-
-			Paragraph.BackgroundTransparency = 1
-			Paragraph.UIStroke.Transparency = 1
-			Paragraph.Title.TextTransparency = 1
-			Paragraph.Text.TextTransparency = 1
-
-			TweenService:Create(Paragraph, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-			TweenService:Create(Paragraph.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Paragraph.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-			TweenService:Create(Paragraph.Text, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-			function ParagraphV:Update()
-				Paragraph.Text.Size = UDim2.new(Paragraph.Text.Size.X.Scale, Paragraph.Text.Size.X.Offset, 0, math.huge)
-				Paragraph.Text.Size = UDim2.new(Paragraph.Text.Size.X.Scale, Paragraph.Text.Size.X.Offset, 0, Paragraph.Text.TextBounds.Y)
-				tween(Paragraph, {Size = UDim2.new(Paragraph.Size.X.Scale, Paragraph.Size.X.Offset, 0, Paragraph.Text.TextBounds.Y + 40)})
-			end
-
-			function ParagraphV:Set(NewParagraphSettings)
-
-				NewParagraphSettings = Kwargify({
-					Title = ParagraphSettings.Title,
-					Text = ParagraphSettings.Text
-				}, NewParagraphSettings or {})
-
-				ParagraphV.Settings = NewParagraphSettings
-
-				Paragraph.Title.Text = NewParagraphSettings.Title
-				Paragraph.Text.Text = NewParagraphSettings.Text
-
-				ParagraphV:Update()
-
-			end
-
-			function ParagraphV:Destroy()
-				Paragraph.Visible = false
-				Paragraph:Destroy()
-			end
-
-			ParagraphV:Update()
-
-			return ParagraphV
-		end
-
-		-- Slider
-		function Tab:CreateSlider(SliderSettings, Flag)
-			local SliderV = { IgnoreConfig = false, Class = "Slider", Settings = SliderSettings }
-
-			SliderSettings = Kwargify({
-				Name = "Slider",
-				Range = {0, 200},
-				Increment = 1,
-				CurrentValue = 100,
-				Callback = function(Value)
-
-				end,
-			}, SliderSettings or {})
-
-			local SLDragging = false
-			local Slider = Elements.Template.Slider:Clone()
-			local SliderMain = Slider:FindFirstChild("Main")
-			if not SliderMain then
-				for _, child in ipairs(Slider:GetChildren()) do
-					if child:IsA("GuiObject") and child:FindFirstChild("Progress") then
-						SliderMain = child
-						break
-					end
-				end
-			end
-			if not SliderMain then
-				return SliderV
-			end
-			Slider.Name = SliderSettings.Name .. " - Slider"
-			Slider.Title.Text = SliderSettings.Name
-			Slider.Visible = true
-			Slider.Parent = TabPage
-
-			Slider.BackgroundTransparency = 1
-			Slider.UIStroke.Transparency = 1
-			Slider.Title.TextTransparency = 1
-
-			TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Slider.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-			SliderMain.Progress.Size =	UDim2.new(0, SliderMain.AbsoluteSize.X * ((SliderSettings.CurrentValue + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (SliderSettings.CurrentValue / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)
-
-			Slider.Value.Text = tostring(SliderSettings.CurrentValue)
-			SliderV.CurrentValue = Slider.Value.Text
-
-			SliderSettings.Callback(SliderSettings.CurrentValue)
-
-			Slider["MouseEnter"]:Connect(function()
-				tween(Slider.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Slider["MouseLeave"]:Connect(function()
-				tween(Slider.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-			Slider.Interact.InputBegan:Connect(function(Input)
-				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then 
-					SLDragging = true 
-				end 
-			end)
-
-			Slider.Interact.InputEnded:Connect(function(Input) 
-				if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then 
-					SLDragging = false 
-				end 
-			end)
-
-			Slider.Interact.MouseButton1Down:Connect(function()
-				local Current = SliderMain.Progress.AbsolutePosition.X + SliderMain.Progress.AbsoluteSize.X
-				local Start = Current
-				local Location
-				local Loop; Loop = RunService.Stepped:Connect(function()
-					if SLDragging then
-						Location = UserInputService:GetMouseLocation().X
-						Current = Current + 0.025 * (Location - Start)
-
-						if Location < SliderMain.AbsolutePosition.X then
-							Location = SliderMain.AbsolutePosition.X
-						elseif Location > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
-							Location = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
-						end
-
-						if Current < SliderMain.AbsolutePosition.X + 5 then
-							Current = SliderMain.AbsolutePosition.X + 5
-						elseif Current > SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X then
-							Current = SliderMain.AbsolutePosition.X + SliderMain.AbsoluteSize.X
-						end
-
-						if Current <= Location and (Location - Start) < 0 then
-							Start = Location
-						elseif Current >= Location and (Location - Start) > 0 then
-							Start = Location
-						end
-						SliderMain.Progress.Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X, 1, 0)
-						local NewValue = SliderSettings.Range[1] + (Location - SliderMain.AbsolutePosition.X) / SliderMain.AbsoluteSize.X * (SliderSettings.Range[2] - SliderSettings.Range[1])
-
-						NewValue = math.floor(NewValue / SliderSettings.Increment + 0.5) * (SliderSettings.Increment * 10000000) / 10000000
-
-						Slider.Value.Text = tostring(NewValue)
-
-						if SliderSettings.CurrentValue ~= NewValue then
-							local Success, Response = pcall(function()
-								SliderSettings.Callback(NewValue)
-							end)
-							if not Success then
-								TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-								TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-								TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-								Slider.Title.Text = "Callback Error"
-								print("Luna Interface Suite | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-								wait(0.5)
-								Slider.Title.Text = SliderSettings.Name
-								TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-								TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-								TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-							end
-
-							SliderSettings.CurrentValue = NewValue
-							SliderV.CurrentValue = SliderSettings.CurrentValue
-							-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-						end
-					else
-						TweenService:Create(SliderMain.Progress, TweenInfo.new(0.1, Enum.EasingStyle.Back, Enum.EasingDirection.In, 0, false), {Size = UDim2.new(0, Location - SliderMain.AbsolutePosition.X > 5 and Location - SliderMain.AbsolutePosition.X or 5, 1, 0)}):Play()
-						Loop:Disconnect()
-					end
-				end)
-			end)
-
-			local function Set(NewVal, bleh)
-
-				NewVal = NewVal or SliderSettings.CurrentValue
-
-				TweenService:Create(SliderMain.Progress, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = UDim2.new(0, SliderMain.AbsoluteSize.X * ((NewVal + SliderSettings.Range[1]) / (SliderSettings.Range[2] - SliderSettings.Range[1])) > 5 and SliderMain.AbsoluteSize.X * (NewVal / (SliderSettings.Range[2] - SliderSettings.Range[1])) or 5, 1, 0)}):Play()
-				if not bleh then Slider.Value.Text = tostring(NewVal) end
-				local Success, Response = pcall(function()
-					SliderSettings.Callback(NewVal)
-				end)
-				if not Success then
-					TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					Slider.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..SliderSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Slider.Title.Text = SliderSettings.Name
-					TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Slider, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(30, 33, 40)}):Play()
-					TweenService:Create(Slider.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-
-				SliderSettings.CurrentValue = NewVal
-				SliderV.CurrentValue = SliderSettings.CurrentValue
-				-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-
-			end
-
-			function SliderV:UpdateValue(Value)
-				Set(tonumber(Value))
-			end 
-
-			Slider.Value:GetPropertyChangedSignal("Text"):Connect(function()
-				local text = Slider.Value.Text
-				if not tonumber(text) and text ~= "." then
-					Slider.Value.Text = text:match("[0-9.]*") or ""
-				end
-				if SliderSettings.Range[2] < (tonumber(Slider.Value.Text) or 0) then Slider.Value.Text = SliderSettings.Range[2] end
-				Slider.Value.Size = UDim2.fromOffset(Slider.Value.TextBounds.X, 23)
-				Set(tonumber(Slider.Value.Text), true)
-			end)
-
-			function SliderV:Set(NewSliderSettings)
-				NewSliderSettings = Kwargify({
-					Name = SliderSettings.Name,
-					Range = SliderSettings.Range,
-					Increment = SliderSettings.Increment,
-					CurrentValue = SliderSettings.CurrentValue,
-					Callback = SliderSettings.Callback
-				}, NewSliderSettings or {})
-
-				SliderSettings = NewSliderSettings
-				SliderV.Settings = NewSliderSettings
-
-				Slider.Name = SliderSettings.Name .. " - Slider"
-				Slider.Title.Text = SliderSettings.Name
-
-				Set()
-
-				-- Luna.Flags[SliderSettings.Flag] = SliderSettings
-			end
-
-			function SliderV:Destroy()
-				Slider.Visible = false
-				Slider:Destroy()
-			end
-
-			if Flag then
-				Luna.Options[Flag] = SliderV
-			end
-
-			if Slider:FindFirstChild("Main") then
-				LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-					local main = Slider:FindFirstChild("Main")
-					local color = main and main:FindFirstChild("color")
-					local stroke = main and main:FindFirstChild("UIStroke")
-					if color then color.Color = Luna.ThemeGradient end
-					if stroke then
-						local strokeColor = stroke:FindFirstChild("color")
-						if strokeColor then strokeColor.Color = Luna.ThemeGradient end
-					end
-				end)
-			end
-
-			return SliderV
-
-		end
-
-		-- Toggle
-		function Tab:CreateToggle(ToggleSettings, Flag)    
-			local ToggleV = { IgnoreConfig = false, Class = "Toggle" }
-
-			ToggleSettings = Kwargify({
-				Name = "Toggle",
-				Description = nil,
-				CurrentValue = false,
-				Callback = function(Value)
-				end,
-			}, ToggleSettings or {})
-
-
-			local Toggle
-
-			if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-				Toggle = Elements.Template.ToggleDesc:Clone()
-			else
-				Toggle = Elements.Template.Toggle:Clone()
-			end
-
-			Toggle.Visible = true
-			Toggle.Parent = TabPage
-
-			Toggle.Name = ToggleSettings.Name .. " - Toggle"
-			Toggle.Title.Text = ToggleSettings.Name
-			if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-				Toggle.Desc.Text = ToggleSettings.Description
-			end
-
-			Toggle.UIStroke.Transparency = 1
-			Toggle.Title.TextTransparency = 1
-			if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-				Toggle.Desc.TextTransparency = 1
-			end
-
-			TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" then
-				TweenService:Create(Toggle.Desc, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-			end
-			TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Toggle.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-
-			local function Set(bool)
-				if bool then
-					Toggle.toggle.color.Enabled = true
-					tween(Toggle.toggle, {BackgroundTransparency = 0})
-
-					Toggle.toggle.UIStroke.color.Enabled = true
-					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(0)
-					tween(Toggle.toggle.UIStroke, {Color = Color3.new(255,255,255)})
-
-					tween(Toggle.toggle.val, {BackgroundColor3 = Color3.fromRGB(255,255,255), Position = UDim2.new(1,-23,0.5,0), BackgroundTransparency = 0.45})
-				else
-					Toggle.toggle.color.Enabled = false
-					Toggle.toggle.UIStroke.color.Enabled = false
-					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
-
-					local themeAccent = Luna.ThemeGradient.Keypoints[2].Value
-					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
-					Toggle.toggle.val.BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4)
-
-					tween(Toggle.toggle, {BackgroundTransparency = 1})
-
-					tween(Toggle.toggle.val, {BackgroundColor3 = themeAccent:Lerp(Color3.new(0,0,0), 0.4), Position = UDim2.new(0,5,0.5,0), BackgroundTransparency = 0})
-				end
-
-				ToggleV.CurrentValue = bool
-			end
-
-			Toggle.Interact.MouseButton1Click:Connect(function()
-				ToggleSettings.CurrentValue = not ToggleSettings.CurrentValue
-				Set(ToggleSettings.CurrentValue)
-
-				local Success, Response = pcall(function()
-					ToggleSettings.Callback(ToggleSettings.CurrentValue)
-				end)
-				if not Success then
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					Toggle.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Toggle.Title.Text = ToggleSettings.Name
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-			end)
-
-			Toggle["MouseEnter"]:Connect(function()
-				tween(Toggle.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Toggle["MouseLeave"]:Connect(function()
-				tween(Toggle.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-			if ToggleSettings.CurrentValue then
-				Set(ToggleSettings.CurrentValue)
-				local Success, Response = pcall(function()
-					ToggleSettings.Callback(ToggleSettings.CurrentValue)
-				end)
-				if not Success then
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					Toggle.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Toggle.Title.Text = ToggleSettings.Name
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-			end
-
-			function ToggleV:UpdateState(State)
-				ToggleSettings.CurrentValue = State
-				Set(ToggleSettings.CurrentValue)
-			end
-
-			function ToggleV:Set(NewToggleSettings)
-
-				NewToggleSettings = Kwargify({
-					Name = ToggleSettings.Name,
-					Description = ToggleSettings.Description,
-					CurrentValue = ToggleSettings.CurrentValue,
-					Callback = ToggleSettings.Callback
-				}, NewToggleSettings or {})
-
-				ToggleV.Settings = NewToggleSettings
-				ToggleSettings = NewToggleSettings
-
-				Toggle.Name = ToggleSettings.Name .. " - Toggle"
-				Toggle.Title.Text = ToggleSettings.Name
-				if ToggleSettings.Description ~= nil and ToggleSettings.Description ~= "" and Toggle.Desc ~= nil then
-					Toggle.Desc.Text = ToggleSettings.Description
-				end
-
-				Set(ToggleSettings.CurrentValue)
-
-				ToggleV.CurrentValue = ToggleSettings.CurrentValue
-
-				local Success, Response = pcall(function()
-					ToggleSettings.Callback(ToggleSettings.CurrentValue)
-				end)
-				if not Success then
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
-					Toggle.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..ToggleSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Toggle.Title.Text = ToggleSettings.Name
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Toggle, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-			end
-
-			function ToggleV:Destroy()
-				Toggle.Visible = false
-				Toggle:Destroy()
-			end
-
-			LunaUI.ThemeRemote:GetPropertyChangedSignal("Value"):Connect(function()
-				if ToggleSettings.CurrentValue then
-					Toggle.toggle.color.Color = Luna.ThemeGradient
-					Toggle.toggle.UIStroke.color.Color = Luna.ThemeGradient
-				else
-					Toggle.toggle.color.Enabled = false
-					Toggle.toggle.UIStroke.color.Enabled = false
-					Toggle.toggle.UIStroke.color.Transparency = NumberSequence.new(1)
-					Toggle.toggle.UIStroke.Color = Luna.ThemeGradient.Keypoints[1].Value
-					Toggle.toggle.val.BackgroundColor3 = Luna.ThemeGradient.Keypoints[2].Value:Lerp(Color3.new(0,0,0), 0.4)
-				end
-			end)
-
-			if Flag then
-				Luna.Options[Flag] = ToggleV
-			end
-
-			return ToggleV
-
-		end
-
-		-- Bind
-		function Tab:CreateBind(BindSettings, Flag)
-			local BindV = { Class = "Keybind", IgnoreConfig = false, Settings = BindSettings, Active = false }
-
-			BindSettings = Kwargify({
-				Name = "Bind",
-				Description = nil,
-				CurrentBind = "Q",
-				HoldToInteract = false, -- setting this makes the Bind in toggle mode
-				Callback = function(Bind)
-					-- The function that takes place when the Bind is pressed
-					-- The variable (Bind) is a boolean for whether the Bind is being held or not (HoldToInteract needs to be true) or whether the Bind is currently active
-				end,
-
-				OnChangedCallback = function(Bind)
-					-- The function that takes place when the binded key changes
-					-- The variable (Bind) is a Enum.KeyCode for the new Binded Key
-				end,
-			}, BindSettings or {})
-
-			local CheckingForKey = false
-
-			local Bind
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind = Elements.Template.BindDesc:Clone()
-			else
-				Bind = Elements.Template.Bind:Clone()
-			end
-
-			Bind.Visible = true
-			Bind.Parent = TabPage
-
-			Bind.Name = BindSettings.Name
-			Bind.Title.Text = BindSettings.Name
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind.Desc.Text = BindSettings.Description
-			end
-
-			Bind.Title.TextTransparency = 1
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind.Desc.TextTransparency = 1
-			end
-			Bind.BindFrame.BackgroundTransparency = 1
-			Bind.BindFrame.UIStroke.Transparency = 1
-			Bind.BindFrame.BindBox.TextTransparency = 1
-
-			TweenService:Create(Bind, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			TweenService:Create(Bind.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				TweenService:Create(Bind.Desc, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-			end
-			TweenService:Create(Bind.BindFrame, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.9}):Play()
-			TweenService:Create(Bind.BindFrame.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.3}):Play()
-			TweenService:Create(Bind.BindFrame.BindBox, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-
-			Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-			Bind.BindFrame.BindBox.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 42)
-
-			Bind.BindFrame.BindBox.Focused:Connect(function()
-				CheckingForKey = true
-				Bind.BindFrame.BindBox.Text = ""
-			end)
-
-			Bind.BindFrame.BindBox.FocusLost:Connect(function()
-				CheckingForKey = false
-				if Bind.BindFrame.BindBox.Text == (nil or "") then
-					Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-				end
-			end)
-
-			Bind["MouseEnter"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Bind["MouseLeave"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-			UserInputService.InputBegan:Connect(function(input, processed)
-
-				if CheckingForKey then
-					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Window.Bind then
-						local SplitMessage = string.split(tostring(input.KeyCode), ".")
-						local NewKeyNoEnum = SplitMessage[3]
-						Bind.BindFrame.BindBox.Text = tostring(NewKeyNoEnum)
-						BindSettings.CurrentBind = tostring(NewKeyNoEnum)
-						local Success, Response = pcall(function()
-							BindSettings.OnChangedCallback(BindSettings.CurrentBind)
-						end)
-						if not Success then
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							Bind.Title.Text = "Callback Error"
-							print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-							wait(0.5)
-							Bind.Title.Text = BindSettings.Name
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-						end
-						Bind.BindFrame.BindBox:ReleaseFocus()
-					end
-				elseif BindSettings.CurrentBind ~= nil and (input.KeyCode == Enum.KeyCode[BindSettings.CurrentBind] and not processed) then -- Test
-					local Held = true
-					local Connection
-					Connection = input.Changed:Connect(function(prop)
-						if prop == "UserInputState" then
-							Connection:Disconnect()
-							Held = false
-						end
-					end)
-
-					if not BindSettings.HoldToInteract then
-						BindV.Active = not BindV.Active
-						local Success, Response = pcall(function()
-							BindSettings.Callback(BindV.Active)
-						end)
-						if not Success then
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							Bind.Title.Text = "Callback Error"
-							print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-							wait(0.5)
-							Bind.Title.Text = BindSettings.Name
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-						end
-					else
-						wait(0.1)
-						if Held then
-							local Loop; Loop = RunService.Stepped:Connect(function()
-								if not Held then
-									local Success, Response = pcall(function()
-										BindSettings.Callback(false)
-									end)
-									if not Success then
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-										Bind.Title.Text = "Callback Error"
-										print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-										wait(0.5)
-										Bind.Title.Text = BindSettings.Name
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-									end 
-									Loop:Disconnect()
-								else
-									local Success, Response = pcall(function()
-										BindSettings.Callback(true)
-									end)
-									if not Success then
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-										Bind.Title.Text = "Callback Error"
-										print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-										wait(0.5)
-										Bind.Title.Text = BindSettings.Name
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-									end
-								end
-							end)	
+						for i,v in pairs(Selected) do
+							Tween(Element.Instances.Popup.Content[Selected], {BackgroundTransparency = 0.8})
+							Tween(Element.Instances.Popup.Content[Selected].Header, {TextColor3 = Color3.fromRGB(255,255,255)})
+							Element.Instances.Popup.Content[Selected].Header.Accent.Enabled = true
+							Element.Instances.Popup.Content[Selected].Icon.Accent.Enabled = true
 						end
 					end
-				end
-			end)
 
-			Bind.BindFrame.BindBox:GetPropertyChangedSignal("Text"):Connect(function()
-				TweenService:Create(Bind.BindFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 30)}):Play()
-			end)
-
-			function BindV:Set(NewBindSettings)
-
-				NewBindSettings = Kwargify({
-					Name = BindSettings.Name,
-					Description = BindSettings.Description,
-					CurrentBind =  BindSettings.CurrentBind,
-					HoldToInteract = BindSettings.HoldToInteract,
-					Callback = BindSettings.Callback
-				}, NewBindSettings or {})
-
-				BindV.Settings = NewBindSettings
-				BindSettings = NewBindSettings
-
-				Bind.Name = BindSettings.Name
-				Bind.Title.Text = BindSettings.Name
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" and Bind.Desc ~= nil then
-					Bind.Desc.Text = BindSettings.Description
-				end
-
-				Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-				Bind.BindFrame.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 20, 0, 42)
-
-
-				BindV.CurrentBind = BindSettings.CurrentBind
-			end
-
-			function BindV:Destroy()
-				Bind.Visible = false
-				Bind:Destroy()
-			end
-
-			if Flag then
-				Luna.Options[Flag] = BindV
-			end
-
-			-- Luna.Flags[BindSettings.Flag] = BindSettings
-
-			return BindV
-
-		end
-
-		function Tab:CreateKeybind(BindSettings)
-
-			BindSettings = Kwargify({
-				Name = "Bind",
-				Description = nil,
-				CurrentBind = "Q",
-				HoldToInteract = false, -- setting this makes the Bind in toggle mode
-				Callback = function(Bind)
-					-- The function that takes place when the Bind is pressed
-					-- The variable (Bind) is a boolean for whether the Bind is being held or not (HoldToInteract needs to be true) or whether the Bind is currently active
-				end
-			}, BindSettings or {})
-
-			local BindV = { Settings = BindSettings, Active = false }
-			local CheckingForKey = false
-
-			local Bind
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind = Elements.Template.BindDesc:Clone()
-			else
-				Bind = Elements.Template.Bind:Clone()
-			end
-
-			Bind.Visible = true
-			Bind.Parent = TabPage
-
-			Bind.Name = BindSettings.Name
-			Bind.Title.Text = BindSettings.Name
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind.Desc.Text = BindSettings.Description
-			end
-
-			Bind.Title.TextTransparency = 1
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				Bind.Desc.TextTransparency = 1
-			end
-			Bind.BindFrame.BackgroundTransparency = 1
-			Bind.BindFrame.UIStroke.Transparency = 1
-			Bind.BindFrame.BindBox.TextTransparency = 1
-
-			TweenService:Create(Bind, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			TweenService:Create(Bind.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-			if BindSettings.Description ~= nil and BindSettings.Description ~= "" then
-				TweenService:Create(Bind.Desc, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-			end
-			TweenService:Create(Bind.BindFrame, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.9}):Play()
-			TweenService:Create(Bind.BindFrame.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.3}):Play()
-			TweenService:Create(Bind.BindFrame.BindBox, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-
-			Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-			Bind.BindFrame.BindBox.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 16, 0, 42)
-
-			Bind.BindFrame.BindBox.Focused:Connect(function()
-				CheckingForKey = true
-				Bind.BindFrame.BindBox.Text = ""
-			end)
-
-			Bind.BindFrame.BindBox.FocusLost:Connect(function()
-				CheckingForKey = false
-				if Bind.BindFrame.BindBox.Text == (nil or "") then
-					Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-				end
-			end)
-
-			Bind["MouseEnter"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Bind["MouseLeave"]:Connect(function()
-				tween(Bind.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-			UserInputService.InputBegan:Connect(function(input, processed)
-
-				if CheckingForKey then
-					if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode.K then
-						local SplitMessage = string.split(tostring(input.KeyCode), ".")
-						local NewKeyNoEnum = SplitMessage[3]
-						Bind.BindFrame.BindBox.Text = tostring(NewKeyNoEnum)
-						BindSettings.CurrentBind = tostring(NewKeyNoEnum)
-						Bind.BindFrame.BindBox:ReleaseFocus()
-					end
-				elseif BindSettings.CurrentBind ~= nil and (input.KeyCode == Enum.KeyCode[BindSettings.CurrentBind] and not processed) then -- Test
-					local Held = true
-					local Connection
-					Connection = input.Changed:Connect(function(prop)
-						if prop == "UserInputState" then
-							Connection:Disconnect()
-							Held = false
-						end
-					end)
-
-					if not BindSettings.HoldToInteract then
-						BindV.Active = not BindV.Active
-						local Success, Response = pcall(function()
-							BindSettings.Callback(BindV.Active)
-						end)
-						if not Success then
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							Bind.Title.Text = "Callback Error"
-							print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-							wait(0.5)
-							Bind.Title.Text = BindSettings.Name
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-							TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-							TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-						end
-					else
-						wait(0.1)
-						if Held then
-							local Loop; Loop = RunService.Stepped:Connect(function()
-								if not Held then
-									local Success, Response = pcall(function()
-										BindSettings.Callback(false)
-									end)
-									if not Success then
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-										Bind.Title.Text = "Callback Error"
-										print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-										wait(0.5)
-										Bind.Title.Text = BindSettings.Name
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-									end 
-									Loop:Disconnect()
-								else
-									local Success, Response = pcall(function()
-										BindSettings.Callback(true)
-									end)
-									if not Success then
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-										Bind.Title.Text = "Callback Error"
-										print("Luna Interface Suite | "..BindSettings.Name.." Callback Error " ..tostring(Response))
-										wait(0.5)
-										Bind.Title.Text = BindSettings.Name
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-										TweenService:Create(Bind, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-										TweenService:Create(Bind.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-									end
-								end
-							end)	
+					if ElementSettings.MultipleOptions then
+						if not ElementSettings.CurrentOption and type(ElementSettings.CurrentOption) == "table" then
+							ElementSettings.CurrentOption = {}
 						end
 					end
-				end
-			end)
 
-			Bind.BindFrame.BindBox:GetPropertyChangedSignal("Text"):Connect(function()
-				TweenService:Create(Bind.BindFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 16, 0, 30)}):Play()
-			end)
-
-			function BindV:Set(NewBindSettings)
-
-				NewBindSettings = Kwargify({
-					Name = BindSettings.Name,
-					Description = BindSettings.Description,
-					CurrentBind =  BindSettings.CurrentBind,
-					HoldToInteract = BindSettings.HoldToInteract,
-					Callback = BindSettings.Callback
-				}, NewBindSettings or {})
-
-				BindV.Settings = NewBindSettings
-				BindSettings = NewBindSettings
-
-				Bind.Name = BindSettings.Name
-				Bind.Title.Text = BindSettings.Name
-				if BindSettings.Description ~= nil and BindSettings.Description ~= "" and Bind.Desc ~= nil then
-					Bind.Desc.Text = BindSettings.Description
-				end
-
-				Bind.BindFrame.BindBox.Text = BindSettings.CurrentBind
-				Bind.BindFrame.BindBox.Size = UDim2.new(0, Bind.BindFrame.BindBox.TextBounds.X + 16, 0, 42)
-
-				-- Luna.Flags[BindSettings.Flag] = BindSettings
-
-			end
-
-			function BindV:Destroy()
-				Bind.Visible = false
-				Bind:Destroy()
-			end
-
-			-- Luna.Flags[BindSettings.Flag] = BindSettings
-
-			return BindV
-
-		end
-
-		-- Dynamic Input
-		function Tab:CreateInput(InputSettings, Flag)
-			local InputV = { IgnoreConfig = false, Class = "Input", Settings = InputSettings }
-
-			InputSettings = Kwargify({
-				Name = "Dynamic Input",
-				Description = nil,
-				CurrentValue = "",
-				PlaceholderText = "Input Placeholder",
-				RemoveTextAfterFocusLost = false,
-				Numeric = false,
-				Enter = false,
-				MaxCharacters = nil,
-				Callback = function(Text)
-
-				end, -- 52
-			}, InputSettings or {})
-
-			InputV.CurrentValue = InputSettings.CurrentValue
-
-			local descriptionbool
-			if InputSettings.Description ~= nil and InputSettings.Description ~= "" then
-				descriptionbool = true
-			end
-
-			local Input 
-			if descriptionbool then
-				Input = Elements.Template.InputDesc:Clone()
-			else
-				Input = Elements.Template.Input:Clone()
-			end
-
-			Input.Name = InputSettings.Name
-			Input.Title.Text = InputSettings.Name
-			if descriptionbool then Input.Desc.Text = InputSettings.Description end
-			Input.Visible = true
-			Input.Parent = TabPage
-
-			Input.BackgroundTransparency = 1
-			Input.UIStroke.Transparency = 1
-			Input.Title.TextTransparency = 1
-			if descriptionbool then Input.Desc.TextTransparency = 1 end
-			Input.InputFrame.BackgroundTransparency = 1
-			Input.InputFrame.UIStroke.Transparency = 1
-			Input.InputFrame.InputBox.TextTransparency = 1
-
-			TweenService:Create(Input, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-			TweenService:Create(Input.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-			TweenService:Create(Input.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
-			if descriptionbool then TweenService:Create(Input.Desc, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play() end
-			TweenService:Create(Input.InputFrame, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.9}):Play()
-			TweenService:Create(Input.InputFrame.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.3}):Play()
-			TweenService:Create(Input.InputFrame.InputBox, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-
-			Input.InputFrame.InputBox.PlaceholderText = InputSettings.PlaceholderText
-			Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 30)
-
-			Input.InputFrame.InputBox.FocusLost:Connect(function(bleh)
-
-				if InputSettings.Enter then
-					if bleh then
-						local Success, Response = pcall(function()
-							InputSettings.Callback(Input.InputFrame.InputBox.Text)
-							InputV.CurrentValue = Input.InputFrame.InputBox.Text
-						end)
-						if not Success then
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-							TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							Input.Title.Text = "Callback Error"
-							print("Luna Interface Suite | "..InputSettings.Name.." Callback Error " ..tostring(Response))
-							wait(0.5)
-							Input.Title.Text = InputSettings.Name
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-							TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-							TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-						end
-					end
-				end
-
-				if InputSettings.RemoveTextAfterFocusLost then
-					Input.InputFrame.InputBox.Text = ""
-				end
-
-			end)
-
-			if InputSettings.Numeric then
-				Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
-					local text = Input.InputFrame.InputBox.Text
-					if not tonumber(text) and text ~= "." then
-						Input.InputFrame.InputBox.Text = text:match("[0-9.]*") or ""
-					end
-				end)
-			end
-
-			Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
-				if tonumber(InputSettings.MaxCharacters) then
-					if (#Input.InputFrame.InputBox.Text - 1) == InputSettings.MaxCharacters then
-						Input.InputFrame.InputBox.Text = Input.InputFrame.InputBox.Text:sub(1, InputSettings.MaxCharacters)
-					end
-				end
-				TweenService:Create(Input.InputFrame, TweenInfo.new(0.55, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 30)}):Play()
-				if not InputSettings.Enter then
-					local Success, Response = pcall(function()
-						InputSettings.Callback(Input.InputFrame.InputBox.Text)
-					end)
-					if not Success then
-						TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-						TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-						TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-						Input.Title.Text = "Callback Error"
-						print("Luna Interface Suite | "..InputSettings.Name.." Callback Error " ..tostring(Response))
-						wait(0.5)
-						Input.Title.Text = InputSettings.Name
-						TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-						TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-						TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-					end
-				end
-				InputV.CurrentValue = Input.InputFrame.InputBox.Text				
-			end)
-
-			Input["MouseEnter"]:Connect(function()
-				tween(Input.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Input["MouseLeave"]:Connect(function()
-				tween(Input.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-
-			function InputV:Set(NewInputSettings)
-
-				NewInputSettings = Kwargify(InputSettings, NewInputSettings or {})
-
-				InputV.Settings = NewInputSettings
-				InputSettings = NewInputSettings
-
-				Input.Name = InputSettings.Name
-				Input.Title.Text = InputSettings.Name
-				if InputSettings.Description ~= nil and InputSettings.Description ~= "" and Input.Desc ~= nil then
-					Input.Desc.Text = InputSettings.Description
-				end
-
-				Input.InputFrame.InputBox:CaptureFocus()
-				Input.InputFrame.InputBox.Text = tostring(InputSettings.CurrentValue)
-				Input.InputFrame.InputBox:ReleaseFocus()
-				Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 52, 0, 42)
-
-				InputV.CurrentValue = InputSettings.CurrentValue
-			end
-
-			function InputV:Destroy()
-				Input.Visible = false
-				Input:Destroy()
-			end
-
-			if Flag then
-				Luna.Options[Flag] = InputV
-			end
-
-
-			return InputV
-
-		end
-
-		-- Dropdown
-		function Tab:CreateDropdown(DropdownSettings, Flag)
-			local DropdownV = { IgnoreConfig = false, Class = "Dropdown", Settings = DropdownSettings}
-
-			DropdownSettings = Kwargify({
-				Name = "Dropdown",
-				Description = nil,
-				Options = {"Option 1", "Option 2"},
-				CurrentOption = {"Option 1"},
-				MultipleOptions = false,
-				SpecialType = nil, -- currently onl player, might add more soon
-				Callback = function(Options)
-					-- The function that takes place when the selected option is changed
-					-- The variable (Options) is a table of strings for the current selected options or a string if multioptions is false
-				end,
-			}, DropdownSettings or {})
-
-			DropdownV.CurrentOption = DropdownSettings.CurrentOption
-
-			local descriptionbool = false
-			if DropdownSettings.Description ~= nil and DropdownSettings.Description ~= "" then
-				descriptionbool = true
-			end
-			local closedsize
-			local openedsize
-			if descriptionbool then
-				closedsize = 48
-				openedsize = 170
-			elseif not descriptionbool then
-				closedsize = 38
-				openedsize = 160
-			end
-			local opened = false
-
-			local Dropdown
-			if descriptionbool then Dropdown = Elements.Template.DropdownDesc:Clone() else Dropdown = Elements.Template.Dropdown:Clone() end
-
-			Dropdown.Name = DropdownSettings.Name
-			Dropdown.Title.Text = DropdownSettings.Name
-			if descriptionbool then Dropdown.Desc.Text = DropdownSettings.Description end
-
-			Dropdown.Parent = TabPage
-			Dropdown.Visible = true
-
-			local function Toggle()
-				opened = not opened
-				if opened then
-					tween(Dropdown.icon, {Rotation = 180})
-					tween(Dropdown, {Size = UDim2.new(1, -25, 0, openedsize)})
-				else
-					tween(Dropdown.icon, {Rotation = 0})
-					tween(Dropdown, {Size = UDim2.new(1, -25, 0, closedsize)})
-				end
-			end
-
-			local function SafeCallback(param, c2)
-				local Success, Response = pcall(function()
-					DropdownSettings.Callback(param)
-				end)
-				if not Success then
-					TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					Dropdown.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..DropdownSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					Dropdown.Title.Text = DropdownSettings.Name
-					TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(Dropdown, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-				if Success and c2 then
-					c2()
-				end
-			end
-
-			-- fixed by justhey
-			Dropdown.Selected:GetPropertyChangedSignal("Text"):Connect(function()
-				local text = Dropdown.Selected.Text:lower()
-				for _, Item in ipairs(Dropdown.List:GetChildren()) do
-					if Item:IsA("TextLabel") and Item.Name ~= "Template" then
-						Item.Visible = text == "" or string.find(Item.Name:lower(), text, 1, true) ~= nil
-					end
-				end
-			end)
-
-
-			local function Clear()
-				for _, option in ipairs(Dropdown.List:GetChildren()) do
-					if option.ClassName == "TextLabel" and option.Name ~= "Template" then
-						option:Destroy()
-					end
-				end
-			end
-
-			local function ActivateColorSingle(name)
-				for _, Option in pairs(Dropdown.List:GetChildren()) do
-					if Option.ClassName == "TextLabel" and Option.Name ~= "Template" then
-						tween(Option, {BackgroundTransparency = 0.98})
-					end
-				end
-
-				Toggle()
-				tween(Dropdown.List[name], {BackgroundTransparency = 0.95, TextColor3 = Color3.fromRGB(240,240,240)})
-			end
-
-			local function Refresh()
-				Clear()
-				for i,v in pairs(DropdownSettings.Options) do
-					local Option = Dropdown.List.Template:Clone()
-					local optionhover = false
-					Option.Text = v
-					if v == "Template" then v = "Template (Name)" end
-					Option.Name = v
-					Option.Interact.MouseButton1Click:Connect(function()
-						local bleh
-						if DropdownSettings.MultipleOptions then
-							if table.find(DropdownSettings.CurrentOption, v) then
-								RemoveTable(DropdownSettings.CurrentOption, v)
-								DropdownV.CurrentOption = DropdownSettings.CurrentOption
-								if not optionhover then
-									tween(Option, {TextColor3 = Color3.fromRGB(200,200,200)})
-								end
-								tween(Option, {BackgroundTransparency = 0.98})
-							else
-								table.insert(DropdownSettings.CurrentOption, v)
-								DropdownV.CurrentOption = DropdownSettings.CurrentOption
-								tween(Option, {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-							end
-							bleh = DropdownSettings.CurrentOption
-						else
-							DropdownSettings.CurrentOption = {v}
-							bleh = v
-							DropdownV.CurrentOption = bleh
-							ActivateColorSingle(v)
-						end
-
-						SafeCallback(bleh, function()
-							if DropdownSettings.MultipleOptions then
-								if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-									if #DropdownSettings.CurrentOption == 1 then
-										Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-									elseif #DropdownSettings.CurrentOption == 0 then
-										Dropdown.Selected.PlaceholderText = "None"
-									else
-										Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-									end
-								else
-									DropdownSettings.CurrentOption = {}
-									Dropdown.Selected.PlaceholderText = "None"
-								end
-							end
-							if not DropdownSettings.MultipleOptions then
-								Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-							end
-							Dropdown.Selected.Text = ""
-						end)
-					end)
-					Option.Visible = true
-					Option.Parent = Dropdown.List
-					Option.MouseEnter:Connect(function()
-						optionhover = true
-						if Option.BackgroundTransparency == 0.95 then
-							return
-						else
-							tween(Option, {TextColor3 = Color3.fromRGB(240,240,240)})
-						end
-					end)
-					Option.MouseLeave:Connect(function()
-						optionhover = false
-						if Option.BackgroundTransparency == 0.95 then
-							return
-						else
-							tween(Option, {TextColor3 = Color3.fromRGB(200,200,200)})
-						end
-					end)	
-				end
-			end
-
-			local function PlayerTableRefresh()
-				for i,v in pairs(DropdownSettings.Options) do
-					table.remove(DropdownSettings.Options, i)
-				end
-
-				for i,v in pairs(Players:GetChildren()) do
-					table.insert(DropdownSettings.Options, v.Name)
-				end
-			end
-
-			Dropdown.Interact.MouseButton1Click:Connect(function()
-				Toggle()
-			end)
-
-			Dropdown["MouseEnter"]:Connect(function()
-				tween(Dropdown.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-
-			Dropdown["MouseLeave"]:Connect(function()
-				tween(Dropdown.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-			if DropdownSettings.SpecialType == "Player" then
-
-				for i,v in pairs(DropdownSettings.Options) do
-					table.remove(DropdownSettings.Options, i)
-				end
-				PlayerTableRefresh()
-				DropdownSettings.CurrentOption = DropdownSettings.Options[1]
-
-				Players.PlayerAdded:Connect(function() PlayerTableRefresh() end)
-				Players.PlayerRemoving:Connect(function() PlayerTableRefresh() end)
-
-			end
-
-			Refresh()
-
-			if DropdownSettings.CurrentOption then
-				if type(DropdownSettings.CurrentOption) == "string" then
-					DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
-				end
-				if not DropdownSettings.MultipleOptions and type(DropdownSettings.CurrentOption) == "table" then
-					DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption[1]}
-				end
-			else
-				DropdownSettings.CurrentOption = {}
-			end
-
-			local bleh, ind = nil,0
-			for i,v in pairs(DropdownSettings.CurrentOption) do
-				ind = ind + 1
-			end
-			if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
-			SafeCallback(bleh)
-			if type(bleh) == "string" then 
-				tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-			else
-				for i,v in pairs(bleh) do
-					tween(Dropdown.List[v], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-				end
-			end
-
-			if DropdownSettings.MultipleOptions then
-				if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-					if #DropdownSettings.CurrentOption == 1 then
-						Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-					elseif #DropdownSettings.CurrentOption == 0 then
-						Dropdown.Selected.PlaceholderText = "None"
-					else
-						Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-					end
-				else
-					DropdownSettings.CurrentOption = {}
-					Dropdown.Selected.PlaceholderText = "None"
-				end
-				for _, name in pairs(DropdownSettings.CurrentOption) do
-					tween(Dropdown.List[name], {TextColor3 = Color3.fromRGB(227,227,227), BackgroundTransparency = 0.95})
-				end
-			else
-				Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-			end
-			Dropdown.Selected.Text = ""
-
-			function DropdownV:Set(NewDropdownSettings)
-				NewDropdownSettings = Kwargify(DropdownSettings, NewDropdownSettings or {})
-
-				DropdownV.Settings = NewDropdownSettings
-				DropdownSettings = NewDropdownSettings
-
-				Dropdown.Name = DropdownSettings.Name
-				Dropdown.Title.Text = DropdownSettings.Name
-				if DropdownSettings.Description ~= nil and DropdownSettings.Description ~= "" and Dropdown.Desc ~= nil then
-					Dropdown.Desc.Text = DropdownSettings.Description
-				end
-
-				if DropdownSettings.SpecialType == "Player" then
-
-					for i,v in pairs(DropdownSettings.Options) do
-						table.remove(DropdownSettings.Options, i)
-					end
-					PlayerTableRefresh()
-					DropdownSettings.CurrentOption = DropdownSettings.Options[1]                    
-					Players.PlayerAdded:Connect(function() PlayerTableRefresh() end)
-					Players.PlayerRemoving:Connect(function() PlayerTableRefresh() end)
-
-				end
-
-				Refresh()
-
-				if DropdownSettings.CurrentOption then
-					if type(DropdownSettings.CurrentOption) == "string" then
-						DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption}
-					end
-					if not DropdownSettings.MultipleOptions and type(DropdownSettings.CurrentOption) == "table" then
-						DropdownSettings.CurrentOption = {DropdownSettings.CurrentOption[1]}
-					end
-				else
-					DropdownSettings.CurrentOption = {}
-				end
-
-				if not DropdownSettings.MultipleOptions then
-					local currentOption = DropdownSettings.CurrentOption[1]
-					if type(currentOption) ~= "string" or not Dropdown.List:FindFirstChild(currentOption) then
-						DropdownSettings.CurrentOption = {}
-					end
-				end
-
-				local bleh, ind = nil,0
-				for i,v in pairs(DropdownSettings.CurrentOption) do
-					ind = ind + 1
-				end
-				if ind == 1 then bleh = DropdownSettings.CurrentOption[1] else bleh = DropdownSettings.CurrentOption end
-				SafeCallback(bleh)
-				for _, Option in pairs(Dropdown.List:GetChildren()) do
-					if Option.ClassName == "TextLabel" then
-						tween(Option, {TextColor3 = Color3.fromRGB(200,200,200), BackgroundTransparency = 0.98})
-					end
-				end
-				if type(bleh) == "string" then
-					tween(Dropdown.List[bleh], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-				elseif type(bleh) == "table" then
-					for _, value in pairs(bleh) do
-						if type(value) == "string" and Dropdown.List:FindFirstChild(value) then
-							tween(Dropdown.List[value], {TextColor3 = Color3.fromRGB(240,240,240), BackgroundTransparency = 0.95})
-						end
-					end
-				end
-
-				if DropdownSettings.MultipleOptions then
-					if DropdownSettings.CurrentOption and type(DropdownSettings.CurrentOption) == "table" then
-						if #DropdownSettings.CurrentOption == 1 then
-							Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1]
-						elseif #DropdownSettings.CurrentOption == 0 then
-							Dropdown.Selected.PlaceholderText = "None"
-						else
-							Dropdown.Selected.PlaceholderText = unpackt(DropdownSettings.CurrentOption)
-						end
-					else
-						DropdownSettings.CurrentOption = {}
-						Dropdown.Selected.PlaceholderText = "None"
-					end
-					for _, name in pairs(DropdownSettings.CurrentOption) do
-						tween(Dropdown.List[name], {TextColor3 = Color3.fromRGB(227,227,227), BackgroundTransparency = 0.95})
-					end
-				else
-					Dropdown.Selected.PlaceholderText = DropdownSettings.CurrentOption[1] or "None"
-				end
-				Dropdown.Selected.Text = ""
-
-				-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
-
-			end
-
-			function DropdownV:Destroy()
-				Dropdown.Visible = false
-				Dropdown:Destroy()
-			end
-
-			if Flag then
-				Luna.Options[Flag] = DropdownV
-			end
-
-			-- Luna.Flags[DropdownSettings.Flag] = DropdownSettings
-
-			return DropdownV
-
-		end
-
-		-- Color Picker
-		function Tab:CreateColorPicker(ColorPickerSettings, Flag) -- by Rayfield/Throit
-			local ColorPickerV = {IgnoreClass = false, Class = "Colorpicker", Settings = ColorPickerSettings}
-
-			ColorPickerSettings = Kwargify({
-				Name = "Color Picker",
-				Color = Color3.fromRGB(255,255,255),
-				Callback = function(Value)
-					-- The function that takes place every time the color picker is moved/changed
-					-- The variable (Value) is a Color3fromRGB value based on which color is selected
-				end
-			}, ColorPickerSettings or {})
-
-			local function Color3ToHex(color)
-				return string.format("#%02X%02X%02X", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
-			end
-
-			ColorPickerV.Color = Color3ToHex(ColorPickerSettings.Color)
-
-			local closedsize = UDim2.new(0, 75, 0, 22)
-			local openedsize = UDim2.new(0, 219, 0, 129)
-
-			local ColorPicker = Elements.Template.ColorPicker:Clone()
-			local Background = ColorPicker.CPBackground
-			local Display = Background.Display
-			local Main = Background.MainCP
-			local Slider = ColorPicker.ColorSlider
-
-			ColorPicker.Name = ColorPickerSettings.Name
-			ColorPicker.Title.Text = ColorPickerSettings.Name
-			ColorPicker.Visible = true
-			ColorPicker.Parent = TabPage
-			ColorPicker.Size = UDim2.new(1.042, -25,0, 38)
-			Background.Size = closedsize
-			Display.BackgroundTransparency = 0
-
-			ColorPicker["MouseEnter"]:Connect(function()
-				tween(ColorPicker.UIStroke, {Color = Luna.ThemeGradient.Keypoints[2].Value})
-			end)
-			ColorPicker["MouseLeave"]:Connect(function()
-				tween(ColorPicker.UIStroke, {Color = Color3.fromRGB(64,61,76)})
-			end)
-
-			local function SafeCallback(param, c2)
-				local Success, Response = pcall(function()
-					ColorPickerSettings.Callback(param)
-				end)
-				if not Success then
-					TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-					TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(85, 0, 0)}):Play()
-					TweenService:Create(ColorPicker.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-					ColorPicker.Title.Text = "Callback Error"
-					print("Luna Interface Suite | "..ColorPickerSettings.Name.." Callback Error " ..tostring(Response))
-					wait(0.5)
-					ColorPicker.Title.Text = ColorPickerSettings.Name
-					TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.5}):Play()
-					TweenService:Create(ColorPicker, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundColor3 = Color3.fromRGB(32, 30, 38)}):Play()
-					TweenService:Create(ColorPicker.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
-				end
-				if Success and c2 then
-					c2()
-				end
-			end
-
-			local opened = false
-
-			local mouse = game.Players.LocalPlayer:GetMouse()
-			Main.Image = "http://www.roblox.com/asset/?id=11415645739"
-			local mainDragging = false 
-			local sliderDragging = false 
-			ColorPicker.Interact.MouseButton1Down:Connect(function()
-				if not opened then
-					opened = true 
-					tween(ColorPicker, {Size = UDim2.new( 1.042, -25,0, 165)}, nil, TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-					tween(Background, {Size = openedsize})
-					tween(Display, {BackgroundTransparency = 1})
-				else
-					opened = false
-					tween(ColorPicker, {Size = UDim2.new(1.042, -25,0, 38)}, nil, TweenInfo.new(0.6, Enum.EasingStyle.Exponential))
-					tween(Background, {Size = closedsize})
-					tween(Display, {BackgroundTransparency = 0})
-				end
-			end)
-			UserInputService.InputEnded:Connect(function(input, gameProcessed) if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then 
-					mainDragging = false
-					sliderDragging = false
-				end end)
-			Main.MouseButton1Down:Connect(function()
-				if opened then
-					mainDragging = true 
-				end
-			end)
-			Main.MainPoint.MouseButton1Down:Connect(function()
-				if opened then
-					mainDragging = true 
-				end
-			end)
-			Slider.MouseButton1Down:Connect(function()
-				sliderDragging = true 
-			end)
-			Slider.SliderPoint.MouseButton1Down:Connect(function()
-				sliderDragging = true 
-			end)
-			local h,s,v = ColorPickerSettings.Color:ToHSV()
-			local color = Color3.fromHSV(h,s,v) 
-			local r,g,b = math.floor((h*255)+0.5),math.floor((s*255)+0.5),math.floor((v*255)+0.5)
-			local hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-			ColorPicker.HexInput.InputBox.Text = hex
-			local function setDisplay(hp,sp,vp)
-				--Main
-				Main.MainPoint.Position = UDim2.new(s,-Main.MainPoint.AbsoluteSize.X/2,1-v,-Main.MainPoint.AbsoluteSize.Y/2)
-				Main.MainPoint.ImageColor3 = Color3.fromHSV(hp,sp,vp)
-				Background.BackgroundColor3 = Color3.fromHSV(hp,1,1)
-				Display.BackgroundColor3 = Color3.fromHSV(hp,sp,vp)
-				--Slider 
-				local x = hp * Slider.AbsoluteSize.X
-				Slider.SliderPoint.Position = UDim2.new(0,x-Slider.SliderPoint.AbsoluteSize.X/2,0.5,0)
-				Slider.SliderPoint.ImageColor3 = Color3.fromHSV(hp,1,1)
-				local color = Color3.fromHSV(hp,sp,vp) 
-				local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-				ColorPicker.RInput.InputBox.Text = tostring(r)
-				ColorPicker.GInput.InputBox.Text = tostring(g)
-				ColorPicker.BInput.InputBox.Text = tostring(b)
-				hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-				ColorPicker.HexInput.InputBox.Text = hex
-			end
-			setDisplay(h,s,v)
-			ColorPicker.HexInput.InputBox.FocusLost:Connect(function()
-				if not pcall(function()
-						local r, g, b = string.match(ColorPicker.HexInput.InputBox.Text, "^#?(%w%w)(%w%w)(%w%w)$")
-						local rgbColor = Color3.fromRGB(tonumber(r, 16),tonumber(g, 16), tonumber(b, 16))
-						h,s,v = rgbColor:ToHSV()
-						hex = ColorPicker.HexInput.InputBox.Text
-						setDisplay()
-						ColorPickerSettings.Color = rgbColor
-					end) 
-				then 
-					ColorPicker.HexInput.InputBox.Text = hex 
-				end
-				local r,g,b = math.floor((h*255)+0.5),math.floor((s*255)+0.5),math.floor((v*255)+0.5)
-				ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-				SafeCallback( Color3.fromRGB(r,g,b))
-			end)
-			--RGB
-			local function rgbBoxes(box,toChange)
-				local value = tonumber(box.Text) 
-				local color = Color3.fromHSV(h,s,v) 
-				local oldR,oldG,oldB = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-				local save 
-				if toChange == "R" then save = oldR;oldR = value elseif toChange == "G" then save = oldG;oldG = value else save = oldB;oldB = value end
-				if value then 
-					value = math.clamp(value,0,255)
-					h,s,v = Color3.fromRGB(oldR,oldG,oldB):ToHSV()
-					setDisplay()
-				else 
-					box.Text = tostring(save)
-				end
-				local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-				ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-			end
-			ColorPicker.RInput.InputBox.FocusLost:connect(function()
-				rgbBoxes(ColorPicker.RInput.InputBox,"R")
-				SafeCallback(Color3.fromRGB(r,g,b))
-			end)
-			ColorPicker.GInput.InputBox.FocusLost:connect(function()
-				rgbBoxes(ColorPicker.GInput.InputBox,"G")
-				SafeCallback(Color3.fromRGB(r,g,b))
-			end)
-			ColorPicker.BInput.InputBox.FocusLost:connect(function()
-				rgbBoxes(ColorPicker.BInput.InputBox,"B")
-				SafeCallback(Color3.fromRGB(r,g,b))
-			end)
-			RunService.RenderStepped:connect(function()
-				if mainDragging then 
-					local localX = math.clamp(mouse.X-Main.AbsolutePosition.X,0,Main.AbsoluteSize.X)
-					local localY = math.clamp(mouse.Y-Main.AbsolutePosition.Y,0,Main.AbsoluteSize.Y)
-					Main.MainPoint.Position = UDim2.new(0,localX-Main.MainPoint.AbsoluteSize.X/2,0,localY-Main.MainPoint.AbsoluteSize.Y/2)
-					s = localX / Main.AbsoluteSize.X
-					v = 1 - (localY / Main.AbsoluteSize.Y)
-					Display.BackgroundColor3 = Color3.fromHSV(h,s,v)
-					Main.MainPoint.ImageColor3 = Color3.fromHSV(h,s,v)
-					Background.BackgroundColor3 = Color3.fromHSV(h,1,1)
-					local color = Color3.fromHSV(h,s,v) 
-					local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					ColorPicker.RInput.InputBox.Text = tostring(r)
-					ColorPicker.GInput.InputBox.Text = tostring(g)
-					ColorPicker.BInput.InputBox.Text = tostring(b)
-					ColorPicker.HexInput.InputBox.Text = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-					SafeCallback(Color3.fromRGB(r,g,b))
-					ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-					ColorPickerV.Color = ColorPickerSettings.Color
-				end
-				if sliderDragging then 
-					local localX = math.clamp(mouse.X-Slider.AbsolutePosition.X,0,Slider.AbsoluteSize.X)
-					h = localX / Slider.AbsoluteSize.X
-					Display.BackgroundColor3 = Color3.fromHSV(h,s,v)
-					Slider.SliderPoint.Position = UDim2.new(0,localX-Slider.SliderPoint.AbsoluteSize.X/2,0.5,0)
-					Slider.SliderPoint.ImageColor3 = Color3.fromHSV(h,1,1)
-					Background.BackgroundColor3 = Color3.fromHSV(h,1,1)
-					Main.MainPoint.ImageColor3 = Color3.fromHSV(h,s,v)
-					local color = Color3.fromHSV(h,s,v) 
-					local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-					ColorPicker.RInput.InputBox.Text = tostring(r)
-					ColorPicker.GInput.InputBox.Text = tostring(g)
-					ColorPicker.BInput.InputBox.Text = tostring(b)
-					ColorPicker.HexInput.InputBox.Text = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-					SafeCallback(Color3.fromRGB(r,g,b))
-					ColorPickerSettings.Color = Color3.fromRGB(r,g,b)
-					ColorPickerV.Color = ColorPickerSettings.Color
-				end
-			end)
-
-			function ColorPickerV:Set(NewColorPickerSettings)
-
-				NewColorPickerSettings = Kwargify(ColorPickerSettings, NewColorPickerSettings or {})
-
-				ColorPickerV.Settings = NewColorPickerSettings
-				ColorPickerSettings = NewColorPickerSettings
-
-				ColorPicker.Name = ColorPickerSettings.Name
-				ColorPicker.Title.Text = ColorPickerSettings.Name
-				ColorPicker.Visible = true
-
-				local h,s,v = ColorPickerSettings.Color:ToHSV()
-				local color = Color3.fromHSV(h,s,v) 
-				local r,g,b = math.floor((color.R*255)+0.5),math.floor((color.G*255)+0.5),math.floor((color.B*255)+0.5)
-				local hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
-				ColorPicker.HexInput.InputBox.Text = hex
-				setDisplay(h,s,v)
-				SafeCallback(Color3.fromRGB(r,g,b))
-
-				ColorPickerV.Color = ColorPickerSettings.Color
-			end
-
-			function ColorPickerV:Destroy()
-				ColorPicker:Destroy()
-			end
-
-			if Flag then
-				Luna.Options[Flag] = ColorPickerV
-			end
-
-			SafeCallback(ColorPickerSettings.Color)
-
-			return ColorPickerV
-		end
-
-
-		function Tab:BuildConfigSection()
-			if isStudio then
-				Tab:CreateLabel({Text = "Config system unavailable. (Environment isStudio)", Style = 3})
-				return "Config system unavailable." 
-			end
-
-			local inputPath = nil
-			local selectedConfig = nil
-
-			local Title = Elements.Template.Title:Clone()
-			Title.Text = "Configurations"
-			Title.Visible = true
-			Title.Parent = TabPage
-			Title.TextTransparency = 1
-			TweenService:Create(Title, TweenInfo.new(0.4, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-
-			Tab:CreateSection("Config Creator")
-
-			Tab:CreateInput({
-				Name = "Config Name",
-				Description = "Insert a name for your to be created config.",
-				PlaceholderText = "Name",
-				CurrentValue = "",
-				Numeric = false,
-				MaxCharacters = nil,
-				Enter = false,
-				Callback = function(input)
-					inputPath = input
-				end,
-			})
-
-			local configSelection
-
-			Tab:CreateButton({
-				Name = "Create Config",
-				Description = "Create a config with all of your current settings.",
-				Callback = function()
-					if not inputPath or string.gsub(inputPath, " ", "") == "" then
-						Luna:Notification({
-							Title = "Interface",
-							Icon = "warning",
-							ImageSource = "Material",
-							Content = "Config name cannot be empty."
-						})
-						return
+					function Element:Destroy()
+						Element.Instance:Destroy()
 					end
 
-					local success, returned = Luna:SaveConfig(inputPath)
-					if not success then
-						Luna:Notification({
-							Title = "Interface",
-							Icon = "error",
-							ImageSource = "Material",
-							Content = "Unable to save config, return error: " .. returned
-						})
-					end
-
-					Luna:Notification({
-						Title = "Interface",
-						Icon = "info",
-						ImageSource = "Material",
-						Content = string.format("Created config %q", inputPath),
-					})
-
-					configSelection:Set({ Options = Luna:RefreshConfigList() })
-				end
-			})
-
-			Tab:CreateSection("Config Load/Settings")
-
-
-			configSelection = Tab:CreateDropdown({
-				Name = "Select Config",
-				Description = "Select a config to load your settings on.",
-				Options = Luna:RefreshConfigList(),
-				CurrentOption = {},
-				MultipleOptions = false,
-				SpecialType = nil,
-				Callback = function(Value)
-					selectedConfig = type(Value) == "string" and Value or nil
-				end,
-			})
-
-			Tab:CreateButton({
-				Name = "Load Config",
-				Description = "Load your saved config settings.",
-				Callback = function()
-					local success, returned = Luna:LoadConfig(selectedConfig)
-					if not success then
-						Luna:Notification({
-							Title = "Interface",
-							Icon = "error",
-							ImageSource = "Material",
-							Content = "Unable to load config, return error: " .. returned
-						})
-						return
-					end
-
-					Luna:Notification({
-						Title = "Interface",
-						Icon = "info",
-						ImageSource = "Material",
-						Content = string.format("Loaded config %q", selectedConfig),
-					})
-				end
-			})
-
-			Tab:CreateButton({
-				Name = "Overwrite Config",
-				Description = "Overwrite your current config settings.",
-				Callback = function()
-					local success, returned = Luna:SaveConfig(selectedConfig)
-					if not success then
-						Luna:Notification({
-							Title = "Interface",
-							Icon = "error",
-							ImageSource = "Material",
-							Content = "Unable to overwrite config, return error: " .. returned
-						})
-						return
-					end
-
-					Luna:Notification({
-						Title = "Interface",
-						Icon = "info",
-						ImageSource = "Material",
-						Content = string.format("Overwrote config %q", selectedConfig),
-					})
-				end
-			})
-
-			Tab:CreateButton({
-				Name = "Refresh Config List",
-				Description = "Refresh the current config list.",
-				Callback = function()
-					configSelection:Set({ Options = Luna:RefreshConfigList() })
-				end,
-			})
-
-			local loadlabel
-			Tab:CreateButton({
-				Name = "Set as autoload",
-				Description = "Set a config to auto load setting in your next session.",
-				Callback = function()
-					local name = selectedConfig
-					writefile(Luna.Folder .. "/settings/autoload.txt", name)
-					loadlabel:Set({ Text = "Current autoload config: " .. name })
-
-					Luna:Notification({
-						Title = "Interface",
-						Icon = "info",
-						ImageSource = "Material",
-						Content = string.format("Set %q to auto load", name),
-					})
-				end,
-			})
-
-			loadlabel = Tab:CreateParagraph({
-				Title = "Current Auto Load",
-				Text = "None"
-			})
-
-			Tab:CreateButton({
-				Name = "Delete Autoload",
-				Description = "Delete The Autoload File",
-				Callback = function()
-					local name = selectedConfig
-					delfile(Luna.Folder .. "/settings/autoload.txt")
-					loadlabel:Set({ Text = "None" })
-
-					Luna:Notification({
-						Title = "Interface",
-						Icon = "info",
-						ImageSource = "Material",
-						Content = "Deleted Autoload",
-					})
-				end,
-			})
-
-			if isfile(Luna.Folder .. "/settings/autoload.txt") then
-				local name = readfile(Luna.Folder .. "/settings/autoload.txt")
-				loadlabel:Set( { Text = "Current autoload config: " .. name })
-			end     
-		end
-
-		local ClassParser = {
-			["Toggle"] = {
-				Save = function(Flag, data)
-					return {
-						type = "Toggle", 
-						flag = Flag, 
-						state = data.CurrentValue or false
-					}
-				end,
-				Load = function(Flag, data)
-					if Luna.Options[Flag] then
-						Luna.Options[Flag]:Set({ CurrentValue = data.state })
-					end
-				end
-			},
-			["Slider"] = {
-				Save = function(Flag, data)
-					return {
-						type = "Slider", 
-						flag = Flag, 
-						value = (data.CurrentValue and tostring(data.CurrentValue)),
-					}
-				end,
-				Load = function(Flag, data)
-					if Luna.Options[Flag] and data.value then
-						Luna.Options[Flag]:Set({ CurrentValue = data.value })
-					end
-				end
-			},
-			["Input"] = {
-				Save = function(Flag, data)
-					return {
-						type = "Input", 
-						flag = Flag, 
-						text = data.CurrentValue
-					}
-				end,
-				Load = function(Flag, data)
-					if Luna.Options[Flag] and data.text and type(data.text) == "string" then
-						Luna.Options[Flag]:Set({ CurrentValue = data.text })
-					end
-				end
-			},
-			["Dropdown"] = {
-				Save = function(Flag, data)
-					return {
-						type = "Dropdown", 
-						flag = Flag, 
-						value = data.CurrentOption
-					}
-				end,
-				Load = function(Flag, data)
-					if Luna.Options[Flag] and data.value then
-						Luna.Options[Flag]:Set({ CurrentOption = data.value })
-					end
-				end
-			},
-			-- buggy as hell stil
-			["Colorpicker"] = {
-				Save = function(Flag, data)
-					local function Color3ToHex(color)
-						return string.format("#%02X%02X%02X", math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255))
-					end
-
-					return {
-						type = "Colorpicker", 
-						flag = Flag, 
-						color = Color3ToHex(data.Color) or nil,
-						alpha = data.Alpha
-					}
-				end,
-				Load = function(Flag, data)
-					local function HexToColor3(hex)
-						local r = tonumber(hex:sub(2, 3), 16) / 255
-						local g = tonumber(hex:sub(4, 5), 16) / 255
-						local b = tonumber(hex:sub(6, 7), 16) / 255
-						return Color3.new(r, g, b)
-					end
-
-					if Luna.Options[Flag] and data.color then
-						Luna.Options[Flag]:Set({Color = HexToColor3(data.color)})
-					end
-				end
-			}
-		}
-
-
-		function Tab:BuildThemeSection()
-
-			local Title = Elements.Template.Title:Clone()
-			Title.Text = "Theming"
-			Title.Visible = true
-			Title.Parent = TabPage
-			Title.TextTransparency = 1
-			TweenService:Create(Title, TweenInfo.new(0.4, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-
-			Tab:CreateSection("Custom Editor")
-
-			local c1cp = Tab:CreateColorPicker({
-				Name = "Color 1",
-				Color = Color3.fromRGB(64, 61, 76),
-			}, "LunaInterfaceSuitePrebuiltCPC1") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-
-			local c2cp = Tab:CreateColorPicker({
-				Name = "Color 2",
-				Color = Color3.fromRGB(136, 131, 163),
-			}, "LunaInterfaceSuitePrebuiltCPC2")
-
-			local c3cp = Tab:CreateColorPicker({
-				Name = "Color 3",
-				Color = Color3.fromRGB(64, 61, 76),
-			}, "LunaInterfaceSuitePrebuiltCPC3") 
-
-			local function GetThemeColor(picker, fallback)
-				local settings = picker and picker.Settings
-				local color = settings and settings.Color
-				if typeof(color) == "Color3" then
-					return color
-				end
-				return fallback
-			end
-
-			local function ScaleColor(color, scale)
-				return Color3.new(
-					math.clamp(color.R * scale, 0, 1),
-					math.clamp(color.G * scale, 0, 1),
-					math.clamp(color.B * scale, 0, 1)
-				)
-			end
-
-			local function ApplyThemePalette()
-				local keypoints = Luna.ThemeGradient.Keypoints
-				local background = keypoints[1] and keypoints[1].Value or Color3.fromRGB(32, 30, 38)
-				local panelColor = ScaleColor(background, 0.28)
-				local controlColor = ScaleColor(background, 0.42)
-
-				Main.BackgroundColor3 = panelColor
-				Elements.Parent.BackgroundColor3 = panelColor
-				Navigation.BackgroundColor3 = ScaleColor(background, 0.2)
-
-				for _, descendant in ipairs(Elements:GetDescendants()) do
-					if descendant:IsA("UIGradient") and descendant.Name:lower() == "color" then
-						descendant.Color = Luna.ThemeGradient
-					elseif (descendant:IsA("Frame") or descendant:IsA("ScrollingFrame"))
-						and descendant.Visible
-						and descendant.Name ~= "Display"
-						and descendant.Name ~= "CPBackground"
-						and not descendant:FindFirstChild("Display")
-						and descendant.BackgroundTransparency < 1 then
-						descendant.BackgroundColor3 = controlColor
-					end
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
 				end
 
-				for _, descendant in ipairs(Main:GetDescendants()) do
-					if descendant:IsA("TextLabel") and descendant.Visible then
-						descendant.TextColor3 = Color3.fromRGB(235, 235, 235)
-					end
-				end
-
-				local pickerColors = {
-					["Color 1"] = GetThemeColor(c1cp, Color3.fromRGB(64, 61, 76)),
-					["Color 2"] = GetThemeColor(c2cp, Color3.fromRGB(136, 131, 163)),
-					["Color 3"] = GetThemeColor(c3cp, Color3.fromRGB(64, 61, 76)),
-				}
-				for pickerName, pickerColor in pairs(pickerColors) do
-					local picker = TabPage:FindFirstChild(pickerName)
-					local background = picker and picker:FindFirstChild("CPBackground")
-					local display = background and background:FindFirstChild("Display")
-					if display and display:IsA("GuiObject") then
-						display.BackgroundColor3 = pickerColor
-						display.BackgroundTransparency = 0
-					end
-				end
-			end
-
-			local lastThemeSignature
-			local function RefreshThemeFromPickers()
-				local color1 = GetThemeColor(c1cp, Color3.fromRGB(64, 61, 76))
-				local color2 = GetThemeColor(c2cp, Color3.fromRGB(136, 131, 163))
-				local color3 = GetThemeColor(c3cp, Color3.fromRGB(64, 61, 76))
-				local signature = string.format(
-					"%d:%d:%d|%d:%d:%d|%d:%d:%d",
-					math.floor(color1.R * 255), math.floor(color1.G * 255), math.floor(color1.B * 255),
-					math.floor(color2.R * 255), math.floor(color2.G * 255), math.floor(color2.B * 255),
-					math.floor(color3.R * 255), math.floor(color3.G * 255), math.floor(color3.B * 255)
-				)
-				if signature == lastThemeSignature then
-					return
-				end
-
-				lastThemeSignature = signature
-				Luna.ThemeGradient = ColorSequence.new{
-					ColorSequenceKeypoint.new(0.00, color1),
-					ColorSequenceKeypoint.new(0.50, color2),
-					ColorSequenceKeypoint.new(1.00, color3),
-				}
-				ApplyThemePalette()
-			end
-
-			c1cp.Settings.Callback = function()
-					RefreshThemeFromPickers()
-					if LunaUI and LunaUI.ThemeRemote then
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
-					end
-			end
-
-			c2cp.Settings.Callback = function()
-					RefreshThemeFromPickers()
-					if LunaUI and LunaUI.ThemeRemote then
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
-					end
-			end
-
-			c3cp.Settings.Callback = function()
-					RefreshThemeFromPickers()
-					if LunaUI and LunaUI.ThemeRemote then
-						LunaUI.ThemeRemote.Value = not LunaUI.ThemeRemote.Value
-					end
-			end
-
-			Tab:CreateSection("Preset Gradients")
-
-			for i,v in pairs(PresetGradients) do
-				Tab:CreateButton({
-					Name = tostring(i),
-					Callback = function()
-						c1cp:Set({ Color = v[1] })
-						c2cp:Set({ Color = v[2] })
-						c3cp:Set({ Color = v[3] })
-					end,
-				})
-			end
-
-		end
-
-
-		local function BuildFolderTree()
-			if isStudio then return "Config system unavailable." end
-			local paths = {
-				Luna.Folder,
-				Luna.Folder .. "/settings"
-			}
-
-			for i = 1, #paths do
-				local str = paths[i]
-				if not isfolder(str) then
-					makefolder(str)
-				end
-			end
-		end
-
-		local function SetFolder()
-
-			if isStudio then return "Config system unavailable." end
-
-			if WindowSettings.ConfigSettings.RootFolder ~= nil and WindowSettings.ConfigSettings.RootFolder ~= "" then
-				Luna.Folder = WindowSettings.ConfigSettings.RootFolder .. "/" .. WindowSettings.ConfigSettings.ConfigFolder
-			else
-				Luna.Folder = WindowSettings.ConfigSettings.ConfigFolder
-			end
-
-			BuildFolderTree()
-		end
-
-		SetFolder()
-
-		function Luna:SaveConfig(Path)
-			if isStudio then return "Config system unavailable." end
-
-			if type(Path) ~= "string" or Path == "" then
-				return false, "Please select a config file."
-			end
-
-			local fullPath = Luna.Folder .. "/settings/" .. Path .. ".luna"
-
-			local data = {
-				objects = {}
-			}
-
-			for flag, option in next, Luna.Options do
-				if not ClassParser[option.Class] then continue end
-				if option.IgnoreConfig then continue end
-
-				table.insert(data.objects, ClassParser[option.Class].Save(flag, option))
-			end	
-
-			local success, encoded = pcall(HttpService.JSONEncode, HttpService, data)
-			if not success then
-				return false, "Unable to encode into JSON data"
-			end
-
-			writefile(fullPath, encoded)
-			return true
-		end
-
-		function Luna:LoadConfig(Path)
-			if isStudio then return "Config system unavailable." end
-
-			if type(Path) ~= "string" or Path == "" then
-				return false, "Please select a config file."
-			end
-
-			local file = Luna.Folder .. "/settings/" .. Path .. ".luna"
-			if not isfile(file) then return false, "Invalid file" end
-
-			local success, decoded = pcall(HttpService.JSONDecode, HttpService, readfile(file))
-			if not success then return false, "Unable to decode JSON data." end
-
-			for _, option in next, decoded.objects do
-				if ClassParser[option.type] then
-					task.spawn(function() 
-						ClassParser[option.type].Load(option.flag, option) 
-					end)
-				end
-			end
-
-			return true
-		end
-
-		function Luna:LoadAutoloadConfig()
-			if isfile(Luna.Folder .. "/settings/autoload.txt") then
-
-				if isStudio then return "Config system unavailable." end
-
-				local name = readfile(Luna.Folder .. "/settings/autoload.txt")
-
-				local success, err = Luna:LoadConfig(name)
-				if not success then
-					return Luna:Notification({
-						Title = "Interface",
-						Icon = "sparkle",
-						ImageSource = "Material",
-						Content = "Failed to load autoload config: " .. err,
-					})
-				end
-
-				Luna:Notification({
-					Title = "Interface",
-					Icon = "sparkle",
-					ImageSource = "Material",
-					Content = string.format("Auto loaded config %q", name),
-				})
-
-			end 
-		end
-
-		function Luna:RefreshConfigList()
-			if isStudio then return "Config system unavailable." end
-
-			local list = listfiles(Luna.Folder .. "/settings")
-
-			local out = {}
-			for i = 1, #list do
-				local file = list[i]
-				if file:sub(-5) == ".luna" then
-					local pos = file:find(".luna", 1, true)
-					local start = pos
-
-					local char = file:sub(pos, pos)
-					while char ~= "/" and char ~= "\\" and char ~= "" do
-						pos = pos - 1
-						char = file:sub(pos, pos)
-					end
-
-					if char == "/" or char == "\\" then
-						local name = file:sub(pos + 1, start - 1)
-						if name ~= "options" then
-							table.insert(out, name)
-						end
-					end
-				end
-			end
-
-			return out
-		end
-		return Tab
-	end
-
-
-	Elements.Parent.Visible = true
-	tween(Elements.Parent, {BackgroundTransparency = 0.1})
-	Navigation.Visible = true
-	tween(Navigation.Line, {BackgroundTransparency = 0})
-
-	for _, TopbarButton in ipairs(Main.Controls:GetChildren()) do
-		if TopbarButton.ClassName == "Frame" and TopbarButton.Name ~= "Theme" then
-			TopbarButton.Visible = true
-			tween(TopbarButton, {BackgroundTransparency = 0.25})
-			tween(TopbarButton.UIStroke, {Transparency = 0.5})
-			tween(TopbarButton.ImageLabel, {ImageTransparency = 0.25})
-		end
-	end
-
-	Main.Controls.Close.ImageLabel.MouseButton1Click:Connect(function()
-		Hide(Main, Window.Bind, true)
-		dragBar.Visible = false
-		Window.State = false
-		if UserInputService.KeyboardEnabled == false then
-			LunaUI.MobileSupport.Visible = true
-		end
-	end)
-	Main.Controls.Close["MouseEnter"]:Connect(function()
-		tween(Main.Controls.Close.ImageLabel, {ImageColor3 = Color3.new(1,1,1)})
-	end)
-	Main.Controls.Close["MouseLeave"]:Connect(function()
-		tween(Main.Controls.Close.ImageLabel, {ImageColor3 = Color3.fromRGB(195,195,195)})
-	end)
-
-	UserInputService.InputBegan:Connect(function(input, gpe)
-		if gpe then return end
-		if Window.State then return end
-		if input.KeyCode == Window.Bind then
-			Unhide(Main, Window.CurrentTab)
-			LunaUI.MobileSupport.Visible = false
-			dragBar.Visible = true
-			Window.State = true
-		end
-	end)
-
-	Main.Logo.MouseButton1Click:Connect(function()
-		if Navigation.Size.X.Offset == 205 then
-			tween(Elements.Parent, {Size = UDim2.new(1, -55, Elements.Parent.Size.Y.Scale, Elements.Parent.Size.Y.Offset)})
-			tween(Navigation, {Size = UDim2.new(Navigation.Size.X.Scale, 55, Navigation.Size.Y.Scale, Navigation.Size.Y.Offset)})
-		else
-			tween(Elements.Parent, {Size = UDim2.new(1, -205, Elements.Parent.Size.Y.Scale, Elements.Parent.Size.Y.Offset)})
-			tween(Navigation, {Size = UDim2.new(Navigation.Size.X.Scale, 205, Navigation.Size.Y.Scale, Navigation.Size.Y.Offset)})
-		end
-	end)
-
-	Main.Controls.ToggleSize.ImageLabel.MouseButton1Click:Connect(function()
-		Window.Size = not Window.Size
-		if Window.Size then
-			Minimize(Main)
-			dragBar.Visible = false
-		else
-			Maximise(Main)
-			dragBar.Visible = true
-		end
-	end)
-	Main.Controls.ToggleSize["MouseEnter"]:Connect(function()
-		tween(Main.Controls.ToggleSize.ImageLabel, {ImageColor3 = Color3.new(1,1,1)})
-	end)
-	Main.Controls.ToggleSize["MouseLeave"]:Connect(function()
-		tween(Main.Controls.ToggleSize.ImageLabel, {ImageColor3 = Color3.fromRGB(195,195,195)})
-	end)
-
-	Main.Controls.Theme.ImageLabel.MouseButton1Click:Connect(function()
-		if Window.Settings then
-			Window.Settings:Activate()
-			Elements.Settings.CanvasPosition = Vector2.new(0,698)
-		end
-	end)
-	Main.Controls.Theme["MouseEnter"]:Connect(function()
-		tween(Main.Controls.Theme.ImageLabel, {ImageColor3 = Color3.new(1,1,1)})
-	end)
-	Main.Controls.Theme["MouseLeave"]:Connect(function()
-		tween(Main.Controls.Theme.ImageLabel, {ImageColor3 = Color3.fromRGB(195,195,195)})
-	end)	
-
-
-	LunaUI.MobileSupport.Interact.MouseButton1Click:Connect(function()
-		Unhide(Main, Window.CurrentTab)
-		dragBar.Visible = true
-		Window.State = true
-		LunaUI.MobileSupport.Visible = false
-	end)
-
-	return Window
-end
-
-function Luna:Destroy()
-	Main.Visible = false
-	for _, Notification in ipairs(Notifications:GetChildren()) do
-		if Notification.ClassName == "Frame" then
-			Notification.Visible = false
-			Notification:Destroy()
-		end
-	end
-	LunaUI:Destroy()
-end
-
-if (getgenv and not getgenv().ConfirmLuna) or (not getgenv) then
-	Luna:Notification({ 
-    	Title = "Luna Is Deprecated",-- // luna i dont give a fuck i love you baby if that means continued support to keep you alive i will
-    	Icon = "warning",-- // luna you know your sister starlight could never replace you 
-    	ImageSource = "Material",
-    	Content = "If you are not the script developer, ignore this message. \n\n The Luna Interface Library Is Deprecated And Not Recommended to Use. A New Library Is Available at nebulasoftworks.xyz/starlight. If you insist on using Luna, set the getgenv().ConfirmLuna variable to true. "
-	})
-end
-
-if isStudio then
-	local Window = Luna:CreateWindow({
-		Name = "Nebula Client - Luna Hub | Blade Ball",
-		Subtitle = "by Nebula Softworks",
-		LogoID = "123795201100198",
-		LoadingEnabled = true,
-		LoadingTitle = "Nebula Client (Luna Hub)",
-		LoadingSubtitle = "Loading script for Blade Ball",
-		KeySystem = true,
-		KeySettings = {
-			Title = "Nebula Client | Key System",
-			Subtitle = "Blade Ball",
-			Note = "Please Enter Your Key To Use Nebula Client",
-			FileName = "Key", -- the name of the key file. this will be saved in ur RootFolder. However, if you don't have one, it'll save in ur config folder instead
-			SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-			Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
-			SecondAction = {
-				Enabled = true,
-				Type = "Link", -- Link/Discord
-				Parameter = "" -- for discord, add the invite link like home tab. for link, type the link of ur key sys
-			}
-		}
-	})
+				function Groupbox:CreateBind(ElementSettings) -- will be merged with toggles and labels soon
 	
-	--[[local Window = Luna:CreateWindow({
-		Name = "Luna Example Window",
-		Subtitle = "Test",
-		LogoID = "6031097225",
-		LoadingEnabled = true,
-		LoadingTitle = "Luna Interface Suite",
-		LoadingSubtitle = "by Nebula Softworks",
-		KeySystem = true,
-		KeySettings = {
-			Title = "Luna Example Key",
-			Subtitle = "Key System",
-			Note = "Please Enter Your Key To Use Example Hub",
-			FileName = "Key", -- the name of the key file. this will be saved in ur RootFolder. However, if you don't have one, it'll save in ur config folder instead
-			SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-			Key = {"Example Key"} -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						ImageSource = string, **
+						HoldToInteract = bool, **
+						CurrentValue = string, 
+						SyncToggleState = bool, ** -- required to be made on toggle to use, coming soon
+						
+						-- if creating on a parent toggle, do not create the callback here. create it in the parent toggle, it will sync automatically
+						Callback = function(bool), -- Returns bool whether the bind is active or not. If HoldToInteract is true, it is recommended to put your script in a while boolean do loop
+						ChangedCallback = function(string), ** -- Returns the new keybind as a string (See the documentation list for all keybinds to string)
+					}
+					]]
+					
+
+					ElementSettings.ImageSource = ElementSettings.ImageSource or "Material"
+					ElementSettings.HoldToInteract = ElementSettings.HoldToInteract or false
+					ElementSettings.SyncToggleState = ElementSettings.SyncToggleState or true
+					ElementSettings.ChangedCallback = ElementSettings.ChangedCallback or function() end
+
+					local Element = {
+						Values = ElementSettings,
+					}
+
+					Element.Instance = GroupboxTemplateInstance.Bind_TEMPLATE:Clone()
+					Element.Instance.Visible = true
+					Element.Instance.Parent = Groupbox.ParentingItem
+
+					Element.Instance.Name = "BIND_" .. ElementSettings.Name
+					Element.Instance.Header.Text = ElementSettings.Name
+					Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+					if Element.Instance.Header.Icon.Visible == false then
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+					else
+						Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+					end
+					Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+					local CheckingForKey = false
+					local Active = false
+
+					Element.Instance.Bind.Text = ElementSettings.CurrentValue
+
+					Element.Instance.Bind.Focused:Connect(function()
+						task.wait()
+						CheckingForKey = true
+					end)
+
+					Element.Instance.Bind.FocusLost:Connect(function()
+						CheckingForKey = false
+						if Element.Instance.Bind.Text == (nil or "") then
+							Element.Instance.Bind.Text = ElementSettings.CurrentValue
+						end
+					end)
+
+					UserInputService.InputBegan:Connect(function(input, processed)
+
+						if CheckingForKey then
+
+							if input.UserInputType == Enum.UserInputType.Keyboard then
+								if input.KeyCode ~= Enum.KeyCode.Unknown and input.KeyCode ~= Enum.KeyCode[Starlight.WindowKeybind] then
+									local SplitMessage = string.split(tostring(input.KeyCode), ".")
+									local NewKeyNoEnum = SplitMessage[3]
+									Element.Instance.Bind.Text = tostring(NewKeyNoEnum)
+									Element.Values.CurrentValue = tostring(NewKeyNoEnum)
+									local Success,Response = pcall(function()
+										Element.Values.ChangedCallback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										Element.Instance.Header.Text = "Callback Error"
+										warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+										print(tostring(Response))
+										wait(0.5)
+										Element.Instance.Header.Text = ElementSettings.Name
+									end
+									Element.Instance.Bind:ReleaseFocus()
+								end
+							else
+								if input.UserInputType == Enum.UserInputType.MouseButton1 then
+									Element.Instance.Bind.Text = "MB1"
+									Element.Values.CurrentValue = "MB1"
+									Element.Instance.Bind:ReleaseFocus()
+									local Success,Response = pcall(function()
+										Element.Values.ChangedCallback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										Element.Instance.Header.Text = "Callback Error"
+										warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+										print(tostring(Response))
+										wait(0.5)
+										Element.Instance.Header.Text = ElementSettings.Name
+									end
+								elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
+									Element.Instance.Bind.Text = "MB2"
+									Element.Values.CurrentValue = "MB2"
+									Element.Instance.Bind:ReleaseFocus()
+									local Success,Response = pcall(function()
+										Element.Values.ChangedCallback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										Element.Instance.Header.Text = "Callback Error"
+										warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+										print(tostring(Response))
+										wait(0.5)
+										Element.Instance.Header.Text = ElementSettings.Name
+									end
+								end
+							end
+
+						elseif Element.Values.CurrentValue ~= nil and not processed then 
+
+							if Element.Values.CurrentValue == "MB1" then
+								if input.UserInputType ~= Enum.UserInputType.MouseButton1 then
+									return
+								end
+							elseif Element.Values.CurrentValue == "MB2" then	
+								if input.UserInputType ~= Enum.UserInputType.MouseButton2 then
+									return
+								end
+							else
+								if input.KeyCode ~= Enum.KeyCode[Element.Values.CurrentValue] then
+									return
+								end
+							end
+
+							local Held = true
+							local Connection
+							Connection = input.Changed:Connect(function(prop)
+								if prop == "UserInputState" then
+									Connection:Disconnect()
+									Held = false
+								end
+							end)
+
+							if not Element.Values.HoldToInteract then
+								Active = not Active
+								local Success,Response = pcall(function()
+									Element.Values.Callback(Active)
+								end)
+
+								if not Success then
+									Element.Instance.Header.Text = "Callback Error"
+									warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+									print(tostring(Response))
+									wait(0.5)
+									Element.Instance.Header.Text = ElementSettings.Name
+								end
+							else
+								wait(0.1)
+								if Held then
+									local Loop; Loop = RunService.Stepped:Connect(function()
+										if not Held then
+											local Success,Response = pcall(function()
+												Element.Values.Callback(Active)
+											end)
+
+											if not Success then
+												Element.Instance.Header.Text = "Callback Error"
+												warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+												print(tostring(Response))
+												wait(0.5)
+												Element.Instance.Header.Text = ElementSettings.Name
+											end
+											Loop:Disconnect()
+										else
+											local Success,Response = pcall(function()
+												Element.Values.Callback(Active)
+											end)
+
+											if not Success then
+												Element.Instance.Header.Text = "Callback Error"
+												warn("Starlight Interface Suite | "..ElementSettings.Name.." Callback Error")
+												print(tostring(Response))
+												wait(0.5)
+												Element.Instance.Header.Text = ElementSettings.Name
+											end
+										end
+									end)	
+								end
+							end
+						end
+					end)
+
+					function Element:Set(NewElementSettings)
+						for i,v in pairs(ElementSettings) do
+							if NewElementSettings[i] == nil then
+								NewElementSettings[i] = v
+							end
+						end
+
+						ElementSettings = NewElementSettings
+
+						Element.Values = ElementSettings
+
+						Element.Instance.Name = "BIND_" .. ElementSettings.Name
+						Element.Instance.Header.Text = ElementSettings.Name
+						Element.Instance.Header.Icon.Visible = ElementSettings.Icon ~= nil
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0,32)
+						end
+						Element.Instance.Header.Icon.Image = ElementSettings.Icon ~= nil and AssetId(Element.Values.Icon) or ""
+
+						Element.Instance.Bind.Text = ElementSettings.CurrentValue
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name].Values = ElementSettings
+					end
+
+					function Element:Destroy()
+						Element.Instance:Destroy()
+					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ElementSettings.Name]
+				end
+				
+
+				]=]
+
+				function Groupbox:CreateButton(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						
+						Style = number, **
+						
+						Callback = function(nil),
+					}
+					]]
+
+					ElementSettings.Style = ElementSettings.Style or 2
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Button",
+					}
+
+					local Instances
+					task.spawn(function()
+						Instances = {
+							Style1 = GroupboxTemplateInstance["Button_TEMPLATE_Style1"]:Clone(),
+							Style2 = GroupboxTemplateInstance["Button_TEMPLATE_Style2"]:Clone(),
+						}
+
+						local tooltips = {}
+
+						for i, ElementInstance in pairs(Instances) do
+							ElementInstance.Visible = ElementInstance.Name
+								== "Button_TEMPLATE_Style" .. Element.Values.Style
+
+							ElementInstance.Name = "BUTTON_" .. Index
+							ElementInstance["PART_Backdrop"].Header.Header.Text = Element.Values.Name
+							ElementInstance["PART_Backdrop"].Header.Icon.Visible =
+								not String.IsEmptyOrNull(Element.Values.Icon)
+							ElementInstance["PART_Backdrop"].Header.Icon.Image = not String.IsEmptyOrNull(
+								Element.Values.Icon
+							) and AssetId(Element.Values.Icon) or ""
+
+							ElementInstance["PART_Backdrop"].Icon.Image = (
+								Element.Values.IndicatorStyle == 1 and AssetId(6031094680, "IndicatorChevron.png")
+							)
+								or (Element.Values.IndicatorStyle == 2 and AssetId(6023565895, "IndicatorFingerprint.png"))
+								or ""
+
+							ElementInstance["PART_Backdrop"].Header.UIListLayout.HorizontalAlignment = Element.Values.CenterContent
+								and Enum.HorizontalAlignment.Center
+								or Enum.HorizontalAlignment.Left
+
+							if ElementInstance.PART_Backdrop:FindFirstChild("Accent") then
+								local hover = nil
+
+								ElementInstance.MouseEnter:Connect(function()
+									Tween(
+										ElementInstance["PART_Backdrop"].DropShadowHolder.DropShadow,
+										{ ImageTransparency = 0.73 }
+									)
+								end)
+
+								ElementInstance.MouseLeave:Connect(function()
+									Tween(
+										ElementInstance["PART_Backdrop"].DropShadowHolder.DropShadow,
+										{ ImageTransparency = 1 }
+									)
+								end)
+
+								ElementInstance.Interact.MouseButton1Down:Connect(function()
+									Tween(
+										ElementInstance["PART_Backdrop"]["PART_BackdropHover"],
+										{ BackgroundTransparency = 0 }
+									)
+									hover = true
+								end)
+
+								UserInputService.InputEnded:Connect(function(input, processed)
+									if not hover then
+										return
+									end
+									if
+										input.UserInputType == Enum.UserInputType.MouseButton1
+										or input.UserInputType == Enum.UserInputType.Touch
+									then
+										Tween(
+											ElementInstance["PART_Backdrop"]["PART_BackdropHover"],
+											{ BackgroundTransparency = 1 }
+										)
+										hover = false
+									end
+								end)
+
+								ThemeMethods.bindTheme(ElementInstance.PART_Backdrop.Accent, "Color", "Accents.Main")
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.UIStroke.Accent,
+									"Color",
+									"Accents.Main"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.DropShadowHolder.DropShadow.Accent,
+									"Color",
+									"Accents.Main"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.PART_BackdropHover.AccentBrighter,
+									"Color",
+									"Accents.Brighter"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Icon,
+									"ImageColor3",
+									"Foregrounds.Active"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Header.Icon,
+									"ImageColor3",
+									"Foregrounds.Active"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Header.Header,
+									"TextColor3",
+									"Foregrounds.Active"
+								)
+							else
+								ElementInstance.MouseEnter:Connect(function()
+									Tween(ElementInstance["PART_Backdrop"].UIStroke, { Transparency = 0 })
+								end)
+
+								ElementInstance.MouseLeave:Connect(function()
+									Tween(ElementInstance["PART_Backdrop"].UIStroke, { Transparency = 0.85 })
+								end)
+
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop,
+									"BackgroundColor3",
+									"Backgrounds.Dark"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.UIStroke,
+									"Color",
+									"Foregrounds.Dark"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Shadow,
+									"BackgroundColor3",
+									"Backgrounds.Dark"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Icon,
+									"ImageColor3",
+									"Foregrounds.Light"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Header.Icon,
+									"ImageColor3",
+									"Foregrounds.Light"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.PART_Backdrop.Header.Header,
+									"TextColor3",
+									"Foregrounds.Light"
+								)
+							end
+
+							ElementInstance.Interact.MouseButton1Click:Connect(function()
+								local Success, Response = pcall(Element.Values.Callback)
+
+								if not Success then
+									ElementInstance["PART_Backdrop"].Header.Header.Text = "Callback Error"
+									warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									ElementInstance["PART_Backdrop"].Header.Header.Text = ElementSettings.Name
+								end
+							end)
+
+							ElementInstance.Parent = Groupbox.ParentingItem
+
+							tooltips[i] = AddToolTip(Element.Values.Tooltip or "", ElementInstance)
+
+							Element.Instance = ElementInstance.Visible and ElementInstance or Element.Instance
+						end
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+
+							for i, v in pairs(Element.Values) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+							Index = NewIndex
+							Element.Values = ElementSettings
+
+							for i, ElementInstance in pairs(Instances) do
+								local flag
+								if Element.Values.Style == 1 then
+									flag = ElementInstance.PART_Backdrop:FindFirstChild("Accent")
+								else
+									flag = not ElementInstance.PART_Backdrop:FindFirstChild("Accent")
+								end
+								ElementInstance.Visible = flag
+								ElementInstance.Parent = Groupbox.ParentingItem
+
+								ElementInstance.Name = "BUTTON_" .. NewIndex
+								ElementInstance["PART_Backdrop"].Header.Header.Text = Element.Values.Name
+								ElementInstance["PART_Backdrop"].Header.Icon.Visible =
+									not String.IsEmptyOrNull(Element.Values.Icon)
+								ElementInstance["PART_Backdrop"].Header.Icon.Image = not String.IsEmptyOrNull(
+									Element.Values.Icon
+								) and AssetId(Element.Values.Icon) or ""
+
+								tooltips[i].Text = Element.Values.Tooltip or ""
+
+								Element.Instance = ElementInstance.Visible and ElementInstance or Element.Instance
+							end
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements["BUTTON_" .. Index].Values =
+								Element.Values
+						end
+
+						function Element:Destroy()
+							for _, ElementInstance in pairs(Instances) do
+								ElementInstance:Destroy()
+							end
+							if Element.NestedElements ~= nil then
+								for _, nestedElement in pairs(Element.NestedElements) do
+									nestedElement:Destroy()
+								end
+							end
+							Element = nil
+						end
+
+						function Element:Lock(Reason: string?)
+							for _, ElementInstance in pairs(Instances) do
+								ElementInstance.Lock_Overlay.Visible = true
+								ElementInstance.Interactable = false
+								ElementInstance.Lock_Overlay.Header.Text = Reason or ""
+							end
+						end
+
+						function Element:Unlock()
+							for _, ElementInstance in pairs(Instances) do
+								ElementInstance.Lock_Overlay.Visible = false
+								ElementInstance.Interactable = true
+								ElementInstance.Lock_Overlay.Header.Text = ""
+							end
+						end
+					end)
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements["BUTTON_" .. Index] =
+						Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements["BUTTON_" .. Index]
+				end
+
+				function Groupbox:CreateToggle(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+
+						CurrentValue = bool,
+						CheckboxIcon = number, **
+						
+						Style = number, **
+						
+						Callback = function(bool),
+					}
+					]]
+
+					ElementSettings.Style = ElementSettings.Style or 1
+					ElementSettings.CurrentValue = ElementSettings.CurrentValue or false
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Toggle",
+						NestedElements = {},
+						IgnoreConfig = ElementSettings.IgnoreConfig,
+					}
+					local Instances
+
+					task.spawn(function()
+						Instances = {
+							Style1 = GroupboxTemplateInstance["Checkbox_TEMPLATE_Disabled"]:Clone(),
+							Style2 = GroupboxTemplateInstance["Switch_TEMPLATE_Disabled"]:Clone(),
+						}
+
+						local function checkForBind()
+							for i, v in pairs(Element.NestedElements) do
+								if v.Class == "Bind" then
+									return v
+								end
+							end
+							return nil
+						end
+
+						local tooltips = {}
+						local knobcolor = Starlight.CurrentTheme.Foregrounds.Medium
+
+						local function Set(bool)
+							if bool then
+								Tween(Instances.Style1.Checkbox, { BackgroundTransparency = 0 })
+								Tween(Instances.Style1.Checkbox.Icon, { ImageTransparency = 0 })
+								Tween(
+									Instances.Style2.Switch,
+									{ BackgroundTransparency = 0, BackgroundColor3 = Color3.fromRGB(255, 255, 255) }
+								)
+								Tween(
+									Instances.Style2.Switch.Knob,
+									{
+										Position = UDim2.new(0, 20, 0.5, 0),
+										BackgroundColor3 = Starlight.CurrentTheme.Foregrounds.Active,
+										BackgroundTransparency = 0,
+									}
+								)
+								Tween(Instances.Style2.Switch.UIStroke, { Color = Color3.fromRGB(255, 255, 255) })
+								Tween(Instances.Style2.Switch.DropShadowHolder.DropShadow, { ImageTransparency = 0 })
+								Instances.Style2.Switch.Accent.Enabled = true
+								Instances.Style2.Switch.UIStroke.Accent.Enabled = true
+							else
+								Tween(Instances.Style1.Checkbox, { BackgroundTransparency = 0.9 })
+								Tween(Instances.Style1.Checkbox.Icon, { ImageTransparency = 1 })
+								Tween(
+									Instances.Style2.Switch,
+									{ BackgroundTransparency = 1, BackgroundColor3 = knobcolor }
+								)
+								Tween(
+									Instances.Style2.Switch.Knob,
+									{
+										Position = UDim2.new(0, 0, 0.5, 0),
+										BackgroundColor3 = knobcolor,
+										BackgroundTransparency = 0.5,
+									}
+								)
+								Tween(Instances.Style2.Switch.UIStroke, { Color = knobcolor })
+								Tween(Instances.Style2.Switch.DropShadowHolder.DropShadow, { ImageTransparency = 1 })
+								Instances.Style2.Switch.Accent.Enabled = false
+								Instances.Style2.Switch.UIStroke.Accent.Enabled = false
+							end
+
+							Element.Values.CurrentValue = bool
+							local bind = checkForBind()
+							if bind ~= nil and bind.Values.SyncToggleState then
+								bind.Active = bool
+							end
+						end
+
+						for i, ElementInstance in pairs(Instances) do
+							if ElementInstance.Name == "Checkbox_TEMPLATE_Disabled" and Element.Values.Style == 1 then
+								ElementInstance.Visible = true
+							end
+							if ElementInstance.Name == "Switch_TEMPLATE_Disabled" and Element.Values.Style == 2 then
+								ElementInstance.Visible = true
+							end
+
+							ElementInstance.Name = "TOGGLE_" .. Index
+							ElementInstance.Header.Text = Element.Values.Name
+							ElementInstance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+
+							if ElementInstance.Header.Icon.Visible == false then
+								ElementInstance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+							else
+								ElementInstance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+							end
+							ElementInstance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+								and AssetId(Element.Values.Icon)
+								or ""
+
+							ThemeMethods.bindTheme(ElementInstance.Header, "TextColor3", "Foregrounds.Light")
+							ThemeMethods.bindTheme(ElementInstance.Header.Icon, "ImageColor3", "Foregrounds.Light")
+
+							if ElementInstance:FindFirstChild("Checkbox") then
+								if Element.Values.Style == 2 then
+									ElementInstance.Visible = false
+								end
+
+								ElementInstance.Checkbox.Icon.Visible = true
+								ElementInstance.Checkbox.Icon.Image = Element.Values.CheckboxIcon ~= nil
+									and AssetId(Element.Values.CheckboxIcon)
+									or ""
+
+								do
+									Set(Element.Values.CurrentValue)
+									local Success, Response = pcall(function()
+										Element.Values.Callback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										ElementInstance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										ElementInstance.Header.Text = ElementSettings.Name
+									end
+								end
+
+								ElementInstance.Checkbox.MouseEnter:Connect(function()
+									ElementInstance.Checkbox.AccentBrighter.Enabled = true
+									ElementInstance.Checkbox.Accent.Enabled = false
+								end)
+
+								ElementInstance.Checkbox.MouseLeave:Connect(function()
+									ElementInstance.Checkbox.AccentBrighter.Enabled = false
+									ElementInstance.Checkbox.Accent.Enabled = true
+								end)
+
+								ElementInstance.Checkbox.Interact.MouseButton1Click:Connect(function()
+									Element.Values.CurrentValue = not Element.Values.CurrentValue
+									Set(Element.Values.CurrentValue)
+
+									local Success, Response = pcall(function()
+										Element.Values.Callback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										ElementInstance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										ElementInstance.Header.Text = ElementSettings.Name
+									end
+								end)
+
+								ThemeMethods.bindTheme(ElementInstance.Checkbox.Accent, "Color", "Accents.Main")
+								ThemeMethods.bindTheme(
+									ElementInstance.Checkbox.AccentBrighter,
+									"Color",
+									"Accents.Brighter"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.Checkbox.UIStroke.Accent,
+									"Color",
+									"Accents.Main"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.Checkbox.DropShadowHolder.DropShadow.Accent,
+									"Color",
+									"Accents.Main"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.Checkbox.Icon,
+									"ImageColor3",
+									"Foregrounds.Active"
+								)
+							elseif ElementInstance.Switch then
+								if Element.Values.Style == 1 then
+									ElementInstance.Visible = false
+								end
+
+								do
+									Set(Element.Values.CurrentValue)
+									local Success, Response = pcall(function()
+										Element.Values.Callback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										ElementInstance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										ElementInstance.Header.Text = ElementSettings.Name
+									end
+								end
+
+								ElementInstance.Switch.MouseEnter:Connect(function()
+									knobcolor = Starlight.CurrentTheme.Foregrounds.MediumHover
+									if not Element.Values.CurrentValue then
+										Tween(ElementInstance.Switch, { BackgroundColor3 = knobcolor })
+										Tween(ElementInstance.Switch.Knob, { BackgroundColor3 = knobcolor })
+										Tween(ElementInstance.Switch.UIStroke, { Color = knobcolor })
+									end
+								end)
+								ElementInstance.Switch.MouseLeave:Connect(function()
+									knobcolor = Starlight.CurrentTheme.Foregrounds.Medium
+									if not Element.Values.CurrentValue then
+										Tween(ElementInstance.Switch, { BackgroundColor3 = knobcolor })
+										Tween(ElementInstance.Switch.Knob, { BackgroundColor3 = knobcolor })
+										Tween(ElementInstance.Switch.UIStroke, { Color = knobcolor })
+									end
+								end)
+
+								ElementInstance.Switch.Interact.MouseButton1Click:Connect(function()
+									Element.Values.CurrentValue = not Element.Values.CurrentValue
+									Set(Element.Values.CurrentValue)
+									local Success, Response = pcall(function()
+										Element.Values.Callback(Element.Values.CurrentValue)
+									end)
+
+									if not Success then
+										ElementInstance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										ElementInstance.Header.Text = ElementSettings.Name
+									end
+								end)
+
+								ThemeMethods.bindTheme(ElementInstance.Switch.Accent, "Color", "Accents.Main")
+								ThemeMethods.bindTheme(ElementInstance.Switch.UIStroke.Accent, "Color", "Accents.Main")
+								ThemeMethods.bindTheme(
+									ElementInstance.Switch.DropShadowHolder.DropShadow.Accent,
+									"Color",
+									"Accents.Main"
+								)
+								ThemeMethods.bindTheme(
+									ElementInstance.Switch.Knob,
+									"BackgroundColor3",
+									"Foregrounds.Active"
+								)
+								themeEvent.Event:Connect(function()
+									Set(Element.Values.CurrentValue)
+								end)
+							end
+
+							tooltips[i] = AddToolTip(Element.Values.Tooltip or "", ElementInstance)
+
+							ElementInstance.Parent = Groupbox.ParentingItem
+
+							Element.Instance = ElementInstance.Visible and ElementInstance or Element.Instance
+						end
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+							local oldStyle = Element.Values.Style
+
+							for i, v in pairs(Element.Values) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+							Index = NewIndex
+							Element.Values = ElementSettings
+
+							Set(Element.Values.CurrentValue)
+							local Success, Response = pcall(function()
+								Element.Values.Callback(Element.Values.CurrentValue)
+							end)
+
+							if not Success then
+								for _, ElementInstance in pairs(Instances) do
+									ElementInstance.Header.Text = "Callback Error"
+								end
+								warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+								print(Response)
+								if WindowSettings.NotifyOnCallbackError then
+									Starlight:Notification({
+										Title = Element.Values.Name .. " Callback Error",
+										Content = tostring(Response),
+										Icon = 129398364168201,
+									})
+								end
+								wait(0.5)
+								for _, ElementInstance in pairs(Instances) do
+									ElementInstance.Header.Text = ElementSettings.Name
+								end
+							end
+
+							for i, ElementInstance in pairs(Instances) do
+								ElementInstance.Name = "TOGGLE_" .. Index
+								ElementInstance.Header.Text = Element.Values.Name
+								ElementInstance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+
+								if ElementInstance.Header.Icon.Visible == false then
+									ElementInstance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+								else
+									ElementInstance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+								end
+								ElementInstance.Header.Icon.Image = not String.IsEmptyOrNull(
+									Element.Values.Icon
+								)
+									and AssetId(Element.Values.Icon)
+									or ""
+
+								if ElementInstance:FindFirstChild("Checkbox") then
+									if Element.Values.Style == 2 then
+										ElementInstance.Visible = false
+									else
+										ElementInstance.Visible = true
+									end
+
+									ElementInstance.Checkbox.Icon.Visible = true
+									ElementInstance.Checkbox.Icon.Image = Element.Values.CheckboxIcon ~= nil
+										and AssetId(Element.Values.CheckboxIcon)
+										or ""
+
+									do
+									end
+								elseif ElementInstance.Switch then
+									if Element.Values.Style == 1 then
+										ElementInstance.Visible = false
+									else
+										ElementInstance.Visible = true
+									end
+								end
+
+								tooltips[i].Text = Element.Values.Tooltip or ""
+
+								Element.Instance = ElementInstance.Visible and ElementInstance or Element.Instance
+							end
+
+							for i, v in pairs(Element.NestedElements) do
+								if v.Class == "Bind" or v.Class == "ColorPicker" then
+									if v.Class == "Bind" then
+										v.Instance.Parent = Element.Instance.ElementContainer
+										continue
+									end
+									v.Instances[1].Parent = Element.Instance.ElementContainer
+									continue
+								end
+								v.Instances[1].Parent = Element.Instance.DropdownHolder
+							end
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index].Values =
+								Element.Values
+						end
+					end)
+
+					function Element:Destroy()
+						for _, ElementInstance in pairs(Instances) do
+							ElementInstance:Destroy()
+						end
+						if Element.NestedElements ~= nil then
+							for _, nestedElement in pairs(Element.NestedElements) do
+								nestedElement:Destroy()
+							end
+						end
+						Element = nil
+					end
+
+					function Element:Lock(Reason: string?)
+						for _, ElementInstance in pairs(Instances) do
+							ElementInstance.Lock_Overlay.Visible = true
+							ElementInstance.Interactable = false
+							ElementInstance.Lock_Overlay.Header.Text = Reason or ""
+						end
+					end
+
+					function Element:Unlock()
+						for _, ElementInstance in pairs(Instances) do
+							ElementInstance.Lock_Overlay.Visible = false
+							ElementInstance.Interactable = true
+							ElementInstance.Lock_Overlay.Header.Text = ""
+						end
+					end
+
+					function Element:AddBind(NestedSettings, NestedIndex)
+						local index = HttpService:GenerateGUID()
+						local Inheritor = Groupbox:CreateLabel({ Name = "" }, index)
+						local NestedElement = Inheritor:AddBind(NestedSettings, NestedIndex, Element, Index)
+
+						local module = {}
+						function module:Set(NewNestedSettings, NewNestedIndex)
+							NestedElement:Set(NewNestedSettings, NewNestedIndex)
+						end
+						function module:Destroy()
+							NestedElement:Destroy()
+						end
+
+						Inheritor.Instance:Destroy()
+						Groupbox.Elements[index] = nil
+						Inheritor = nil
+						return module
+					end
+
+					function Element:AddColorPicker(NestedSettings, NestedIndex)
+						local index = HttpService:GenerateGUID()
+						local Inheritor = Groupbox:CreateLabel({ Name = "" }, index)
+						local NestedElement = Inheritor:AddColorPicker(NestedSettings, NestedIndex, Element, Index)
+
+						local module = {}
+						function module:Set(NewNestedSettings, NewNestedIndex)
+							NestedElement:Set(NewNestedSettings, NewNestedIndex)
+						end
+						function module:Destroy()
+							NestedElement:Destroy()
+						end
+
+						Inheritor.Instance:Destroy()
+						Groupbox.Elements[index] = nil
+						Inheritor = nil
+						return module
+					end
+
+					function Element:AddDropdown(NestedSettings, NestedIndex)
+						local index = HttpService:GenerateGUID()
+						local Inheritor = Groupbox:CreateLabel({ Name = "" }, index)
+						local NestedElement = Inheritor:AddDropdown(NestedSettings, NestedIndex, Element, Index)
+
+						local module = {}
+						function module:Set(NewNestedSettings, NewNestedIndex)
+							NestedElement:Set(NewNestedSettings, NewNestedIndex)
+						end
+						function module:Destroy()
+							NestedElement:Destroy()
+						end
+
+						Inheritor.Instance:Destroy()
+						Groupbox.Elements[index] = nil
+						Inheritor = nil
+						return module
+					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index]
+				end
+
+				function Groupbox:CreateDivider()
+					local Divider = {
+						ID = HttpService:GenerateGUID(false),
+						Class = "Divider",
+					}
+
+					Divider.Instance = GroupboxTemplateInstance.Divider:Clone()
+					Divider.Instance.Parent = Groupbox.ParentingItem
+					ThemeMethods.bindTheme(Divider.Instance.PART_Line, "BackgroundColor3", "Miscellaneous.Divider")
+
+					function Divider:Destroy()
+						Divider.Instance:Destroy()
+					end
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements["Divider_" .. Divider.ID] =
+						Divider
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements["Divider_" .. Divider.ID]
+				end
+
+				-- uhm so i crashed out here cus the textbox kept making it crash
+				-- SOOO, i got gpt to help :skull:
+				-- pls dont attack me :sob: i spent five hours tryna make it work and i js couldnt take it anymore
+				-- it only helped with logic-ing the steps, i still coded it muaself hehe (but thats why its so damn messy)
+				function Groupbox:CreateSlider(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						
+						CurrentValue = number, **
+						Range = table{number, number}, 
+						Increment = number, **
+						HideMax = bool, **
+						
+						Callback = function(number),
+					}
+					]]
+
+					ElementSettings.CurrentValue = ElementSettings.CurrentValue or ElementSettings.Range[1]
+					ElementSettings.Increment = ElementSettings.Increment or 1
+					ElementSettings.HideMax = ElementSettings.HideMax or false
+					ElementSettings.Suffix = ElementSettings.Suffix
+						and (ElementSettings.Suffix == "%" and `{ElementSettings.Suffix}` or ` {ElementSettings.Suffix}`)
+						or ""
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Slider",
+						SLDragging = false,
+						IgnoreConfig = ElementSettings.IgnoreConfig,
+					}
+					task.spawn(function()
+						local isTyping = false
+						local ignoreNext = false
+
+						local tooltip
+
+						Element.Instance = GroupboxTemplateInstance.Slider_TEMPLATE:Clone()
+						Element.Instance.Visible = true
+
+						Element.Instance.Name = "SLIDER_" .. Index
+						Element.Instance.Header.Text = Element.Values.Name
+						Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+						end
+						Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+							and AssetId(Element.Values.Icon)
+							or ""
+
+						tooltip = AddToolTip(Element.Values.Tooltip, Element.Instance)
+
+						local function Set(Value: number)
+							if Value then
+								Element.Values.CurrentValue = Value
+
+								Tween(
+									Element.Instance.PART_Backdrop.PART_Progress,
+
+									{
+										Size = UDim2.new(
+											(Value - Element.Values.Range[1])
+												/ (Element.Values.Range[2] - Element.Values.Range[1]),
+											0,
+											1,
+											0
+										),
+									},
+									nil,
+									Tween.Info(nil, nil, 0.2)
+								)
+								Element.Instance.Value.input.Text = tostring(Value)
+								Element.Instance.Value.input.CursorPosition = #Element.Instance.Value.input.Text + 2
+
+								local Success, Response = pcall(function()
+									Element.Values.Callback(Value)
+								end)
+
+								if not Success then
+									Element.Instance.Header.Text = "Callback Error"
+									warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									Element.Instance.Header.Text = ElementSettings.Name
+								end
+							end
+						end
+
+						Element.Instance.PART_Backdrop.Interact.InputBegan:Connect(function(Input)
+							if
+								Input.UserInputType == Enum.UserInputType.MouseButton1
+								or Input.UserInputType == Enum.UserInputType.Touch
+							then
+								Element.SLDragging = true
+							end
+						end)
+
+						Element.Instance.PART_Backdrop.Interact.InputEnded:Connect(function(Input)
+							if
+								Input.UserInputType == Enum.UserInputType.MouseButton1
+								or Input.UserInputType == Enum.UserInputType.Touch
+							then
+								Element.SLDragging = false
+							end
+						end)
+
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.InputBegan:Connect(function(Input)
+							if
+								Input.UserInputType == Enum.UserInputType.MouseButton1
+								or Input.UserInputType == Enum.UserInputType.Touch
+							then
+								Element.SLDragging = true
+							end
+						end)
+
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.InputEnded:Connect(function(Input)
+							if
+								Input.UserInputType == Enum.UserInputType.MouseButton1
+								or Input.UserInputType == Enum.UserInputType.Touch
+							then
+								Element.SLDragging = false
+							end
+						end)
+
+						local dragFunction = function(X)
+							local Current = Element.Instance.PART_Backdrop.PART_Progress.AbsolutePosition.X
+								+ Element.Instance.PART_Backdrop.PART_Progress.AbsoluteSize.X
+							local Start = Current
+							local Location = X
+							local Loop
+							Loop = RunService.Stepped:Connect(function()
+								if Element.SLDragging then
+									Location = Mouse.X
+									Current = Current + 0.025 * (Location - Start)
+
+									if Location < Element.Instance.PART_Backdrop.AbsolutePosition.X then
+										Location = Element.Instance.PART_Backdrop.AbsolutePosition.X
+									elseif
+										Location
+										> Element.Instance.PART_Backdrop.AbsolutePosition.X
+										+ Element.Instance.PART_Backdrop.AbsoluteSize.X
+									then
+										Location = Element.Instance.PART_Backdrop.AbsolutePosition.X
+											+ Element.Instance.PART_Backdrop.AbsoluteSize.X
+									end
+
+									if Current < Element.Instance.PART_Backdrop.AbsolutePosition.X then
+										Current = Element.Instance.PART_Backdrop.AbsolutePosition.X
+									elseif
+										Current
+										> Element.Instance.PART_Backdrop.AbsolutePosition.X
+										+ Element.Instance.PART_Backdrop.AbsoluteSize.X
+									then
+										Current = Element.Instance.PART_Backdrop.AbsolutePosition.X
+											+ Element.Instance.PART_Backdrop.AbsoluteSize.X
+									end
+
+									if Current <= Location and (Location - Start) < 0 then
+										Start = Location
+									elseif Current >= Location and (Location - Start) > 0 then
+										Start = Location
+									end
+
+									local percentage = (Location - Element.Instance.PART_Backdrop.AbsolutePosition.X)
+										/ Element.Instance.PART_Backdrop.AbsoluteSize.X
+									Tween(
+										Element.Instance.PART_Backdrop.PART_Progress,
+
+										{ Size = UDim2.new(percentage, 0, 1, 0) },
+
+										nil,
+										Tween.Info(nil, nil, 0.2)
+									)
+
+									local NewValue = ((Element.Values.Range[2] - Element.Values.Range[1]) * percentage)
+										+ Element.Values.Range[1]
+
+									NewValue = math.floor(NewValue / Element.Values.Increment + 0.5)
+										* (Element.Values.Increment * 10000000)
+										/ 10000000
+
+									Element.Instance.Value.input.Text = tostring(NewValue)
+
+									if Element.Values.CurrentValue ~= NewValue then
+										local Success, Response = pcall(function()
+											Element.Values.Callback(NewValue)
+										end)
+
+										if not Success then
+											Element.Instance.Header.Text = "Callback Error"
+											warn(
+												`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`
+											)
+											print(Response)
+											if WindowSettings.NotifyOnCallbackError then
+												Starlight:Notification({
+													Title = Element.Values.Name .. " Callback Error",
+													Content = tostring(Response),
+													Icon = 129398364168201,
+												})
+											end
+											wait(0.5)
+											Element.Instance.Header.Text = ElementSettings.Name
+										end
+
+										Element.Values.CurrentValue = NewValue
+									end
+								else
+									Loop:Disconnect()
+								end
+							end)
+						end
+
+						Element.Instance.PART_Backdrop.Interact.MouseButton1Down:Connect(function(X)
+							dragFunction(X)
+						end)
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.MouseButton1Down:Connect(function(X)
+							dragFunction(X)
+						end)
+
+						Element.Instance.PART_Backdrop.PART_Progress:GetPropertyChangedSignal("Size"):Connect(function()
+							if Element.Instance.PART_Backdrop.PART_Progress.AbsoluteSize.X <= 0 then
+								Element.Instance.PART_Backdrop.PART_Progress.DropShadowHolder.DropShadow.Size =
+									UDim2.new(1, 0, 1, 0)
+								return
+							end
+							Element.Instance.PART_Backdrop.PART_Progress.DropShadowHolder.DropShadow.Size =
+								UDim2.new(1, 22, 1, 22)
+						end)
+
+						local input = Element.Instance.Value.input
+						local updating = false
+						local lastValid = input.Text or ""
+
+						input:GetPropertyChangedSignal("Text"):Connect(function()
+							if updating or Element.SLDragging then
+								return
+							end
+
+							local tb = input
+							local newText = tb.Text or ""
+							if newText == lastValid then
+								return
+							end
+
+							local sanitizedBuilder = {}
+							local dotUsed = false
+							local survivorsBeforeCursor = 0
+							local cursorPos = tb.CursorPosition or (#newText + 1)
+
+							for i = 1, #newText do
+								local ch = newText:sub(i, i)
+								if ch:match("%d") then
+									table.insert(sanitizedBuilder, ch)
+									if i < cursorPos then
+										survivorsBeforeCursor = survivorsBeforeCursor + 1
+									end
+								elseif ch == "." and not dotUsed then
+									dotUsed = true
+									table.insert(sanitizedBuilder, ".")
+									if i < cursorPos then
+										survivorsBeforeCursor = survivorsBeforeCursor + 1
+									end
+								end
+							end
+
+							local sanitized = table.concat(sanitizedBuilder)
+
+							if sanitized ~= newText then
+								updating = true
+								tb.Text = sanitized
+								--task.wait()
+								tb.CursorPosition = math.clamp(survivorsBeforeCursor + 1, 1, #sanitized + 1)
+								updating = false
+								lastValid = sanitized
+							else
+								lastValid = newText
+							end
+
+							if sanitized == "" or sanitized == "." or sanitized:sub(-1) == "." then
+								return
+							end
+
+							local num = tonumber(sanitized)
+							if not num then
+								return
+							end
+
+							local minv = (Element.Values and Element.Values.Range and Element.Values.Range[1])
+								or -math.huge
+							local maxv = (Element.Values and Element.Values.Range and Element.Values.Range[2])
+								or math.huge
+
+							if num < minv then
+								num = minv
+								updating = true
+								tb.Text = tostring(num)
+								--task.wait()
+								tb.CursorPosition = #tb.Text + 1
+								updating = false
+								lastValid = tb.Text
+							elseif num > maxv then
+								num = maxv
+								updating = true
+								tb.Text = tostring(num)
+								--task.wait()
+								tb.CursorPosition = #tb.Text + 1
+								updating = false
+								lastValid = tb.Text
+							end
+
+							if Element.Values.CurrentValue ~= num then
+								Set(num)
+							end
+						end)
+
+						Element.Instance.Value.input.FocusLost:Connect(function()
+							if
+								Element.Instance.Value.input.Text == ""
+								or Element.Instance.Value.input.Text == "."
+								or Element.Instance.Value.input.Text == "0."
+							then
+								Set(Element.Values.CurrentValue)
+								--task.wait()
+								Element.Instance.Value.input:ReleaseFocus()
+							end
+						end)
+
+						Element.Instance.MouseEnter:Connect(function()
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Progress.DropShadowHolder.DropShadow,
+								{ ImageTransparency = 0.1 }
+							)
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Progress.Knob.DropShadowHolder.DropShadow,
+								{ ImageTransparency = 0, ImageColor3 = Color3.new(1, 1, 1) }
+							)
+						end)
+						Element.Instance.MouseLeave:Connect(function()
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Progress.DropShadowHolder.DropShadow,
+								{ ImageTransparency = 0.9 }
+							)
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Progress.Knob.DropShadowHolder.DropShadow,
+								{ ImageTransparency = 0.5, ImageColor3 = Color3.new(0, 0, 0) }
+							)
+						end)
+
+						Set(Element.Values.CurrentValue)
+						Element.Instance.Value.max.Text = (
+							not Element.Values.HideMax and `/{Element.Values.Range[2]}` or ""
+						) .. `{Element.Values.Suffix}`
+
+						ThemeMethods.bindTheme(Element.Instance.Header, "TextColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.Header.Icon, "ImageColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.Value.max, "TextColor3", "Foregrounds.Medium")
+						ThemeMethods.bindTheme(Element.Instance.Value.input, "TextColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.PART_Backdrop, "BackgroundColor3", "Backgrounds.Dark")
+						ThemeMethods.bindTheme(Element.Instance.PART_Backdrop.UIStroke, "Color", "Foregrounds.Dark")
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Progress.Accent,
+							"Color",
+							"Accents.Main"
+						)
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Progress.DropShadowHolder.DropShadow.Accent,
+							"Color",
+							"Accents.Main"
+						)
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Progress.Knob,
+							"BackgroundColor3",
+							"Foregrounds.Light"
+						)
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Progress.Knob.DropShadowHolder.DropShadow,
+							"ImageColor3",
+							"Foregrounds.Light"
+						)
+
+						function Element:Destroy()
+							Element.Instance:Destroy()
+							if Element.NestedElements ~= nil then
+								for _, nestedElement in pairs(Element.NestedElements) do
+									nestedElement:Destroy()
+								end
+							end
+							Element = nil
+						end
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+
+							for i, v in pairs(Element.Values) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+							Index = NewIndex
+							Element.Values = ElementSettings
+
+							Element.Instance.Name = "SLIDER_" .. Index
+							Element.Instance.Header.Text = Element.Values.Name
+							Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+							if Element.Instance.Header.Icon.Visible == false then
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+							else
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+							end
+							Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+								and AssetId(Element.Values.Icon)
+								or ""
+
+							tooltip.Text = Element.Values.Tooltip or tooltip.Text
+
+							Set(Element.Values.CurrentValue)
+							Element.Instance.Value.max.Text = (
+								not Element.Values.HideMax and `/{Element.Values.Range[2]}` or ""
+							) .. `{Element.Values.Suffix}`
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index].Values =
+								Element.Values
+						end
+
+						function Element:Lock(Reason)
+							Element.Instance.Lock_Overlay.Visible = true
+							Element.Instance.Interactable = false
+							Element.Instance.Lock_Overlay.Header.Text = Reason or ""
+						end
+
+						function Element:Unlock()
+							Element.Instance.Lock_Overlay.Visible = false
+							Element.Instance.Interactable = true
+							Element.Instance.Lock_Overlay.Header.Text = ""
+						end
+						Element.Instance.Parent = Groupbox.ParentingItem
+					end)
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index]
+				end
+
+				function Groupbox:CreateInput(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						
+						CurrentValue = string, **
+						PlaceholderText = string, **
+						RemoveTextAfterFocusLost = bool, **
+						Numeric = bool, **
+						Enter = bool, **
+						MaxCharacters = number, **
+						RemoveTextOnFocus = bool, **
+						
+						Callback = function(string),
+					}
+					]]
+
+					ElementSettings.CurrentValue = ElementSettings.CurrentValue or ""
+					ElementSettings.PlaceholderText = ElementSettings.PlaceholderText or ""
+					ElementSettings.RemoveTextAfterFocusLost = ElementSettings.RemoveTextAfterFocusLost or false
+					ElementSettings.Numeric = ElementSettings.Numeric or false
+					ElementSettings.Enter = ElementSettings.Enter or false
+					ElementSettings.MaxCharacters = ElementSettings.MaxCharacters or -1
+					if ElementSettings.RemoveTextOnFocus == nil then
+						ElementSettings.RemoveTextOnFocus = true
+					end
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Input",
+						IgnoreConfig = ElementSettings.IgnoreConfig,
+					}
+
+					task.spawn(function()
+						local tooltip
+
+						Element.Instance = GroupboxTemplateInstance.Input_TEMPLATE:Clone()
+						Element.Instance.Visible = true
+
+						Element.Instance.PART_Backdrop.PART_Input.FocusLost:Connect(function(Enter)
+							if Element.Values.Enter then
+								local Success, Response = pcall(function()
+									Element.Values.Callback(Element.Values.CurrentValue)
+								end)
+
+								if not Success then
+									Element.Instance.Header.Text = "Callback Error"
+									warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									Element.Instance.Header.Text = ElementSettings.Name
+								end
+							end
+
+							if Element.Values.RemoveTextAfterFocusLost then
+								Element.Instance.PART_Backdrop.PART_Input.Text = ""
+								Element.Values.CurrentValue = ""
+							end
+						end)
+
+						Element.Instance.PART_Backdrop.Interact.Focused:Connect(function()
+							Element.Instance.PART_Backdrop.Interact:ReleaseFocus()
+							Element.Instance.PART_Backdrop.PART_Input:CaptureFocus()
+						end)
+
+						Element.Instance.MouseEnter:Connect(function()
+							Tween(
+								Element.Instance.PART_Backdrop.UIStroke,
+								{ Color = Starlight.CurrentTheme.Foregrounds.DarkHover }
+							)
+						end)
+						Element.Instance.MouseLeave:Connect(function()
+							Tween(
+								Element.Instance.PART_Backdrop.UIStroke,
+								{ Color = Starlight.CurrentTheme.Foregrounds.Dark }
+							)
+						end)
+
+						if Element.Values.Numeric then
+							Element.Instance.PART_Backdrop.PART_Input
+								:GetPropertyChangedSignal("Text")
+								:Connect(function()
+									local text = Element.Instance.PART_Backdrop.PART_Input.Text
+									if not tonumber(text) and text ~= "." then
+										Element.Instance.PART_Backdrop.PART_Input.Text = text:match("[0-9.]*") or ""
+									end
+								end)
+						end
+
+						Element.Instance.PART_Backdrop.PART_Input:GetPropertyChangedSignal("Text"):Connect(function()
+							if Element.Values.MaxCharacters < 0 then
+								if
+									(#Element.Instance.PART_Backdrop.PART_Input.Text - 1)
+									== Element.Values.MaxCharacters
+								then
+									Element.Instance.PART_Backdrop.PART_Input.Text =
+										Element.Instance.PART_Backdrop.PART_Input.Text:sub(
+											1,
+											Element.Values.MaxCharacters
+										)
+								end
+							end
+
+							Element.Values.CurrentValue = Element.Instance.PART_Backdrop.PART_Input.Text
+							if not Element.Values.Enter then
+								local Success, Response = pcall(function()
+									Element.Values.Callback(Element.Values.CurrentValue)
+								end)
+
+								if not Success then
+									Element.Instance.Header.Text = "Callback Error"
+									warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									Element.Instance.Header.Text = ElementSettings.Name
+								end
+							end
+
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Input,
+								{ Size = UDim2.new(0, Element.Instance.PART_Backdrop.PART_Input.TextBounds.X, 1, 0) }
+							)
+							Tween(
+								Element.Instance.PART_Backdrop,
+								{
+									Size = UDim2.new(
+										0,
+										Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
+										0,
+										Element.Instance.PART_Backdrop.Size.Y.Offset
+									),
+								}
+							)
+						end)
+
+						Element.Instance.Name = "INPUT_" .. Index
+						Element.Instance.Header.Text = Element.Values.Name
+						Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+						end
+						Element.Instance.PART_Backdrop.PART_Input.ClearTextOnFocus = Element.Values.RemoveTextOnFocus
+						Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+							and AssetId(Element.Values.Icon)
+							or ""
+						task.delay(0.2, function()
+							Element.Instance.PART_Backdrop.PART_Input.PlaceholderText = Element.Values.PlaceholderText
+							Element.Instance.PART_Backdrop.PART_Input.Text = Element.Values.CurrentValue
+							Element.Instance.PART_Backdrop.PART_Input.Size =
+								UDim2.new(0, Element.Instance.PART_Backdrop.PART_Input.TextBounds.X, 1, 0)
+							Element.Instance.PART_Backdrop.Size = UDim2.new(
+								0,
+								Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
+								0,
+								Element.Instance.PART_Backdrop.Size.Y.Offset
+							)
+						end)
+
+						ThemeMethods.bindTheme(Element.Instance.Header, "TextColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.Header.Icon, "ImageColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.PART_Backdrop, "BackgroundColor3", "Backgrounds.Dark")
+						ThemeMethods.bindTheme(Element.Instance.PART_Backdrop.UIStroke, "Color", "Foregrounds.Dark")
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Input,
+							"PlaceholderColor3",
+							"Foregrounds.Medium"
+						)
+						ThemeMethods.bindTheme(
+							Element.Instance.PART_Backdrop.PART_Input,
+							"TextColor3",
+							"Foregrounds.Light"
+						)
+
+						tooltip = AddToolTip(Element.Values.Tooltip, Element.Instance)
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+
+							for i, v in pairs(ElementSettings) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+
+							Element.Values = ElementSettings
+
+							Element.Instance.Name = "INPUT_" .. NewIndex
+							Element.Instance.Header.Text = Element.Values.Name
+							Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+							if Element.Instance.Header.Icon.Visible == false then
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+							else
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+							end
+							Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+								and AssetId(Element.Values.Icon)
+								or ""
+							Element.Instance.PART_Backdrop.PART_Input.PlaceholderText = Element.Values.PlaceholderText
+							Element.Instance.PART_Backdrop.PART_Input.Text = Element.Values.CurrentValue
+							Tween(
+								Element.Instance.PART_Backdrop.PART_Input,
+								{ Size = UDim2.new(0, Element.Instance.PART_Backdrop.PART_Input.TextBounds.X, 1, 0) }
+							)
+							Tween(
+								Element.Instance.PART_Backdrop,
+								{
+									Size = UDim2.new(
+										0,
+										Element.Instance.PART_Backdrop.PART_Input.TextBounds.X + 30,
+										0,
+										Element.Instance.PART_Backdrop.Size.Y.Offset
+									),
+								}
+							)
+							local Success, Response = pcall(function()
+								Element.Values.Callback(Element.Values.CurrentValue)
+							end)
+
+							if not Success then
+								Element.Instance.Header.Text = "Callback Error"
+								warn(`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index})`)
+								print(Response)
+								if WindowSettings.NotifyOnCallbackError then
+									Starlight:Notification({
+										Title = Element.Values.Name .. " Callback Error",
+										Content = tostring(Response),
+										Icon = 129398364168201,
+									})
+								end
+								wait(0.5)
+								Element.Instance.Header.Text = ElementSettings.Name
+							end
+
+							tooltip.Text = Element.Values.Tooltip or ""
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index].Values =
+								Element.Values
+						end
+
+						function Element:Destroy()
+							Element.Instance:Destroy()
+							if Element.NestedElements ~= nil then
+								for _, nestedElement in pairs(Element.NestedElements) do
+									nestedElement:Destroy()
+								end
+							end
+							Element = nil
+						end
+
+						function Element:Lock(Reason)
+							Element.Instance.Lock_Overlay.Visible = true
+							Element.Instance.Interactable = false
+							Element.Instance.Lock_Overlay.Header.Text = Reason or ""
+						end
+
+						function Element:Unlock()
+							Element.Instance.Lock_Overlay.Visible = false
+							Element.Instance.Interactable = true
+							Element.Instance.Lock_Overlay.Header.Text = ""
+						end
+					end)
+					Element.Instance.Parent = Groupbox.ParentingItem
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index]
+				end
+
+				function Groupbox:CreateLabel(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+					}
+					]]
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Label",
+						NestedElements = {},
+					}
+
+					task.spawn(function()
+						local tooltip
+
+						Element.Instance = GroupboxTemplateInstance.Label_TEMPLATE:Clone()
+						Element.Instance.Visible = true
+						Element.Instance.Parent = Groupbox.ParentingItem
+
+						Element.Instance.Name = "LABEL_" .. Index
+						Element.Instance.Header.Text = Element.Values.Name
+						Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+						end
+						Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+							and AssetId(Element.Values.Icon)
+							or ""
+
+						ThemeMethods.bindTheme(Element.Instance.Header, "TextColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.Header.Icon, "ImageColor3", "Foregrounds.Light")
+
+						tooltip = AddToolTip(Element.Values.Tooltip, Element.Instance)
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+
+							for i, v in pairs(Element.Values) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+							Index = NewIndex
+
+							Element.Values = ElementSettings
+
+							Element.Instance.Name = "LABEL_" .. NewIndex
+							Element.Instance.Header.Text = Element.Values.Name
+							Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+							if Element.Instance.Header.Icon.Visible == false then
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+							else
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+							end
+							Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+								and AssetId(Element.Values.Icon)
+								or ""
+
+							tooltip.Text = Element.Values.Tooltip or ""
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index].Values =
+								Element.Values
+						end
+
+						function Element:Destroy()
+							Element.Instance:Destroy()
+							if Element.NestedElements ~= nil then
+								for _, nestedElement in pairs(Element.NestedElements) do
+									nestedElement:Destroy()
+								end
+							end
+							Element = nil
+						end
+
+						function Element:Lock(Reason)
+							Element.Instance.Lock_Overlay.Visible = true
+							Element.Instance.Interactable = false
+							Element.Instance.Lock_Overlay.Header.Text = Reason or ""
+						end
+
+						function Element:Unlock()
+							Element.Instance.Lock_Overlay.Visible = false
+							Element.Instance.Interactable = true
+							Element.Instance.Lock_Overlay.Header.Text = ""
+						end
+					end)
+
+					--// SUBSECTION : User Elements
+
+					function Element:AddBind(NestedSettings, NestedIndex, Parent, ParentIndex)
+						Parent = Parent or Element
+						local isToggle = Parent ~= Element
+
+						ParentIndex = ParentIndex or Index
+
+						--[[
+						NestedSettings = {
+							HoldToInteract = bool, **
+							CurrentValue = string, 
+							SyncToggleState = bool, **
+							
+							Callback = function(bool), ****
+							OnChangedCallback = function(string), **
+						}
+						]]
+
+						NestedSettings.HoldToInteract = NestedSettings.HoldToInteract or false
+						if NestedSettings.SyncToggleState == nil then
+							NestedSettings.SyncToggleState = true
+						end
+						NestedSettings.OnChangedCallback = NestedSettings.OnChangedCallback or function() end
+						if isToggle then
+							NestedSettings.Callback = NestedSettings.Callback or function() end
+						end
+						NestedSettings.CurrentValue = NestedSettings.CurrentValue or "No Bind"
+						NestedSettings.WindowSetting = NestedSettings.WindowSetting or false
+
+						local NestedElement = {
+							Values = NestedSettings,
+							Active = false,
+							Class = "Bind",
+							IgnoreConfig = NestedSettings.IgnoreConfig,
+						}
+
+						task.spawn(function()
+							-- Current Value Validation
+
+							local digits = {
+								[1] = "One",
+								[2] = "Two",
+								[3] = "Three",
+								[4] = "Four",
+								[5] = "Five",
+								[6] = "Six",
+								[7] = "Seven",
+								[8] = "Eight",
+								[9] = "Nine",
+								[0] = "Zero",
+							}
+
+							if tonumber(NestedElement.Values.CurrentValue) then
+								NestedElement.Values.CurrentValue = digits[tonumber(NestedElement.Values.CurrentValue)]
+							end
+
+							NestedElement.Values.CurrentValue = NestedElement.Values.CurrentValue:sub(1, 1):upper()
+								.. NestedElement.Values.CurrentValue:sub(2)
+
+							--
+
+							NestedElement.Instance = Element.Instance.ElementContainer.Bind:Clone()
+							NestedElement.Instance.Visible = true
+							NestedElement.Instance.Parent = Parent.Instance.ElementContainer
+							Parent.Instance.Header.Size = UDim2.fromOffset(Parent.Instance.Header.Size.X.Offset - 26, 20)
+
+							NestedElement.Instance.Name = "BIND_" .. NestedIndex
+
+							local CheckingForKey = false
+
+							NestedElement.Instance:GetPropertyChangedSignal("Text"):Connect(function()
+								--task.wait()
+
+								if NestedElement.Instance.ContentText == "" then
+									Tween(
+										NestedElement.Instance,
+										{ Size = UDim2.new(0, NestedElement.Instance.TextBounds.X + 30, 0, 22) }
+									)
+								else
+									Tween(
+										NestedElement.Instance,
+										{ Size = UDim2.new(0, NestedElement.Instance.TextBounds.X + 14, 0, 22) }
+									)
+								end
+							end)
+
+							task.delay(0.2, function()
+								NestedElement.Instance.Text = NestedElement.Values.CurrentValue == "No Bind"
+									and '<font color="rgb(' .. tostring(
+										math.floor(Starlight.CurrentTheme.Foregrounds.Medium.R * 255 + 0.5)
+									) .. "," .. tostring(
+									math.floor(Starlight.CurrentTheme.Foregrounds.Medium.G * 255 + 0.5)
+								) .. "," .. tostring(
+									math.floor(Starlight.CurrentTheme.Foregrounds.Medium.B * 255 + 0.5)
+								) .. ')">No Bind</font>'
+									or NestedElement.Values.CurrentValue
+							end)
+
+							NestedElement.Instance.Focused:Connect(function()
+								task.wait()
+								CheckingForKey = true
+							end)
+
+							NestedElement.Instance.MouseEnter:Connect(function()
+								Tween(
+									NestedElement.Instance.UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.DarkHover }
+								)
+							end)
+							NestedElement.Instance.MouseLeave:Connect(function()
+								Tween(
+									NestedElement.Instance.UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.Dark }
+								)
+							end)
+
+							NestedElement.Instance.FocusLost:Connect(function(enter)
+								if not enter then
+									CheckingForKey = false
+									if String.IsEmptyOrNull(NestedElement.Instance.Text) then
+										NestedElement.Values.CurrentValue = "No Bind"
+										NestedElement.Instance.Text = '<font color="rgb('
+											.. tostring(
+												math.floor(Starlight.CurrentTheme.Foregrounds.Medium.R * 255 + 0.5)
+											)
+											.. ","
+											.. tostring(
+												math.floor(Starlight.CurrentTheme.Foregrounds.Medium.G * 255 + 0.5)
+											)
+											.. ","
+											.. tostring(
+												math.floor(Starlight.CurrentTheme.Foregrounds.Medium.B * 255 + 0.5)
+											)
+											.. ')">No Bind</font>'
+									end
+								end
+							end)
+
+							connections[ParentIndex .. "_" .. Index] = UserInputService.InputBegan:Connect(
+								function(input, processed)
+									if CheckingForKey then
+										if NestedElement.Values.WindowSetting then
+											if input.KeyCode ~= Enum.KeyCode.Unknown then
+												local SplitMessage = string.split(tostring(input.KeyCode), ".")
+												local NewKeyNoEnum = SplitMessage[3]
+												NestedElement.Instance.Text = tostring(NewKeyNoEnum)
+												NestedElement.Values.CurrentValue = tostring(NewKeyNoEnum)
+												local Success, Response = pcall(function()
+													NestedElement.Values.OnChangedCallback(
+														NestedElement.Values.CurrentValue
+													)
+													Starlight.WindowKeybind = tostring(NewKeyNoEnum)
+												end)
+
+												if not Success then
+													Parent.Instance.Header.Text = "Callback Error"
+													warn(
+														`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+													)
+													print(Response)
+													if WindowSettings.NotifyOnCallbackError then
+														Starlight:Notification({
+															Title = Element.Values.Name .. " Callback Error",
+															Content = tostring(Response),
+															Icon = 129398364168201,
+														})
+													end
+													wait(0.5)
+													Parent.Instance.Header.Text = ElementSettings.Name
+												end
+												NestedElement.Instance:ReleaseFocus()
+											else
+												Starlight.WindowKeybind = nil
+											end
+										elseif not (input.UserInputType == Enum.UserInputType.Keyboard) then
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+												NestedElement.Instance.Text = "MB1"
+												NestedElement.Values.CurrentValue = "MB1"
+												NestedElement.Instance:ReleaseFocus()
+												local Success, Response = pcall(function()
+													NestedElement.Values.OnChangedCallback(
+														NestedElement.Values.CurrentValue
+													)
+												end)
+
+												if not Success then
+													Parent.Instance.Header.Text = "Callback Error"
+													warn(
+														`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+													)
+													print(Response)
+													if WindowSettings.NotifyOnCallbackError then
+														Starlight:Notification({
+															Title = Element.Values.Name .. " Callback Error",
+															Content = tostring(Response),
+															Icon = 129398364168201,
+														})
+													end
+													wait(0.5)
+													Parent.Instance.Header.Text = ElementSettings.Name
+												end
+											elseif input.UserInputType == Enum.UserInputType.MouseButton2 then
+												NestedElement.Instance.Text = "MB2"
+												NestedElement.Values.CurrentValue = "MB2"
+												NestedElement.Instance:ReleaseFocus()
+												local Success, Response = pcall(function()
+													NestedElement.Values.OnChangedCallback(
+														NestedElement.Values.CurrentValue
+													)
+												end)
+
+												if not Success then
+													Parent.Instance.Header.Text = "Callback Error"
+													warn(
+														`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+													)
+													print(Response)
+													if WindowSettings.NotifyOnCallbackError then
+														Starlight:Notification({
+															Title = Element.Values.Name .. " Callback Error",
+															Content = tostring(Response),
+															Icon = 129398364168201,
+														})
+													end
+													wait(0.5)
+													Parent.Instance.Header.Text = ElementSettings.Name
+												end
+											end
+											
+										else
+											if
+												input.KeyCode ~= Enum.KeyCode.Unknown
+												and input.KeyCode ~= Enum.KeyCode[Starlight.WindowKeybind]
+											then
+												local SplitMessage = string.split(tostring(input.KeyCode), ".")
+												local NewKeyNoEnum = SplitMessage[3]
+												NestedElement.Instance.Text = tostring(NewKeyNoEnum)
+												NestedElement.Values.CurrentValue = tostring(NewKeyNoEnum)
+												local Success, Response = pcall(function()
+													NestedElement.Values.OnChangedCallback(
+														NestedElement.Values.CurrentValue
+													)
+												end)
+
+												if not Success then
+													Parent.Instance.Header.Text = "Callback Error"
+													warn(
+														`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+													)
+													print(Response)
+													if WindowSettings.NotifyOnCallbackError then
+														Starlight:Notification({
+															Title = Element.Values.Name .. " Callback Error",
+															Content = tostring(Response),
+															Icon = 129398364168201,
+														})
+													end
+													wait(0.5)
+													Parent.Instance.Header.Text = ElementSettings.Name
+												end
+												NestedElement.Instance:ReleaseFocus()
+											elseif input.KeyCode == Enum.KeyCode[Starlight.WindowKeybind] then
+												NestedElement.Instance.Text = NestedElement.Values.CurrentValue
+													== "No Bind"
+													and '<font color="rgb(' .. tostring(
+														math.floor(
+															Starlight.CurrentTheme.Foregrounds.Medium.R * 255 + 0.5
+														)
+													) .. "," .. tostring(
+													math.floor(
+														Starlight.CurrentTheme.Foregrounds.Medium.G * 255 + 0.5
+													)
+												) .. "," .. tostring(
+													math.floor(
+														Starlight.CurrentTheme.Foregrounds.Medium.B * 255 + 0.5
+													)
+												) .. ')">No Bind</font>'
+													or NestedElement.Values.CurrentValue
+												NestedElement.Instance:ReleaseFocus()
+											end
+										end
+										CheckingForKey = false
+									elseif
+										NestedElement.Values.CurrentValue ~= nil
+										and NestedElement.Values.CurrentValue ~= "No Bind"
+										and not processed
+									then
+										if NestedElement.Values.CurrentValue == "MB1" then
+											if input.UserInputType ~= Enum.UserInputType.MouseButton1 then
+												return
+											end
+										elseif NestedElement.Values.CurrentValue == "MB2" then
+											if input.UserInputType ~= Enum.UserInputType.MouseButton2 then
+												return
+											end
+										else
+											if input.KeyCode ~= Enum.KeyCode[NestedElement.Values.CurrentValue] then
+												return
+											end
+										end
+
+										if not NestedElement.Values.HoldToInteract then
+											NestedElement.Active = not NestedElement.Active
+
+											local success, response = pcall(function()
+												NestedElement.Values.Callback(NestedElement.Active)
+												if isToggle and NestedElement.Values.SyncToggleState then
+													Parent:Set({ CurrentValue = NestedElement.Active })
+												elseif isToggle then
+													Parent.Values.Callback(NestedElement.Active)
+												end
+											end)
+
+											if not success then
+												Parent.Instance.Header.Text = "Callback Error"
+												warn(
+													`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+												)
+												print(response)
+												if WindowSettings.NotifyOnCallbackError then
+													Starlight:Notification({
+														Title = Element.Values.Name .. " Callback Error",
+														Content = tostring(response),
+														Icon = 129398364168201,
+													})
+												end
+												wait(0.5)
+												Parent.Instance.Header.Text = ElementSettings.Name
+											end
+										else
+											local Held = true
+
+											NestedElement.Active = true
+											local success, response = pcall(function()
+												NestedElement.Values.Callback(true)
+												if isToggle and NestedElement.Values.SyncToggleState then
+													if Parent.Values.CurrentValue ~= true then
+														Parent:Set({ CurrentValue = true })
+													end
+												elseif isToggle then
+													Parent.Values.Callback(true)
+												end
+											end)
+
+											if not success then
+												Parent.Instance.Header.Text = "Callback Error"
+												warn(
+													`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+												)
+												print(response)
+												if WindowSettings.NotifyOnCallbackError then
+													Starlight:Notification({
+														Title = Element.Values.Name .. " Callback Error",
+														Content = tostring(response),
+														Icon = 129398364168201,
+													})
+												end
+												wait(0.5)
+												Parent.Instance.Header.Text = ElementSettings.Name
+											end
+
+											local connection
+											connection = input.Changed:Connect(function(prop)
+												if prop == "UserInputState" then
+													connection:Disconnect()
+													Held = false
+													NestedElement.Active = false
+
+													local success2, response2 = pcall(function()
+														NestedElement.Values.Callback(false)
+														if isToggle and NestedElement.Values.SyncToggleState then
+															if Parent.Values.CurrentValue ~= false then
+																Parent:Set({ CurrentValue = false })
+															end
+														elseif isToggle then
+															Parent.Values.Callback(false)
+														end
+													end)
+
+													if not success2 then
+														Parent.Instance.Header.Text = "Callback Error"
+														warn(
+															`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+														)
+														print(response2)
+														if WindowSettings.NotifyOnCallbackError then
+															Starlight:Notification({
+																Title = Element.Values.Name .. " Callback Error",
+																Content = tostring(response2),
+																Icon = 129398364168201,
+															})
+														end
+														wait(0.5)
+														Parent.Instance.Header.Text = ElementSettings.Name
+													end
+												end
+											end)
+										end
+									end
+								end
+							)
+
+							local Success, Response = pcall(function()
+								NestedElement.Values.OnChangedCallback(NestedElement.Values.CurrentValue)
+								if NestedElement.Values.WindowSetting then
+									Starlight.WindowKeybind = tostring(NestedElement.Values.CurrentValue)
+								end
+							end)
+
+							if not Success then
+								Parent.Instance.Header.Text = "Callback Error"
+								warn(
+									`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+								)
+								print(Response)
+								if WindowSettings.NotifyOnCallbackError then
+									Starlight:Notification({
+										Title = Element.Values.Name .. " Callback Error",
+										Content = tostring(Response),
+										Icon = 129398364168201,
+									})
+								end
+								wait(0.5)
+								Parent.Instance.Header.Text = ElementSettings.Name
+							end
+
+							ThemeMethods.bindTheme(NestedElement.Instance, "BackgroundColor3", "Backgrounds.Dark")
+							ThemeMethods.bindTheme(NestedElement.Instance.UIStroke, "Color", "Foregrounds.Dark")
+							ThemeMethods.bindTheme(NestedElement.Instance, "TextColor3", "Foregrounds.Light")
+							ThemeMethods.bindTheme(NestedElement.Instance, "PlaceholderColor3", "Foregrounds.Medium")
+
+							function NestedElement:Destroy()
+								NestedElement.Instance:Destroy()
+								NestedElement = nil
+								if connections[ParentIndex .. "_" .. Index] ~= nil then
+									connections[ParentIndex .. "_" .. Index]:Disconnect()
+								end
+								connections[ParentIndex .. "_" .. Index] = nil
+								Parent.Instance.Header.Size = UDim2.fromOffset(Parent.Instance.Header.Size.X.Offset + 26, 20)
+							end
+
+							function NestedElement:Set(NewNestedSettings, NewNestedIndex)
+								NewNestedIndex = NewNestedIndex or NestedIndex
+
+								for i, v in pairs(NestedElement.Values) do
+									if NewNestedSettings[i] == nil then
+										NewNestedSettings[i] = v
+									end
+								end
+
+								NestedSettings = NewNestedSettings
+								NestedIndex = NewNestedIndex
+
+								NestedElement.Values = NestedSettings
+
+								NestedElement.Instance.Name = "BIND_" .. NestedIndex
+
+								NestedElement.Instance.Text = NestedElement.Values.CurrentValue == "No Bind"
+									and '<font color="rgb(' .. tostring(
+										math.floor(Starlight.CurrentTheme.Foregrounds.Medium.R * 255 + 0.5)
+									) .. "," .. tostring(
+									math.floor(Starlight.CurrentTheme.Foregrounds.Medium.G * 255 + 0.5)
+								) .. "," .. tostring(
+									math.floor(Starlight.CurrentTheme.Foregrounds.Medium.B * 255 + 0.5)
+								) .. ')">No Bind</font>'
+									or NestedElement.Values.CurrentValue
+
+								local Success, Response = pcall(function()
+									NestedElement.Values.OnChangedCallback(NestedElement.Values.CurrentValue)
+									if NestedElement.Values.WindowSetting then
+										Starlight.WindowKeybind = tostring(NestedElement.Values.CurrentValue)
+									end
+								end)
+
+								if not Success then
+									Parent.Instance.Header.Text = "Callback Error"
+									warn(
+										`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+									)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									Parent.Instance.Header.Text = ElementSettings.Name
+								end
+
+								Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex].Values =
+									NestedElement.Values
+							end
+						end)
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex] =
+							NestedElement
+						return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex]
+					end
+
+					function Element:AddColorPicker(NestedSettings, NestedIndex, Parent, ParentIndex)
+						Parent = Parent or Element
+						ParentIndex = ParentIndex or Index
+
+						--[[
+						NestedSettings = {
+							CurrentValue = Color3,
+							Transparency = number, **
+							
+							Callback = function(Color3, number),
+						}
+						]]
+
+						local NestedElement = {
+							Values = NestedSettings,
+							Class = "ColorPicker",
+							Instances = {},
+							IgnoreConfig = NestedSettings.IgnoreConfig,
+						}
+
+						task.spawn(function()
+							local hover = false
+							local sliders = {}
+
+							NestedElement.Instances[1] = Element.Instance.ElementContainer.ColorPicker:Clone()
+							NestedElement.Instances[1].Visible = true
+							NestedElement.Instances[1].Parent = Parent.Instance.ElementContainer
+							Parent.Instance.Header.Size = UDim2.fromOffset(Parent.Instance.Header.Size.X.Offset - 26, 20)
+
+							NestedElement.Instances[2] = Resources.Elements.ColorPicker:Clone()
+							NestedElement.Instances[2].Parent = StarlightUI.PopupOverlay
+
+							NestedElement.Instances[1].Name = "COLORPICKER_" .. NestedIndex
+							NestedElement.Instances[2].Name = "COLORPICKER_" .. NestedIndex
+
+							acrylicEvent.Event:Connect(function()
+								if mainAcrylic then
+									NestedElement.Instances[2].BackgroundTransparency = 0.5
+								else
+									NestedElement.Instances[2].BackgroundTransparency = 0
+								end
+							end)
+							local AcrylicObject = Acrylic.AcrylicPaint()
+							AcrylicObject.AddParent(NestedElement.Instances[2])
+							AcrylicObject.Frame.Parent = NestedElement.Instances[2]
+
+							local function close()
+								if
+									NestedElement.Instances[1].AbsolutePosition.Y + 27 + 245
+									>= Camera.ViewportSize.Y - (GuiInset + 20)
+								then
+									NestedElement.Instances[2].AnchorPoint = Vector2.new(1, 1)
+									NestedElement.Instances[2].Position = UDim2.fromOffset(
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.X) + 22,
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.Y) - 5
+									)
+								else
+									NestedElement.Instances[2].AnchorPoint = Vector2.new(1, 0)
+									NestedElement.Instances[2].Position = UDim2.fromOffset(
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.X) + 22,
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.Y) + 35
+									)
+								end
+
+								NestedElement.Instances[2].Container.Visible = false
+								NestedElement.Instances[2].TabSelector.Visible = false
+								NestedElement.Instances[2].Buttons.Visible = false
+
+								Tween(NestedElement.Instances[2], { Size = UDim2.fromOffset(0, 0) }, function()
+									if NestedElement and NestedElement.Instances ~= nil then
+										NestedElement.Instances[2].Visible = false
+										if acrylicFlag then
+											AcrylicObject.Model.Transparency = 1
+										end
+									end
+								end, Tween.Info(nil, nil, 0.24))
+
+								NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundColor3 =
+									NestedElement.Values.CurrentValue
+								NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundTransparency = NestedElement.Values.Transparency
+									or 0
+							end
+
+							NestedElement.Instances[1]:GetPropertyChangedSignal("AbsolutePosition"):Connect(close)
+
+							NestedElement.Instances[1].Interact.MouseButton1Click:Connect(function()
+								if NestedElement.Instances[2].Visible then
+									close()
+								else
+									NestedElement.Instances[2].Visible = true
+									Tween(
+										NestedElement.Instances[2],
+										{ Size = UDim2.fromOffset(320, 245) },
+										nil,
+										Tween.Info(nil, nil, 0.18)
+									)
+									NestedElement.Instances[2].Container.Visible = true
+									NestedElement.Instances[2].TabSelector.Visible = true
+									NestedElement.Instances[2].Buttons.Visible = true
+									if acrylicFlag then
+										AcrylicObject.Model.Transparency = 0.98
+									end
+									local connection
+									connection = UserInputService.InputBegan:Connect(function(i)
+										if i.UserInputType ~= Enum.UserInputType.MouseButton1 then
+											return
+										end
+										local p, pos, size =
+											i.Position,
+											NestedElement.Instances[2].AbsolutePosition,
+											NestedElement.Instances[2].AbsoluteSize
+										if
+											not (
+												p.X >= pos.X
+													and p.X <= pos.X + size.X
+													and p.Y >= pos.Y
+													and p.Y <= pos.Y + size.Y
+											) and not hover
+										then
+											close()
+											connection:Disconnect()
+										end
+									end)
+								end
+							end)
+
+							NestedElement.Instances[1].MouseEnter:Connect(function()
+								hover = true
+							end)
+							NestedElement.Instances[1].MouseLeave:Connect(function()
+								hover = false
+							end)
+
+							for _, TabButton in pairs(NestedElement.Instances[2].TabSelector:GetChildren()) do
+								if TabButton.Name == "UIListLayout" or TabButton.Name == "UIPadding" then
+									continue
+								end
+
+								TabButton.MouseButton1Click:Connect(function()
+									for _, OtherTabButton in pairs(NestedElement.Instances[2].TabSelector:GetChildren()) do
+										if
+											OtherTabButton.Name == "UIListLayout"
+											or OtherTabButton.Name == "UIPadding"
+										then
+											continue
+										end
+										if OtherTabButton == TabButton then
+											continue
+										end
+
+										Tween(
+											OtherTabButton,
+											{
+												BackgroundTransparency = 1,
+												TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium,
+											}
+										)
+										OtherTabButton.Accent.Enabled = false
+									end
+									Tween(TabButton, { BackgroundTransparency = 0.8, TextColor3 = Color3.new(1, 1, 1) })
+									TabButton.Accent.Enabled = true
+
+									NestedElement.Instances[2].Container.UIPageLayout:JumpTo(
+										NestedElement.Instances[2].Container[TabButton.Name]
+									)
+								end)
+							end
+
+							-- uhh forget abt doing this myself, i found this part on stackoverflow for some old ahh c# app and ported it to luau
+							local function GammaBlend(fg: Color3, transparency: number, bg: Color3): Color3
+								local function toLinear(channel)
+									return math.pow(channel, 2.2)
+								end
+
+								local function toSRGB(channel)
+									return math.pow(channel, 1 / 2.2)
+								end
+
+								local alpha = 1 - transparency
+
+								local r = toSRGB(toLinear(fg.R) * alpha + toLinear(bg.R) * transparency)
+								local g = toSRGB(toLinear(fg.G) * alpha + toLinear(bg.G) * transparency)
+								local b = toSRGB(toLinear(fg.B) * alpha + toLinear(bg.B) * transparency)
+
+								return Color3.new(r, g, b)
+							end
+
+							local function safeCallback()
+								local Success, Response = pcall(function()
+									NestedElement.Values.Callback(
+										NestedElement.Values.CurrentValue,
+										NestedElement.Values.Transparency
+									)
+								end)
+
+								if not Success then
+									Parent.Instance.Header.Text = "Callback Error"
+									warn(
+										`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+									)
+									print(Response)
+									if WindowSettings.NotifyOnCallbackError then
+										Starlight:Notification({
+											Title = Element.Values.Name .. " Callback Error",
+											Content = tostring(Response),
+											Icon = 129398364168201,
+										})
+									end
+									wait(0.5)
+									Parent.Instance.Header.Text = Element.Values.Name
+								end
+							end
+
+							local function updateInstances(currentBox, ignoreCallback)
+								local oldValue = Color3.fromRGB(
+									tonumber(
+										NestedElement.Instances[2].Container.Values.HexRGB.Red.PART_Backdrop.PART_Input.Text
+									),
+									tonumber(
+										NestedElement.Instances[2].Container.Values.HexRGB.Green.PART_Backdrop.PART_Input.Text
+									),
+									tonumber(
+										NestedElement.Instances[2].Container.Values.HexRGB.Blue.PART_Backdrop.PART_Input.Text
+									)
+								)
+
+								local h, s, v = NestedElement.Values.CurrentValue:ToHSV()
+								if
+									currentBox == NestedElement.Instances[2].Container.Color.ColorPicker
+									or currentBox == NestedElement.Instances[2].Container.Color.HueSlider
+								then
+									h = NestedElement.Instances[2].Container.Color.HueSlider.Value.Size.Y.Scale
+								else
+									if
+										currentBox == NestedElement.Instances[2].Container.Values.AlphaHSV.Hue
+										or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Red
+										or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Green
+										or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Blue
+										or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Hex
+									then
+										local h, _, _ = NestedElement.Values.CurrentValue:ToHSV()
+
+										NestedElement.Instances[2].Container.Values.AlphaHSV.Hue.PART_Backdrop.PART_Input.Text =
+											tostring(math.floor((h * 255) + 0.5))
+									end
+									h = (
+										tonumber(
+											NestedElement.Instances[2].Container.Values.AlphaHSV.Hue.PART_Backdrop.PART_Input.Text
+										) or h * 255
+									) / 255
+								end
+								local r, g, b =
+									NestedElement.Values.CurrentValue.R * 255,
+									NestedElement.Values.CurrentValue.G * 255,
+									NestedElement.Values.CurrentValue.B * 255
+
+								if NestedElement.Instances[2].Visible == false then
+									NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundColor3 =
+										NestedElement.Values.CurrentValue
+									NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundTransparency = NestedElement.Values.Transparency
+										or 0
+								end
+
+								NestedElement.Instances[2].Container.Color.NewColor.Frame.BackgroundColor3 =
+									NestedElement.Values.CurrentValue
+								NestedElement.Instances[2].Container.Color.NewColor.Frame.BackgroundTransparency = NestedElement.Values.Transparency
+									or 0
+								NestedElement.Instances[1].BackgroundColor3 = NestedElement.Values.CurrentValue
+								NestedElement.Instances[1].BackgroundTransparency = NestedElement.Values.Transparency
+									or 0
+								task.delay(1 / 60, function()
+									NestedElement.Instances[1].DropShadowHolder.DropShadow.ImageColor3 = GammaBlend(
+										NestedElement.Values.CurrentValue,
+										NestedElement.Values.Transparency or 0,
+										Color3.fromRGB(242, 242, 242)
+									)
+								end)
+
+								if currentBox ~= NestedElement.Instances[2].Container.Color.ColorPicker then
+									NestedElement.Instances[2].Container.Color.ColorPicker.Point.Position =
+										UDim2.new(s, 0, 1 - v, 0)
+								end
+								NestedElement.Instances[2].Container.Color.ColorPicker.BackgroundColor3 =
+									Color3.fromHSV(h, 1, 1)
+								NestedElement.Instances[2].Container.Color.TransparencySlider.Color.BackgroundColor3 =
+									NestedElement.Values.CurrentValue
+								if s * 255 < 30 then
+									if v * 255 > 90 and v * 255 < 180 then
+										NestedElement.Instances[2].Container.Color.ColorPicker.Point.UIStroke.Color =
+											Color3.new(1, 1, 1)
+									else
+										NestedElement.Instances[2].Container.Color.ColorPicker.Point.UIStroke.Color =
+											Color3.fromRGB(165, 165, 165)
+									end
+									if v * 255 > 250 then
+										NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob.ImageColor3 =
+											Color3.new()
+									else
+										NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob.ImageColor3 =
+											Color3.new(1, 1, 1)
+									end
+								else
+									NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob.ImageColor3 =
+										Color3.new(1, 1, 1)
+									NestedElement.Instances[2].Container.Color.ColorPicker.Point.UIStroke.Color =
+										Color3.fromRGB(165, 165, 165)
+								end
+
+								Tween(
+									NestedElement.Instances[2].Container.Color.HueSlider.Value,
+									{ Size = UDim2.new(1, 0, h, 0) }
+								)
+								Tween(
+									NestedElement.Instances[2].Container.Color.TransparencySlider.Value,
+									{ Size = UDim2.new(1, 0, 1 - (NestedElement.Values.Transparency or 0), 0) }
+								)
+
+								local color = Color3.fromHSV(h, s, v)
+								local r, g, b =
+									math.floor((color.R * 255) + 0.5),
+									math.floor((color.G * 255) + 0.5),
+									math.floor((color.B * 255) + 0.5)
+
+								for _, Side in pairs(NestedElement.Instances[2].Container.Values:GetChildren()) do
+									if Side.ClassName ~= "Frame" then
+										continue
+									end
+
+									for _, Input in pairs(Side:GetChildren()) do
+										if Input.ClassName ~= "Frame" then
+											continue
+										end
+										local inputinstance = Input.PART_Backdrop.PART_Input
+
+										if Input == currentBox then
+											continue
+										end
+
+										if Input.Name == "Hex" then
+											inputinstance.Text = NestedElement.Values.Transparency == nil
+												and string.format(
+													"#%02X%02X%02X",
+													color.R * 0xFF,
+													color.G * 0xFF,
+													color.B * 0xFF
+												)
+												or string.format(
+													"#%02X%02X%02X%02X",
+													color.R * 0xFF,
+													color.G * 0xFF,
+													color.B * 0xFF,
+													(1 - NestedElement.Values.Transparency) * 0xFF
+												)
+										end
+										if Input.Name == "Alpha" then
+											inputinstance.Text = tostring(
+												math.floor(
+													(255 - ((NestedElement.Values.Transparency or 0) * 255)) + 0.5
+												)
+											)
+										end
+										if Input.Name == "Hue" then
+											if
+												currentBox
+												== NestedElement.Instances[2].Container.Values.AlphaHSV.Hue
+												or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Red
+												or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Green
+												or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Blue
+												or currentBox == NestedElement.Instances[2].Container.Values.HexRGB.Hex
+												or currentBox
+												== NestedElement.Instances[2].Container.Color.HueSlider
+											then
+												local h, _, _ = NestedElement.Values.CurrentValue:ToHSV()
+
+												inputinstance.Text = tostring(math.floor((h * 255) + 0.5))
+											end
+										end
+										if Input.Name == "Saturation" then
+											inputinstance.Text = tostring(math.floor((s * 255) + 0.5))
+										end
+										if Input.Name == "Value" then
+											inputinstance.Text = tostring(math.floor((v * 255) + 0.5))
+										end
+										if Input.Name == "Red" then
+											inputinstance.Text = tostring(r)
+										end
+										if Input.Name == "Green" then
+											inputinstance.Text = tostring(g)
+										end
+										if Input.Name == "Blue" then
+											inputinstance.Text = tostring(b)
+										end
+									end
+								end
+
+								if NestedElement.Values.Transparency == nil then
+									NestedElement.Instances[2].Container.Values.AlphaHSV.Alpha.Visible = false
+									NestedElement.Instances[2].Container.Color.TransparencySlider.Visible = false
+									NestedElement.Instances[2].Container.Color.HueSlider.Position =
+										UDim2.new(1, -11, 0, 15)
+									NestedElement.Instances[2].Container.Color.ColorPicker.Size =
+										UDim2.fromOffset(283, 160)
+									NestedElement.Instances[2].Container.Color.OldColor.Size = UDim2.fromOffset(137, 24)
+									NestedElement.Instances[2].Container.Color.NewColor.Size = UDim2.fromOffset(137, 24)
+									NestedElement.Instances[2].Container.Color.OldColor.Position =
+										UDim2.fromOffset(155, 180)
+								else
+									NestedElement.Instances[2].Container.Values.AlphaHSV.Alpha.Visible = true
+									NestedElement.Instances[2].Container.Color.TransparencySlider.Visible = true
+									NestedElement.Instances[2].Container.Color.HueSlider.Position =
+										UDim2.new(1, -23, 0, 15)
+									NestedElement.Instances[2].Container.Color.ColorPicker.Size =
+										UDim2.fromOffset(268, 160)
+									NestedElement.Instances[2].Container.Color.OldColor.Size = UDim2.fromOffset(130, 24)
+									NestedElement.Instances[2].Container.Color.NewColor.Size = UDim2.fromOffset(130, 24)
+									NestedElement.Instances[2].Container.Color.OldColor.Position =
+										UDim2.fromOffset(148, 180)
+								end
+
+								if not ignoreCallback then
+									safeCallback()
+								end
+							end
+
+							updateInstances()
+							local h, _, _ = NestedElement.Values.CurrentValue:ToHSV()
+
+							NestedElement.Instances[2].Container.Values.AlphaHSV.Hue.PART_Backdrop.PART_Input.Text =
+								tostring(math.floor((h * 255) + 0.5))
+
+							do
+								local mainDragging, sliderDragging, transDragging = nil, nil, nil
+								local mainHover, sliderHover, transHover = false, false, false
+
+								local h, s, v = NestedElement.Values.CurrentValue:ToHSV()
+
+								function NestedElement:__updateHsv()
+									h, s, v = NestedElement.Values.CurrentValue:ToHSV()
+								end
+
+								local color = Color3.fromHSV(h, s, v)
+								local hex =
+									string.format("#%02X%02X%02X", color.R * 0xFF, color.G * 0xFF, color.B * 0xFF)
+
+								UserInputService.InputEnded:Connect(function(input)
+									if
+										input.UserInputType == Enum.UserInputType.MouseButton1
+										or input.UserInputType == Enum.UserInputType.Touch
+									then
+										if mainDragging then
+											Tween(
+												NestedElement.Instances[2].Container.Color.ColorPicker.Point,
+												{ Size = mainHover and UDim2.new(0, 10, 0, 10) or UDim2.new(0, 7, 0, 7) }
+											)
+										end
+										if sliderDragging then
+											Tween(
+												NestedElement.Instances[2].Container.Color.HueSlider.Value.Knob,
+												{ Size = sliderHover and UDim2.new(0, 8, 0, 8) or UDim2.new(0, 6, 0, 6) }
+											)
+										end
+										if transDragging then
+											Tween(
+												NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob,
+												{ Size = transHover and UDim2.new(0, 10, 0, 10) or UDim2.new(0, 8, 0, 8) }
+											)
+										end
+										mainDragging = false
+										sliderDragging = false
+										transDragging = false
+									end
+								end)
+								NestedElement.Instances[2].Container.Color.ColorPicker.MouseButton1Down:Connect(
+									function()
+										mainDragging = true
+										Tween(
+											NestedElement.Instances[2].Container.Color.ColorPicker.Point,
+											{ Size = UDim2.new(0, 5, 0, 5) }
+										)
+									end
+								)
+								NestedElement.Instances[2].Container.Color.ColorPicker.MouseLeave:Connect(function()
+									mainHover = false
+									if mainDragging then
+										return
+									end
+									Tween(
+										NestedElement.Instances[2].Container.Color.ColorPicker.Point,
+										{ Size = UDim2.new(0, 7, 0, 7) }
+									)
+								end)
+								NestedElement.Instances[2].Container.Color.ColorPicker.MouseEnter:Connect(function()
+									mainHover = true
+									if mainDragging then
+										return
+									end
+									Tween(
+										NestedElement.Instances[2].Container.Color.ColorPicker.Point,
+										{ Size = UDim2.new(0, 9, 0, 9) }
+									)
+								end)
+								NestedElement.Instances[2].Container.Color.HueSlider.MouseButton1Down:Connect(function()
+									sliderDragging = true
+									Tween(
+										NestedElement.Instances[2].Container.Color.HueSlider.Value.Knob,
+										{ Size = UDim2.new(0, 4, 0, 4) }
+									)
+								end)
+								NestedElement.Instances[2].Container.Color.HueSlider.MouseLeave:Connect(function()
+									sliderHover = false
+									if sliderDragging then
+										return
+									end
+									Tween(
+										NestedElement.Instances[2].Container.Color.HueSlider.Value.Knob,
+										{ Size = UDim2.new(0, 6, 0, 6) }
+									)
+								end)
+								NestedElement.Instances[2].Container.Color.HueSlider.MouseEnter:Connect(function()
+									sliderHover = true
+									if sliderDragging then
+										return
+									end
+									Tween(
+										NestedElement.Instances[2].Container.Color.HueSlider.Value.Knob,
+										{ Size = UDim2.new(0, 8, 0, 8) }
+									)
+								end)
+								NestedElement.Instances[2].Container.Color.TransparencySlider.MouseButton1Down:Connect(
+									function()
+										transDragging = true
+										Tween(
+											NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob,
+											{ Size = UDim2.new(0, 6, 0, 6) }
+										)
+									end
+								)
+								NestedElement.Instances[2].Container.Color.TransparencySlider.MouseLeave:Connect(
+									function()
+										transHover = false
+										if sliderDragging then
+											return
+										end
+										Tween(
+											NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob,
+											{ Size = UDim2.new(0, 8, 0, 8) }
+										)
+									end
+								)
+								NestedElement.Instances[2].Container.Color.TransparencySlider.MouseEnter:Connect(
+									function()
+										transHover = true
+										if transDragging then
+											return
+										end
+										Tween(
+											NestedElement.Instances[2].Container.Color.TransparencySlider.Value.Knob,
+											{ Size = UDim2.new(0, 10, 0, 10) }
+										)
+									end
+								)
+
+								RunService.RenderStepped:Connect(function()
+									if mainDragging then
+										local localX = math.clamp(
+											Mouse.X
+											- NestedElement.Instances[2].Container.Color.ColorPicker.AbsolutePosition.X,
+											0,
+											NestedElement.Instances[2].Container.Color.ColorPicker.AbsoluteSize.X
+										)
+										local localY = math.clamp(
+											Mouse.Y
+											- NestedElement.Instances[2].Container.Color.ColorPicker.AbsolutePosition.Y,
+											0,
+											NestedElement.Instances[2].Container.Color.ColorPicker.AbsoluteSize.Y
+										)
+										Tween(
+											NestedElement.Instances[2].Container.Color.ColorPicker.Point,
+											{ Position = UDim2.new(0, localX, 0, localY) }
+										)
+										s = localX
+											/ NestedElement.Instances[2].Container.Color.ColorPicker.AbsoluteSize.X
+										v = 1
+										- (
+											localY
+												/ NestedElement.Instances[2].Container.Color.ColorPicker.AbsoluteSize.Y
+										)
+										local color = Color3.fromHSV(h, s, v)
+										NestedElement.Values.CurrentValue = color
+										updateInstances(NestedElement.Instances[2].Container.Color.ColorPicker)
+										local r, g, b =
+											math.floor((color.R * 255) + 0.5),
+											math.floor((color.G * 255) + 0.5),
+											math.floor((color.B * 255) + 0.5)
+									end
+									if sliderDragging then
+										local localY = math.clamp(
+											Mouse.Y
+											- NestedElement.Instances[2].Container.Color.HueSlider.AbsolutePosition.Y,
+											0,
+											NestedElement.Instances[2].Container.Color.HueSlider.AbsoluteSize.Y
+										)
+										h = localY / NestedElement.Instances[2].Container.Color.HueSlider.AbsoluteSize.Y
+										local color = Color3.fromHSV(h, s, v)
+										NestedElement.Values.CurrentValue = color
+										updateInstances(NestedElement.Instances[2].Container.Color.HueSlider)
+										Tween(
+											NestedElement.Instances[2].Container.Color.HueSlider.Value,
+											{ Size = UDim2.new(1, 0, h, 0) }
+										)
+										local r, g, b =
+											math.floor((color.R * 255) + 0.5),
+											math.floor((color.G * 255) + 0.5),
+											math.floor((color.B * 255) + 0.5)
+									end
+									if transDragging then
+										local localY = math.clamp(
+											Mouse.Y
+											- NestedElement.Instances[2].Container.Color.TransparencySlider.AbsolutePosition.Y,
+											0,
+											NestedElement.Instances[2].Container.Color.TransparencySlider.AbsoluteSize.Y
+										)
+										local t = localY
+											/ NestedElement.Instances[2].Container.Color.TransparencySlider.AbsoluteSize.Y
+										Tween(
+											NestedElement.Instances[2].Container.Color.TransparencySlider.Value,
+											{ Size = UDim2.new(1, 0, t, 0) }
+										)
+										NestedElement.Values.Transparency = 1 - t
+										updateInstances()
+									end
+								end)
+							end
+
+							NestedElement.Instances[2].Container.Color.OldColor.MouseButton1Click:Connect(function()
+								NestedElement.Values.CurrentValue =
+									NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundColor3
+								if NestedElement.Values.Transparency ~= nil then
+									NestedElement.Values.Transparency =
+										NestedElement.Instances[2].Container.Color.OldColor.Frame.BackgroundTransparency
+								end
+								updateInstances(NestedElement.Instances[2].Container.Values.AlphaHSV.Hue)
+							end)
+
+							for _, Side in pairs(NestedElement.Instances[2].Container.Values:GetChildren()) do
+								if Side.ClassName ~= "Frame" then
+									continue
+								end
+
+								for _, Input in pairs(Side:GetChildren()) do
+									if Input.ClassName ~= "Frame" then
+										continue
+									end
+									local inputinstance = Input.PART_Backdrop.PART_Input
+
+									if Input.Name == "Hex" then
+										inputinstance.FocusLost:Connect(function()
+											if
+												not pcall(function()
+													if NestedElement.Values.Transparency ~= nil then
+														local text = inputinstance.Text
+
+														local r, g, b, a = text:match("^%s*#?(%x%x)(%x%x)(%x%x)(%x%x)$")
+														local rgbColor = Color3.fromRGB(
+															tonumber(r, 16),
+															tonumber(g, 16),
+															tonumber(b, 16)
+														)
+														NestedElement.Values.CurrentValue = rgbColor
+														NestedElement.Values.Transparency = 1 - (tonumber(a, 16) / 255)
+													else
+														local r, g, b =
+															string.match(inputinstance.Text, "^#?(%x%x)(%x%x)(%x%x)$")
+														local rgbColor = Color3.fromRGB(
+															tonumber(r, 16),
+															tonumber(g, 16),
+															tonumber(b, 16)
+														)
+														NestedElement.Values.CurrentValue = rgbColor
+													end
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = NestedElement.Values.Transparency == nil
+													and string.format(
+														"#%02X%02X%02X",
+														NestedElement.Values.CurrentValue.R * 0xFF,
+														NestedElement.Values.CurrentValue.G * 0xFF,
+														NestedElement.Values.CurrentValue.B * 0xFF
+													)
+													or string.format(
+														"#%02X%02X%02X%02X",
+														NestedElement.Values.CurrentValue.R * 0xFF,
+														NestedElement.Values.CurrentValue.G * 0xFF,
+														NestedElement.Values.CurrentValue.B * 0xFF,
+														(1 - NestedElement.Values.Transparency) * 0xFF
+													)
+											end
+										end)
+									end
+									if Input.Name == "Alpha" then
+										inputinstance.FocusLost:Connect(function()
+											local old = NestedElement.Values.Transparency
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring((1 - old) * 255)
+														return
+													end
+													NestedElement.Values.Transparency = 1
+													- tonumber(inputinstance.Text) / 255
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring((1 - old) * 255)
+											end
+										end)
+									end
+									if Input.Name == "Hue" then
+										inputinstance.FocusLost:Connect(function()
+											local old, s, v = NestedElement.Values.CurrentValue:ToHSV()
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.fromHSV(tonumber(inputinstance.Text) / 255, s, v)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+									if Input.Name == "Saturation" then
+										inputinstance.FocusLost:Connect(function()
+											local h, old, v = NestedElement.Values.CurrentValue:ToHSV()
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.fromHSV(h, tonumber(inputinstance.Text) / 255, v)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+									if Input.Name == "Value" then
+										inputinstance.FocusLost:Connect(function()
+											local h, s, old = NestedElement.Values.CurrentValue:ToHSV()
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.fromHSV(h, s, tonumber(inputinstance.Text) / 255)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+									if Input.Name == "Red" then
+										inputinstance.FocusLost:Connect(function()
+											local old, g, b =
+												NestedElement.Values.CurrentValue.R,
+												NestedElement.Values.CurrentValue.G,
+												NestedElement.Values.CurrentValue.B
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.new(tonumber(inputinstance.Text) / 255, g, b)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+									if Input.Name == "Green" then
+										inputinstance.FocusLost:Connect(function()
+											local r, old, b =
+												NestedElement.Values.CurrentValue.R,
+												NestedElement.Values.CurrentValue.G,
+												NestedElement.Values.CurrentValue.B
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.new(r, tonumber(inputinstance.Text) / 255, b)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+									if Input.Name == "Blue" then
+										inputinstance.FocusLost:Connect(function()
+											local r, g, old =
+												NestedElement.Values.CurrentValue.R,
+												NestedElement.Values.CurrentValue.G,
+												NestedElement.Values.CurrentValue.B
+											if
+												not pcall(function()
+													if tonumber(inputinstance.Text) > 255 then
+														inputinstance.Text = tostring(old * 255)
+														return
+													end
+													NestedElement.Values.CurrentValue =
+														Color3.new(r, g, tonumber(inputinstance.Text) / 255)
+													updateInstances(Input)
+												end)
+											then
+												inputinstance.Text = tostring(old * 255)
+											end
+										end)
+									end
+								end
+							end
+
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[2],
+								"BackgroundColor3",
+								"Backgrounds.Groupbox"
+							)
+							ThemeMethods.bindTheme(NestedElement.Instances[2].UIStroke, "Color", "Foregrounds.Dark")
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[2].Background,
+								"BackgroundColor3",
+								"Backgrounds.Dark"
+							)
+							for _, button in pairs(NestedElement.Instances[2].Buttons:GetChildren()) do
+								if button.ClassName ~= "TextButton" then
+									continue
+								end
+								ThemeMethods.bindTheme(button, "ImageColor3", "Foregrounds.Dark")
+							end
+							for _, button in pairs(NestedElement.Instances[2].TabSelector:GetChildren()) do
+								if button.ClassName ~= "TextButton" then
+									continue
+								end
+								ThemeMethods.bindTheme(button, "TextColor3", "Foregrounds.Medium")
+								ThemeMethods.bindTheme(button.Accent, "Color", "Accents.Main")
+							end
+							themeEvent.Event:Connect(function()
+								NestedElement.Instances[2].TabSelector[NestedElement.Instances[2].Container.UIPageLayout.CurrentPage.Name].TextColor3 =
+									Color3.new(1, 1, 1)
+							end)
+							for _, shadow in pairs(NestedElement.Instances[2].DropShadowHolder:GetChildren()) do
+								ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.LighterShadow")
+							end
+							for _, side in pairs(NestedElement.Instances[2].Container.Values:GetChildren()) do
+								if side.ClassName ~= "Frame" then
+									continue
+								end
+								for _, input in pairs(side:GetChildren()) do
+									if input.ClassName ~= "Frame" then
+										continue
+									end
+									ThemeMethods.bindTheme(input.Header, "TextColor3", "Foregrounds.Light")
+									ThemeMethods.bindTheme(input.PART_Backdrop, "BackgroundColor3", "Backgrounds.Dark")
+									pcall(function()
+										ThemeMethods.bindTheme(
+											input.PART_Backdrop.UIStroke,
+											"Color",
+											"Foregrounds.Dark"
+										)
+									end)
+									ThemeMethods.bindTheme(
+										input.PART_Backdrop.PART_Input,
+										"TextColor3",
+										"Foregrounds.Light"
+									)
+									ThemeMethods.bindTheme(
+										input.PART_Backdrop.PART_Input,
+										"PlaceholderColor3",
+										"Foregrounds.Medium"
+									)
+								end
+							end
+
+							function NestedElement:Destroy()
+								NestedElement.Instances[1]:Destroy()
+								NestedElement.Instances[2]:Destroy()
+								NestedElement = nil
+								Parent.Instance.Header.Size = UDim2.fromOffset(Parent.Instance.Header.Size.X.Offset - 26, 20)
+							end
+
+							function NestedElement:Set(NewNestedSettings, NewNestedIndex, ignoreCallback: boolean?)
+								NewNestedIndex = NewNestedIndex or NestedIndex
+
+								for i, v in pairs(NestedElement.Values) do
+									if NewNestedSettings[i] == nil then
+										NewNestedSettings[i] = v
+									end
+								end
+
+								NestedSettings = NewNestedSettings
+								NestedIndex = NewNestedIndex
+
+								NestedElement.Values = NestedSettings
+								local h, _, _ = NestedElement.Values.CurrentValue:ToHSV()
+
+								NestedElement.Instances[2].Container.Values.AlphaHSV.Hue.PART_Backdrop.PART_Input.Text =
+									tostring(math.floor((h * 255) + 0.5))
+
+								updateInstances(nil, ignoreCallback)
+								NestedElement:__updateHsv()
+
+								Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex].Values =
+									NestedElement.Values
+							end
+						end)
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex] =
+							NestedElement
+						return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex]
+					end
+
+					function Element:AddDropdown(NestedSettings, NestedIndex, Parent, ParentIndex)
+						Parent = Parent or Element
+						ParentIndex = ParentIndex or Index
+
+						--[[
+						NestedSettings = {
+							Options = table,
+							CurrentOption = table/string,
+							MultipleOptions = bool,**
+							Special = number (1,2), **
+							
+							Callback = function(table),
+						}
+						]]
+
+						local additionSize = Parent.Instance.DropdownHolder:FindFirstChild("Dropdown") and 36 or 34
+						local localConnections = {}
+
+						NestedSettings.MultipleOptions = NestedSettings.MultipleOptions or false
+						NestedSettings.Special = NestedSettings.Special or 0
+						NestedSettings.Required = NestedSettings.Required or false
+
+						local NestedElement = {
+							Values = NestedSettings,
+							Class = "Dropdown",
+							Instances = {},
+							IgnoreConfig = NestedSettings.IgnoreConfig,
+						}
+
+						task.spawn(function()
+							local hover = false
+							local height = 175
+
+							NestedElement.Instances[1] = Element.Instance.DropdownHolder.Dropdown:Clone()
+							NestedElement.Instances[1].Visible = true
+							NestedElement.Instances[1].Parent = Parent.Instance.DropdownHolder
+							if Parent ~= Element then
+								local instance2
+								for i, v in pairs(Parent.Instance.Parent:GetChildren()) do
+									if v.Name == Parent.Instance.Name and v ~= Parent.Instance then
+										instance2 = v
+									end
+								end
+								instance2.Size = UDim2.fromOffset(0, Parent.Instance.Size.Y.Offset + additionSize)
+								Parent.Instance.Size = UDim2.fromOffset(0, Parent.Instance.Size.Y.Offset + additionSize)
+							else
+								Parent.Instance.Size = UDim2.fromOffset(0, Parent.Instance.Size.Y.Offset + additionSize)
+							end
+
+							NestedElement.Instances[2] = Resources.Elements.DropdownPopup:Clone()
+							NestedElement.Instances[2].Parent = StarlightUI.PopupOverlay
+
+							NestedElement.Instances[1].Name = "DROPDOWN_" .. NestedIndex
+							NestedElement.Instances[2].Name = "DROPDOWN_" .. NestedIndex
+
+							for _, option in pairs(NestedElement.Instances[2].List:GetChildren()) do
+								if option.ClassName == "Frame" then
+									option:Destroy()
+								end
+							end
+
+							acrylicEvent.Event:Connect(function()
+								if mainAcrylic then
+									NestedElement.Instances[2].BackgroundTransparency = 0.5
+								else
+									NestedElement.Instances[2].BackgroundTransparency = 0
+								end
+							end)
+							local AcrylicObject = Acrylic.AcrylicPaint()
+							AcrylicObject.AddParent(NestedElement.Instances[2])
+							AcrylicObject.Frame.Parent = NestedElement.Instances[2]
+
+							local function updPos()
+								if
+									NestedElement.Instances[1].AbsolutePosition.Y + 35 + height
+									>= Camera.ViewportSize.Y - (GuiInset + 20)
+								then
+									NestedElement.Instances[2].AnchorPoint = Vector2.new(0, 1)
+									NestedElement.Instances[2].Position = UDim2.fromOffset(
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.X),
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.Y) - 5
+									)
+								else
+									NestedElement.Instances[2].AnchorPoint = Vector2.new(0, 0)
+									NestedElement.Instances[2].Position = UDim2.fromOffset(
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.X),
+										math.ceil(NestedElement.Instances[1].AbsolutePosition.Y) + 35
+									)
+								end
+							end
+							local function close()
+								Tween(
+									NestedElement.Instances[2].List,
+									{ Size = UDim2.new(1, 0, 0, 0) },
+									nil,
+									Tween.Info(nil, nil, 0.18)
+								)
+								Tween(
+									NestedElement.Instances[2],
+									{ Size = UDim2.fromOffset(NestedElement.Instances[2].Size.X.Offset, 0) },
+									function()
+										if NestedElement and NestedElement.Instances ~= nil then
+											NestedElement.Instances[2].Visible = false
+											if acrylicFlag then
+												AcrylicObject.Model.Transparency = 1
+											end
+										end
+									end,
+									Tween.Info(nil, nil, 0.18)
+								)
+							end
+							NestedElement.Instances[1]:GetPropertyChangedSignal("AbsolutePosition"):Connect(close)
+							NestedElement.Instances[1]:GetPropertyChangedSignal("AbsolutePosition"):Connect(updPos)
+							updPos()
+							close()
+
+							NestedElement.Instances[1]:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
+								NestedElement.Instances[2].Size = UDim2.fromOffset(
+									math.ceil(NestedElement.Instances[1].AbsoluteSize.X),
+									NestedElement.Instances[2].Size.Y.Offset
+								)
+								--task.wait()
+								NestedElement:truncate()
+							end)
+
+							NestedElement.Instances[1].Interact.MouseButton1Click:Connect(function()
+								if NestedElement.Instances[2].Visible then
+									close()
+								else
+									NestedElement.Instances[2].Visible = true
+									height = NestedElement.Instances[2].List.AbsoluteCanvasSize.Y >= 175 and 175
+										or NestedElement.Instances[2].List.AbsoluteCanvasSize.Y
+									updPos()
+									NestedElement.Instances[2].List.Size = UDim2.new(1, 0, 0, 0)
+									NestedElement.Instances[2].List.ScrollBarImageTransparency = 1
+									Tween(
+										NestedElement.Instances[2],
+										{ Size = UDim2.fromOffset(NestedElement.Instances[2].Size.X.Offset, height) }
+									)
+									Tween(
+										NestedElement.Instances[2].List,
+										{ Size = UDim2.new(1, 0, 0, height) },
+										function()
+											NestedElement.Instances[2].List.ScrollBarImageTransparency = 0
+										end
+									)
+									if acrylicFlag then
+										AcrylicObject.Model.Transparency = 0.98
+									end
+									local connection
+									connection = UserInputService.InputBegan:Connect(function(i)
+										if i.UserInputType ~= Enum.UserInputType.MouseButton1 then
+											return
+										end
+										local p, pos, size =
+											i.Position,
+											NestedElement.Instances[2].AbsolutePosition,
+											NestedElement.Instances[2].AbsoluteSize
+										if
+											not (
+												p.X >= pos.X
+													and p.X <= pos.X + size.X
+													and p.Y >= pos.Y
+													and p.Y <= pos.Y + size.Y
+											) and not hover
+										then
+											close()
+											connection:Disconnect()
+										end
+									end)
+								end
+							end)
+
+							local function hover()
+								Tween(
+									NestedElement.Instances[1].UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.DarkHover }
+								)
+								Tween(
+									NestedElement.Instances[2].UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.DarkHover }
+								)
+								hover = true
+							end
+							local function leave()
+								Tween(
+									NestedElement.Instances[1].UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.Dark }
+								)
+								Tween(
+									NestedElement.Instances[2].UIStroke,
+									{ Color = Starlight.CurrentTheme.Foregrounds.Dark }
+								)
+								hover = false
+							end
+
+							NestedElement.Instances[1].MouseEnter:Connect(hover)
+							NestedElement.Instances[1].MouseLeave:Connect(leave)
+							NestedElement.Instances[2].MouseEnter:Connect(hover)
+							NestedElement.Instances[2].MouseLeave:Connect(leave)
+
+							if NestedElement.Values.CurrentOption then
+								if typeof(NestedElement.Values.CurrentOption) == "string" then
+									NestedElement.Values.CurrentOption = { NestedElement.Values.CurrentOption }
+								end
+								if
+									not NestedElement.Values.MultipleOptions
+									and typeof(NestedElement.Values.CurrentOption) == "table"
+								then
+									NestedElement.Values.CurrentOption = { NestedElement.Values.CurrentOption[1] }
+								end
+								if typeof(NestedElement.Values.CurrentOption) == "number" then
+									NestedElement.Values.CurrentOption =
+										{ NestedElement.Values.Options[NestedElement.Values.CurrentOption] }
+								end
+							else
+								NestedElement.Values.CurrentOption = {}
+							end
+							if NestedElement.Values.Required and unpack(NestedElement.Values.CurrentOption) == nil then
+								NestedElement.Values.CurrentOption = { NestedElement.Values.Options[1] }
+							end
+
+							--// SUBSECTION : display updation and methods
+
+							function NestedElement:truncate()
+								NestedElement.Instances[1].Header.Size = UDim2.new(1, -18, 0, 20)
+								if
+									NestedElement.Instances[1].Header.TextBounds.X
+									<= NestedElement.Instances[1].Header.AbsoluteSize.X
+								then
+									NestedElement.Instances[1].Truncater.Visible = false
+									return
+								end
+								NestedElement.Instances[1].Header.Size = UDim2.new(1, -26, 0, 20)
+								NestedElement.Instances[1].Truncater.Visible = true
+							end
+
+							NestedElement.Instances[1].Header:GetPropertyChangedSignal("Text"):Connect(function()
+								NestedElement:truncate()
+							end)
+
+							--// ENDSUBSECTION
+
+							local function Activate(option)
+								pcall(function()
+									Tween(option, { BackgroundTransparency = 0.5 })
+									Tween(option.header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Light })
+									Tween(
+										option.UIPadding,
+										{ PaddingLeft = UDim.new(0, 12) },
+										nil,
+										Tween.Info(nil, nil, 0.2)
+									)
+									Tween(
+										option.Indicator,
+										{ Size = UDim2.fromOffset(4, 17) },
+										nil,
+										Tween.Info(nil, nil, 0.2)
+									)
+									option:SetAttribute("Active", true)
+								end)
+							end
+
+							local function Deactivate(option)
+								pcall(function()
+									Tween(option, { BackgroundTransparency = 1 })
+									Tween(option.header, { TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium })
+									Tween(
+										option.UIPadding,
+										{ PaddingLeft = UDim.new(0, 8) },
+										nil,
+										Tween.Info(nil, nil, 0.2)
+									)
+									Tween(
+										option.Indicator,
+										{ Size = UDim2.fromOffset(4, 0) },
+										nil,
+										Tween.Info(nil, nil, 0.2)
+									)
+									option:SetAttribute("Active", false)
+								end)
+							end
+
+							local function ToggleOption(option)
+								if not NestedElement.Values.MultipleOptions then
+									for i, v in pairs(NestedElement.Instances[2].List:GetChildren()) do
+										if v.ClassName == "Frame" and v ~= option then
+											Deactivate(v)
+											NestedElement.Values.CurrentOption = {}
+										end
+									end
+								end
+
+								if option:GetAttribute("Active") == false then
+									Activate(option)
+									local Success, Response = pcall(function()
+										table.insert(NestedElement.Values.CurrentOption, option.header.Text)
+										NestedElement.Values.Callback(NestedElement.Values.CurrentOption)
+										NestedElement.Instances[1].Header.Text =
+											Table.Unpack(NestedElement.Values.CurrentOption)
+									end)
+
+									if not Success then
+										Parent.Instance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										Parent.Instance.Header.Text = ElementSettings.Name
+									end
+								else
+									if
+										NestedElement.Values.Required == true
+										and NestedElement.Values.CurrentOption ~= {}
+									then
+										return
+									end
+
+									Deactivate(option)
+									local Success, Response = pcall(function()
+										Table.Remove(NestedElement.Values.CurrentOption, option.header.Text)
+										NestedElement.Values.Callback(NestedElement.Values.CurrentOption)
+										NestedElement.Instances[1].Header.Text =
+											Table.Unpack(NestedElement.Values.CurrentOption)
+									end)
+
+									if not Success then
+										Parent.Instance.Header.Text = "Callback Error"
+										warn(
+											`Starlight Interface Suite - Callback Error | {Element.Values.Name} ({Index} {NestedIndex})`
+										)
+										print(Response)
+										if WindowSettings.NotifyOnCallbackError then
+											Starlight:Notification({
+												Title = Element.Values.Name .. " Callback Error",
+												Content = tostring(Response),
+												Icon = 129398364168201,
+											})
+										end
+										wait(0.5)
+										Parent.Instance.Header.Text = ElementSettings.Name
+									end
+								end
+							end
+
+							local function Refresh()
+								for i, v in pairs(NestedElement.Instances[2].List:GetChildren()) do
+									if v.ClassName == "Frame" then
+										v:Destroy()
+									end
+								end
+
+								if NestedElement.Values.Special == 1 then
+									NestedElement.Values.Options = {}
+									for i, v in pairs(Players:GetChildren()) do
+										table.insert(NestedElement.Values.Options, v.Name)
+									end
+								end
+								if NestedElement.Values.Special == 2 then
+									NestedElement.Values.Options = {}
+									for i, v in pairs(Teams:GetChildren()) do
+										table.insert(NestedElement.Values.Options, v.Name)
+									end
+								end
+
+								-- ipairs so it actually lines up correctly
+								for _, option in ipairs(NestedElement.Values.Options) do
+									local optioninstance = Resources.Elements.DropdownPopup.List.Option_TEMPLATE:Clone()
+									optioninstance.Parent = NestedElement.Instances[2].List
+									optioninstance.Name = "OPTION_" .. option
+									optioninstance.header.Text = option
+									optioninstance:SetAttribute("Active", false)
+									ThemeMethods.bindTheme(optioninstance, "BackgroundColor3", "Backgrounds.Highlight")
+									ThemeMethods.bindTheme(
+										optioninstance.Indicator.AccentBrighter,
+										"Color",
+										"Accents.Brighter"
+									)
+									ThemeMethods.bindTheme(optioninstance.header, "TextColor3", "Foregrounds.Medium")
+									themeEvent.Event:Connect(function()
+										if optioninstance:GetAttribute("Active") then
+											Activate(optioninstance)
+										else
+											Deactivate(optioninstance)
+										end
+									end)
+
+									optioninstance.Interact.MouseButton1Click:Connect(function()
+										ToggleOption(optioninstance)
+									end)
+
+									optioninstance.MouseEnter:Connect(function()
+										if optioninstance:GetAttribute("Active") == false then
+											Tween(optioninstance, { BackgroundTransparency = 0.8 })
+											Tween(
+												optioninstance.header,
+												{ TextColor3 = Starlight.CurrentTheme.Foregrounds.Light }
+											)
+										end
+									end)
+									optioninstance.MouseLeave:Connect(function()
+										if optioninstance:GetAttribute("Active") == false then
+											Tween(optioninstance, { BackgroundTransparency = 1 })
+											Tween(
+												optioninstance.header,
+												{ TextColor3 = Starlight.CurrentTheme.Foregrounds.Medium }
+											)
+										end
+									end)
+								end
+							end
+
+							Refresh()
+							NestedElement.Instances[2].Size = UDim2.fromOffset(
+								math.ceil(NestedElement.Instances[1].AbsoluteSize.X),
+								NestedElement.Instances[2].Size.Y.Offset
+							)
+							NestedElement.Instances[2].Position = UDim2.fromOffset(
+								math.ceil(NestedElement.Instances[1].AbsolutePosition.X),
+								math.ceil(NestedElement.Instances[1].AbsolutePosition.Y) + (135 / 2) + 30
+							)
+
+							local preoptions = NestedElement.Values.CurrentOption
+							NestedElement.Values.CurrentOption = {}
+							for i, v in pairs(preoptions) do
+								for _, optioninstance in pairs(NestedElement.Instances[2].List:GetChildren()) do
+									if optioninstance.Name == "OPTION_" .. v then
+										ToggleOption(optioninstance)
+									end
+								end
+							end
+							NestedElement.Instances[1].Header.Text = Table.Unpack(NestedElement.Values.CurrentOption)
+							NestedElement.Instances[1].Header.PlaceholderText = NestedElement.Values.Placeholder or "--"
+
+							if NestedElement.Values.Special == 1 then
+								local c
+								c = Players.PlayerAdded:Connect(function()
+									if not pcall(Refresh) then
+										c:Disconnect()
+									end
+								end)
+								local c
+								c = Players.ChildRemoved:Connect(function()
+									if not pcall(Refresh) then
+										c:Disconnect()
+									end
+								end)
+							end
+							if NestedElement.Values.Special == 2 then
+								local c
+								c = Teams.ChildAdded:Connect(function()
+									if not pcall(Refresh) then
+										c:Disconnect()
+									end
+								end)
+								local c
+								c = Teams.ChildRemoved:Connect(function()
+									if not pcall(Refresh) then
+										c:Disconnect()
+									end
+								end)
+							end
+
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[2],
+								"BackgroundColor3",
+								"Backgrounds.Groupbox"
+							)
+							ThemeMethods.bindTheme(NestedElement.Instances[2].UIStroke, "Color", "Foregrounds.Dark")
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[2].Background,
+								"BackgroundColor3",
+								"Backgrounds.Dark"
+							)
+							for _, shadow in pairs(NestedElement.Instances[2].DropShadowHolder:GetChildren()) do
+								ThemeMethods.bindTheme(shadow, "ImageColor3", "Miscellaneous.LighterShadow")
+							end
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[2].List,
+								"ScrollBarImageColor3",
+								"Foregrounds.Medium"
+							)
+							ThemeMethods.bindTheme(NestedElement.Instances[1], "BackgroundColor3", "Backgrounds.Dark")
+							ThemeMethods.bindTheme(NestedElement.Instances[1].UIStroke, "Color", "Foregrounds.Dark")
+							ThemeMethods.bindTheme(NestedElement.Instances[1].Icon, "ImageColor3", "Foregrounds.Light")
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[1].Truncater,
+								"TextColor3",
+								"Foregrounds.Light"
+							)
+							ThemeMethods.bindTheme(NestedElement.Instances[1].Header, "TextColor3", "Foregrounds.Light")
+							ThemeMethods.bindTheme(
+								NestedElement.Instances[1].Header,
+								"PlaceholderColor3",
+								"Foregrounds.Medium"
+							)
+
+							function NestedElement:Destroy()
+								NestedElement.Instances[1]:Destroy()
+								NestedElement.Instances[2]:Destroy()
+								Parent.Instance.Size = UDim2.fromOffset(0, Parent.Instance.Size.Y.Offset - additionSize)
+								NestedElement = nil
+							end
+
+							function NestedElement:Set(NewNestedSettings, NewNestedIndex)
+								NewNestedIndex = NewNestedIndex or NestedIndex
+
+								for i, v in pairs(NestedElement.Values) do
+									if NewNestedSettings[i] == nil then
+										NewNestedSettings[i] = v
+									end
+								end
+
+								NestedSettings = NewNestedSettings
+								NestedIndex = NewNestedIndex
+
+								NestedElement.Values = NestedSettings
+
+								if NestedElement.Values.CurrentOption then
+									if typeof(NestedElement.Values.CurrentOption) == "string" then
+										NestedElement.Values.CurrentOption = { NestedElement.Values.CurrentOption }
+									end
+									if
+										not NestedElement.Values.MultipleOptions
+										and typeof(NestedElement.Values.CurrentOption) == "table"
+									then
+										NestedElement.Values.CurrentOption = { NestedElement.Values.CurrentOption[1] }
+									end
+									if
+										not NestedElement.Values.MultipleOptions
+										and typeof(NestedElement.Values.CurrentOption) == "number"
+									then
+										NestedElement.Values.CurrentOption =
+											{ NestedElement.Values.Options[NestedElement.Values.CurrentOption] }
+									end
+								end
+								if
+									NestedElement.Values.Required
+									and unpack(NestedElement.Values.CurrentOption) == nil
+								then
+									NestedElement.Values.CurrentOption = { NestedElement.Values.Options[1] }
+								end
+
+								NestedElement.Instances[1].Name = "DROPDOWN_" .. NestedIndex
+								NestedElement.Instances[2].Name = "DROPDOWN_" .. NestedIndex
+
+								Refresh()
+								local preoptions = table.clone(NestedElement.Values.CurrentOption or {})
+								NestedElement.Values.CurrentOption = {}
+								task.delay(1 / 60, function()
+									for i, v in pairs(preoptions) do
+										for _, optioninstance in pairs(NestedElement.Instances[2].List:GetChildren()) do
+											if optioninstance.Name == "OPTION_" .. v then
+												ToggleOption(optioninstance)
+											end
+										end
+									end
+									NestedElement.Instances[1].Header.Text =
+										Table.Unpack(NestedElement.Values.CurrentOption)
+									NestedElement.Instances[1].Header.PlaceholderText = NestedElement.Values.Placeholder
+										or "--"
+								end)
+
+								Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex].Values =
+									NestedElement.Values
+							end
+						end)
+
+						Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[ParentIndex].NestedElements[NestedIndex] =
+							NestedElement
+						return NestedElement
+					end
+
+					--// ENDSUBSECTION
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index]
+				end
+
+				function Groupbox:CreateParagraph(ElementSettings, Index)
+					--[[
+					ElementSettings = {
+						Name = string,
+						Icon = number, **
+						Content = string,
+					}
+					]]
+
+					local Element = {
+						Values = ElementSettings,
+						Class = "Paragraph",
+					}
+
+					task.spawn(function()
+						Element.Instance = GroupboxTemplateInstance.Paragraph_TEMPLATE:Clone()
+						Element.Instance.Visible = true
+						Element.Instance.Parent = Groupbox.ParentingItem
+
+						Element.Instance.Name = "PARAGRAPH_" .. Index
+						Element.Instance.Header.Text = Element.Values.Name
+						Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+						if Element.Instance.Header.Icon.Visible == false then
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+							Element.Instance.Content.UIPadding.PaddingLeft = UDim.new(0, 6)
+						else
+							Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+							Element.Instance.Content.UIPadding.PaddingLeft = UDim.new(0, 32)
+						end
+						Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+							and AssetId(Element.Values.Icon)
+							or ""
+						Element.Instance.Content.Text = Element.Values.Content
+
+						ThemeMethods.bindTheme(Element.Instance.Header, "TextColor3", "Foregrounds.Light")
+						ThemeMethods.bindTheme(Element.Instance.Content, "TextColor3", "Foregrounds.Medium")
+						ThemeMethods.bindTheme(Element.Instance.Header.Icon, "ImageColor3", "Foregrounds.Light")
+
+						function Element:Set(NewElementSettings, NewIndex)
+							NewIndex = NewIndex or Index
+
+							for i, v in pairs(Element.Values) do
+								if NewElementSettings[i] == nil then
+									NewElementSettings[i] = v
+								end
+							end
+
+							ElementSettings = NewElementSettings
+							Index = NewIndex
+
+							Element.Values = ElementSettings
+
+							Element.Instance.Name = "PARAGRAPH_" .. NewIndex
+							Element.Instance.Header.Text = Element.Values.Name
+							Element.Instance.Header.Icon.Visible = not String.IsEmptyOrNull(Element.Values.Icon)
+							if Element.Instance.Header.Icon.Visible == false then
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 6)
+								Element.Instance.Content.UIPadding.PaddingLeft = UDim.new(0, 6)
+							else
+								Element.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 32)
+								Element.Instance.Content.UIPadding.PaddingLeft = UDim.new(0, 32)
+							end
+							Element.Instance.Header.Icon.Image = not String.IsEmptyOrNull(Element.Values.Icon)
+								and AssetId(Element.Values.Icon)
+								or ""
+							Element.Instance.Content.Text = Element.Values.Content
+
+							Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[NewIndex].Values =
+								ElementSettings
+						end
+
+						function Element:Lock(Reason)
+							Element.Instance.Lock_Overlay.Visible = true
+							Element.Instance.Interactable = false
+							Element.Instance.Lock_Overlay.Header.Text = Reason or ""
+						end
+
+						function Element:Unlock()
+							Element.Instance.Lock_Overlay.Visible = false
+							Element.Instance.Interactable = true
+							Element.Instance.Lock_Overlay.Header.Text = ""
+						end
+
+						function Element:Destroy()
+							Element.Instance:Destroy()
+							if Element.NestedElements ~= nil then
+								for _, nestedElement in pairs(Element.NestedElements) do
+									nestedElement:Destroy()
+								end
+							end
+							Element = nil
+						end
+					end)
+
+					Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index] = Element
+					return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex].Elements[Index]
+				end
+
+				--// ENDSUBSECTION
+
+				Groupbox.Instance.Parent = Tab.Instances.Page["Column_" .. GroupboxSettings.Column]
+				Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex] = Groupbox
+				return Starlight.Window.TabSections[Name].Tabs[TabIndex].Groupboxes[GroupIndex]
+			end
+
+			--function Tab:CreateTabbox(TabboxSettings) -- coming soon
+
+			--end
+
+			function Tab:BuildThemeGroupbox(Column, Style, ButtonsCentered)
+				if ButtonsCentered == nil then
+					ButtonsCentered = false
+				end
+
+				local themesPath = WindowSettings.FileSettings.ThemesInRoot
+					and `{Starlight.FileSystem.Folder}/{root}/themes`
+					or `{Starlight.FileSystem.Folder}/{folderpath}/themes`
+
+				if not isStudio and not isfolder(themesPath) then
+					Starlight.FileSystem:BuildFolderTree(WindowSettings.FileSettings)
+				end
+
+				local instance = Tab:CreateGroupbox({
+					Name = "Themes",
+					Icon = 6031625148,
+					Column = Column,
+					Style = Style or 1,
+				}, "__prebuiltThemeGroupbox")
+
+				local themesArray = {
+					"Starlight",
+					"Hollywood Dark",
+					"Hollywood Light",
+					"Orca",
+					"Glacier",
+					"Pacific",
+					"Neo",
+					"Neo (Dark)",
+					"Crimson",
+					"Nebula",
+					"Evergreen",
+					"Luna",
+					"OperaGX",
+					"BBot",
+					"Ubuntu",
+					"Tokyo Night",
+					"Hollywood Fluent",
+					"Catppuccin Mocha",
+					"Catppuccin Macchiato",
+					"Catppuccin Frappe",
+					"Catppuccin Latte",
+				}
+				local customThemes = not isStudio and Starlight.FileSystem:RefreshConfigList(themesPath) or {}
+				for _, v in pairs(customThemes) do
+					table.insert(themesArray, v)
+				end
+
+				instance:CreateToggle({
+					Name = "Acrylic",
+					CurrentValue = false,
+					Tooltip = "Enables The Glass And Acrylic Style for the main UI",
+					Icon = 6031371068,
+					Callback = function(v)
+						mainAcrylic = v
+						acrylicEvent:Fire()
+					end,
+				}, "mainacrylic")
+				instance:CreateToggle({
+					Name = "Notification Acrylic",
+					CurrentValue = true,
+					Tooltip = "Enables The Glass And Acrylic Style for notifications",
+					Icon = 6031488930,
+					Callback = function(v)
+						notificationAcrylic = v
+						notificationAcrylicEvent:Fire()
+					end,
+				}, "notitficationacrylic")
+
+				instance:CreateDivider()
+
+				local colorpickers = {}
+				do
+					colorpickers.bg = instance:CreateLabel({
+						Name = "Backgrounds",
+					}, "colorpicker_bg")
+					colorpickers.fg = instance:CreateLabel({
+						Name = "Foregrounds",
+					}, "colorpicker_fg")
+					colorpickers.fga = instance:CreateLabel({
+						Name = "Foreground Hovers",
+					}, "colorpicker_fga")
+					colorpickers.divider = instance:CreateLabel({
+						Name = "Divider",
+					}, "colorpicker_divider")
+					colorpickers.shadows = instance:CreateLabel({
+						Name = "Shadows",
+					}, "colorpicker_shadows")
+					colorpickers.accent = instance:CreateLabel({
+						Name = "Accent",
+					}, "colorpicker_accents")
+					colorpickers.accent2 = instance:CreateLabel({
+						Name = "Accent Brighter",
+					}, "colorpicker_accents")
+				end
+
+				-- backgrounds
+				do
+					do
+						local debounce = false
+						local cp = colorpickers.bg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Backgrounds.Dark,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Backgrounds.Dark = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "dark")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Backgrounds.Dark }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.bg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Backgrounds.Medium,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Backgrounds.Medium = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "medium")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Backgrounds.Medium }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.bg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Backgrounds.Light,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Backgrounds.Light = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "light")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Backgrounds.Light }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.bg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Backgrounds.Groupbox,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Backgrounds.Groupbox = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "gb")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Backgrounds.Groupbox }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.bg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Backgrounds.Highlight,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Backgrounds.Highlight = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "popup")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Backgrounds.Highlight }, nil, true)
+							end
+						end)
+					end
+				end
+
+				-- foregrounds
+				do
+					do
+						local debounce = false
+						local cp = colorpickers.fg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.Dark,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.Dark = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "dark")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.Dark }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.fg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.Medium,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.Medium = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "medium")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.Medium }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.fg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.Light,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.Light = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "light")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.Light }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.fg:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.Active,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.Active = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "active")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.Active }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.fga:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.DarkHover,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.DarkHover = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "dark")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.DarkHover }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.fga:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Foregrounds.MediumHover,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Foregrounds.MediumHover = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "medium")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Foregrounds.MediumHover }, nil, true)
+							end
+						end)
+					end
+				end
+
+				-- divider
+				do
+					local debounce = false
+					local cp = colorpickers.divider:AddColorPicker({
+						IgnoreConfig = true,
+						CurrentValue = Starlight.CurrentTheme.Miscellaneous.Divider,
+						Callback = function(c)
+							debounce = true
+							Starlight.CurrentTheme.Miscellaneous.Divider = c
+							themeEvent:Fire()
+							task.wait(6 / 60)
+							debounce = false
+						end,
+					}, "dark")
+					themeEvent.Event:Connect(function()
+						if not debounce then
+							cp:Set({ CurrentValue = Starlight.CurrentTheme.Miscellaneous.Divider }, nil, true)
+						end
+					end)
+				end
+
+				-- shadows
+				do
+					do
+						local debounce = false
+						local cp = colorpickers.shadows:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Miscellaneous.Shadow,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Miscellaneous.Shadow = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "dark")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Miscellaneous.Shadow }, nil, true)
+							end
+						end)
+					end
+					do
+						local debounce = false
+						local cp = colorpickers.shadows:AddColorPicker({
+							IgnoreConfig = true,
+							CurrentValue = Starlight.CurrentTheme.Miscellaneous.LighterShadow,
+							Callback = function(c)
+								debounce = true
+								Starlight.CurrentTheme.Miscellaneous.LighterShadow = c
+								themeEvent:Fire()
+								task.wait(6 / 60)
+								debounce = false
+							end,
+						}, "light")
+						themeEvent.Event:Connect(function()
+							if not debounce then
+								cp:Set({ CurrentValue = Starlight.CurrentTheme.Miscellaneous.LighterShadow }, nil, true)
+							end
+						end)
+					end
+				end
+
+				-- accents
+				do
+					-- main
+					do
+						do
+							local debounce = false
+							local cp = colorpickers.accent:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[1].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Main.Keypoints
+									Starlight.CurrentTheme.Accents.Main = ColorSequence.new({
+										ColorSequenceKeypoint.new(keypoints[1].Time, c),
+										keypoints[2],
+										keypoints[3],
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "1")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[1].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+						do
+							local debounce = false
+							local cp = colorpickers.accent:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[2].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Main.Keypoints
+									Starlight.CurrentTheme.Accents.Main = ColorSequence.new({
+										keypoints[1],
+										ColorSequenceKeypoint.new(keypoints[2].Time, c),
+										keypoints[3],
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "2")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[2].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+						do
+							local debounce = false
+							local cp = colorpickers.accent:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[3].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Main.Keypoints
+									Starlight.CurrentTheme.Accents.Main = ColorSequence.new({
+										keypoints[1],
+										keypoints[2],
+										ColorSequenceKeypoint.new(keypoints[3].Time, c),
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "3")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Main.Keypoints[3].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+					end
+					-- brighter
+					do
+						do
+							local debounce = false
+							local cp = colorpickers.accent2:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[1].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Brighter.Keypoints
+									Starlight.CurrentTheme.Accents.Brighter = ColorSequence.new({
+										ColorSequenceKeypoint.new(keypoints[1].Time, c),
+										keypoints[2],
+										keypoints[3],
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "1")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[1].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+						do
+							local debounce = false
+							local cp = colorpickers.accent2:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[2].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Brighter.Keypoints
+									Starlight.CurrentTheme.Accents.Brighter = ColorSequence.new({
+										keypoints[1],
+										ColorSequenceKeypoint.new(keypoints[2].Time, c),
+										keypoints[3],
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "2")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[2].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+						do
+							local debounce = false
+							local cp = colorpickers.accent2:AddColorPicker({
+								IgnoreConfig = true,
+								CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[3].Value,
+								Callback = function(c)
+									debounce = true
+									local keypoints = Starlight.CurrentTheme.Accents.Brighter.Keypoints
+									Starlight.CurrentTheme.Accents.Brighter = ColorSequence.new({
+										keypoints[1],
+										keypoints[2],
+										ColorSequenceKeypoint.new(keypoints[3].Time, c),
+									})
+									themeEvent:Fire()
+									task.wait(6 / 60)
+									debounce = false
+								end,
+							}, "3")
+							themeEvent.Event:Connect(function()
+								if not debounce then
+									cp:Set(
+										{ CurrentValue = Starlight.CurrentTheme.Accents.Brighter.Keypoints[3].Value },
+										nil,
+										true
+									)
+								end
+							end)
+						end
+					end
+				end
+
+				instance:CreateDivider()
+
+				local newName = instance:CreateInput({
+					Name = "New Theme Name",
+					PlaceholderText = "Name",
+					RemoveTextOnFocus = true,
+					Callback = function(v) end,
+				}, "newthemename")
+				instance:CreateButton({
+					Name = "Create New Theme",
+					Icon = 6031471484,
+					CenteredContent = ButtonsCentered,
+					Callback = function()
+						if not newName.CurrentValue or String.IsEmptyOrNull(newName.CurrentValue) then
+							Starlight:Notification({
+								Title = "Theme Error",
+								Icon = 129398364168201,
+								Content = "Theme name cannot be empty.",
+							})
+							return
+						end
+						newName.CurrentValue = string.gsub(newName.CurrentValue, "/", " ")
+						newName.CurrentValue = string.gsub(newName.CurrentValue, "\\", " ")
+
+						if
+							isfile(`{themesPath}/{newName.CurrentValue}{Starlight.FileSystem.FileExtension}`)
+							or themesArray[newName.CurrentValue]
+						then
+							Starlight:Notification({
+								Title = "Theme Exists",
+								Icon = 129398364168201,
+								Content = "Theme with the provided name exists already. Overwrite it with overwrite theme below.",
+							})
+							return
+						end
+
+						local success, returned = pcall(function()
+							if isStudio or not isfile then
+								return "File System unavailable."
+							end
+
+							local fullPath = `{themesPath}/{newName.CurrentValue}{Starlight.FileSystem.FileExtension}`
+
+							local success, encoded = ThemeMethods.encodeTheme(Starlight.CurrentTheme)
+							if not success then
+								return false, "Unable to encode into JSON data"
+							end
+
+							writefile(fullPath, encoded)
+						end)
+						if not success then
+							Starlight:Notification({
+								Title = "Theme Error",
+								Icon = 6031071057,
+								Content = "Unable to save Theme, return error: " .. returned,
+							})
+							return
+						end
+
+						themesArray = {
+							"Starlight",
+							"Hollywood Dark",
+							"Hollywood Light",
+							"Orca",
+							"Glacier",
+							"Pacific",
+							"Neo",
+							"Neo (Dark)",
+							"Crimson",
+							"Nebula",
+							"Evergreen",
+							"Luna",
+							"OperaGX",
+							"BBot",
+							"Ubuntu",
+							"Tokyo Night",
+							"Hollywood Fluent",
+						}
+						local customThemes = not isStudio and Starlight.FileSystem:RefreshConfigList(themesPath) or {}
+						for _, v in pairs(customThemes) do
+							table.insert(themesArray, v)
+						end
+						instance.Elements.themedropdownlabel.NestedElements.themedropdown:Set({
+							Options = themesArray,
+						})
+						Starlight:Notification({
+							Title = "Theme Created",
+							Icon = 6026568227,
+							Content = string.format("Created Theme %q", newName.CurrentValue),
+						})
+					end,
+				}, "newtheme")
+
+				local newThemeToApply
+				local themeDropdown = instance
+					:CreateLabel({
+						Name = "Themes List",
+					}, "themedropdownlabel")
+					:AddDropdown({
+						Options = themesArray,
+						CurrentOption = "Starlight",
+						Required = true,
+						Callback = function(newTheme)
+							newThemeToApply = newTheme[1]
+						end,
+					}, "themedropdown")
+				themeEvent.Event:Connect(function()
+					for key, theme in pairs(Themes) do
+						if theme == Starlight.CurrentTheme then
+							--themeDropdown:Set({ CurrentOption = tostring(key) })
+						end
+					end
+				end)
+
+				instance:CreateButton({
+					Name = "Apply Theme",
+					Icon = 6034439635,
+					CenteredContent = ButtonsCentered,
+					Style = 1,
+					Callback = function()
+						if Themes[newThemeToApply] ~= nil then
+							Starlight:SetTheme(Themes[newThemeToApply])
+						else
+							Starlight:SetTheme(
+								ThemeMethods.decodeTheme(
+									readfile(`{themesPath}/{newThemeToApply}{Starlight.FileSystem.FileExtension}`)
+								)
+							)
+						end
+					end,
+				}, "applytheme")
+
+				instance:CreateButton({
+					Name = "Overwrite Theme",
+					CenteredContent = ButtonsCentered,
+					Icon = 6031225810,
+					Callback = function()
+						if newThemeToApply == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Theme Must Be Selected!",
+							})
+							return
+						end
+						if Themes[newThemeToApply] then
+							Starlight:Notification({
+								Title = "Preset Theme",
+								Icon = 129398364168201,
+								Content = "Only A Custom Theme Can Be Overwritten!",
+							})
+							return
+						end
+
+						local success, returned = pcall(function()
+							if isStudio or not isfile then
+								return "File System unavailable."
+							end
+
+							local fullPath = `{themesPath}/{newThemeToApply}{Starlight.FileSystem.FileExtension}`
+
+							local success, encoded = pcall(HttpService.JSONEncode, HttpService, Starlight.CurrentTheme)
+							if not success then
+								return false, "Unable to encode into JSON data"
+							end
+
+							writefile(fullPath, encoded)
+						end)
+						if not success then
+							Starlight:Notification({
+								Title = "Theme Error",
+								Icon = 6031071057,
+								Content = "Unable to overwrite theme, return error: " .. returned,
+							})
+							return
+						end
+
+						Starlight:Notification({
+							Title = "Theme Updated",
+							Icon = 6026568227,
+							Content = string.format("Overwrote theme %q", newThemeToApply),
+						})
+					end,
+				}, "overwritetheme")
+
+				local loadlabel = instance:CreateParagraph({
+					Name = "Current Autoload Theme:",
+					Content = not isStudio and (isfile(`{themesPath}/autoload.txt`) and readfile(
+						`{themesPath}/autoload.txt`
+						)) or "Starlight",
+				}, "autoloadlabel")
+
+				instance:CreateButton({
+					Name = "Autoload Theme",
+					Icon = 6023565901,
+					CenterContent = ButtonsCentered,
+					Callback = function()
+						if newThemeToApply == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Theme Must Be Selected!",
+							})
+							return
+						end
+						local name = newThemeToApply
+						pcall(function()
+							writefile(`{themesPath}/autoload.txt`, name)
+						end)
+						loadlabel:Set({ Content = name })
+
+						Starlight:Notification({
+							Title = "Theme Updated",
+							Icon = 6026568227,
+							Content = string.format(
+								"Set %q to be automatically loaded on your future sessions.",
+								newThemeToApply
+							),
+						})
+					end,
+					Style = 1,
+				}, "autoloadtheme")
+
+				instance:CreateButton({
+					Name = "Reset Autoload",
+					Icon = 6034767619,
+					CenteredContent = ButtonsCentered,
+					Callback = function()
+						if isfile(`{themesPath}/autoload.txt`) then
+							delfile(`{themesPath}/autoload.txt`)
+						end
+						loadlabel:Set({ Content = "None" })
+
+						Starlight:Notification({
+							Title = "Autoload Cleared",
+							Icon = 6026568227,
+							Content = string.format("Disabled current autoload.", newThemeToApply),
+						})
+					end,
+				}, "clearautoload")
+
+				instance:CreateButton({
+					Name = "Delete Theme",
+					Icon = 115577765236264,
+					CenteredContent = ButtonsCentered,
+					Callback = function()
+						if newThemeToApply == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Theme Must Be Selected!",
+							})
+							return
+						end
+						if isfile(`{themesPath}/{newThemeToApply}{Starlight.FileSystem.FileExtension}`) then
+							delfile(`{themesPath}/{newThemeToApply}{Starlight.FileSystem.FileExtension}`)
+						end
+
+						if loadlabel.Values.Content == newThemeToApply then
+							if isfile(`{themesPath}/autoload.txt`) then
+								delfile(`{themesPath}/autoload.txt`)
+							end
+							loadlabel:Set({ Content = "None" })
+						end
+
+						themesArray = {
+							"Starlight",
+							"Hollywood Dark",
+							"Hollywood Light",
+							"Orca",
+							"Glacier",
+							"Pacific",
+							"Neo",
+							"Neo (Dark)",
+							"Crimson",
+							"Nebula",
+							"Evergreen",
+							"Luna",
+							"OperaGX",
+							"BBot",
+							"Ubuntu",
+							"Tokyo Night",
+							"Hollywood Fluent",
+						}
+						local customThemes = not isStudio and Starlight.FileSystem:RefreshConfigList(themesPath) or {}
+						for _, v in pairs(customThemes) do
+							table.insert(themesArray, v)
+						end
+						themeDropdown:Set({
+							Options = themesArray,
+							CurrentOption = "",
+						})
+
+						Starlight:Notification({
+							Title = "Theme Deleted",
+							Icon = 6026568227,
+							Content = string.format("Deleted Configuration %q", newThemeToApply),
+						})
+						if newThemeToApply then
+							newThemeToApply = nil
+						end
+					end,
+				}, "deletetheme")
+			end
+
+			function Tab:BuildConfigGroupbox(Column, Style, ButtonsCentered)
+				if ButtonsCentered == nil then
+					ButtonsCentered = false
+				end
+
+				local instance = Tab:CreateGroupbox({
+					Name = "Configurations",
+					Icon = 6031280882,
+					Column = Column,
+					Style = Style or 1,
+				}, "__prebuiltConfigGroupbox")
+
+				if isStudio then
+					instance:CreateParagraph({
+						Name = "Config System Unavailable.",
+						Content = "Environment Invalid : isStudio.",
+					}, "__prebuiltConfigEnvironmentWarning")
+					return "Config System Unavailable"
+				end
+				if not isfile or isfile == nil then
+					instance:CreateParagraph({
+						Name = "Config System Unavailable.",
+						Content = "Environment Invalid : isFile UNC Function Not Found.",
+					}, "__prebuiltConfigEnvironmentWarning")
+					return "Config System Unavailable"
+				end
+
+				local inputPath = nil
+				local selectedConfig = nil
+
+				inputPath = instance:CreateInput({
+					Name = "Config Name",
+					Tooltip = "Insert a name for the config you want to create.",
+					PlaceholderText = "Name",
+					RemoveTextOnFocus = true,
+					IgnoreConfig = true,
+					Callback = function(val) end,
+				}, "__prebuiltConfigNameInput")
+
+				instance:CreateButton({
+					Name = "Create Config",
+					Icon = 6035053304,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Create a configuration to access any time with all your current settings.",
+					Callback = function()
+						if not inputPath.Values.CurrentValue or String.IsEmptyOrNull(inputPath.Values.CurrentValue) then
+							Starlight:Notification({
+								Title = "Configuration Error",
+								Icon = 129398364168201,
+								Content = "Config name cannot be empty.",
+							})
+							return
+						end
+						inputPath.Values.CurrentValue = string.gsub(inputPath.Values.CurrentValue, "/", " ")
+						inputPath.Values.CurrentValue = string.gsub(inputPath.Values.CurrentValue, "\\", " ")
+
+						if
+							isfile(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs/{inputPath.Values.CurrentValue}{Starlight.FileSystem.FileExtension}`
+							)
+						then
+							Starlight:Notification({
+								Title = "Configuration Exists",
+								Icon = 129398364168201,
+								Content = "Configuration with the provided name exists already. Overwrite it with update config below.",
+							})
+							return
+						end
+
+						local success, returned = Starlight.FileSystem:SaveConfig(
+							inputPath.Values.CurrentValue,
+							`{Starlight.FileSystem.Folder}/{folderpath}/configs/`
+						)
+						if not success then
+							Starlight:Notification({
+								Title = "Configuration Error",
+								Icon = 6031071057,
+								Content = "Unable to save config, return error: " .. returned,
+							})
+						end
+
+						Starlight:Notification({
+							Title = "Configuration Created",
+							Icon = 6026568227,
+							Content = string.format("Created config %q", inputPath.Values.CurrentValue),
+						})
+
+						instance.Elements["__prebuiltConfigSelector_lbl"].NestedElements["__prebuiltConfigSelector_lbl"]:Set({
+							Options = Starlight.FileSystem:RefreshConfigList(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs`
+							),
+						})
+					end,
+					Style = 1,
+				}, "__prebuiltConfigCreator")
+
+				instance:CreateDivider()
+
+				local configSelection = instance
+					:CreateLabel({
+						Name = "Select Config",
+						Tooltip = "Select a config for this section to work on.",
+					}, "__prebuiltConfigSelector_lbl")
+					:AddDropdown({
+						Options = Starlight.FileSystem:RefreshConfigList(
+							`{Starlight.FileSystem.Folder}/{folderpath}/configs`
+						),
+						CurrentOption = nil,
+						MultipleOptions = false,
+						Callback = function(val)
+							selectedConfig = val[1]
+						end,
+					}, "__prebuiltConfigSelector_lbl")
+
+				instance:CreateButton({
+					Name = "Load Config",
+					Icon = 10723433935,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Load the selected configuration and all its settings.",
+					Callback = function()
+						if selectedConfig == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Configuration Must Be Selected!",
+							})
+							return
+						end
+
+						local success, returned = Starlight.FileSystem:LoadConfig(
+							selectedConfig,
+							`{Starlight.FileSystem.Folder}/{folderpath}/configs/`
+						)
+						if not success then
+							Starlight:Notification({
+								Title = "Configuration Error",
+								Icon = 6031071057,
+								Content = "Unable to load config, return error: " .. returned,
+							})
+							return
+						end
+
+						Starlight:Notification({
+							Title = "Configuration Loaded",
+							Icon = 6026568227,
+							Content = string.format("Loaded config %q", selectedConfig),
+						})
+					end,
+					Style = 1,
+				}, "__prebuiltConfigLoader")
+
+				instance:CreateButton({
+					Name = "Update Config",
+					Icon = 6031225810,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Overwrite and update the selected configuration and all its settings with your current ones.",
+					Callback = function()
+						if selectedConfig == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Configuration Must Be Selected!",
+							})
+							return
+						end
+
+						local success, returned = Starlight.FileSystem:SaveConfig(
+							selectedConfig,
+							`{Starlight.FileSystem.Folder}/{folderpath}/configs/`
+						)
+						if not success then
+							Starlight:Notification({
+								Title = "Configuration Error",
+								Icon = 6031071057,
+								Content = "Unable to overwrite config, return error: " .. returned,
+							})
+							return
+						end
+
+						Starlight:Notification({
+							Title = "Configuration Updated",
+							Icon = 6026568227,
+							Content = string.format("Overwrote config %q", selectedConfig),
+						})
+					end,
+					Style = 2,
+				}, "__prebuiltConfigUpdater")
+
+				instance:CreateButton({
+					Name = "Refresh Configuration List",
+					Icon = 6035056483,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Manually refresh the list of configurations incase of any errors.",
+					Callback = function()
+						instance.Elements["__prebuiltConfigSelector_lbl"].NestedElements["__prebuiltConfigSelector_lbl"]:Set({
+							Options = Starlight.FileSystem:RefreshConfigList(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs`
+							),
+						})
+					end,
+					Style = 2,
+				}, "__prebuiltConfigRefresher")
+
+				local loadlabel = instance:CreateParagraph({
+					Name = "Current Autoload Config:",
+					Content = isfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`) and readfile(
+						`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`
+					) or "None",
+				}, "__prebuiltConfigAutoloadLabel")
+
+				instance:CreateButton({
+					Name = "Autoload Configuration",
+					Icon = 6023565901,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Set the selected configuration to load whenever you run the script automatically.",
+					Callback = function()
+						if selectedConfig == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Configuration Must Be Selected!",
+							})
+							return
+						end
+						local name = selectedConfig
+						pcall(function()
+							writefile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`, name)
+						end)
+						loadlabel:Set({ Content = name })
+
+						Starlight:Notification({
+							Title = "Configuration Updated",
+							Icon = 6026568227,
+							Content = string.format(
+								"Set %q to be automatically loaded on your future sessions.",
+								selectedConfig
+							),
+						})
+					end,
+					Style = 1,
+				}, "__prebuiltConfigLoader")
+
+				instance:CreateDivider()
+
+				local warning = instance:CreateLabel({
+					Name = "! DANGER ZONE !",
+				}, "__prebuiltConfigDangerWarning")
+				warning.Instance.Header.TextXAlignment = Enum.TextXAlignment.Center
+				warning.Instance.Header.Size = UDim2.new(1, 0, 0, warning.Instance.Header.Size.Y.Offset)
+				warning.Instance.Header.UIPadding.PaddingLeft = UDim.new(0, 0)
+
+				instance:CreateButton({
+					Name = "Clear Autoload",
+					Icon = 6034767619,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Removes the autoloading of the current autoload config.",
+					Callback = function()
+						if isfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`) then
+							delfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`)
+						end
+						loadlabel:Set({ Content = "None" })
+
+						Starlight:Notification({
+							Title = "Autoload Cleared",
+							Icon = 6026568227,
+							Content = string.format("Disabled current autoload.", selectedConfig),
+						})
+					end,
+					Style = 2,
+				}, "__prebuiltConfigDeleter")
+
+				instance:CreateButton({
+					Name = "Delete Configuration",
+					Icon = 115577765236264,
+					CenterContent = ButtonsCentered,
+					Tooltip = "Deleting A Configuration is permanent and you have to redo it!",
+					Callback = function()
+						if selectedConfig == nil then
+							Starlight:Notification({
+								Title = "Null Selection",
+								Icon = 129398364168201,
+								Content = "Configuration Must Be Selected!",
+							})
+							return
+						end
+						if
+							isfile(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs/{selectedConfig}{Starlight.FileSystem.FileExtension}`
+							)
+						then
+							delfile(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs/{selectedConfig}{Starlight.FileSystem.FileExtension}`
+							)
+						end
+
+						if loadlabel.Values.Content == selectedConfig then
+							if isfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`) then
+								delfile(`{Starlight.FileSystem.Folder}/{folderpath}/configs/autoload.txt`)
+							end
+							loadlabel:Set({ Content = "None" })
+						end
+
+						instance.Elements["__prebuiltConfigSelector_lbl"].NestedElements["__prebuiltConfigSelector_lbl"]:Set({
+							Options = Starlight.FileSystem:RefreshConfigList(
+								`{Starlight.FileSystem.Folder}/{folderpath}/configs`
+							),
+							CurrentOption = "",
+						})
+
+						Starlight:Notification({
+							Title = "Configuration Deleted",
+							Icon = 6026568227,
+							Content = string.format("Deleted Configuration %q", selectedConfig),
+						})
+						if selectedConfig then
+							selectedConfig = nil
+						end
+					end,
+					Style = 2,
+				}, "__prebuiltConfigDeleter")
+			end
+
+			--// ENDSUBSECTION
+
+			Tab.Instances.Button.Parent = Starlight.Window.TabSections[Name].Instance
+			Starlight.Window.TabSections[Name].Tabs[TabIndex] = Tab
+			return Starlight.Window.TabSections[Name].Tabs[TabIndex]
+		end
+
+		TabSection.Instance.Parent = navigation
+		Starlight.Window.TabSections[Name] = TabSection
+		return Starlight.Window.TabSections[Name]
+
+		--// ENDSUBSECTION
+	end
+
+	--// ENDSUBSECTION
+
+	--// SUBSECTION : Window Functionability
+	do
+		mainWindow.Content.Topbar.NotificationCenterIcon["MouseEnter"]:Connect(function()
+			Tween(
+				mainWindow.Content.Topbar.NotificationCenterIcon,
+				{ ImageColor3 = Starlight.CurrentTheme.Foregrounds.DarkHover }
+			)
+		end)
+		mainWindow.Content.Topbar.NotificationCenterIcon["MouseLeave"]:Connect(function()
+			Tween(
+				mainWindow.Content.Topbar.NotificationCenterIcon,
+				{ ImageColor3 = Starlight.CurrentTheme.Foregrounds.Dark }
+			)
+		end)
+
+		local notifdebounce = false
+		mainWindow.Content.Topbar.NotificationCenterIcon["MouseButton1Click"]:Connect(function()
+			if not notifdebounce then
+				notifdebounce = true
+				if Starlight.NotificationsOpen then
+					for i, newNotification in pairs(CollectionService:GetTagged("__starlight_ExpiredNotification")) do
+						newNotification.Icon.Visible = false
+						TweenService:Create(
+							newNotification,
+							TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+							{ BackgroundTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.UIStroke,
+							TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+							{ Transparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Shadow.antumbraShadow,
+							TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+							{ ImageTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Shadow.penumbraShadow,
+							TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+							{ ImageTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Shadow.umbraShadow,
+							TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+							{ ImageTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Title,
+							TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+							{ TextTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Description,
+							TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+							{ TextTransparency = 1 }
+						):Play()
+						TweenService:Create(
+							newNotification.Time,
+							TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+							{ TextTransparency = 1 }
+						):Play()
+
+						pcall(function()
+							TweenService:Create(
+								newNotification.Acrylic.shadow,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.7 }
+							):Play()
+							TweenService:Create(
+								newNotification.Acrylic.tint,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.98 }
+							):Play()
+							TweenService:Create(
+								newNotification.Acrylic.Noise,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.9 }
+							):Play()
+						end)
+
+						TweenService:Create(
+							newNotification,
+							TweenInfo.new(1, Enum.EasingStyle.Exponential),
+							{ Size = UDim2.new(1, -90, 0, 0) }
+						):Play()
+
+						Tween(
+							newNotification,
+							{
+								Size = UDim2.new(
+									1,
+									-90,
+									0,
+									-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
+								),
+							},
+							function()
+								newNotification.Visible = false
+							end,
+							TweenInfo.new(1, Enum.EasingStyle.Exponential)
+						)
+					end
+				else
+					for i, newNotification in pairs(CollectionService:GetTagged("__starlight_ExpiredNotification")) do
+						task.spawn(function()
+							newNotification.Icon.Visible = true
+
+							newNotification.Size = UDim2.new(
+								1,
+								0,
+								0,
+								-StarlightUI.Notifications:FindFirstChild("UIListLayout").Padding.Offset
+							)
+
+							newNotification.Icon.Size = UDim2.new(0, 28, 0, 28)
+
+							newNotification.Visible = true
+
+							newNotification.Description.Size = UDim2.new(1, -65, 0, math.huge)
+							local bounds = newNotification.Description.TextBounds.Y
+							newNotification.Description.Size = UDim2.new(1, -65, 0, bounds + 2)
+							TweenService:Create(
+								newNotification,
+								TweenInfo.new(0.6, Enum.EasingStyle.Exponential),
+								{ Size = UDim2.new(1, 0, 0, bounds + 50) }
+							):Play()
+
+							task.wait(0.15)
+							TweenService
+								:Create(
+									newNotification,
+									TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+									{
+										BackgroundTransparency = notificationAcrylic
+										and (mainAcrylic and 0.55 or 0.375)
+										or 0,
+									}
+								)
+								:Play()
+							TweenService:Create(
+								newNotification.Shadow.antumbraShadow,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.94 }
+							):Play()
+							TweenService:Create(
+								newNotification.Shadow.penumbraShadow,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.55 }
+							):Play()
+							TweenService:Create(
+								newNotification.Shadow.umbraShadow,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0.4 }
+							):Play()
+							TweenService:Create(
+								newNotification.Title,
+								TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+								{ TextTransparency = 0 }
+							):Play()
+
+							task.wait(0.05)
+
+							TweenService:Create(
+								newNotification.Icon,
+								TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+								{ ImageTransparency = 0 }
+							):Play()
+
+							task.wait(0.05)
+							TweenService:Create(
+								newNotification.Description,
+								TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+								{ TextTransparency = 0.35 }
+							):Play()
+							TweenService:Create(
+								newNotification.Time,
+								TweenInfo.new(0.3, Enum.EasingStyle.Exponential),
+								{ TextTransparency = 0.35 }
+							):Play()
+							TweenService:Create(
+								newNotification.UIStroke,
+								TweenInfo.new(0.4, Enum.EasingStyle.Exponential),
+								{ Transparency = 0.95 }
+							):Play()
+						end)
+					end
+				end
+				Starlight.NotificationsOpen = not Starlight.NotificationsOpen
+				task.wait(1)
+				notifdebounce = false
+			end
+		end)
+
+		mainWindow.Content.Topbar.Search["MouseEnter"]:Connect(function()
+			Tween(mainWindow.Content.Topbar.Search, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.DarkHover })
+		end)
+		mainWindow.Content.Topbar.Search["MouseLeave"]:Connect(function()
+			Tween(mainWindow.Content.Topbar.Search, { ImageColor3 = Starlight.CurrentTheme.Foregrounds.Dark })
+		end)
+
+		for _, Button in pairs(mainWindow.Content.Topbar.Controls:GetChildren()) do
+			if Button.ClassName == "TextButton" then
+				Button["MouseEnter"]:Connect(function()
+					Tween(Button.Fill, { BackgroundTransparency = 0 })
+					Tween(Button.Fill.Icon, { Position = UDim2.fromScale(0.5, 0.5) })
+				end)
+
+				Button["MouseLeave"]:Connect(function()
+					Tween(Button.Fill, { BackgroundTransparency = 1 })
+					Tween(Button.Fill.Icon, { Position = UDim2.fromScale(0.5, 1.8) })
+				end)
+			end
+		end
+
+		mainWindow.Content.Topbar.Controls.Close["MouseButton1Click"]:Connect(function()
+			Starlight.Window:PromptDialog({
+				Name = "Are you sure?",
+				Content = "Are you sure you wish to exit the Interface?",
+				Type = 1,
+				Actions = {
+					Primary = {
+						Name = "Cancel",
+						Callback = function() end,
+					},
+					{
+						Name = "Yes",
+						Callback = function()
+							Starlight:Destroy()
+						end,
+					},
+				},
+			})
+		end)
+		mainWindow.Content.Topbar.Controls.Maximize["MouseButton1Click"]:Connect(function()
+			if Starlight.Maximized then
+				Unmaximize(mainWindow)
+			else
+				Maximize(mainWindow)
+			end
+		end)
+
+		local debounce = false
+
+		mainWindow.Content.Topbar.Controls.Minimize["MouseButton1Click"]:Connect(function()
+			if not debounce then
+				debounce = true
+				Hide(mainWindow, false, true, Starlight.WindowKeybind)
+				Hide(StarlightUI.Drag, false, false, Starlight.WindowKeybind)
+				task.delay(0.4, function()
+					debounce = false
+				end)
+			end
+		end)
+
+		StarlightUI.MobileToggle.MouseButton1Click:Connect(function()
+			if Starlight.Minimized == true then
+				if not debounce then
+					debounce = true
+					Unhide(mainWindow)
+					Unhide(StarlightUI.Drag)
+					Tween(
+						mainWindow.Content.Topbar.Controls.Minimize.Fill.Icon,
+						{ Position = UDim2.fromScale(0.5, 1.5) }
+					)
+					Tween(mainWindow.Content.Topbar.Controls.Minimize.Fill, { BackgroundTransparency = 1 })
+					task.delay(0.4, function()
+						debounce = false
+					end)
+				end
+			elseif Starlight.Minimized == false then
+				if not debounce then
+					debounce = true
+					Hide(mainWindow, false, true, Starlight.WindowKeybind)
+					Hide(StarlightUI.Drag, false, false, Starlight.WindowKeybind)
+					task.delay(0.4, function()
+						debounce = false
+					end)
+				end
+			end
+		end)
+
+		connections["__windowKeybindHidingBindConnection"] = UserInputService.InputBegan:Connect(function(input, gpe)
+			if gpe then
+				return
+			end
+			if input.KeyCode == Enum.KeyCode[Starlight.WindowKeybind] then
+				if Starlight.Minimized == true then
+					if not debounce then
+						debounce = true
+						Unhide(mainWindow)
+						Unhide(StarlightUI.Drag)
+						Tween(
+							mainWindow.Content.Topbar.Controls.Minimize.Fill.Icon,
+							{ Position = UDim2.fromScale(0.5, 1.5) }
+						)
+						Tween(mainWindow.Content.Topbar.Controls.Minimize.Fill, { BackgroundTransparency = 1 })
+						task.delay(0.4, function()
+							debounce = false
+						end)
+					end
+				elseif Starlight.Minimized == false then
+					if not debounce then
+						debounce = true
+						Hide(mainWindow, false, true, Starlight.WindowKeybind)
+						Hide(StarlightUI.Drag, false, false, Starlight.WindowKeybind)
+						task.delay(0.4, function()
+							debounce = false
+						end)
+					end
+				end
+			end
+		end)
+	end
+	--// ENDSUBSECTION
+
+	-- Return the window
+	return Starlight.Window
+end
+
+--// SECTION : Config System
+
+function Starlight.FileSystem:BuildFolderTree(FileSettings)
+	-- Revamp since beta 4 since we are storing stuff within like scripts for both themes and such
+	if isStudio or not isfolder then
+		return "Config system unavailable."
+	end
+	local paths = {}
+	if FileSettings.RootFolder ~= nil then
+		-- has root
+		if FileSettings.ThemesInRoot then
+			paths = {
+				Starlight.FileSystem.Folder,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}/{FileSettings.ConfigFolder}`,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}/{FileSettings.ConfigFolder}/configs`,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}/themes`,
+			}
+		else
+			paths = {
+				Starlight.FileSystem.Folder,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}/{FileSettings.ConfigFolder}`,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}/{FileSettings.ConfigFolder}/configs`,
+				`{Starlight.FileSystem.Folder}/{FileSettings.RootFolder}}/{FileSettings.ConfigFolder}/themes`,
+			}
+		end
+	else
+		-- no root
+		paths = {
+			Starlight.FileSystem.Folder,
+			`{Starlight.FileSystem.Folder}/{FileSettings.ConfigFolder}`,
+			`{Starlight.FileSystem.Folder}/{FileSettings.ConfigFolder}/configs`,
+			`{Starlight.FileSystem.Folder}/{FileSettings.ConfigFolder}/themes`,
 		}
-	})
+	end
 
-	Luna:Notification({ 
-		Title = "Welcome to Luna",
-		Icon = "sparkle",
-		ImageSource = "Material",
-		Content = "Welcome to the Luna Interface Suite. This Is an Amazing Quality Freemium UI Library For Roblox Exploiting Made By Nebula Softworks. Luna was Created in hopes of improving the standard of UI Library designs by being the golden standard for it. Luna Has Amazing Features like a key system, notification and perfection in aesthetics and design. So, What Are You Waiting For? Start Using Luna Today at " .. website
-	})
+	for i, str in ipairs(paths) do
+		if not isfolder(str) then
+			makefolder(str)
+		end
+	end
+end
 
-	local Tabs = {
-		Main = Window:CreateTab({
-			Name = "Tab Example 1",
-			Icon = "view_in_ar",
-			ImageSource = "Material",
-			ShowTitle = true
-		}),
-		Main2 = Window:CreateTab({
-			Name = "Tab Example 2",
-			Icon = "location_searching",
-			ImageSource = "Material",
-			ShowTitle = false
-		}),
-		Premium = Window:CreateTab({
-			Name = "Premium Tab",
-			Icon = "sparkle",
-			ImageSource = "Material",
-			ShowTitle = true
-		}),
-		Debug = Window:CreateTab({
-			Name = "Debug",
-			Icon = "settings"
-		})
+function Starlight.FileSystem:SaveConfig(file, path)
+	if isStudio or not isfile then
+		return "Config system unavailable."
+	end
+
+	if not path or not file then
+		return false, "Please select a config file."
+	end
+
+	local fullPath = `{path}{file}{Starlight.FileSystem.FileExtension}`
+
+	local data = {
+		objects = {},
 	}
 
+	for tsecidx, tabsection in next, Starlight.Window.TabSections do
+		for tidx, tab in next, tabsection.Tabs do
+			for grpidx, groupbox in next, tab.Groupboxes do
+				if groupbox.ClassName and groupbox.ClassName ~= "TabBox" then
+					for idx, object in next, groupbox.Elements do
+						if object.IgnoreConfig then
+							continue
+						end
 
-	Window:CreateHomeTab()
-	local bleh =Tabs.Debug:CreateColorPicker()
-	Tabs.Debug:CreateButton({
-		Callback = function()
-			bleh:Set({
-				Color = Color3.fromRGB(0,0,0)
-			})
-		end,
-	})
+						local fullidx = `{tsecidx}.Tabs.{tidx}.Groupboxes.{grpidx}.Elements.{idx}`
 
-	Tabs.Main:CreateSection("Section Example")
-	Tabs.Main:CreateButton({
-		Name = "Button Example!",
-		Description = "Every Element Except For Sliders Can Have a description like this"
-	})
-	Tabs.Main:CreateLabel({
-		Text = "Label Example",
-		Style = 1
-	})
-	Tabs.Main:CreateLabel({
-		Text = "Information Example",
-		Style = 2
-	})
-	Tabs.Main:CreateLabel({
-		Text = "Warning Example",
-		Style = 3
-	})
-	Tabs.Main:CreateParagraph({
-		Title = "Paragraph Example ",
-		Text = "This Is A Paragraph. You Can Type Very Long Strings Here And They'll Automatically Fit! This Counts As A Description Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Right? Also Did I Mention This Has Rich Text? Also Did I Mention This Has Rich Text? Also Did I Mention This Has Rich Text? Also Did I Mention This Has Rich Text? Also Did I Mention This Has Rich Text? Also Did I Mention This Has Rich Text?"
-	})
-	Tabs.Main:CreateSlider({
-		Name = "Slider Example",
-		Range = {0, 200},
-		Increment = 0.1,
-		CurrentValue = 100,
-		Flag = "Slider",
-	})
-	Tabs.Main:CreateToggle({
-		Name = "Toggle Example",
-		Description = "This Is A Toggle. See I Was Right? Sliders Don't Have Descriptions!",
-		CurrentValue = false,
-	})
+						table.insert(data.objects, ConfigMethods.Save(fullidx, object.Values, object.Class))
 
-	Tabs.Main:CreateBind({
-		Name = "Bind Example",
-		Description = "Btw Using CreateKeybind is deprecated, use CreateBind For Future Binds :)",
-		CurrentKeybind = "Q",
-		HoldToInteract = false,
-	})
-	Tabs.Main:CreateInput({
-		Name = "Dynamic Input Example",
-		Description = "Every Element has :Set(). Sadly this one is broken;the text wont update :(",
-		PlaceholderText = "Input Placeholder",
-		CurrentValue = "",
-		Numeric = false,
-		MaxCharacters = nil,
-		Enter = false
-	})
-	Tabs.Main:CreateDropdown({
-		Name = "Dropdown Example",
-		Description = "U can access a element's values using .Settings!",
-		Options = {"Option 1","Option 2","Option 3","Option 4","Option 5","Option 6"},
-		CurrentOption = "Option 1",
-		MultipleOptions = false,
-		SpecialType = nil
-	})
+						if
+							object.Class == "Toggle" or object.Class == "Label" --[[or object.Class == "Input"]]
+						then
+							for nestedidx, nestedobject in next, object.NestedElements do
+								if nestedobject.IgnoreConfig then
+									continue
+								end
 
-	Tabs.Main:CreateColorPicker({
-		Name = "Color Picker Example",
-		Color = Color3.fromRGB(86, 171, 128),
-		Flag = "ColorPicker1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-		Callback = function(Value)
-			-- The function that takes place every time the color picker is moved/changed
-			-- The variable (Value) is a Color3fromRGB value based on which color is selected
-		end
-	})
+								table.insert(
+									data.objects,
+									ConfigMethods.Save(`{fullidx}.NestedElements.{nestedidx}`, nestedobject.Values)
+								)
+							end
+						end
+					end
+				end
 
-	Tabs.Main2:CreateSection("The Elements Here Are To Show Unique Features")
-	Tabs.Main2:CreateToggle({
-		Name = "Toggle - Default On",
-		Description = "Toggles Can be Onned By Default!",
-		CurrentValue = true
-	})
-	Tabs.Main2:CreateBind({
-		Name = "Hold To Interact - Walkspeed Example",
-		Description = "Binds Can Be Made to only Callback when held",
-		HoldToInteract = true,
-		CurrentBind = "E",
-		Callback = function(v)
-			if v then 
-				Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-			else
-				Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+				-- will add tabbox in future
 			end
-		end,
-	})
-	Tabs.Main2:CreateInput({
-		Name = "Numeric And 12 Max Characters",
-		Description = "You Can Limit The Max Characters or Allow Only Numbers",
-		Numeric = true,
-		MaxCharacters = 12
-	})
-	Tabs.Main2:CreateInput({
-		Name = "Require Enter",
-		Description = "You Can Only make the callback happen after user hits enter",
-		Enter = true
-	})
-	Tabs.Main2:CreateLabel({
-		Text = "Every Element Can be Destroyed as well!"
-	})
-	Tabs.Main2:CreateDropdown({
-		Name = "Dropdown - Multi Options",
-		Description = "Multiple Special Features can be used on the same element!",
-		Options = {"Option 1","Option 2","Option 3","Option 4","Option 5","Option 6"},
-		CurrentOption = {"Option 1","Option 3","Option 6"},
-		MultipleOptions = true
-	})
-	Tabs.Main2:CreateDropdown({
-		Name = "Dropdown - Players",
-		Description = "Luna's Dropdowns Has a built in Player Dropdown!",
-		Options = {"u can put anything here, it wont be shown anyway"},
-		CurrentOption = {"same here, itll be the first option"},
-		MultipleOptions = false,
-		SpecialType = "Player"
-	})
+		end
+	end
 
-	local s = Tabs.Premium:CreateSection("You can add elements inside section too")
-	s:CreateButton()
-	s:CreateLabel()
-	s:CreateDivider()
-	s:CreateDropdown()
+	local success, encoded = pcall(HttpService.JSONEncode, HttpService, data)
+	if not success then
+		return false, "Unable to encode into JSON data"
+	end
 
-	Tabs.Premium:BuildConfigSection()
-	Tabs.Premium:BuildThemeSection()]]
+	writefile(fullPath, encoded)
+	return true
 end
 
--- THIS IS THE DEBUG DEMO, ONLY USED WHEN TESTING NEW ELEMENTS AND CODE
---[[if isStudio then
-    window = Luna:CreateWindow({LoadingEnabled = false})
-    t1 = window:CreateTab()
-    t2 = window:CreateTab({ Name = "Tab 2", Icon = "location_searching"})
-    Luna:Notification({ 
-        Title = "Welcome to Luna",
-        Icon = "sparkle",
-        ImageSource = "Material",
-        Content = "Welcome to the Luna Interface Suite. This Is an Amazing Quality Freemium UI Library For Roblox Exploiting Made By Nebula Softworks. Luna was Created in hopes of improving the standard of UI Library designs by being the golden standard for it. Luna Has Amazing Features like a key system, notification and perfection in aesthetics and design. So, What Are You Waiting For? Start Using Luna Today at " .. website
-    })
-    t1:CreateSection()
-    local btn = t1:CreateButton({Callback = "", Description = "This Is A Description"})
-    local l = t1:CreateLabel({ Style = 2})
-    local l2 = t1:CreateLabel({ Text = "Another Label" })
-    t2:CreateButton({ Callback = function() 
-        l:Destroy()
-        l2:Set("New Text")
-    end})
-    t2:CreateLabel({Style = 3})
-    t1:CreateParagraph({Text = "Single String"})
-    t1:CreateParagraph({Text = "Welcome to the Luna Interface Suite. This Is an Amazing Quality Freemium UI Library For Roblox Exploiting Made By Nebula Softworks. Luna was Created in hopes of improving the standard of UI Library designs by being the golden standard for it. Luna Has Amazing Features like a key system, notification and perfection in aesthetics and design. So, What Are You Waiting For? Start Using Luna Today at " .. website})
-    s = t2:CreateSlider({ Callback = function(v) print(v) end })	
-    t1:CreateButton({ Callback = function()
-        s:Set({Name = "new name", Callback = ""})
-        wait(5)
-        s:Destroy()
-    end})
-    t1:CreateColorPicker()
-    local toggle = t1:CreateToggle({Name = "test", Description = "test", CurrentValue = true, Callback = ""}, "toggle2")
-    t1:CreateToggle({Callback = function(Value) toggle:Destroy() print(Value) end})
-    local bind = t2:CreateBind({Name = "test", Description = "test", CurrentBind = "E", HoldToInteract = false, Callback = ""})
-    t2:CreateKeybind({HoldToInteract = true, Callback = function(v)
-        if v then
-            Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
-        else
-            Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-        end
-    end,})
-    local input = t2:CreateInput({Name = "test",ClearTextAfterFocusLost = false, Description = "Numbers only, 8 max characters and enter required.",MaxCharacters = 8 ,Numeric = true, Enter = true, Callback = ""})
-    t2:CreateInput({Callback = function(text) print(text) end})
-    local d = t1:CreateDropdown({Name = "test", Options = {"Apples", "Bananas", "Strawberries", "Elixir"}, Description = "MultiOptions", MultipleOptions = true, Callback = function(t) print(t) end, CurrentOption = {"Apples", "Elixir"}})
-    t1:CreateDropdown({Callback = function(t) print(unpack(t)) end})
-    t1:CreateDropdown({Description = "Special Type - Player", Callback = "", SpecialType = "Player"})
-end]]--
-return Luna
+function Starlight.FileSystem:LoadConfig(file, path)
+	if isStudio or not isfile then
+		return "Config system unavailable."
+	end
+
+	if not path or not file then
+		return false, "Please select a config file."
+	end
+
+	local fullPath = `{path}{file}{Starlight.FileSystem.FileExtension}`
+	if not isfile(fullPath) then
+		return false, "Invalid file."
+	end
+
+	local success, decoded = pcall(HttpService.JSONDecode, HttpService, readfile(fullPath))
+	if not success then
+		return false, "Unable to decode JSON data."
+	end
+
+	for _, object in next, decoded.objects do
+		task.spawn(function()
+			ConfigMethods.Load(object.idx, object.data)
+		end)
+	end
+
+	return true
+end
+
+function Starlight.FileSystem:RefreshConfigList(path)
+	if isStudio or not isfile then
+		return "Config system unavailable."
+	end
+
+	if not isfolder(path) then
+		Starlight:Notification({
+			Title = "shitty executor",
+			Icon = 0,
+			Content = identifyexecutor() .. " is so shit bro.\n your file system is just broken 💀",
+		}, "hdajdnj")
+		return {}
+	end
+
+	local list = listfiles(path) or {}
+
+	local configs = {}
+	for i = 1, #list do
+		local file = list[i]
+		if file:sub(-#Starlight.FileSystem.FileExtension) == Starlight.FileSystem.FileExtension then
+			local pos = file:find(Starlight.FileSystem.FileExtension, 1, true)
+			local start = pos
+
+			local char = file:sub(pos, pos)
+			while char ~= "/" and char ~= "\\" and char ~= "" do
+				pos = pos - 1
+				char = file:sub(pos, pos)
+			end
+
+			if char == "/" or char == "\\" then
+				local name = file:sub(pos + 1, start - 1)
+				if name ~= "options" then
+					table.insert(configs, name)
+				end
+			end
+		end
+	end
+
+	return configs
+end
+
+function Starlight:LoadAutoloadConfig()
+	if isStudio or not isfile then
+		return "Config system unavailable."
+	end
+
+	if
+		Starlight.FileSystem.AutoloadConfigPath and isfile(Starlight.FileSystem.AutoloadConfigPath .. "autoload.txt")
+	then
+		local name = readfile(Starlight.FileSystem.AutoloadConfigPath .. "autoload.txt")
+
+		local success, err = Starlight.FileSystem:LoadConfig(name, Starlight.FileSystem.AutoloadConfigPath)
+		if not success then
+			Starlight:Notification({
+				Title = "Autoloading Error",
+				Icon = 6031071057,
+				Content = "Failed to load autoload config: " .. err,
+			})
+			return
+		end
+
+		Starlight:Notification({
+			Title = "Autoloaded Configuration",
+			Icon = 4483362748,
+			Content = string.format("Auto loaded config %q", name),
+		})
+	end
+end
+
+function Starlight:SetTheme(newTheme)
+	local themeToCopy = newTheme
+	if type(themeToCopy) == "string" then
+		themeToCopy = Starlight.Themes[themeToCopy]
+	end
+
+	Starlight.CurrentTheme = deepCopy(themeToCopy)
+	themeEvent:Fire()
+end
+
+function Starlight:LoadAutoloadTheme()
+	if isStudio or not isfile then
+		return "Config system unavailable."
+	end
+
+	if Starlight.FileSystem.AutoloadThemePath and isfile(Starlight.FileSystem.AutoloadThemePath .. "autoload.txt") then
+		local name = readfile(Starlight.FileSystem.AutoloadThemePath .. "autoload.txt")
+
+		if Themes[name] then
+			Starlight:SetTheme(name)
+		else
+			local content =
+				readfile(Starlight.FileSystem.AutoloadThemePath .. name .. Starlight.FileSystem.FileExtension)
+			local success, decoded = pcall(HttpService.JSONDecode, HttpService, content)
+			if not success then
+				return false, "Unable to decode JSON data."
+			end
+
+			Starlight:SetTheme(decoded)
+		end
+	end
+end
+
+--// ENDSECTION
+
+StarlightUI.Enabled = true
+
+--// ENDSECTION
+
+--// SECTION : Testing
+
+local enabled = true
+
+if isStudio and enabled then
+	--Starlight:SetTheme("Hollywood Dark")
+
+	local win = Starlight:CreateWindow({
+		Name = "Window",
+		Subtitle = "this is an optional subtitle",
+		Icon = 92936499827985,
+
+		LoadingEnabled = false,
+		LoadingSettings = {
+			Title = "Starlight Interface Suite",
+			Subtitle = "Welcome to Starlight",
+		},
+
+		BuildWarnings = true,
+		InterfaceAdvertisingPrompts = true,
+		NotifyOnCallbackError = true,
+
+		ConfigurationSettings = {
+			Enabled = false,
+			RootFolder = nil,
+			FolderName = nil,
+		},
+
+		DefaultSize = nil,
+
+		KeySystem = {
+			Enabled = false,
+			Title = "Starlight Key System",
+			Subtitle = "Enter Your Key To Use The Script",
+			Note = "This Key System Only supports strings",
+
+			SaveKey = false,
+			KeyFile = "Key",
+
+			KeyObtainLink = "",
+			Discord = false,
+
+			HttpKey = false,
+			Keys = { "Key" }, -- put the link to a raw content page containing your key.
+		},
+
+		Discord = { -- u can still have it in the home tab, this is just auto join
+			Enabled = false,
+			RememberJoins = true,
+			Link = "1234",
+		},
+	})
+
+	win:CreateHomeTab({
+		Backdrop = 78881404248017,
+	})
+	local ts = win:CreateTabSection("ELEMENT SHOWCASE")
+	local ts2 = win:CreateTabSection("TAB SECTION EXAMPLE")
+
+	local t = ts:CreateTab({
+		Name = "Elements",
+		Columns = 2,
+		Icon = NebulaIcons:GetIcon("broadcast", "Phosphor"),
+	}, "hi")
+	local t2 = ts2:CreateTab({
+		Name = "Premium Tab",
+		Columns = 1,
+		Icon = NebulaIcons:GetIcon("sparkle", "Material"),
+	}, "hi2")
+	local t3 = ts2:CreateTab({
+		Name = "Extra Tab",
+		Columns = 2,
+	}, "hi3")
+
+	local g = t:CreateGroupbox({
+		Name = "Groupbox Example",
+		Column = 2,
+	}, "g")
+	local g2 = t:CreateGroupbox({
+		Name = "Groupbox Example",
+		Icon = NebulaIcons:GetIcon("atom", "Phosphor"),
+		Style = 2,
+	}, "g2")
+	t2:CreateGroupbox({
+		Name = "Groupbox Example",
+		Icon = NebulaIcons:GetIcon("rocket", "Lucide"),
+	}, "noindex")
+
+	local x = g:CreateButton({
+		Name = "Centered Button",
+		Callback = function() end,
+		Tooltip = "Button 2!",
+		CenterContent = true,
+		Style = 1,
+	}, "btn2")
+
+	local hi = g2:CreateButton({
+		Name = "Button",
+		Icon = NebulaIcons:GetIcon("cursor-click", "Phosphor"),
+		Callback = function()
+			win:PromptDialog({
+				Name = "Dialog Test",
+				Content = "COntent TEst",
+				Icon = NebulaIcons:GetIcon("filter_list_alt"),
+				Type = 1,
+				Actions = {
+					Primary = {
+						Name = "Okay!",
+						Icon = NebulaIcons:GetIcon("check", "Material"),
+						Callback = function()
+							win:PromptDialog({
+								Name = "Dialog Input Test",
+								Content = "COntent TEst",
+								Type = 2,
+								Actions = {
+									{
+										PlaceholderText = "placeholder",
+										Numeric = false,
+										RemoveTextAfterFocusLost = true,
+										Callback = function(x)
+											print(x)
+										end,
+									},
+									{
+										PlaceholderText = "numbers",
+										Numeric = true,
+										MaxCharacters = 5,
+										RemoveTextOnFocus = false,
+										Callback = function(x)
+											print(x)
+										end,
+									},
+								},
+							})
+						end,
+					},
+					{
+						Name = "Cancel",
+						Callback = function() end,
+					},
+				},
+			})
+		end,
+		Style = 1,
+		Tooltip = "Button 1!",
+	}, "btn")
+
+	g2:CreateButton({
+		Name = "Flat Button",
+		Icon = NebulaIcons:GetIcon("locate", "Lucide"),
+		Callback = function()
+			x:Lock("this is a reason")
+		end,
+		Tooltip = "flat Button!",
+	}, "btn3")
+
+	g2:CreateToggle({
+		Name = "Toggle",
+		CheckboxIcon = NebulaIcons:GetIcon("check"),
+		Callback = function() end,
+		Tooltip = "Hi",
+	}, "tggle")
+	g:CreateToggle({
+		Name = "Toggle without Icon",
+		Callback = function() end,
+		Tooltip = "Hi",
+	}, "tggle2")
+
+	g:CreateToggle({
+		Name = "Toggle - Switch Style",
+		Style = 2,
+		Callback = function() end,
+		Tooltip = "Hi",
+	}, "tggle2")
+
+	g2:CreateSlider({
+		Name = "Slider",
+		Range = { -100, 100 },
+		Increment = 0.5,
+		Suffix = "%",
+		Callback = function() end,
+	}, "sldr")
+
+	g2:CreateSlider({
+		Name = "Slider",
+		Range = { 0.2, 1 },
+		HideMax = true,
+		Tooltip = "Hi",
+		CurrentValue = 0.2,
+		Increment = 0.002,
+		Suffix = "km/h",
+		Callback = function(v)
+			print(v)
+		end,
+	}, "sldr2")
+
+	g:CreateInput({
+		Name = "dynamic input",
+		Tooltip = "Hi",
+		Callback = function() end,
+	}, "inpt")
+	g2:CreateInput({
+		Name = "numeric input",
+		Numeric = true,
+		PlaceholderText = "Numbers Only Hehe",
+		Tooltip = "Hi",
+		Callback = function() end,
+	}, "nmrcinpt")
+
+	--g:CreateBind({
+	--	Name = "bind",
+	--	CurrentValue = "Q",
+	--	Callback = function() end
+	--})
+	g2:CreateLabel({
+		Tooltip = "Hi",
+		Name = "Label",
+	}, "lblbnd"):AddBind({
+		CurrentValue = "1",
+		HoldToInteract = true,
+		Tooltip = "Hi",
+		Callback = function(v)
+			print(v)
+		end,
+	}, "bnd")
+
+	g2:CreateLabel({
+		Tooltip = "Hi",
+		Name = "Window Bind",
+	}, "lblbnd"):AddBind({
+		CurrentValue = "q",
+		HoldToInteract = false,
+		Tooltip = "Hi",
+		WindowSetting = true,
+		Callback = function() end,
+	}, "wndwbnd")
+
+	g2:CreateToggle({
+		Name = "Toggle Bind",
+		CurrentValue = false,
+		Tooltip = "Hi",
+		Style = 2,
+		SyncToggleState = true,
+		Callback = function(v)
+			print(v)
+		end,
+	}, "bndprnt"):AddBind({
+		CurrentValue = "return",
+		Tooltip = "Hi",
+		SyncToggleState = true,
+	}, "bnd2")
+
+	--g2:CreateDropdown({
+	--	Name = "Hello",
+	--	Options = {"1","2","3"},
+	--	CurrentOption = {"1"},
+	--	MultipleOptions = true,
+	--	Callback = function(v)
+	--		for i,v in v do
+	--			print(v)
+	--		end
+	--	end,
+	--})
+
+	g:CreateDivider()
+
+	local dropdown = g:CreateLabel({ Name = "Dropdown" }, "lbldrpdwn"):AddDropdown({
+		Options = { "hi", "heeh", "huh" },
+		Tooltip = "Hi",
+		CurrentOption = nil,
+		Callback = function(v)
+			print(v)
+		end,
+	}, "drpdwn")
+
+	local dropdown2 = g:CreateLabel({ Name = "Dropdown MultiOptions" }, "lbldrpdwn2"):AddDropdown({
+		Options = { "smthhhhh veryyyyyyyyyyyy loooooooonggggggg", "heeh", "huh" },
+		CurrentOption = { "wsp", "huh" },
+		Tooltip = "Hi",
+		MultipleOptions = true,
+		Callback = function(v)
+			print(v)
+		end,
+	}, "drpdwn2")
+	dropdown2:Set({
+		Options = { "noooo" },
+	})
+
+	local mix =
+		g2:CreateToggle({ Name = "Dropdown On Toggle", CurrentValue = false, Callback = function() end }, "tgglemix")
+	local id = mix:AddDropdown({
+		Options = { "hi", "heeh", "huh" },
+		CurrentOption = { "wsp", "huh" },
+		Tooltip = "Hi",
+		MultipleOptions = true,
+		Special = 1,
+		Placeholder = "Select a player!",
+		Callback = function(v)
+			print(v)
+		end,
+	}, "drpdwn3")
+
+	mix:AddBind({
+		CurrentValue = nil,
+		Tooltip = "Hi",
+		SyncToggleState = true,
+	}, "bnd3")
+	local cp = mix:AddColorPicker({
+		Transparency = 0,
+		CurrentValue = Color3.new(0, 1, 0.333333),
+		Callback = function(c, v)
+			local p = Instance.new("Part", workspace)
+			p.CFrame = Player.Character.HumanoidRootPart.CFrame
+			p.Color = c
+			p.Transparency = v
+		end,
+	}, "cp")
+
+	g:CreateLabel({
+		Name = "Color Picker No Alpha",
+		Icon = NebulaIcons:GetIcon("color_lens", "Material"),
+		Tooltip = "Hi",
+	}, "cplbl2"):AddColorPicker({
+		CurrentValue = Color3.new(),
+		Callback = function() end,
+	}, "cp")
+
+	g:CreateSlider({
+		Name = "slider test",
+		Range = { 0, 255 },
+		CurrentValue = 99,
+		Callback = function(v)
+			cp:Set({
+				CurrentValue = Color3.fromHSV(v / 255, 1, 1),
+			})
+		end,
+	}, "sldrcp")
+
+	g:CreateLabel({
+		Name = "Label w Icon",
+		Icon = NebulaIcons:GetIcon("aperture", "Lucide"),
+		Tooltip = "Hi",
+	}, "lbl")
+	g2:CreateParagraph({
+		Name = "paragraph",
+		Content = "Hello!! Im A Paragraph, and i can store bunch of text",
+	}, "prgrph")
+	g:CreateParagraph({
+		Name = "paragraph 2",
+		Icon = NebulaIcons:GetIcon("filter_list_alt"),
+		Content = "Hello!! Im A Paragraph, and i can store bunch of text. \nI also grow bigger or smaller depending on how much text is in my body! \nLike this, i am a much bigger paragraph than the other one! i also support multi lines ",
+	}, "prgrph2")
+
+	Starlight:Notification({
+		Title = "Hi",
+		Content = "Hello!! Im A Paragraph, and i can store bunch of text. \nI also grow bigger or smaller depending on how much text is in my body! \nLike this, i am a much bigger paragraph than the other one! i also support multi lines ",
+		Icon = NebulaIcons:GetIcon("notifications_active", "Material"),
+	})
+	Starlight:Notification({
+		Title = "Infinite Notification",
+		Content = "same as the other guy but i cant expire cus im set to -1 duration",
+		Duration = -1,
+		Icon = NebulaIcons:GetIcon("bell-simple-ringing", "Phosphor-Filled"),
+	})
+
+	--[[task.delay(4, function()
+		Starlight:SetTheme("Starlight")
+	end)]]
+
+	local configg = t:BuildConfigGroupbox(2)
+	local themeg = t:BuildThemeGroupbox(1)
+
+	ts2:CreateCustomTab({
+		Name = "Custom Tab",
+		Icon = 11963368654,
+		Page = Instance.new("Frame"),
+	}, "customtab")
+
+	Starlight:LoadAutoloadConfig()
+end --]=]0
+
+--// ENDSECTION
+
+--// SECTION : Protection of our work
+--[[Starlight:Notification({
+	Title = "Enjoying Starlight?",
+	Content = "Thanks for using a script that uses our UI Library. Starlight is made with love, care and effort by Nebula Softworks And Nebula Softworks alone. No other developer or such entity. We are spreading this message as a skid who claims others work as their own, etheruit (a fake bitdancer - bitdancer._) on discord, is claiming Starlight as theirs. Help us protect our work by staying away from his lies. You can always find us at dsc.gg/nebulasoftworks.\nThank you ❤️",
+	Duration = 10,
+	Icon = 105789146907268,
+})]]
+
+return Starlight
