@@ -2092,7 +2092,7 @@ end
 --// SECTION : Interface Management
 
 -- Interface Model
-local modelId = debugV and 136653172778765 or 132866968194043
+local modelId = 136653172778765
 
 local function LoadInterfaceModel(assetId)
 	if isStudio then
