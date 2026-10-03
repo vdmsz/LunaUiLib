@@ -120,7 +120,6 @@ local TextService = GetService("TextService")
 local GuiService = GetService("GuiService")
 local MarketplaceService = GetService("MarketplaceService")
 local ReplicatedStorage = GetService("ReplicatedStorage")
-local ContentProvider = GetService("ContentProvider")
 local CoreGui = GetService("CoreGui")
 local InputManager
 
