@@ -2770,28 +2770,6 @@ function Starlight:CreateWindow(WindowSettings)
 		mainWindow.Sidebar.Player.Header.Text = Player.DisplayName
 		mainWindow.Sidebar.Player.subheader.Text = Player.Name
 
-		ContentProvider:PreloadAsync({
-			AssetId(116767744785553, "Cursor.png"),
-			AssetId(90155503712202, "CursorShadow.png"),
-			AssetId(18824089198, "PlayerBlurred.png"),
-			AssetId(129398364168201, "Warning.png"),
-			AssetId(3926305904, "DropdownArrows.png"),
-			AssetId(108613279334326, "ColorLink.png"),
-			AssetId(6031625148, "RainbowColorPicker.png"),
-			AssetId(4155801252, "ColorPicker.png"),
-			AssetId(16423157073, "Close.png"),
-			AssetId(123097456061373, "Minimise.png"),
-			AssetId(114684871091583, "Maximise.png"),
-			AssetId(6034304908, "Notification.png"),
-			AssetId(8445471332, "Search.png"),
-			AssetId(92421933997743, "CornerRepair.png"),
-			AssetId(80990588449079, "LoadingCircle.png"),
-		}, function(asset)
-			if debugV then
-				print(`loaded asset {asset}`)
-			end
-		end)
-
 		-- Theme Binding
 		do
 			ThemeMethods.bindTheme(StarlightUI.MobileToggle.Backdrop, "BackgroundColor3", "Backgrounds.Dark")
