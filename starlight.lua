@@ -2758,8 +2758,8 @@ function Starlight:CreateWindow(WindowSettings)
 		mainWindow["Loading Screen"].Frame.SubFrame.Subtitle.Text = WindowSettings.LoadingSettings.Subtitle or ""]]
 		if WindowSettings.LoadingSettings then
 			if WindowSettings.LoadingSettings.Logo then
-				mainWindow["New Loading Screen"].Frame.ImageLabel.Image.Image = "rbxassetid://"
-					.. WindowSettings.LoadingSettings.Logo
+				mainWindow["New Loading Screen"].Frame.ImageLabel.Image.Image =
+					AssetId(WindowSettings.LoadingSettings.Logo, "LoadingLogo.png")
 				mainWindow["New Loading Screen"].Frame.ImageLabel.Image.Size = UDim2.fromScale(1, 1)
 				loadingScreenLogoChanged = true
 			end
@@ -2771,21 +2771,21 @@ function Starlight:CreateWindow(WindowSettings)
 		mainWindow.Sidebar.Player.subheader.Text = Player.Name
 
 		ContentProvider:PreloadAsync({
-			"rbxassetid://116767744785553", -- cursor
-			"rbxassetid://90155503712202", -- cursor shadow
-			"rbxassetid://18824089198", -- player blurred
-			"rbxassetid://129398364168201", -- warning
-			"rbxassetid://3926305904", -- dropdown arrows
-			"rbxassetid://108613279334326", -- linking colorpicker
-			"rbxassetid://6031625148", -- rainbow colorpicker
-			"rbxassetid://4155801252", -- color picker
-			"rbxassetid://16423157073", -- close
-			"rbxassetid://123097456061373", -- minimise
-			"rbxassetid://114684871091583", -- maximise
-			"rbxassetid://6034304908", -- notification
-			"rbxassetid://8445471332", -- search
-			"rbxassetid://92421933997743", -- Corner Repair
-			"rbxassetid://80990588449079", -- loading circle
+			AssetId(116767744785553, "Cursor.png"),
+			AssetId(90155503712202, "CursorShadow.png"),
+			AssetId(18824089198, "PlayerBlurred.png"),
+			AssetId(129398364168201, "Warning.png"),
+			AssetId(3926305904, "DropdownArrows.png"),
+			AssetId(108613279334326, "ColorLink.png"),
+			AssetId(6031625148, "RainbowColorPicker.png"),
+			AssetId(4155801252, "ColorPicker.png"),
+			AssetId(16423157073, "Close.png"),
+			AssetId(123097456061373, "Minimise.png"),
+			AssetId(114684871091583, "Maximise.png"),
+			AssetId(6034304908, "Notification.png"),
+			AssetId(8445471332, "Search.png"),
+			AssetId(92421933997743, "CornerRepair.png"),
+			AssetId(80990588449079, "LoadingCircle.png"),
 		}, function(asset)
 			if debugV then
 				print(`loaded asset {asset}`)
@@ -3448,7 +3448,7 @@ function Starlight:CreateWindow(WindowSettings)
 				Tab.Instances.Page.ImageBackdrop.Visible = not Tab.Instances.Page.ImageBackdrop.Visible
 			end
 		else
-			Tab.Instances.Page.ImageBackdrop.Image = "rbxassetid://78881404248017"
+			Tab.Instances.Page.ImageBackdrop.Image = AssetId(78881404248017, "DefaultBackdrop.png")
 		end
 
 		Tab.Instances.Page.playerDisplay.Text = `Welcome, {Player.DisplayName}`
