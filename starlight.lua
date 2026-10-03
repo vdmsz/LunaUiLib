@@ -6058,7 +6058,7 @@ function Starlight:CreateWindow(WindowSettings)
 							end
 						end)
 
-						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.InputBegan:Connect(function(Input)
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.InputBegan:Connect(function(Input)
 							if
 								Input.UserInputType == Enum.UserInputType.MouseButton1
 								or Input.UserInputType == Enum.UserInputType.Touch
@@ -6067,7 +6067,7 @@ function Starlight:CreateWindow(WindowSettings)
 							end
 						end)
 
-						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.InputEnded:Connect(function(Input)
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.InputEnded:Connect(function(Input)
 							if
 								Input.UserInputType == Enum.UserInputType.MouseButton1
 								or Input.UserInputType == Enum.UserInputType.Touch
@@ -6168,7 +6168,7 @@ function Starlight:CreateWindow(WindowSettings)
 						Element.Instance.PART_Backdrop.Interact.MouseButton1Down:Connect(function(X)
 							dragFunction(X)
 						end)
-						Element.Instance.PART_Backdrop.PART_Progress.Knob.Interact.MouseButton1Down:Connect(function(X)
+						Element.Instance.PART_Backdrop.PART_Progress.Knob.MouseButton1Down:Connect(function(X)
 							dragFunction(X)
 						end)
 
