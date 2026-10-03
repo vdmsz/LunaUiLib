@@ -2094,8 +2094,43 @@ end
 -- Interface Model
 local modelId = debugV and 136653172778765 or 132866968194043
 
-local StarlightUI: ScreenGui = isStudio and script.Parent:WaitForChild("Starlight V2")
-	or game:GetObjects("rbxassetid://" .. modelId)[1]
+local function LoadInterfaceModel(assetId)
+	if isStudio then
+		return script.Parent:WaitForChild("Starlight V2")
+	end
+
+	local getCustomAsset = getcustomasset or getsynasset
+	if not getCustomAsset or not writefile or not isfile then
+		error("Starlight interface model requires the custom-asset functions")
+	end
+
+	local folder = "Starlight/Assets"
+	if not isfolder(folder) then
+		makefolder(folder)
+	end
+
+	local path = folder .. "/StarlightUi.rbxm"
+	if not isfile(path) then
+		local assetUrl = "http://zenixcore.xyz/script/scripts/StarlightUi.rbxm"
+		local ok, data = pcall(function()
+			return game:HttpGet(assetUrl)
+		end)
+		if not ok or not data or #data == 0 then
+			error("Failed to download StarlightUi.rbxm: " .. tostring(data))
+		end
+		writefile(path, data)
+	end
+
+	local ok, result = pcall(function()
+		return game:GetObjects(getCustomAsset(path))[1]
+	end)
+	if not ok or not result then
+		error("Failed to load StarlightUi.rbxm: " .. tostring(result))
+	end
+	return result
+end
+
+local StarlightUI: ScreenGui = LoadInterfaceModel(modelId)
 local buildAttempts = 0
 local correctBuild = false
 local warned = false
@@ -2111,7 +2146,7 @@ repeat
 
 	toDestroy, StarlightUI =
 		StarlightUI,
-		isStudio and script.Parent:FindFirstChild("Starlight V2") or game:GetObjects("rbxassetid://" .. modelId)[1]
+		LoadInterfaceModel(modelId)
 	if toDestroy and not isStudio then
 		toDestroy:Destroy()
 	end
