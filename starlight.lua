@@ -6058,7 +6058,12 @@ function Starlight:CreateWindow(WindowSettings)
 							end
 						end)
 
-						Element.Instance.PART_Backdrop.PART_Progress.Knob.InputBegan:Connect(function(Input)
+						local knob = Element.Instance.PART_Backdrop.PART_Progress:FindFirstChild("Knob")
+						if not knob or not knob:IsA("GuiButton") then
+							error("Starlight slider template is missing a GuiButton Knob")
+						end
+
+						knob.InputBegan:Connect(function(Input)
 							if
 								Input.UserInputType == Enum.UserInputType.MouseButton1
 								or Input.UserInputType == Enum.UserInputType.Touch
@@ -6067,7 +6072,7 @@ function Starlight:CreateWindow(WindowSettings)
 							end
 						end)
 
-						Element.Instance.PART_Backdrop.PART_Progress.Knob.InputEnded:Connect(function(Input)
+						knob.InputEnded:Connect(function(Input)
 							if
 								Input.UserInputType == Enum.UserInputType.MouseButton1
 								or Input.UserInputType == Enum.UserInputType.Touch
