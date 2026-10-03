@@ -3544,8 +3544,13 @@ function Starlight:CreateWindow(WindowSettings)
 		Tab.Instances.Page.Holder.Left.Server.Frame.serverregion.Text = '<font size="14" color="#FFF" weight="semibold">Region</font>\n'
 			.. Localization:GetCountryRegionForPlayerAsync(Player)
 		
-		Tab.Instances.Page.Holder.Left.Server.Frame.copyjoin.Interact.MouseButton1Click:Connect(function()
-			setclipboard(`game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, "{game.JobId}", game:GetService("Players").LocalPlayer)`)
+		Tab.Instances.Page.Holder.Left.Server.Frame.copyjoin.InputBegan:Connect(function(input)
+			if
+				input.UserInputType == Enum.UserInputType.MouseButton1
+				or input.UserInputType == Enum.UserInputType.Touch
+			then
+				setclipboard(`game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, "{game.JobId}", game:GetService("Players").LocalPlayer)`)
+			end
 		end)
 		
 		local function updatePlayerCount()
