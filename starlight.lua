@@ -3544,7 +3544,7 @@ function Starlight:CreateWindow(WindowSettings)
 		Tab.Instances.Page.Holder.Left.Server.Frame.serverregion.Text = '<font size="14" color="#FFF" weight="semibold">Region</font>\n'
 			.. Localization:GetCountryRegionForPlayerAsync(Player)
 		
-		Tab.Instances.Page.Holder.Left.Server.Frame.copyjoin.MouseButton1Click:Connect(function()
+		Tab.Instances.Page.Holder.Left.Server.Frame.copyjoin.Interact.MouseButton1Click:Connect(function()
 			setclipboard(`game:GetService("TeleportService"):TeleportToPlaceInstance({game.PlaceId}, "{game.JobId}", game:GetService("Players").LocalPlayer)`)
 		end)
 		
